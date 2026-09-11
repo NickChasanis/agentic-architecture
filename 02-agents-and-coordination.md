@@ -14,7 +14,7 @@ Three portable execution options:
 2. **Native subagents:** the lead session uses the coding tool's delegation facility. Check which context, filesystem, permissions, and session state the worker receives.
 3. **Programmatic orchestration:** an SDK or workflow launches sessions, persists state, and controls execution. Useful when repetition and scale justify maintaining it.
 
-Use the execution mechanism your coding tool already provides before building an orchestration service.
+Use the execution mechanism your coding tool already provides before building an orchestration service. **tmux is our terminal-session tool of choice** for organizing multiple manual agent sessions and reconnecting to terminal work. It complements native subagents and programmatic orchestration; it does not supply agent reasoning, workspace isolation, or the coordination protocol. See [tmux, agent roles, and implementation metrics](06-tmux-agent-roles-and-metrics.md) for the proposed operating model.
 
 ## Start with three role profiles
 
@@ -27,6 +27,8 @@ Use the execution mechanism your coding tool already provides before building an
 These are roles, not three permanently running processes. The coordinator can implement sequential work; multiple implementers can share one profile. Invoke reviewers at useful checkpoints. A read-only researcher can be added for a concrete unknown rather than making every task pass through one.
 
 Specialize with a domain context packet first. Add a distinct profile when tools, permissions, or verification methods genuinely differ. A permanent frontend/backend/database/DevOps hierarchy often creates avoidable handoffs for small features.
+
+The [role definitions and measurement plan](06-tmux-agent-roles-and-metrics.md#generic-roles-as-the-default) expand these profiles into explicit authority, deliverables, and metrics. Both tracks use generic implementers by default, with scoped contract, browser-verification, coordination-protocol, worker-adapter, and recovery specializations as needed.
 
 ## Define a profile using operational rules
 

@@ -26,6 +26,9 @@ Start with the [roadmap](04-roadmap-of-thought.md) for the next decisions and [c
 3. [Worked example: a multi-tenant commerce platform](03-enterprise-delivery-example.md)
 4. [Roadmap of thought and implementation experiments](04-roadmap-of-thought.md)
 5. [Contracts, compatibility, and extensibility](05-contracts-and-adaptability.md)
+6. [tmux, agent roles, and implementation metrics](06-tmux-agent-roles-and-metrics.md)
+
+**Session tool of choice:** tmux for multiple terminal sessions and agent processes. Use explicit workspace isolation and task/result contracts alongside it. The [operating model](06-tmux-agent-roles-and-metrics.md) defines generic roles, justified specializations, and evidence-based implementation metrics for both tracks.
 
 These are portable guidance and illustrative templates. The repository paths shown inside the notes describe a hypothetical application; they are not application files created here. Exact instruction-file discovery, subagent APIs, and permissions depend on the coding tool.
 

@@ -32,6 +32,8 @@ Advance both tracks at each checkpoint. Track A supplies realistic workloads and
 
 The shared testing and measurement rules are in [Contracts, compatibility, and extensibility](05-contracts-and-adaptability.md).
 
+The initial terminal-session choice is **tmux**. [Session management, agent roles, and operational metrics](06-tmux-agent-roles-and-metrics.md) extend I0–I5 with explicit process/task identity, generic and specialized assignments, reconnect/restart exercises, and evidence collection. This selects a tool for terminal access while leaving the coordination protocol independent of that tool.
+
 ## Roadmap of thought
 
 Work through these stages in order initially. Return to an earlier decision when an example exposes a contradiction. Each stage should end with a small, reviewable output and an explicit unresolved-question list.
