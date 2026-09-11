@@ -25,6 +25,8 @@ No arbitrary HTML or assets are needed for this pilot. Public clients must rende
 
 Operation names are logical boundaries, not finalized HTTP routes. A later schema must encode these operations, errors, and validation rules in the chosen stack.
 
+The [0.2-draft HTTP specification](commerce-http-api.md) now proposes those mappings and adds an authorized merchant detail read for UI reload/recovery. It is the current wire proposal; this document retains the behavioral contract.
+
 | Operation | Preconditions | Observable result |
 |---|---|---|
 | CreateShop(principal, tenant, input) | Authenticated, authorized tenant member; valid input. | One shop with stable identity and resolvable public route. |
@@ -54,4 +56,4 @@ Proposed change-surface budget: zero existing provider-module or original-storef
 
 ## Still unresolved before executable implementation
 
-Exact field limits/currency, wire schemas/routes/errors, persistence and identity setup, public routing, test commands, competing draft-edit policy, and deployment topology. Basic create/draft/publish work can be specified here; workers cannot independently choose incompatible values for these unresolved shared details.
+Review the concrete field/currency, route/error, and concurrency defaults in the HTTP draft; then finalize executable schemas, identity setup, package versions, persistence wiring, and test commands. The accepted stack and modular backend do not settle those details automatically. Workers cannot independently choose incompatible shared values.

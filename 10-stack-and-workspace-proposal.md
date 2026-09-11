@@ -2,7 +2,7 @@
 
 [Overview](README.md) · [Module map](09-module-dependencies-and-ownership.md) · [Contracts](contracts/README.md) · [Task board](coordination/BOARD.md)
 
-Status: proposed, recorded 2026-09-11T16:08:25Z. No packages, application directories, containers, or worker sessions have been created. The owner has accepted the commerce setting and modular-backend direction; the technologies and layout below remain a reviewable proposal.
+Status: technology family and workspace direction accepted, recorded in [STACK-001](coordination/decisions/STACK-001-commerce-pilot.md) at 2026-09-11T16:16:51Z. Original proposal recorded 2026-09-11T16:08:25Z. No packages, application directories, containers, or worker sessions have been created. Exact versions, authentication, and execution configuration remain open; implementation details below still require verification.
 
 ## Recommended pilot stack
 

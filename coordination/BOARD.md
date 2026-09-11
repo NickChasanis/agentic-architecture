@@ -1,11 +1,11 @@
 # Canonical discussion task board
 
-- Board revision: 6
+- Board revision: 7
 - Created at: 2026-09-11T13:58:26Z
-- Updated at: 2026-09-11T16:08:25Z
+- Updated at: 2026-09-11T16:16:51Z
 - Authority: current human-facing lead session, subject to the location/transfer rules in [the runbook](README.md).
 - Scope: architecture discussion; no running workers or implementation experiment.
-- Source baseline inspected: `f2e13559a034025a18b57eaa27c889d58992ab24`
+- Source baseline inspected: `7e355c79d0ee8437784d5e8fb62554d9f0e0bb54`
 - Revalidation policy: every claim/resume, new session/day, or material dependency change. No autonomous claims or leases.
 - Live heartbeat/progress: not applicable; no active assignment.
 
@@ -17,12 +17,12 @@ The timestamp describes this board revision, not permission to execute its tasks
 |---|---|---|---|---|---|---|---|
 | [SETTING-001](tasks/SETTING-001.md) — choose the experiment setting | 2 | 2 | verified | none (human-resolved decision) | 0 | Owner choice received | Commerce publication selected; [decision and review](decisions/SETTING-001-commerce-publication.md). |
 | [BUDGET-001](tasks/BUDGET-001.md) — set troubleshooting and review budgets | 1 | 1 | draft | none | 0 | Human cost/latency preferences; setting informs numeric limits | Agree budget units, checkpoint triggers, escalation authority, and review scope. |
-| [CONTRACT-001](tasks/CONTRACT-001.md) — draft paired executable-contract specifications | 4 | 6 | draft | none (coordinator-authored proposal) | 0 | Setting satisfied; budgets gate execution, independent review pending | [Stack/workspace proposal](../10-stack-and-workspace-proposal.md) available; stack/identity selection and exact schemas remain open. |
+| [CONTRACT-001](tasks/CONTRACT-001.md) — draft paired executable-contract specifications | 5 | 7 | draft | none (coordinator-authored proposal) | 0 | Setting/stack accepted; budgets gate execution, independent review pending | [HTTP API draft](../contracts/commerce-http-api.md) available; review wire defaults and settle authentication before executable schemas. |
 | [REFACTOR-001](tasks/REFACTOR-001.md) — multi-agent refactoring and project changes | 1 | 1 | blocked | none | 0 | Owner explicitly resumes this later topic | Deferred by owner; do not dispatch or begin discussion now. |
 
 ## Unassigned-task metadata
 
-These values apply to the still-unassigned BUDGET-001 and CONTRACT-001 records, except CONTRACT-001 updated_at and last_progress_at are now 2026-09-11T16:08:25Z, artifact_refs include the contracts, PUBLICATION-001 decision, module map, and stack proposal linked above, and evidence_refs point to their draft coverage table, owner decisions, and cited framework documentation. No execution or independent-review evidence exists. REFACTOR-001 uses these unassigned defaults with created_at/updated_at 2026-09-11T14:30:14Z, no progress/evidence, and a blocker of explicit owner deferral. Replace with per-task details when a task changes.
+These values apply to the still-unassigned BUDGET-001 and CONTRACT-001 records, except CONTRACT-001 updated_at and last_progress_at are now 2026-09-11T16:16:51Z, artifact_refs include the contracts, HTTP API draft, PUBLICATION-001 and STACK-001 decisions, and module map, and evidence_refs point to their draft coverage table, owner decisions, and cited framework documentation. No execution or independent-review evidence exists. REFACTOR-001 uses these unassigned defaults with created_at/updated_at 2026-09-11T14:30:14Z, no progress/evidence, and a blocker of explicit owner deferral. Replace with per-task details when a task changes.
 
 ```text
 created_at: 2026-09-11T13:58:26Z
@@ -73,5 +73,6 @@ No messages have been submitted or received. Use these columns for future receip
 | 8 | 2026-09-11T14:30:14Z | REFACTOR-001 | absent → blocked | Owner reserved multi-agent refactoring, from small patches to project-wide changes, for later discussion. |
 | 9 | 2026-09-11T15:09:28Z | CONTRACT-001 | draft → draft | Owner accepted module proposal and modular commerce backend; coordinator added dependency maps, contract stewardship, and proposed assignment gates. No implementation dispatched. |
 | 10 | 2026-09-11T16:08:25Z | CONTRACT-001 | draft → draft | Coordinator drafted stack/workspace and foundation proposal with official capability sources; no stack acceptance, installations, or worker grants. |
+| 11 | 2026-09-11T16:16:51Z | CONTRACT-001 | draft → draft | Owner accepted stack direction; coordinator added STACK-001 and HTTP API draft. Authentication, schema review, versions, and budgets remain open. |
 
-Next event sequence: 11. State events and received messages share one coordinator-assigned sequence. Git history preserves prior board revisions; event entries preserve the rationale for individual transitions.
+Next event sequence: 12. State events and received messages share one coordinator-assigned sequence. Git history preserves prior board revisions; event entries preserve the rationale for individual transitions.

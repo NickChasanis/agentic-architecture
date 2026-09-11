@@ -3,6 +3,7 @@
 Status: proposed `0.1-draft` contracts for discussion, created 2026-09-11T14:11:23Z. These are behavioral specifications, not accepted production interfaces, executable schemas, or passing tests.
 
 - [Commerce publication](commerce-publication.md): product behavior and provider/consumer boundaries.
+- [Commerce HTTP API](commerce-http-api.md): proposed routes, exact payload fields, validation, errors, and concurrency semantics.
 - [Assignment and work submission](work-submission.md): current-task identity, ownership, messages, and result acceptance.
 - [Acceptance scenarios](acceptance-scenarios.md): checks to implement and evidence to collect.
 
@@ -24,4 +25,6 @@ Only the immutability rule above is newly accepted; the other defaults remain pr
 
 Behavioral drafting can proceed after the setting decision. BUDGET-001 still gates paid execution, worker dispatch, and final experiment scheduling; its unresolved numbers do not block writing or reviewing these drafts in the current discussion. No subscription or separately billed API choice is inferred from the owner's request to continue.
 
-Remaining acceptance decisions: review the defaults, choose stack and exact schemas, define operating budgets, identify actual models/runtimes and review resources, and validate the contract scenario mapping. The task remains a draft until its full obligations and review requirements are satisfied.
+Remaining acceptance decisions: review the defaults and exact schemas, define operating budgets, identify actual models/runtimes and review resources, and validate the contract scenario mapping. The task remains a draft until its full obligations and review requirements are satisfied.
+
+Update: [STACK-001](../coordination/decisions/STACK-001-commerce-pilot.md) settles the stack family and layout. The HTTP draft develops wire details, but authentication, versions, schema acceptance, and budgets still require resolution.

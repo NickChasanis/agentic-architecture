@@ -1,6 +1,6 @@
 # CONTRACT-001 — Specify the paired contracts
 
-Packet revision: 4. Current status and assignment authority: [BOARD.md](../BOARD.md).
+Packet revision: 5. Current status and assignment authority: [BOARD.md](../BOARD.md).
 
 ## Outcome
 
@@ -23,4 +23,6 @@ Coordinator draft artifacts: [contract index](../../contracts/README.md), [publi
 
 Architecture development: [module dependencies and contract ownership](../../09-module-dependencies-and-ownership.md). The owner accepted the modular-backend direction; detailed edges, role allocations, and assignment gates are documented for review before exact schemas and implementation.
 
-Technology development: [stack and workspace proposal](../../10-stack-and-workspace-proposal.md). Includes source-checked framework capabilities, proposed application paths and schema ownership, and an explicit authentication-proof boundary. Stack, versions, identity mechanism, and execution budgets remain open.
+Technology development: [stack and workspace plan](../../10-stack-and-workspace-proposal.md). Includes source-checked framework capabilities, application paths and schema ownership, and an explicit authentication-proof boundary. See the acceptance update below; versions, identity mechanism, and execution budgets remain open.
+
+Update: [STACK-001](../decisions/STACK-001-commerce-pilot.md) accepts the stack family/layout. The [HTTP API draft](../../contracts/commerce-http-api.md) defines proposed wire operations, payloads, and errors. Versions, authentication/tenant discovery, schema review, and budgets remain open; no runtime evidence exists.
