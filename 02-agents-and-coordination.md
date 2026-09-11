@@ -121,6 +121,8 @@ If the tool cannot isolate writers, serialize edits. Parallel read-only investig
 
 Use the existing issue tracker or a small task board. The coordinator is its single status writer; workers report their own results and blockers. Avoid several agents rewriting one shared progress document.
 
+The [shared-state and communication proposal](08-shared-task-state-and-communication.md) specifies timestamped messages, canonical status, versioned assignments, claim validation, and recovery across days. A dated task packet is discoverable context; current registry state and dependency validation determine whether it may be worked on.
+
 Suggested states:
 
 `ready → running → review → integrated → verified`

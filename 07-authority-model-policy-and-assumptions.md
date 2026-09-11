@@ -49,7 +49,7 @@ Evaluate model allocation and concurrency separately before combining them. An i
 
 Total monetary cost per accepted outcome includes preparation, implementation, verification, retries, escalation, and integration. Record elapsed time and active human effort separately. Subscription charges and measured API usage may have different accounting rules; choose the basis explicitly and mark unavailable measurements. Failed attempts remain part of experiment cost.
 
-## Proposed next decision: when a task is ready for a lower-cost worker
+## Accepted: when a task is ready for a lower-cost worker
 
 Require a task packet to answer:
 
@@ -65,17 +65,21 @@ Separate three kinds of uncertainty. An unknown accepted behavior or shared boun
 
 A proposed readiness response is a short interpretation of the outcome, relevant contract obligations, and intended checks. It is a way to detect misunderstanding, not evidence that the model is correct. The coordinator should compare it with the packet rather than rely on self-reported confidence.
 
-## Proposed escalation and budget policy
+## Accepted direction: room for troubleshooting within a budget
 
 Before requesting stronger reasoning, determine whether the obstacle is missing context, unavailable infrastructure, an unclear requirement, an oversized task, or a reasoning failure. Preserve artifacts and provide a focused escalation packet with the attempted approach, new evidence, failing check, and specific decision needed.
 
-Do not retry without a changed hypothesis or new evidence. A retry cap, task budget, and flagship-escalation budget must be agreed before execution; numeric defaults have not been accepted yet. The coordinator can resequence work and escalate within that budget. Exceeding the agreed budget or changing the acceptance tradeoff goes to the human owner.
+Workers may investigate multiple hypotheses, inspect dependencies, build reproducers, and try corrective changes within their assignment. The proposed two-attempt limit was not adopted: workers should have more room to troubleshoot. Continue while the investigation produces useful evidence and remains within the agreed time/cost budget; repeating the same attempt without new evidence is not progress.
+
+Record concise investigation checkpoints: current hypothesis, attempted change, observed result, next experiment, and remaining budget. A long-running investigation should remain visible to other agents through the [shared task and communication protocol](08-shared-task-state-and-communication.md). A heartbeat establishes contact, not useful progress.
+
+Escalate scope/ownership conflicts, contradictory requirements, and shared-contract decisions immediately. For local troubleshooting, escalate when the budget is reached, no useful next experiment can be identified, or progress depends on missing authority or an external dependency. Numeric budgets, checkpoint cadence, and escalation thresholds remain to be agreed; there is no accepted fixed retry count. Exceeding the agreed budget or changing the acceptance tradeoff goes to the human owner.
 
 ## Remaining discussion before the experiment
 
-- Accept or revise the task-readiness gate above, especially which architectural uncertainty must be resolved before delegation.
-- Choose cost versus latency priorities, retry limits, and escalation budgets.
+- Choose cost versus latency priorities, troubleshooting budgets, checkpoint cadence, and escalation budgets.
+- Choose the initial shared-state storage mechanism and task-revalidation interval using the protocol in document 8.
 - Define the amount and timing of independent review for the selected task's risk.
 - Select a real setting, representative task, extension exercise, and models; then create executable contracts and a paired experiment plan.
 
-The immediate discussion is about the boundary between sufficient planning and worker autonomy. It does not require selecting a vendor or launching agents yet.
+The immediate discussion is about communication, authoritative task state, and freshness across sessions. It does not require selecting a model vendor or launching agents yet.
