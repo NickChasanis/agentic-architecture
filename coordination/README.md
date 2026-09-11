@@ -18,6 +18,7 @@ No workers or live implementation assignments are registered yet. Pending discus
 coordination/
   BOARD.md                    authoritative state in the confirmed checkout
   tasks/                      accepted or draft requirements, by stable task ID
+  decisions/                  accepted choices and decision-review evidence
   messages/README.md          submission rules; each actual message gets its own file
   templates/task.md           task packet template, not a queue entry
   templates/message.md        message template, not an actual message
@@ -34,6 +35,8 @@ coordination/
 7. On cancellation/reassignment, preserve artifacts and confirm the former writer and relevant child processes cannot continue writes before granting replacement authority. A new generation protects result acceptance but does not itself stop processes.
 
 Preserve `created_at`. Update `updated_at` for state changes; record contact and substantive progress separately. Routine status messages cannot extend the troubleshooting budget or establish readiness. For every transition, add an event entry with previous/new state and rationale; do not silently erase ownership history.
+
+For a discussion task resolved directly by the human, the coordinator can record the accepted decision and review its obligations, then close it as `verified` with an explicit human-resolution event. Keep assignment generation 0 when no worker was dispatched. This narrow decision-closure path does not bypass the review/integration gates for implementation tasks.
 
 ## Worker procedure
 

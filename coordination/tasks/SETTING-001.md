@@ -1,6 +1,6 @@
 # SETTING-001 — Choose the experiment setting
 
-Packet revision: 1. Current status and assignment authority: [BOARD.md](../BOARD.md).
+Packet revision: 2. Current status and assignment authority: [BOARD.md](../BOARD.md).
 
 ## Outcome
 
@@ -12,9 +12,9 @@ Select a setting and bounded product journey that can exercise both software del
 - [Contract and adaptability criteria](../../05-contracts-and-adaptability.md)
 - [Authority and model assumptions](../../07-authority-model-policy-and-assumptions.md)
 
-## Decision to resolve
+## Recorded decision
 
-The proposed example is product publication followed by a second public catalog consumer. The alternative is a bounded journey in an actual repository selected by the owner. Neither setting has been accepted. For a real repository, inspect its current state before proposing commands, paths, or achievable scope.
+The owner selected the commerce publication example. The [accepted decision and obligation review](../decisions/SETTING-001-commerce-publication.md) define the first journey, second-consumer extension, non-goals, and remaining implementation choices. Consult the board for current status; this packet does not grant work.
 
 ## Acceptance obligations
 
@@ -24,3 +24,5 @@ The proposed example is product publication followed by a second public catalog 
 - SET-04: record the human owner's accepted decision and remaining unknowns.
 
 Verification is a review of the decision record against SET-01–04; no runtime checks apply to this discussion output. Owned output path, source revision, model, workspace, and task budget are assigned by the coordinator before dispatch. Handoff must link the decision, evidence from any repository inspection, and unresolved setup requirements.
+
+Handoff: human choice captured by the coordinator; SET-01–04 reviewed in the decision artifact. No worker was dispatched. BUDGET-001 is the next pending discussion task.

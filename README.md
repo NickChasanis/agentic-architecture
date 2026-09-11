@@ -38,6 +38,8 @@ These are portable guidance and illustrative templates. The repository paths sho
 
 ## The example and assumptions
 
+The owner has selected this commerce publication example as the experiment setting. The [accepted scope](coordination/decisions/SETTING-001-commerce-publication.md) covers publish-and-view followed by a second catalog consumer; budgets, stack, and implementation assignments remain open.
+
 We are discussing agents **building** a corporate software product. The example is a Shopify-like platform:
 
 - Businesses sign up, configure shops, manage products, and pay platform subscriptions.
