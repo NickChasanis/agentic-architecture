@@ -8,6 +8,8 @@ Status: proposed `0.1-draft` contracts for discussion, created 2026-09-11T14:11:
 
 The coordinator acts as the proposed steward for both contracts. Affected consumer requirements and independent review must inform acceptance. Implementation agents cannot change these contracts unilaterally. Exact schema files and runnable commands follow stack/environment selection; those are not prerequisites for reviewing the behavior here.
 
+The accepted modular-backend direction is developed in the [dependency and contract-ownership map](../09-module-dependencies-and-ownership.md). Use its provider/consumer relationships to review these drafts; the map does not accept the remaining wire schemas or authorize assignments.
+
 ## Concrete defaults and decision status
 
 1. Publication changes a draft to published atomically; repeating it returns the same published product without duplicate effects.

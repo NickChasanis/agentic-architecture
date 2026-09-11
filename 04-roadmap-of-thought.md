@@ -19,6 +19,8 @@ The commerce platform is currently an example of the first subject. Both subject
 
 ## Two connected tracks
 
+Accepted architecture direction: a modular commerce backend with identity/tenancy, shops, and catalog interfaces, plus merchant and public client surfaces. The [dependency and ownership map](09-module-dependencies-and-ownership.md) develops both tracks, shared contract stewardship, and foundation-first assignments. Exact stack, wire schemas, and execution grants remain open.
+
 | Stage | Track A — delivering adaptable software with agents | Track B — designing the coordination system | Shared checkpoint |
 |---|---|---|---|
 | Frame | Choose a representative feature and expected future change. | Identify coordinator users, task lifecycle, authority, and required execution capabilities. | Shared vocabulary and observable outcomes for both tracks. |

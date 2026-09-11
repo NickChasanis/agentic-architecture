@@ -1,11 +1,11 @@
 # Canonical discussion task board
 
-- Board revision: 4
+- Board revision: 5
 - Created at: 2026-09-11T13:58:26Z
-- Updated at: 2026-09-11T14:30:14Z
+- Updated at: 2026-09-11T15:09:28Z
 - Authority: current human-facing lead session, subject to the location/transfer rules in [the runbook](README.md).
 - Scope: architecture discussion; no running workers or implementation experiment.
-- Source baseline inspected: `ff362ed614dafbe160875b450f11e18d10af697e`
+- Source baseline inspected: `48aa8dee6101d87dd5506cda9d7189689a9200c1`
 - Revalidation policy: every claim/resume, new session/day, or material dependency change. No autonomous claims or leases.
 - Live heartbeat/progress: not applicable; no active assignment.
 
@@ -17,12 +17,12 @@ The timestamp describes this board revision, not permission to execute its tasks
 |---|---|---|---|---|---|---|---|
 | [SETTING-001](tasks/SETTING-001.md) — choose the experiment setting | 2 | 2 | verified | none (human-resolved decision) | 0 | Owner choice received | Commerce publication selected; [decision and review](decisions/SETTING-001-commerce-publication.md). |
 | [BUDGET-001](tasks/BUDGET-001.md) — set troubleshooting and review budgets | 1 | 1 | draft | none | 0 | Human cost/latency preferences; setting informs numeric limits | Agree budget units, checkpoint triggers, escalation authority, and review scope. |
-| [CONTRACT-001](tasks/CONTRACT-001.md) — draft paired executable-contract specifications | 2 | 4 | draft | none (coordinator-authored proposal) | 0 | Setting satisfied; budgets gate execution, independent review pending | [Immutability accepted](decisions/PUBLICATION-001-immutable-pilot.md); other draft decisions/review remain open. |
+| [CONTRACT-001](tasks/CONTRACT-001.md) — draft paired executable-contract specifications | 3 | 5 | draft | none (coordinator-authored proposal) | 0 | Setting satisfied; budgets gate execution, independent review pending | Modular-backend direction accepted; [dependency/ownership map](../09-module-dependencies-and-ownership.md) drafted. Stack and exact schemas next. |
 | [REFACTOR-001](tasks/REFACTOR-001.md) — multi-agent refactoring and project changes | 1 | 1 | blocked | none | 0 | Owner explicitly resumes this later topic | Deferred by owner; do not dispatch or begin discussion now. |
 
 ## Unassigned-task metadata
 
-These values apply to the still-unassigned BUDGET-001 and CONTRACT-001 records, except CONTRACT-001 updated_at and last_progress_at are now 2026-09-11T14:30:14Z, artifact_refs include the contracts and PUBLICATION-001 decision linked above, and evidence_refs point to their draft coverage table and owner decision. No execution or independent-review evidence exists. REFACTOR-001 uses these unassigned defaults with created_at/updated_at 2026-09-11T14:30:14Z, no progress/evidence, and a blocker of explicit owner deferral. Replace with per-task details when a task changes.
+These values apply to the still-unassigned BUDGET-001 and CONTRACT-001 records, except CONTRACT-001 updated_at and last_progress_at are now 2026-09-11T15:09:28Z, artifact_refs include the contracts, PUBLICATION-001 decision, and dependency/ownership map linked above, and evidence_refs point to their draft coverage table and owner decisions. No execution or independent-review evidence exists. REFACTOR-001 uses these unassigned defaults with created_at/updated_at 2026-09-11T14:30:14Z, no progress/evidence, and a blocker of explicit owner deferral. Replace with per-task details when a task changes.
 
 ```text
 created_at: 2026-09-11T13:58:26Z
@@ -71,5 +71,6 @@ No messages have been submitted or received. Use these columns for future receip
 | 6 | 2026-09-11T14:11:23Z | CONTRACT-001 | blocked → draft | Coordinator clarified that budget gates execution, not behavioral drafting; added proposed contracts and scenario mapping after owner requested continuation. No worker grant or accepted schema. |
 | 7 | 2026-09-11T14:30:14Z | CONTRACT-001 | draft → draft | Owner accepted published-product immutability; full contract remains draft. |
 | 8 | 2026-09-11T14:30:14Z | REFACTOR-001 | absent → blocked | Owner reserved multi-agent refactoring, from small patches to project-wide changes, for later discussion. |
+| 9 | 2026-09-11T15:09:28Z | CONTRACT-001 | draft → draft | Owner accepted module proposal and modular commerce backend; coordinator added dependency maps, contract stewardship, and proposed assignment gates. No implementation dispatched. |
 
-Next event sequence: 9. State events and received messages share one coordinator-assigned sequence. Git history preserves prior board revisions; event entries preserve the rationale for individual transitions.
+Next event sequence: 10. State events and received messages share one coordinator-assigned sequence. Git history preserves prior board revisions; event entries preserve the rationale for individual transitions.
