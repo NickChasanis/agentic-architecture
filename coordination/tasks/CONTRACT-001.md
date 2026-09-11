@@ -1,6 +1,6 @@
 # CONTRACT-001 — Specify the paired contracts
 
-Packet revision: 3. Current status and assignment authority: [BOARD.md](../BOARD.md).
+Packet revision: 4. Current status and assignment authority: [BOARD.md](../BOARD.md).
 
 ## Outcome
 
@@ -22,3 +22,5 @@ This task produces specifications and a verification plan, not a passing impleme
 Coordinator draft artifacts: [contract index](../../contracts/README.md), [publication](../../contracts/commerce-publication.md), [work submission](../../contracts/work-submission.md), and [scenario/obligation mapping](../../contracts/acceptance-scenarios.md). These are proposals; schema details, operating budgets, and independent review remain open. No worker has been dispatched.
 
 Architecture development: [module dependencies and contract ownership](../../09-module-dependencies-and-ownership.md). The owner accepted the modular-backend direction; detailed edges, role allocations, and assignment gates are documented for review before exact schemas and implementation.
+
+Technology development: [stack and workspace proposal](../../10-stack-and-workspace-proposal.md). Includes source-checked framework capabilities, proposed application paths and schema ownership, and an explicit authentication-proof boundary. Stack, versions, identity mechanism, and execution budgets remain open.

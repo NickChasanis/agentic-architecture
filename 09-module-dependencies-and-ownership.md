@@ -116,3 +116,5 @@ These checks are planned. Exact tooling and commands depend on the selected stac
 ## Next design step
 
 Choose the implementation stack and workspace layout, then encode these interfaces in canonical schemas and executable checks. Keep cost/runtime decisions explicit before dispatch. Multi-agent refactoring remains deferred under REFACTOR-001 and is not part of this initial module-design work.
+
+The [stack/workspace proposal](10-stack-and-workspace-proposal.md) develops this next step with Angular, TypeScript/Fastify, PostgreSQL, and API/browser contract checks. These technology choices are proposed, not yet accepted or installed.
