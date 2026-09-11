@@ -8,6 +8,8 @@ This repository explores two connected concerns: using agents to deliver modular
 
 **Status:** active architecture discussion and proposed experiments. The repository contains notes and examples; no application or orchestration runtime is implemented yet.
 
+**Coordination workspace:** the agreed supervised Markdown workflow now has a [runbook](coordination/README.md), [task board](coordination/BOARD.md), task packets, and message templates. These are manual coordination artifacts; no workers have been dispatched. Fresh agents start with [AGENTS.md](AGENTS.md).
+
 ## Two tracks, shared contracts
 
 | Track | Focus | Evidence of progress |

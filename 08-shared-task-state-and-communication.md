@@ -2,7 +2,7 @@
 
 [Overview](README.md) · [Coordination](02-agents-and-coordination.md) · [Session model](06-tmux-agent-roles-and-metrics.md) · [Authority and budgets](07-authority-model-policy-and-assumptions.md)
 
-Accepted need: models must be able to discover each other's current assignments, exchange relevant information, and distinguish current work from obsolete tasks across days and sessions. The protocol and storage choices below are proposed; no task service, locking mechanism, or message transport is implemented here.
+Accepted need: models must be able to discover each other's current assignments, exchange relevant information, and distinguish current work from obsolete tasks across days and sessions. The supervised Markdown starting workflow is now accepted and instantiated in [coordination/](coordination/README.md). The automated protocol details below remain proposed; no task service, locking mechanism, or automated message transport is implemented here.
 
 ## Separate explanation, state, and messages
 
@@ -86,6 +86,8 @@ Before starting, resuming, submitting, and at agreed checkpoints, each worker re
 
 Do not let all workers append to one shared Markdown log. In a manual file-based pilot, use one uniquely named message file per submission and have the coordinator ingest completed submissions. Automated file transport would need defined atomic publication, acknowledgment, and deduplication behavior before being treated as reliable.
 
+The manual message vocabulary also includes `assignment_request` and `assignment_grant`, as defined in the [message template](coordination/templates/message.md). Only the coordinator can issue a grant; receipt alone is not approval.
+
 ## Storage options and starting recommendation
 
 | Option | Appropriate use | Limitation to address |
@@ -114,4 +116,4 @@ The precise storage technology, revalidation interval, heartbeat cadence, and le
 
 Measure stale claims rejected, duplicate grants (required: zero), obsolete results accepted (required: zero), missed-message detection latency, unresolved-question age, task-revalidation overhead, and human coordination effort. Include denominators and tested scenarios. A rising stale-rejection count may show that a safeguard works or that discovery is poor; inspect causes rather than treating it as an automatic success score.
 
-Acceptance requires the selected freshness, ownership, communication, and recovery scenarios to pass alongside the existing product/coordination contracts. The next decision is whether to start with supervised Markdown coordination or implement the structured registry before allowing workers to claim tasks themselves.
+Acceptance requires the selected freshness, ownership, communication, and recovery scenarios to pass alongside the existing product/coordination contracts. Start with supervised Markdown coordination as accepted; implementation of the structured registry remains a later Track B increment. The current pending decisions are recorded on the [task board](coordination/BOARD.md).
