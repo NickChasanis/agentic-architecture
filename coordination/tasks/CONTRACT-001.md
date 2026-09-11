@@ -1,6 +1,6 @@
 # CONTRACT-001 — Specify the paired contracts
 
-Packet revision: 5. Current status and assignment authority: [BOARD.md](../BOARD.md).
+Packet revision: 7. Current status and assignment authority: [BOARD.md](../BOARD.md).
 
 ## Outcome
 
@@ -26,3 +26,7 @@ Architecture development: [module dependencies and contract ownership](../../09-
 Technology development: [stack and workspace plan](../../10-stack-and-workspace-proposal.md). Includes source-checked framework capabilities, application paths and schema ownership, and an explicit authentication-proof boundary. See the acceptance update below; versions, identity mechanism, and execution budgets remain open.
 
 Update: [STACK-001](../decisions/STACK-001-commerce-pilot.md) accepts the stack family/layout. The [HTTP API draft](../../contracts/commerce-http-api.md) defines proposed wire operations, payloads, and errors. Versions, authentication/tenant discovery, schema review, and budgets remain open; no runtime evidence exists.
+
+Identity development: [IDENTITY-ACCESS](../../contracts/identity-and-access.md) proposes the login/session approach, owner/staff permissions, discovery APIs, and AUTH-01–08 scenarios. Review/acceptance, provider/library selection, executable schemas, and budgets remain open. No new identity mechanism has been accepted merely by drafting it.
+
+Provider development: [identity provider/test profile](../../11-identity-provider-and-test-profile.md) proposes Keycloak and `openid-client`, plus schema-freeze and isolated fixture requirements. Provider versions/configuration, acceptance, and runtime proof remain pending.

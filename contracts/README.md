@@ -4,6 +4,7 @@ Status: proposed `0.1-draft` contracts for discussion, created 2026-09-11T14:11:
 
 - [Commerce publication](commerce-publication.md): product behavior and provider/consumer boundaries.
 - [Commerce HTTP API](commerce-http-api.md): proposed routes, exact payload fields, validation, errors, and concurrency semantics.
+- [Identity and access](identity-and-access.md): proposed OIDC/session boundary, tenant discovery, shop permissions, and authentication scenarios.
 - [Assignment and work submission](work-submission.md): current-task identity, ownership, messages, and result acceptance.
 - [Acceptance scenarios](acceptance-scenarios.md): checks to implement and evidence to collect.
 

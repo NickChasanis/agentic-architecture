@@ -35,6 +35,7 @@ Start with the [roadmap](04-roadmap-of-thought.md) for the next decisions and [c
 8. [Shared task state, communication, and freshness](08-shared-task-state-and-communication.md)
 9. [Module dependencies and contract ownership](09-module-dependencies-and-ownership.md)
 10. [Stack and workspace proposal](10-stack-and-workspace-proposal.md)
+11. [Identity provider and test profile](11-identity-provider-and-test-profile.md)
 
 **Session tool of choice:** tmux for multiple terminal sessions and agent processes. Use explicit workspace isolation and task/result contracts alongside it. The [operating model](06-tmux-agent-roles-and-metrics.md) defines generic roles, justified specializations, and evidence-based implementation metrics for both tracks.
 

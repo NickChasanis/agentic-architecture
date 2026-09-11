@@ -9,7 +9,7 @@ Recorded 2026-09-11T16:16:51Z. This is the proposed wire specification for [COMM
 - Reject unknown request fields, malformed JSON, wrong primitive types, and out-of-range values; do not coerce strings to numbers or silently remove unknown keys. All input objects are closed, including nested price objects.
 - Success objects contain only their declared fields. Consumers tolerate unknown response properties for compatible additions, but validate all required fields and values. Explicit privacy tests check the provider's public allowlist even though consumers tolerate additions.
 - Proposed body limit: 16 KiB for JSON mutations. Do not reflect submitted content, secrets, SQL errors, or stack traces in error messages.
-- Merchant endpoints require an authenticated principal; the mechanism for establishing that principal remains open. No endpoint accepts a tenant or principal header as proof of identity.
+- Merchant endpoints require an authenticated principal. The [identity/access draft](identity-and-access.md) proposes backend OIDC login, an application-session cookie, and CSRF/origin checks on mutations; acceptance and provider selection remain open. No endpoint accepts a tenant or principal header as proof of identity.
 - Public and merchant responses use `Cache-Control: no-store` for the first pilot, and application-level catalog caching is omitted. Adding caching later must preserve next-read publication visibility.
 
 ## Payload definitions
@@ -44,7 +44,7 @@ All errors use the common envelope below. Merchant resource errors must conceal 
 
 HTTP-02 includes a `Location` identifying the created product through HTTP-03. HTTP-01 returns its Shop body without a `Location` header; a shop detail-read operation is outside this draft and must be specified if a consumer needs it.
 
-The foundation supplies authorized tenant selection for the merchant session. Login, session introspection, and tenant/shop listing APIs are a separate foundation contract still to specify; do not invent them independently in the merchant UI. The first journey can retain the returned shop/product IDs, but fixture setup must not be presented as a full account-management implementation.
+The [identity/access draft](identity-and-access.md) now specifies login/session, tenant discovery, and authorized shop-list operations. Consume that shared foundation contract rather than inventing selection endpoints independently. Fixture setup must not be presented as a full account-management implementation.
 
 ## Error envelope and precedence
 
@@ -67,6 +67,7 @@ The foundation supplies authorized tenant selection for the merchant session. Lo
 | 400 | `MALFORMED_JSON` | Body is not parseable JSON. |
 | 400 | `VALIDATION_FAILED` | Invalid body/path/query shape or unsupported query parameter. |
 | 401 | `AUTHENTICATION_REQUIRED` | Merchant operation lacks a valid principal. Authentication scheme/header details await foundation selection. |
+| 403 | `CSRF_REJECTED` | Authenticated mutation lacks the required session-bound CSRF token or accepted origin, under the identity/access proposal. |
 | 404 | `RESOURCE_NOT_FOUND` | Resource unavailable under the operation's visibility/authorization rules. |
 | 409 | `SLUG_UNAVAILABLE` | Requested slug cannot be assigned; no owner details disclosed. |
 | 409 | `PRODUCT_IMMUTABLE` | Authorized caller tries to modify published content. |
@@ -75,7 +76,7 @@ The foundation supplies authorized tenant selection for the merchant session. Lo
 | 500 | `INTERNAL_ERROR` | Unexpected server error with a generic public message. |
 | 503 | `SERVICE_UNAVAILABLE` | Temporary inability to complete the operation. |
 
-Transport-level parsing/size checks may reject before authentication. After basic request parsing, resolve authentication and resource access before exposing resource-state-specific errors. Unknown, wrong-shop, and unauthorized products cannot yield `PRODUCT_IMMUTABLE`. Exact Fastify hook/error mapping must preserve this order and normalize framework errors to the envelope; verify it against the chosen version.
+Transport-level parsing/size checks may reject before authentication. After basic request parsing, resolve authentication, CSRF/origin checks for mutations, and resource access before exposing resource-state-specific errors. Unknown, wrong-shop, and unauthorized products cannot yield `PRODUCT_IMMUTABLE`. Exact Fastify hook/error mapping must preserve this order and normalize framework errors to the envelope; verify it against the chosen version. The identity contract owns login-specific errors.
 
 ## Atomicity, concurrency, and retries
 

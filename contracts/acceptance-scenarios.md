@@ -19,6 +19,21 @@ These scenarios map draft contract obligations to planned evidence. All executio
 
 Planned provider/consumer matrix: catalog contract 0.1-draft with merchant administration and storefront first; add second catalog listing for PUB-10. Once accepted, assign a stable version and pin exact artifacts. Unsupported versions must be explicit; draft version labels do not authorize implementation.
 
+## Identity foundation scenarios
+
+All scenarios below are proposed and not run. They extend PUB-01/03 rather than replace publication checks. Exact routes and personas are in [IDENTITY-ACCESS](identity-and-access.md).
+
+| ID | Scenario | Planned evidence |
+|---|---|---|
+| AUTH-01 | Synthetic merchant signs in through the real controlled OIDC provider. | Session rotation, valid callback, fixed redirect, and browser tenant/shop discovery; no injected principal for this gate. |
+| AUTH-02 | Invalid/replayed/mismatched login response or external identity. | No application session; generic failure without tokens or account details. |
+| AUTH-03 | Owner, shop-limited staff, no-membership principal, and anonymous visitor call discovery/actions. | Exact role matrix, empty discovery, missing/inaccessible equivalence, cross-shop/tenant denial. |
+| AUTH-04 | Session expires, is logged out, or principal is disabled. | Subsequent protected requests fail; cookie/server state checked independently. |
+| AUTH-05 | Mutation has missing/wrong CSRF token or disallowed origin. | No state change; expected 403 after session authentication. |
+| AUTH-06 | Membership/grant is revoked. | New authorization checks deny after committed revocation; in-flight semantics documented. |
+| AUTH-07 | Logged-in merchant calls public catalog for drafts or another shop. | Same public projection as anonymous calls; no privileged preview. |
+| AUTH-08 | Test identity injection is configured for isolated API checks. | It is inaccessible in the runtime HTTP surface and never reported as real login proof. |
+
 ## Coordination scenarios
 
 | ID | Scenario | Planned evidence |
