@@ -13,7 +13,7 @@ These scenarios map draft contract obligations to planned evidence. All executio
 | PUB-05 | Publish is repeated or races with another publish of the same product. | One logical published state, stable identity, no duplicate declared effect. |
 | PUB-06 | First public read starts after successful publish response. | API ordering evidence proves visibility without polling through an eventual-consistency delay; include caches if introduced. |
 | PUB-07 | Public payload is inspected. | Explicit allowlist and value validation; no merchant-only fields. |
-| PUB-08 | Published product receives an edit request. | Proposed state-conflict behavior and unchanged content. |
+| PUB-08 | Published product receives an edit request. | Accepted immutability obligation: reject the edit and preserve content. Exact error schema remains draft; check not run. |
 | PUB-09 | Publish response is uncertain due to interrupted transport. | Retry resolves to the same published product; UI does not falsely assert success. |
 | PUB-10 | Fresh worker adds the second catalog consumer. | Existing/new consumer checks, real flow, changed-module inventory, clarification/rework/time records. |
 

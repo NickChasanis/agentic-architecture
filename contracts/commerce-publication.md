@@ -4,6 +4,8 @@ Status: proposed. Owner/steward: coordinator. Providers: shop/authorization foun
 
 ## Required foundation
 
+Accepted lifecycle constraint: drafts are editable, published products are immutable for the first experiment. [PUBLICATION-001](../coordination/decisions/PUBLICATION-001-immutable-pilot.md) records the decision. Remaining contract details still have draft status.
+
 An authenticated principal and server-validated tenant/shop membership are available. The merchant can create a shop under an authorized tenant, and the public route resolves to exactly one shop. Identity-provider implementation and the route format are still design choices. Shop creation, shop resolution, and authorization must be connected and checked before catalog-dependent assignments start.
 
 Fixtures must include tenant A with shops A1/A2, tenant B with shop B1, and authenticated principals whose memberships make cross-shop and cross-tenant denial observable. A caller-supplied tenant or shop identifier never grants access.

@@ -8,15 +8,15 @@ Status: proposed `0.1-draft` contracts for discussion, created 2026-09-11T14:11:
 
 The coordinator acts as the proposed steward for both contracts. Affected consumer requirements and independent review must inform acceptance. Implementation agents cannot change these contracts unilaterally. Exact schema files and runnable commands follow stack/environment selection; those are not prerequisites for reviewing the behavior here.
 
-## Concrete proposed defaults
+## Concrete defaults and decision status
 
 1. Publication changes a draft to published atomically; repeating it returns the same published product without duplicate effects.
-2. Only drafts can be edited in the pilot. Editing published products, unpublishing, deletion, pagination, and competing edits are later scope unless deliberately added before acceptance.
+2. **Accepted:** only drafts can be edited; published products remain immutable in this pilot. See [PUBLICATION-001](../coordination/decisions/PUBLICATION-001-immutable-pilot.md). Unpublishing, deletion, pagination, and competing edits remain outside the proposed first slice.
 3. A successful publish response means a subsequent public read started after that response sees the published version. Reads overlapping publication may observe the previous state.
 4. A second consumer is a small read-only catalog listing using the public API. Its internal implementation and UI may differ from the first storefront.
 5. Current assignment identity and contract versions control work acceptance. Dates identify activity but do not confer ownership.
 
-These defaults make the draft reviewable without pretending every detail has been agreed. They preserve the accepted initial journey and exclude checkout/payment behavior.
+Only the immutability rule above is newly accepted; the other defaults remain proposed. Multi-agent refactoring and changes ranging from minimal patches to project-wide work are [reserved for later discussion](../coordination/tasks/REFACTOR-001.md). They do not expand this experiment's current scope.
 
 ## Dependency clarification
 

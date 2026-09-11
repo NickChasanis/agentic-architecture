@@ -94,6 +94,8 @@ Do not set percentage-improvement targets before seeing the baseline. Agree acce
 
 ## Questions to defer until evidence makes them relevant
 
+The owner has explicitly deferred [multi-agent refactoring and project changes](coordination/tasks/REFACTOR-001.md): minimal patches, project-wide changes, and their coordination/verification rules. Resume that discussion only when requested. Published products stay immutable in the initial commerce experiment; changing that behavior later would need explicit contract evolution.
+
 - A vector database or custom memory service: revisit if repository navigation and task notes repeatedly fail to provide needed context.
 - Permanent specialized agent teams: revisit if recurring tasks require materially different permissions, tools, or verification methods.
 - The breadth of a custom orchestrator: design and prototype the scoped coordination capabilities now; defer a general platform, scheduling infrastructure, and administration UI until their requirements are demonstrated.
