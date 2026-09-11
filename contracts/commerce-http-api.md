@@ -1,6 +1,6 @@
 # Commerce HTTP API — 0.2-draft
 
-Recorded 2026-09-11T16:16:51Z. This is the proposed wire specification for [COMMERCE-PUBLICATION](commerce-publication.md), using the accepted Angular/TypeScript/Fastify/PostgreSQL direction. Routes, limits, currency, and concurrency defaults below are new proposals, not silently accepted requirements. No endpoints or executable schemas exist yet.
+Recorded 2026-09-11T16:16:51Z. This is the proposed wire specification for [COMMERCE-PUBLICATION](commerce-publication.md), using the accepted Angular/TypeScript/Fastify/PostgreSQL direction. Routes, limits, currency, and concurrency defaults remain proposals. [Canonical draft schemas and mappings](../pilot/contracts/README.md) now encode these definitions; no endpoints exist yet.
 
 ## Common rules
 
@@ -117,4 +117,4 @@ HTTP-01/02/05/06/07 support PUB-01. HTTP-03/04 support reload and draft editing;
 
 Add provider checks for update/publish races, last-commit draft updates, strict request validation, error-envelope privacy, and location/reload consistency. These supplement the existing scenario list, not substitute for its real browser flow.
 
-Next: review the proposed defaults, specify authentication/tenant discovery, select compatible versions, and translate these shapes into canonical JSON Schemas and the operation manifest under the accepted pilot layout. No schema files, tests, or services are claimed to exist yet.
+Next: review the proposed defaults and identity contract, select compatible versions, and check the canonical draft schemas against the actual Fastify adapter. Offline schema checks now exist; no HTTP, identity, database, or browser integration has run.

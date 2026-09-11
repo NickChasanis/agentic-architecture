@@ -12,6 +12,8 @@ This repository explores two connected concerns: using agents to deliver modular
 
 **Current discussion artifacts:** [publication and work-submission contract drafts](contracts/README.md), with product and coordination acceptance scenarios. Proposed behavior is separated from accepted decisions and executed evidence.
 
+**Executable contract artifacts:** [draft schemas, operation mappings, and offline checks](pilot/contracts/README.md). These validate payloads and manifest consistency; no application or identity provider is running.
+
 ## Two tracks, shared contracts
 
 | Track | Focus | Evidence of progress |

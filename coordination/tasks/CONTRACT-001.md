@@ -1,6 +1,6 @@
 # CONTRACT-001 — Specify the paired contracts
 
-Packet revision: 7. Current status and assignment authority: [BOARD.md](../BOARD.md).
+Packet revision: 8. Current status and assignment authority: [BOARD.md](../BOARD.md).
 
 ## Outcome
 
@@ -30,3 +30,5 @@ Update: [STACK-001](../decisions/STACK-001-commerce-pilot.md) accepts the stack 
 Identity development: [IDENTITY-ACCESS](../../contracts/identity-and-access.md) proposes the login/session approach, owner/staff permissions, discovery APIs, and AUTH-01–08 scenarios. Review/acceptance, provider/library selection, executable schemas, and budgets remain open. No new identity mechanism has been accepted merely by drafting it.
 
 Provider development: [identity provider/test profile](../../11-identity-provider-and-test-profile.md) proposes Keycloak and `openid-client`, plus schema-freeze and isolated fixture requirements. Provider versions/configuration, acceptance, and runtime proof remain pending.
+
+Schema development: [machine-readable artifacts and evidence](../../pilot/contracts/README.md) provide 27 draft definitions, 13 HTTP operations, and 74 passing offline payload cases. The coordinator authored and checked these; no independent review or runtime verification occurred. Draft acceptance, actual adapter conformance, budgets, and dispatch remain open.

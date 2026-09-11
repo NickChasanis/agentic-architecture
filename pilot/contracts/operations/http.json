@@ -1,0 +1,386 @@
+{
+  "manifestVersion": "0.1-draft",
+  "status": "draft-not-dispatchable",
+  "schemaFile": "../schemas/wire.schema.json",
+  "schemaDialect": "http://json-schema.org/draft-07/schema#",
+  "bodyLimitBytes": 16384,
+  "cacheControl": "no-store",
+  "requestValidation": {
+    "coerceTypes": false,
+    "removeAdditional": false,
+    "useDefaults": false,
+    "normalization": "Trim name/title string fields before schema validation; preserve description."
+  },
+  "providerValidation": "Strict declared fields; never strip extras before checking public-output privacy.",
+  "consumerValidation": "Derived response view ignores additional object fields but preserves required fields, formats, types and constraints. Do not relax request schemas.",
+  "errorSchema": "ErrorEnvelope",
+  "errorStatusByCode": {
+    "MALFORMED_JSON": 400,
+    "VALIDATION_FAILED": 400,
+    "LOGIN_RESPONSE_INVALID": 400,
+    "AUTHENTICATION_REQUIRED": 401,
+    "LOGIN_FAILED": 401,
+    "CSRF_REJECTED": 403,
+    "ACCOUNT_UNAVAILABLE": 403,
+    "RESOURCE_NOT_FOUND": 404,
+    "SLUG_UNAVAILABLE": 409,
+    "PRODUCT_IMMUTABLE": 409,
+    "BODY_TOO_LARGE": 413,
+    "UNSUPPORTED_MEDIA_TYPE": 415,
+    "INTERNAL_ERROR": 500,
+    "SERVICE_UNAVAILABLE": 503,
+    "IDENTITY_SERVICE_UNAVAILABLE": 503
+  },
+  "operations": [
+    {
+      "id": "HTTP-01",
+      "method": "POST",
+      "path": "/api/v1/merchant/tenants/{tenantId}/shops",
+      "paramsSchema": "TenantParams",
+      "querySchema": "EmptyObject",
+      "bodySchema": "CreateShopInput",
+      "authentication": "session",
+      "csrfRequired": true,
+      "success": {
+        "status": 201,
+        "bodySchema": "Shop"
+      },
+      "errorCodes": [
+        "MALFORMED_JSON",
+        "VALIDATION_FAILED",
+        "AUTHENTICATION_REQUIRED",
+        "CSRF_REJECTED",
+        "RESOURCE_NOT_FOUND",
+        "BODY_TOO_LARGE",
+        "UNSUPPORTED_MEDIA_TYPE",
+        "INTERNAL_ERROR",
+        "SERVICE_UNAVAILABLE",
+        "SLUG_UNAVAILABLE"
+      ],
+      "obligations": [
+        "PUB-01",
+        "AUTH-03"
+      ]
+    },
+    {
+      "id": "HTTP-02",
+      "method": "POST",
+      "path": "/api/v1/merchant/shops/{shopId}/products",
+      "paramsSchema": "ShopParams",
+      "querySchema": "EmptyObject",
+      "bodySchema": "DraftInput",
+      "authentication": "session",
+      "csrfRequired": true,
+      "success": {
+        "status": 201,
+        "bodySchema": "DraftProduct"
+      },
+      "errorCodes": [
+        "MALFORMED_JSON",
+        "VALIDATION_FAILED",
+        "AUTHENTICATION_REQUIRED",
+        "CSRF_REJECTED",
+        "RESOURCE_NOT_FOUND",
+        "BODY_TOO_LARGE",
+        "UNSUPPORTED_MEDIA_TYPE",
+        "INTERNAL_ERROR",
+        "SERVICE_UNAVAILABLE"
+      ],
+      "obligations": [
+        "PUB-01",
+        "PUB-04"
+      ],
+      "successHeaders": {
+        "Location": "created product URI resolving through HTTP-03"
+      }
+    },
+    {
+      "id": "HTTP-03",
+      "method": "GET",
+      "path": "/api/v1/merchant/shops/{shopId}/products/{productId}",
+      "paramsSchema": "ProductParams",
+      "querySchema": "EmptyObject",
+      "bodySchema": null,
+      "authentication": "session",
+      "csrfRequired": false,
+      "success": {
+        "status": 200,
+        "bodySchema": "MerchantProduct"
+      },
+      "errorCodes": [
+        "VALIDATION_FAILED",
+        "AUTHENTICATION_REQUIRED",
+        "RESOURCE_NOT_FOUND",
+        "INTERNAL_ERROR",
+        "SERVICE_UNAVAILABLE"
+      ],
+      "obligations": [
+        "PUB-03"
+      ]
+    },
+    {
+      "id": "HTTP-04",
+      "method": "PUT",
+      "path": "/api/v1/merchant/shops/{shopId}/products/{productId}",
+      "paramsSchema": "ProductParams",
+      "querySchema": "EmptyObject",
+      "bodySchema": "DraftInput",
+      "authentication": "session",
+      "csrfRequired": true,
+      "success": {
+        "status": 200,
+        "bodySchema": "DraftProduct"
+      },
+      "errorCodes": [
+        "MALFORMED_JSON",
+        "VALIDATION_FAILED",
+        "AUTHENTICATION_REQUIRED",
+        "CSRF_REJECTED",
+        "RESOURCE_NOT_FOUND",
+        "BODY_TOO_LARGE",
+        "UNSUPPORTED_MEDIA_TYPE",
+        "INTERNAL_ERROR",
+        "SERVICE_UNAVAILABLE",
+        "PRODUCT_IMMUTABLE"
+      ],
+      "obligations": [
+        "PUB-04",
+        "PUB-08"
+      ]
+    },
+    {
+      "id": "HTTP-05",
+      "method": "POST",
+      "path": "/api/v1/merchant/shops/{shopId}/products/{productId}/publish",
+      "paramsSchema": "ProductParams",
+      "querySchema": "EmptyObject",
+      "bodySchema": "EmptyObject",
+      "authentication": "session",
+      "csrfRequired": true,
+      "success": {
+        "status": 200,
+        "bodySchema": "PublishedProduct"
+      },
+      "errorCodes": [
+        "MALFORMED_JSON",
+        "VALIDATION_FAILED",
+        "AUTHENTICATION_REQUIRED",
+        "CSRF_REJECTED",
+        "RESOURCE_NOT_FOUND",
+        "BODY_TOO_LARGE",
+        "UNSUPPORTED_MEDIA_TYPE",
+        "INTERNAL_ERROR",
+        "SERVICE_UNAVAILABLE"
+      ],
+      "obligations": [
+        "PUB-05",
+        "PUB-06",
+        "PUB-09"
+      ]
+    },
+    {
+      "id": "HTTP-06",
+      "method": "GET",
+      "path": "/api/v1/public/shops/{shopSlug}/products",
+      "paramsSchema": "PublicShopParams",
+      "querySchema": "EmptyObject",
+      "bodySchema": null,
+      "authentication": "anonymous",
+      "csrfRequired": false,
+      "success": {
+        "status": 200,
+        "bodySchema": "PublicProductList"
+      },
+      "errorCodes": [
+        "VALIDATION_FAILED",
+        "RESOURCE_NOT_FOUND",
+        "INTERNAL_ERROR",
+        "SERVICE_UNAVAILABLE"
+      ],
+      "obligations": [
+        "PUB-02",
+        "PUB-07",
+        "PUB-10"
+      ]
+    },
+    {
+      "id": "HTTP-07",
+      "method": "GET",
+      "path": "/api/v1/public/shops/{shopSlug}/products/{productId}",
+      "paramsSchema": "PublicProductParams",
+      "querySchema": "EmptyObject",
+      "bodySchema": null,
+      "authentication": "anonymous",
+      "csrfRequired": false,
+      "success": {
+        "status": 200,
+        "bodySchema": "PublicProduct"
+      },
+      "errorCodes": [
+        "VALIDATION_FAILED",
+        "RESOURCE_NOT_FOUND",
+        "INTERNAL_ERROR",
+        "SERVICE_UNAVAILABLE"
+      ],
+      "obligations": [
+        "PUB-02",
+        "PUB-07",
+        "PUB-10"
+      ]
+    },
+    {
+      "id": "ID-01",
+      "method": "GET",
+      "path": "/api/v1/auth/login",
+      "paramsSchema": "EmptyObject",
+      "querySchema": "EmptyObject",
+      "bodySchema": null,
+      "authentication": "login-start",
+      "csrfRequired": false,
+      "success": {
+        "status": 302,
+        "bodySchema": null
+      },
+      "errorCodes": [
+        "VALIDATION_FAILED",
+        "INTERNAL_ERROR",
+        "IDENTITY_SERVICE_UNAVAILABLE"
+      ],
+      "obligations": [
+        "AUTH-01"
+      ],
+      "successHeaders": {
+        "Location": "configured provider authorization URL"
+      }
+    },
+    {
+      "id": "ID-02",
+      "method": "GET",
+      "path": "/api/v1/auth/callback",
+      "paramsSchema": "EmptyObject",
+      "querySchema": "OidcCallbackQuery",
+      "bodySchema": null,
+      "authentication": "oidc-transaction",
+      "csrfRequired": false,
+      "success": {
+        "status": 303,
+        "bodySchema": null
+      },
+      "errorCodes": [
+        "LOGIN_RESPONSE_INVALID",
+        "LOGIN_FAILED",
+        "ACCOUNT_UNAVAILABLE",
+        "INTERNAL_ERROR",
+        "IDENTITY_SERVICE_UNAVAILABLE"
+      ],
+      "obligations": [
+        "AUTH-01",
+        "AUTH-02"
+      ],
+      "queryValidationError": "LOGIN_RESPONSE_INVALID",
+      "successHeaders": {
+        "Location": "fixed merchant landing URL"
+      }
+    },
+    {
+      "id": "ID-03",
+      "method": "GET",
+      "path": "/api/v1/auth/session",
+      "paramsSchema": "EmptyObject",
+      "querySchema": "EmptyObject",
+      "bodySchema": null,
+      "authentication": "session",
+      "csrfRequired": false,
+      "success": {
+        "status": 200,
+        "bodySchema": "SessionView"
+      },
+      "errorCodes": [
+        "VALIDATION_FAILED",
+        "AUTHENTICATION_REQUIRED",
+        "INTERNAL_ERROR",
+        "SERVICE_UNAVAILABLE"
+      ],
+      "obligations": [
+        "AUTH-01",
+        "AUTH-04"
+      ]
+    },
+    {
+      "id": "ID-04",
+      "method": "POST",
+      "path": "/api/v1/auth/logout",
+      "paramsSchema": "EmptyObject",
+      "querySchema": "EmptyObject",
+      "bodySchema": "EmptyObject",
+      "authentication": "session",
+      "csrfRequired": true,
+      "success": {
+        "status": 204,
+        "bodySchema": null
+      },
+      "errorCodes": [
+        "MALFORMED_JSON",
+        "VALIDATION_FAILED",
+        "AUTHENTICATION_REQUIRED",
+        "CSRF_REJECTED",
+        "BODY_TOO_LARGE",
+        "UNSUPPORTED_MEDIA_TYPE",
+        "INTERNAL_ERROR",
+        "SERVICE_UNAVAILABLE"
+      ],
+      "obligations": [
+        "AUTH-04",
+        "AUTH-05"
+      ]
+    },
+    {
+      "id": "ID-05",
+      "method": "GET",
+      "path": "/api/v1/merchant/tenants",
+      "paramsSchema": "EmptyObject",
+      "querySchema": "EmptyObject",
+      "bodySchema": null,
+      "authentication": "session",
+      "csrfRequired": false,
+      "success": {
+        "status": 200,
+        "bodySchema": "TenantMembershipList"
+      },
+      "errorCodes": [
+        "VALIDATION_FAILED",
+        "AUTHENTICATION_REQUIRED",
+        "INTERNAL_ERROR",
+        "SERVICE_UNAVAILABLE"
+      ],
+      "obligations": [
+        "AUTH-03"
+      ]
+    },
+    {
+      "id": "ID-06",
+      "method": "GET",
+      "path": "/api/v1/merchant/tenants/{tenantId}/shops",
+      "paramsSchema": "TenantParams",
+      "querySchema": "EmptyObject",
+      "bodySchema": null,
+      "authentication": "session",
+      "csrfRequired": false,
+      "success": {
+        "status": 200,
+        "bodySchema": "AuthorizedShopList"
+      },
+      "errorCodes": [
+        "VALIDATION_FAILED",
+        "AUTHENTICATION_REQUIRED",
+        "RESOURCE_NOT_FOUND",
+        "INTERNAL_ERROR",
+        "SERVICE_UNAVAILABLE"
+      ],
+      "obligations": [
+        "AUTH-03",
+        "AUTH-06"
+      ]
+    }
+  ]
+}

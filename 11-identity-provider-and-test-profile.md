@@ -51,6 +51,8 @@ Use a fresh isolated browser context for personas whose provider login state mus
 
 ## Schema-freeze checklist
 
+Draft [machine-readable schemas and operation mappings](pilot/contracts/README.md) are now present with offline payload evidence. The checklist below still governs their acceptance; offline validation does not settle the provider or establish actual login behavior.
+
 Before implementation workers consume a stable contract version, review together:
 
 1. The owner/staff grant matrix, OIDC/application-session boundary, discovery results, and same-origin topology.

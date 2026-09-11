@@ -1,6 +1,6 @@
 # Commerce pilot contract drafts
 
-Status: proposed `0.1-draft` contracts for discussion, created 2026-09-11T14:11:23Z. These are behavioral specifications, not accepted production interfaces, executable schemas, or passing tests.
+Status: proposed contracts for discussion, originally created 2026-09-11T14:11:23Z. The [machine-readable draft](../pilot/contracts/README.md) now supplies schemas and passing offline payload checks. These are not accepted production interfaces or evidence of a running application.
 
 - [Commerce publication](commerce-publication.md): product behavior and provider/consumer boundaries.
 - [Commerce HTTP API](commerce-http-api.md): proposed routes, exact payload fields, validation, errors, and concurrency semantics.

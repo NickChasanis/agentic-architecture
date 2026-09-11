@@ -1,0 +1,554 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "urn:agentic-architecture:pilot:wire:0.1-draft",
+  "title": "Pilot wire definitions — draft",
+  "description": "Validate via a named definition. Application inputs are checked after declared trim normalization; authorization and protocol validity are separate obligations.",
+  "definitions": {
+    "Uuid": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}(?![\\s\\S])"
+    },
+    "Name": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 80,
+      "pattern": "\\S"
+    },
+    "Title": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 120,
+      "pattern": "\\S"
+    },
+    "Description": {
+      "type": "string",
+      "minLength": 0,
+      "maxLength": 2000
+    },
+    "Slug": {
+      "type": "string",
+      "minLength": 3,
+      "maxLength": 48,
+      "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*(?![\\s\\S])"
+    },
+    "UtcTimestamp": {
+      "type": "string",
+      "format": "date-time",
+      "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}T[0-9]{2}:[0-9]{2}:[0-9]{2}(?:\\.[0-9]+)?Z(?![\\s\\S])"
+    },
+    "EmptyObject": {
+      "type": "object",
+      "properties": {},
+      "required": [],
+      "additionalProperties": false
+    },
+    "Price": {
+      "type": "object",
+      "properties": {
+        "amountMinor": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 100000000
+        },
+        "currency": {
+          "const": "EUR"
+        }
+      },
+      "required": [
+        "amountMinor",
+        "currency"
+      ],
+      "additionalProperties": false
+    },
+    "CreateShopInput": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "$ref": "#/definitions/Name"
+        },
+        "slug": {
+          "$ref": "#/definitions/Slug"
+        }
+      },
+      "required": [
+        "name",
+        "slug"
+      ],
+      "additionalProperties": false
+    },
+    "DraftInput": {
+      "type": "object",
+      "properties": {
+        "title": {
+          "$ref": "#/definitions/Title"
+        },
+        "description": {
+          "$ref": "#/definitions/Description"
+        },
+        "price": {
+          "$ref": "#/definitions/Price"
+        }
+      },
+      "required": [
+        "title",
+        "description",
+        "price"
+      ],
+      "additionalProperties": false
+    },
+    "Shop": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "$ref": "#/definitions/Uuid"
+        },
+        "tenantId": {
+          "$ref": "#/definitions/Uuid"
+        },
+        "name": {
+          "$ref": "#/definitions/Name"
+        },
+        "slug": {
+          "$ref": "#/definitions/Slug"
+        }
+      },
+      "required": [
+        "id",
+        "tenantId",
+        "name",
+        "slug"
+      ],
+      "additionalProperties": false
+    },
+    "PublicProduct": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "$ref": "#/definitions/Uuid"
+        },
+        "title": {
+          "$ref": "#/definitions/Title"
+        },
+        "description": {
+          "$ref": "#/definitions/Description"
+        },
+        "price": {
+          "$ref": "#/definitions/Price"
+        }
+      },
+      "required": [
+        "id",
+        "title",
+        "description",
+        "price"
+      ],
+      "additionalProperties": false
+    },
+    "MerchantProduct": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "$ref": "#/definitions/Uuid"
+        },
+        "tenantId": {
+          "$ref": "#/definitions/Uuid"
+        },
+        "shopId": {
+          "$ref": "#/definitions/Uuid"
+        },
+        "status": {
+          "enum": [
+            "draft",
+            "published"
+          ]
+        },
+        "title": {
+          "$ref": "#/definitions/Title"
+        },
+        "description": {
+          "$ref": "#/definitions/Description"
+        },
+        "price": {
+          "$ref": "#/definitions/Price"
+        }
+      },
+      "required": [
+        "id",
+        "tenantId",
+        "shopId",
+        "status",
+        "title",
+        "description",
+        "price"
+      ],
+      "additionalProperties": false
+    },
+    "SessionView": {
+      "type": "object",
+      "properties": {
+        "principal": {
+          "type": "object",
+          "properties": {
+            "id": {
+              "$ref": "#/definitions/Uuid"
+            }
+          },
+          "required": [
+            "id"
+          ],
+          "additionalProperties": false
+        },
+        "csrfToken": {
+          "type": "string",
+          "minLength": 1
+        },
+        "absoluteExpiresAt": {
+          "$ref": "#/definitions/UtcTimestamp"
+        }
+      },
+      "required": [
+        "principal",
+        "csrfToken",
+        "absoluteExpiresAt"
+      ],
+      "additionalProperties": false
+    },
+    "TenantMembership": {
+      "type": "object",
+      "properties": {
+        "tenantId": {
+          "$ref": "#/definitions/Uuid"
+        },
+        "name": {
+          "type": "string",
+          "minLength": 1
+        },
+        "role": {
+          "enum": [
+            "owner",
+            "staff"
+          ]
+        },
+        "canCreateShop": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "tenantId",
+        "name",
+        "role",
+        "canCreateShop"
+      ],
+      "additionalProperties": false,
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "role": {
+                "const": "owner"
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "canCreateShop": {
+                "const": true
+              }
+            }
+          },
+          "else": {
+            "properties": {
+              "canCreateShop": {
+                "const": false
+              }
+            }
+          }
+        }
+      ]
+    },
+    "TenantParams": {
+      "type": "object",
+      "properties": {
+        "tenantId": {
+          "$ref": "#/definitions/Uuid"
+        }
+      },
+      "required": [
+        "tenantId"
+      ],
+      "additionalProperties": false
+    },
+    "ShopParams": {
+      "type": "object",
+      "properties": {
+        "shopId": {
+          "$ref": "#/definitions/Uuid"
+        }
+      },
+      "required": [
+        "shopId"
+      ],
+      "additionalProperties": false
+    },
+    "ProductParams": {
+      "type": "object",
+      "properties": {
+        "shopId": {
+          "$ref": "#/definitions/Uuid"
+        },
+        "productId": {
+          "$ref": "#/definitions/Uuid"
+        }
+      },
+      "required": [
+        "shopId",
+        "productId"
+      ],
+      "additionalProperties": false
+    },
+    "PublicShopParams": {
+      "type": "object",
+      "properties": {
+        "shopSlug": {
+          "$ref": "#/definitions/Slug"
+        }
+      },
+      "required": [
+        "shopSlug"
+      ],
+      "additionalProperties": false
+    },
+    "PublicProductParams": {
+      "type": "object",
+      "properties": {
+        "shopSlug": {
+          "$ref": "#/definitions/Slug"
+        },
+        "productId": {
+          "$ref": "#/definitions/Uuid"
+        }
+      },
+      "required": [
+        "shopSlug",
+        "productId"
+      ],
+      "additionalProperties": false
+    },
+    "DraftProduct": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/MerchantProduct"
+        },
+        {
+          "properties": {
+            "status": {
+              "const": "draft"
+            }
+          }
+        }
+      ]
+    },
+    "PublishedProduct": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/MerchantProduct"
+        },
+        {
+          "properties": {
+            "status": {
+              "const": "published"
+            }
+          }
+        }
+      ]
+    },
+    "PublicProductList": {
+      "type": "object",
+      "properties": {
+        "items": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/PublicProduct"
+          }
+        }
+      },
+      "required": [
+        "items"
+      ],
+      "additionalProperties": false
+    },
+    "AuthorizedShopList": {
+      "type": "object",
+      "properties": {
+        "items": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Shop"
+          }
+        }
+      },
+      "required": [
+        "items"
+      ],
+      "additionalProperties": false
+    },
+    "TenantMembershipList": {
+      "type": "object",
+      "properties": {
+        "items": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/TenantMembership"
+          }
+        }
+      },
+      "required": [
+        "items"
+      ],
+      "additionalProperties": false
+    },
+    "ErrorEnvelope": {
+      "type": "object",
+      "properties": {
+        "error": {
+          "type": "object",
+          "properties": {
+            "code": {
+              "enum": [
+                "MALFORMED_JSON",
+                "VALIDATION_FAILED",
+                "LOGIN_RESPONSE_INVALID",
+                "AUTHENTICATION_REQUIRED",
+                "LOGIN_FAILED",
+                "CSRF_REJECTED",
+                "ACCOUNT_UNAVAILABLE",
+                "RESOURCE_NOT_FOUND",
+                "SLUG_UNAVAILABLE",
+                "PRODUCT_IMMUTABLE",
+                "BODY_TOO_LARGE",
+                "UNSUPPORTED_MEDIA_TYPE",
+                "INTERNAL_ERROR",
+                "SERVICE_UNAVAILABLE",
+                "IDENTITY_SERVICE_UNAVAILABLE"
+              ]
+            },
+            "message": {
+              "type": "string",
+              "minLength": 1
+            },
+            "fields": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "path": {
+                    "type": "string",
+                    "pattern": "^(?:/(?:[^~/]|~[01])*)*$"
+                  },
+                  "code": {
+                    "enum": [
+                      "REQUIRED",
+                      "TYPE",
+                      "FORMAT",
+                      "OUT_OF_RANGE",
+                      "UNKNOWN_FIELD"
+                    ]
+                  }
+                },
+                "required": [
+                  "path",
+                  "code"
+                ],
+                "additionalProperties": false
+              }
+            }
+          },
+          "required": [
+            "code",
+            "message"
+          ],
+          "additionalProperties": false,
+          "allOf": [
+            {
+              "if": {
+                "required": [
+                  "fields"
+                ]
+              },
+              "then": {
+                "properties": {
+                  "code": {
+                    "const": "VALIDATION_FAILED"
+                  }
+                }
+              }
+            }
+          ]
+        }
+      },
+      "required": [
+        "error"
+      ],
+      "additionalProperties": false
+    },
+    "OidcCallbackQuery": {
+      "type": "object",
+      "properties": {
+        "state": {
+          "type": "string",
+          "minLength": 1
+        },
+        "code": {
+          "type": "string",
+          "minLength": 1
+        },
+        "error": {
+          "type": "string",
+          "minLength": 1
+        },
+        "error_description": {
+          "type": "string"
+        },
+        "error_uri": {
+          "type": "string"
+        },
+        "iss": {
+          "type": "string",
+          "minLength": 1
+        },
+        "session_state": {
+          "type": "string",
+          "minLength": 1
+        }
+      },
+      "required": [
+        "state"
+      ],
+      "additionalProperties": {
+        "type": "string"
+      },
+      "oneOf": [
+        {
+          "required": [
+            "code"
+          ],
+          "not": {
+            "required": [
+              "error"
+            ]
+          }
+        },
+        {
+          "required": [
+            "error"
+          ],
+          "not": {
+            "required": [
+              "code"
+            ]
+          }
+        }
+      ]
+    }
+  }
+}

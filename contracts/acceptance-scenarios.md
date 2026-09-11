@@ -1,6 +1,6 @@
 # Paired acceptance scenarios — 0.1-draft
 
-These scenarios map draft contract obligations to planned evidence. All execution results are **not run**. There is no application, selected stack, executable contract suite, or second adapter yet.
+These scenarios map draft contract obligations to planned runtime evidence. All PUB/AUTH/WORK runtime scenarios below are **not run**. The stack family is selected, and [offline schema/manifest checks](../pilot/contracts/README.md) pass; there is no application or second adapter yet. Offline payload cases do not count as executed end-to-end scenarios.
 
 ## Product scenarios
 
@@ -61,9 +61,9 @@ Run provider/consumer checks before accepting local artifacts, then rerun affect
 | Task obligation | Draft coverage | Still required |
 |---|---|---|
 | CON-01 | Contract IDs, proposed stewardship, providers/consumers. | Accepted schema versions and actual assigned owners. |
-| CON-02 | Logical operations, failures, repeated/stale actions. | Exact schemas, limits, wire errors, and review of proposed defaults. |
+| CON-02 | Logical operations, failures, repeated/stale actions, and draft wire schemas. | Review/acceptance of limits and errors; runtime verification. |
 | CON-03 | Generation, record version, ownership, and evidence rules. | Executable validation and runtime mechanism selection. |
-| CON-04 | PUB/WORK scenario mapping above. | Real environments, runnable commands, and actual evidence. |
+| CON-04 | PUB/AUTH/WORK mapping and offline schema-check command/results. | Real runtime environments, integration commands, and scenario evidence. |
 | CON-05 | Proposed zero-internal-change extension budgets and supported consumers. | Budget acceptance and actual runtime compatibility matrix. |
 | CON-06 | Coordinator authors/stewards draft; independent review required. | Independent review and accepted final baseline. |
 

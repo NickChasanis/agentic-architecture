@@ -1,11 +1,11 @@
 # Canonical discussion task board
 
-- Board revision: 9
+- Board revision: 10
 - Created at: 2026-09-11T13:58:26Z
-- Updated at: 2026-09-11T17:55:27Z
+- Updated at: 2026-09-11T18:03:37Z
 - Authority: current human-facing lead session, subject to the location/transfer rules in [the runbook](README.md).
 - Scope: architecture discussion; no running workers or implementation experiment.
-- Source baseline inspected: `3e115b7f9b075ca64c7e76eba79ace9b61704ce0`
+- Source baseline inspected: `1699df0a171045c13123aa4b5d81cff3e06c3efa`
 - Revalidation policy: every claim/resume, new session/day, or material dependency change. No autonomous claims or leases.
 - Live heartbeat/progress: not applicable; no active assignment.
 
@@ -17,12 +17,12 @@ The timestamp describes this board revision, not permission to execute its tasks
 |---|---|---|---|---|---|---|---|
 | [SETTING-001](tasks/SETTING-001.md) — choose the experiment setting | 2 | 2 | verified | none (human-resolved decision) | 0 | Owner choice received | Commerce publication selected; [decision and review](decisions/SETTING-001-commerce-publication.md). |
 | [BUDGET-001](tasks/BUDGET-001.md) — set troubleshooting and review budgets | 1 | 1 | draft | none | 0 | Human cost/latency preferences; setting informs numeric limits | Agree budget units, checkpoint triggers, escalation authority, and review scope. |
-| [CONTRACT-001](tasks/CONTRACT-001.md) — draft paired executable-contract specifications | 7 | 9 | draft | none (coordinator-authored proposal) | 0 | Setting/stack accepted; budgets gate execution, independent review pending | [Provider/test profile](../11-identity-provider-and-test-profile.md) proposes Keycloak/openid-client; identity/provider review and draft schemas next. |
+| [CONTRACT-001](tasks/CONTRACT-001.md) — draft paired executable-contract specifications | 8 | 10 | draft | none (coordinator-authored proposal) | 0 | Setting/stack accepted; budgets gate execution, independent review pending | [Schemas/manifest](../pilot/contracts/README.md) pass 74 offline payload cases; draft acceptance and actual adapter checks next. |
 | [REFACTOR-001](tasks/REFACTOR-001.md) — multi-agent refactoring and project changes | 1 | 1 | blocked | none | 0 | Owner explicitly resumes this later topic | Deferred by owner; do not dispatch or begin discussion now. |
 
 ## Unassigned-task metadata
 
-These values apply to the still-unassigned BUDGET-001 and CONTRACT-001 records, except CONTRACT-001 updated_at and last_progress_at are now 2026-09-11T17:55:27Z, artifact_refs include the HTTP and identity/access drafts, provider/test profile, PUBLICATION-001 and STACK-001 decisions, and module map, and evidence_refs point to their draft coverage/scenario tables, owner decisions, and cited standards/documentation. No execution or independent-review evidence exists. REFACTOR-001 uses these unassigned defaults with created_at/updated_at 2026-09-11T14:30:14Z, no progress/evidence, and a blocker of explicit owner deferral. Replace with per-task details when a task changes.
+These values apply to the still-unassigned BUDGET-001 and CONTRACT-001 records, except CONTRACT-001 updated_at and last_progress_at are now 2026-09-11T18:03:37Z, artifact_refs include the draft schemas/manifest, HTTP/identity contracts, provider profile, accepted decisions, and module map, and evidence_refs include the [offline check results and command](../pilot/contracts/README.md). No runtime integration or independent-review evidence exists. REFACTOR-001 uses these unassigned defaults with created_at/updated_at 2026-09-11T14:30:14Z, no progress/evidence, and a blocker of explicit owner deferral. Replace with per-task details when a task changes.
 
 ```text
 created_at: 2026-09-11T13:58:26Z
@@ -76,5 +76,6 @@ No messages have been submitted or received. Use these columns for future receip
 | 11 | 2026-09-11T16:16:51Z | CONTRACT-001 | draft → draft | Owner accepted stack direction; coordinator added STACK-001 and HTTP API draft. Authentication, schema review, versions, and budgets remain open. |
 | 12 | 2026-09-11T16:23:47Z | CONTRACT-001 | draft → draft | Coordinator proposed OIDC-backed sessions, tenant/shop discovery and grants, and AUTH-01–08 scenarios; provider choice and draft acceptance remain open. No identity runtime created. |
 | 13 | 2026-09-11T17:55:27Z | CONTRACT-001 | draft → draft | On owner continuation, coordinator proposed concrete provider/client and fixture/test profile. No provider accepted or started; schema-freeze criteria recorded. |
+| 14 | 2026-09-11T18:03:37Z | CONTRACT-001 | draft → draft | Added draft wire schemas/13-operation manifest and verified 74 offline payload cases. Contracts remain unaccepted for dispatch; no runtime or independent review. |
 
-Next event sequence: 14. State events and received messages share one coordinator-assigned sequence. Git history preserves prior board revisions; event entries preserve the rationale for individual transitions.
+Next event sequence: 15. State events and received messages share one coordinator-assigned sequence. Git history preserves prior board revisions; event entries preserve the rationale for individual transitions.
