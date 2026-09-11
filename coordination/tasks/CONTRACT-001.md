@@ -1,10 +1,10 @@
 # CONTRACT-001 — Specify the paired contracts
 
-Packet revision: 1. Current status and assignment authority: [BOARD.md](../BOARD.md).
+Packet revision: 2. Current status and assignment authority: [BOARD.md](../BOARD.md).
 
 ## Outcome
 
-Produce reviewable specifications for one product behavior contract and the assignment/result contract that governs its delivery. Use the accepted outputs of SETTING-001 and BUDGET-001; do not infer their missing decisions.
+Produce reviewable specifications for one product behavior contract and the assignment/result contract that governs its delivery. SETTING-001 determines the setting. Draft behavior can be discussed before BUDGET-001 is resolved; budgets gate worker dispatch, paid execution, and final experiment scheduling, not current-session drafting. Do not infer their missing decisions.
 
 Required context: [contract criteria](../../05-contracts-and-adaptability.md), [shared-state protocol](../../08-shared-task-state-and-communication.md), and the two accepted decision artifacts.
 
@@ -18,3 +18,5 @@ Required context: [contract criteria](../../05-contracts-and-adaptability.md), [
 - CON-06: assign shared-contract ownership and obtain review of the specifications before dependent implementation.
 
 This task produces specifications and a verification plan, not a passing implementation. The coordinator must assign paths, baseline, budget, and current dependencies before dispatch. Handoff includes contract artifacts, scenario mapping, review evidence, and the remaining implementation prerequisites.
+
+Coordinator draft artifacts: [contract index](../../contracts/README.md), [publication](../../contracts/commerce-publication.md), [work submission](../../contracts/work-submission.md), and [scenario/obligation mapping](../../contracts/acceptance-scenarios.md). These are proposals; schema details, operating budgets, and independent review remain open. No worker has been dispatched.

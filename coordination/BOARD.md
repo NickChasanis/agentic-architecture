@@ -1,11 +1,11 @@
 # Canonical discussion task board
 
-- Board revision: 2
+- Board revision: 3
 - Created at: 2026-09-11T13:58:26Z
-- Updated at: 2026-09-11T14:05:10Z
+- Updated at: 2026-09-11T14:11:23Z
 - Authority: current human-facing lead session, subject to the location/transfer rules in [the runbook](README.md).
 - Scope: architecture discussion; no running workers or implementation experiment.
-- Source baseline inspected: `d52536707abc583230a4fdcc26b8b34b7ab32724`
+- Source baseline inspected: `3a5b61e88b4645c2305abbd6f43fbe07ec590ddb`
 - Revalidation policy: every claim/resume, new session/day, or material dependency change. No autonomous claims or leases.
 - Live heartbeat/progress: not applicable; no active assignment.
 
@@ -17,11 +17,11 @@ The timestamp describes this board revision, not permission to execute its tasks
 |---|---|---|---|---|---|---|---|
 | [SETTING-001](tasks/SETTING-001.md) — choose the experiment setting | 2 | 2 | verified | none (human-resolved decision) | 0 | Owner choice received | Commerce publication selected; [decision and review](decisions/SETTING-001-commerce-publication.md). |
 | [BUDGET-001](tasks/BUDGET-001.md) — set troubleshooting and review budgets | 1 | 1 | draft | none | 0 | Human cost/latency preferences; setting informs numeric limits | Agree budget units, checkpoint triggers, escalation authority, and review scope. |
-| [CONTRACT-001](tasks/CONTRACT-001.md) — draft paired executable-contract specifications | 1 | 2 | blocked | none | 0 | SETTING-001 satisfied by decision artifact v1; BUDGET-001 pending | Commerce setting settled; budget dependency remains unresolved. |
+| [CONTRACT-001](tasks/CONTRACT-001.md) — draft paired executable-contract specifications | 2 | 3 | draft | none (coordinator-authored proposal) | 0 | Setting satisfied; budgets gate execution, independent review pending | [Drafts and scenarios](../contracts/README.md) available for discussion; no implementation grant. |
 
 ## Unassigned-task metadata
 
-These values apply to the still-unassigned BUDGET-001 and CONTRACT-001 records, except CONTRACT-001 updated_at is now 2026-09-11T14:05:10Z for its dependency refresh. Replace with per-task details when a task changes.
+These values apply to the still-unassigned BUDGET-001 and CONTRACT-001 records, except CONTRACT-001 updated_at and last_progress_at are now 2026-09-11T14:11:23Z, artifact_refs point to the contract drafts linked above, and evidence_refs point to their draft coverage table. No execution or independent-review evidence exists. Replace with per-task details when a task changes.
 
 ```text
 created_at: 2026-09-11T13:58:26Z
@@ -67,5 +67,6 @@ No messages have been submitted or received. Use these columns for future receip
 | 3 | 2026-09-11T13:58:26Z | CONTRACT-001 | absent → blocked | Paired contract work depends on accepted setting and budgets. |
 | 4 | 2026-09-11T14:05:10Z | SETTING-001 | draft → verified | Human directly resolved the setting; coordinator captured decision v1 and reviewed SET-01–04. This is decision closure, not a worker implementation transition. |
 | 5 | 2026-09-11T14:05:10Z | CONTRACT-001 | blocked → blocked | SETTING-001 prerequisite now satisfied; BUDGET-001 still pending. |
+| 6 | 2026-09-11T14:11:23Z | CONTRACT-001 | blocked → draft | Coordinator clarified that budget gates execution, not behavioral drafting; added proposed contracts and scenario mapping after owner requested continuation. No worker grant or accepted schema. |
 
-Next event sequence: 6. State events and received messages share one coordinator-assigned sequence. Git history preserves prior board revisions; event entries preserve the rationale for individual transitions.
+Next event sequence: 7. State events and received messages share one coordinator-assigned sequence. Git history preserves prior board revisions; event entries preserve the rationale for individual transitions.
