@@ -50,6 +50,8 @@ Work through these stages in order initially. Return to an earlier decision when
 
 ## Suggested first discussion
 
+Discussion update: the [authority and model-allocation policy](07-authority-model-policy-and-assumptions.md) is accepted as the starting approach: flagship architecture/planning, lower-cost bounded implementation/testing, and evidence-based compatibility decisions. Before selecting the experiment below, resolve the proposed readiness gate, budgets, and review checkpoints in document 7. Expected cost and speed improvements remain hypotheses.
+
 Start with: **What first feature and subsequent extension should both tracks prove they can support?**
 
 Candidate: implement publish-and-view, then add a second catalog consumer without changing the publication provider's internals. Alongside it, specify and prototype assignment, contract-baseline validation, artifact submission, and evidence-based completion. Then replace the worker adapter while preserving that protocol.

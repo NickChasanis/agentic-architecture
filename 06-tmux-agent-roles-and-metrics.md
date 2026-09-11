@@ -72,6 +72,8 @@ A shared OS account can often access other workspaces despite task instructions.
 
 A role is a responsibility contract, not a permanent agent, model choice, or department. Give the generic implementer domain context first; create a specialized profile when different tools, authority, or verification obligations justify it.
 
+The subsequently accepted [authority and model-allocation policy](07-authority-model-policy-and-assumptions.md) defines decision rights and initial model tiers. In particular, the coordinator may approve demonstrably backward-compatible extensions; breaking changes and changes to accepted requirements go to the human owner.
+
 | Generic role | Scope and authority | Required deliverable | Measures tied to its purpose |
 |---|---|---|---|
 | Coordinator / integrator | Own assignment state, prerequisites, write allocations, and integration. Make delegated decisions; escalate product intent to the human owner. | Ready task packets, dependency/contract map, integrated revision, evidence-backed status. | Readiness defects, blocked and review-queue time, integration rework, task-to-evidence completeness. |

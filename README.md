@@ -27,6 +27,7 @@ Start with the [roadmap](04-roadmap-of-thought.md) for the next decisions and [c
 4. [Roadmap of thought and implementation experiments](04-roadmap-of-thought.md)
 5. [Contracts, compatibility, and extensibility](05-contracts-and-adaptability.md)
 6. [tmux, agent roles, and implementation metrics](06-tmux-agent-roles-and-metrics.md)
+7. [Authority, model allocation, and assumptions](07-authority-model-policy-and-assumptions.md)
 
 **Session tool of choice:** tmux for multiple terminal sessions and agent processes. Use explicit workspace isolation and task/result contracts alongside it. The [operating model](06-tmux-agent-roles-and-metrics.md) defines generic roles, justified specializations, and evidence-based implementation metrics for both tracks.
 
