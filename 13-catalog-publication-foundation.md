@@ -1,4 +1,4 @@
-# 13. Next six catalog/publication implementation steps
+# 13. Catalog Publication Foundation
 
 This roadmap follows the completed identity, tenancy and shop foundation. It keeps product delivery and coordination/adaptability as separate tracks, with contract-shaped exit gates.
 

@@ -9,4 +9,4 @@ Use this direction when planning the real login foundation under the accepted An
 
 This decision does not accept exact versions, secrets, hostnames, provider configuration, all session/authorization policies, numeric budgets, or final contract freeze. It does not authorize paid APIs, public exposure, worker dispatch, or destructive environment reset. No provider has been provisioned by recording this decision.
 
-Coordinator verification: the decision matches the explicit question and affirmative owner response. This is human decision evidence, not independent contract review or runtime proof. The [five-step roadmap](../../12-next-five-implementation-steps.md) is the continuation entry point.
+Coordinator verification: the decision matches the explicit question and affirmative owner response. This is human decision evidence, not independent contract review or runtime proof. The [Identity, Tenancy and Shop Foundation](../../12-identity-tenant-shop-foundation.md) is the continuation entry point.

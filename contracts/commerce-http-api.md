@@ -117,4 +117,4 @@ HTTP-01/02/05/06/07 support PUB-01. HTTP-03/04 support reload and draft editing;
 
 Add provider checks for update/publish races, last-commit draft updates, strict request validation, error-envelope privacy, and location/reload consistency. These supplement the existing scenario list, not substitute for its real browser flow.
 
-Current checkpoint: the Fastify laboratory checks remain the offline adapter gate, while the connected pilot now verifies the identity, database, catalog and browser paths. See [pilot README](../pilot/README.md) and [catalog roadmap](../13-next-six-catalog-steps.md). This is still local disposable evidence; independent contract acceptance, a second consumer and production deployment remain open.
+Current checkpoint: the Fastify laboratory checks remain the offline adapter gate, while the connected pilot now verifies the identity, database, catalog and browser paths. See [pilot README](../pilot/README.md) and [Catalog Publication Foundation](../13-catalog-publication-foundation.md). This is still local disposable evidence; independent contract acceptance, a second consumer and production deployment remain open.

@@ -4,7 +4,7 @@ Recorded 2026-09-11T16:23:47Z. Status: proposed foundation contract, not an acce
 
 ## Recommended login boundary
 
-Decision update, 2026-09-12: [IDENTITY-001](../coordination/decisions/IDENTITY-001-commerce-pilot.md) accepts local Keycloak with backend `openid-client`. This contract's remaining policies and final version are still draft; implementation follows the [five-step roadmap](../12-next-five-implementation-steps.md).
+Decision update, 2026-09-12: [IDENTITY-001](../coordination/decisions/IDENTITY-001-commerce-pilot.md) accepts local Keycloak with backend `openid-client`. This contract's remaining policies and final version are still draft; implementation follows the [Identity, Tenancy and Shop Foundation](../12-identity-tenant-shop-foundation.md).
 
 Use OpenID Connect authorization code flow with PKCE through the backend and an established OIDC client library. The browser receives an opaque application-session cookie; provider tokens stay server-side and are not placed in browser storage. Use a controlled provider with synthetic users for the pilot, so login can be tested without creating real customer accounts. The provider product, client-library version, and configuration are still to select.
 

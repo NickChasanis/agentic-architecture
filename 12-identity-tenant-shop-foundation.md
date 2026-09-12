@@ -1,4 +1,4 @@
-# 12. Next five implementation steps
+# 12. Identity, Tenancy and Shop Foundation
 
 [Overview](README.md) · [Canonical board](coordination/BOARD.md) · [Identity decision](coordination/decisions/IDENTITY-001-commerce-pilot.md)
 

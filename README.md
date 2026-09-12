@@ -14,7 +14,7 @@ This repository explores two connected concerns: using agents to deliver modular
 
 **Executable pilot artifacts:** [schemas, operation mappings, contract harness, connected runtime and coordination checks](pilot/README.md). The application and identity provider are disposable/local; no production service is claimed.
 
-**Current implementation roadmaps:** [next five foundation steps](12-next-five-implementation-steps.md) and the [six-step catalog/publication roadmap](13-next-six-catalog-steps.md). [Keycloak plus backend `openid-client`](coordination/decisions/IDENTITY-001-commerce-pilot.md) is the accepted identity direction.
+**Current implementation roadmaps:** [Identity, Tenancy and Shop Foundation](12-identity-tenant-shop-foundation.md) and [Catalog Publication Foundation](13-catalog-publication-foundation.md). [Keycloak plus backend `openid-client`](coordination/decisions/IDENTITY-001-commerce-pilot.md) is the accepted identity direction.
 
 ## Two tracks, shared contracts
 
@@ -40,8 +40,8 @@ Start with the [roadmap](04-roadmap-of-thought.md) for the next decisions and [c
 9. [Module dependencies and contract ownership](09-module-dependencies-and-ownership.md)
 10. [Stack and workspace proposal](10-stack-and-workspace-proposal.md)
 11. [Identity provider and test profile](11-identity-provider-and-test-profile.md)
-12. [Next five implementation steps](12-next-five-implementation-steps.md)
-13. [Next six catalog/publication steps](13-next-six-catalog-steps.md)
+12. [Identity, Tenancy and Shop Foundation](12-identity-tenant-shop-foundation.md)
+13. [Catalog Publication Foundation](13-catalog-publication-foundation.md)
 14. [Pilot evaluation and decision](14-pilot-evaluation.md)
 15. [Controlled agent comparison](15-controlled-comparison.md)
 
