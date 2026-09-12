@@ -12,7 +12,7 @@ This repository explores two connected concerns: using agents to deliver modular
 
 **Current discussion artifacts:** [publication and work-submission contract drafts](contracts/README.md), with product and coordination acceptance scenarios. Proposed behavior is separated from accepted decisions and executed evidence.
 
-**Executable contract artifacts:** [draft schemas, operation mappings, offline checks, and Fastify conformance harness](pilot/contracts/README.md). The test-only harness exercises validation/serialization with synthetic handlers; no commerce application or identity provider is running.
+**Executable pilot artifacts:** [schemas, operation mappings, contract harness, connected runtime and coordination checks](pilot/README.md). The application and identity provider are disposable/local; no production service is claimed.
 
 **Current implementation roadmaps:** [next five foundation steps](12-next-five-implementation-steps.md) and the [six-step catalog/publication roadmap](13-next-six-catalog-steps.md). [Keycloak plus backend `openid-client`](coordination/decisions/IDENTITY-001-commerce-pilot.md) is the accepted identity direction.
 
@@ -42,6 +42,7 @@ Start with the [roadmap](04-roadmap-of-thought.md) for the next decisions and [c
 11. [Identity provider and test profile](11-identity-provider-and-test-profile.md)
 12. [Next five implementation steps](12-next-five-implementation-steps.md)
 13. [Next six catalog/publication steps](13-next-six-catalog-steps.md)
+14. [Pilot evaluation and decision](14-pilot-evaluation.md)
 
 **Session tool of choice:** tmux for multiple terminal sessions and agent processes. Use explicit workspace isolation and task/result contracts alongside it. The [operating model](06-tmux-agent-roles-and-metrics.md) defines generic roles, justified specializations, and evidence-based implementation metrics for both tracks.
 
