@@ -2,11 +2,41 @@
   "name": "agentic-architecture-contract-harness",
   "private": true,
   "type": "module",
-  "engines": { "node": ">=22" },
-  "scripts": { "test:contracts": "node --test contracts/fastify/*.test.mjs" },
+  "engines": {
+    "node": ">=22"
+  },
+  "scripts": {
+    "test:contracts": "node --test contracts/fastify/*.test.mjs",
+    "test:coordination": "node --test contracts/coordination/work.test.mjs",
+    "test:integration": "NODE_EXTRA_CA_CERTS=.local/tls.crt node --import tsx --test --test-concurrency=1 tests/integration/*.test.ts",
+    "check:boundaries": "node infra/boundaries.mjs",
+    "check:provider": "NODE_EXTRA_CA_CERTS=.local/tls.crt node infra/verify.mjs",
+    "build:merchant": "ng build merchant",
+    "test:e2e": "NODE_EXTRA_CA_CERTS=.local/tls.crt playwright test"
+  },
   "devDependencies": {
-    "fastify": "5.12.4",
+    "@angular/build": "21.2.24",
+    "@angular/cli": "21.2.24",
+    "@playwright/test": "1.63.0",
+    "@types/node": "22.20.2",
+    "@types/pg": "8.23.1",
     "ajv": "8.20.0",
-    "ajv-formats": "3.0.1"
+    "ajv-formats": "3.0.1",
+    "fastify": "5.12.4",
+    "tsx": "4.23.13",
+    "typescript": "5.9.3"
+  },
+  "dependencies": {
+    "@angular/common": "21.2.23",
+    "@angular/compiler": "21.2.23",
+    "@angular/compiler-cli": "21.2.23",
+    "@angular/core": "21.2.23",
+    "@angular/forms": "21.2.23",
+    "@angular/platform-browser": "21.2.23",
+    "@fastify/cookie": "11.1.2",
+    "@fastify/static": "10.1.3",
+    "openid-client": "6.8.8",
+    "pg": "8.23.0",
+    "rxjs": "7.8.2"
   }
 }
