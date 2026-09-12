@@ -1,11 +1,11 @@
 # Canonical discussion task board
 
-- Board revision: 11
+- Board revision: 12
 - Created at: 2026-09-11T13:58:26Z
-- Updated at: 2026-09-12T18:56:45Z
+- Updated at: 2026-09-12T19:01:54Z
 - Authority: current human-facing lead session, subject to the location/transfer rules in [the runbook](README.md).
 - Scope: architecture discussion and local contract laboratory; no running workers or multi-agent implementation experiment.
-- Source baseline inspected: `a3dcc99e4ac42e84986706f9e25ab76cb391b987`
+- Source baseline inspected: `a4dc0d2010d5dfd4fa9a20114596b4ee9efcea2c`
 - Revalidation policy: every claim/resume, new session/day, or material dependency change. No autonomous claims or leases.
 - Live heartbeat/progress: not applicable; no active assignment.
 
@@ -17,7 +17,7 @@ The timestamp describes this board revision, not permission to execute its tasks
 |---|---|---|---|---|---|---|---|
 | [SETTING-001](tasks/SETTING-001.md) — choose the experiment setting | 2 | 2 | verified | none (human-resolved decision) | 0 | Owner choice received | Commerce publication selected; [decision and review](decisions/SETTING-001-commerce-publication.md). |
 | [BUDGET-001](tasks/BUDGET-001.md) — set troubleshooting and review budgets | 1 | 1 | draft | none | 0 | Human cost/latency preferences; setting informs numeric limits | Agree budget units, checkpoint triggers, escalation authority, and review scope. |
-| [CONTRACT-001](tasks/CONTRACT-001.md) — draft paired executable-contract specifications | 9 | 11 | draft | none (coordinator-authored proposal) | 0 | Setting/stack accepted; budgets gate worker execution, independent review pending | [Evidence](../pilot/contracts/fastify/README.md): 74 offline cases and 28 Fastify tests pass; draft acceptance, independent review, and real identity/tenancy foundation next. |
+| [CONTRACT-001](tasks/CONTRACT-001.md) — draft paired executable-contract specifications | 10 | 12 | draft | none (coordinator-authored proposal) | 0 | Setting/stack accepted; budgets gate worker execution, independent review pending | [Readiness self-review](../contracts/reviews/2026-09-12-foundation-readiness.md): confirm identity direction, settle policy details, obtain independent review; coordination checks remain a separate track. |
 | [REFACTOR-001](tasks/REFACTOR-001.md) — multi-agent refactoring and project changes | 1 | 1 | blocked | none | 0 | Owner explicitly resumes this later topic | Deferred by owner; do not dispatch or begin discussion now. |
 
 ## Unassigned-task metadata
@@ -81,4 +81,8 @@ No messages have been submitted or received. Use these columns for future receip
 
 CONTRACT-001 metadata update for event 15: updated_at, last_validated_at, and last_progress_at are 2026-09-12T18:56:45Z; artifact_refs/evidence_refs now include the [Fastify harness and proof boundaries](../pilot/contracts/fastify/README.md), superseding the earlier no-runtime-evidence statement only for local adapter checks. No real application integration or independent-review evidence exists. Owner/generation/budget fields are unchanged. Revalidate again before any claim/resume.
 
-Next event sequence: 16. State events and received messages share one coordinator-assigned sequence. Git history preserves prior board revisions; event entries preserve the rationale for individual transitions.
+## Readiness checkpoint
+
+Event 16, 2026-09-12T19:01:54Z, CONTRACT-001 draft → draft: coordinator self-reviewed baseline a4dc0d2, recorded READY-01–05 and corrected stale status text. Re-ran existing checks; no independent review, acceptance, or worker grant occurred. Updated_at, last_validated_at and last_progress_at for this task now equal this timestamp; evidence_refs include the [self-review](../contracts/reviews/2026-09-12-foundation-readiness.md). Assignment and budget fields remain unchanged. Earlier metadata is historical and superseded by this checkpoint.
+
+Next event sequence: 17. State events and received messages share one coordinator-assigned sequence. Git history preserves prior board revisions; event entries preserve the rationale for individual transitions.

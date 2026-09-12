@@ -63,4 +63,4 @@ Before implementation workers consume a stable contract version, review together
 
 Canonical schema authoring can proceed as draft work; unresolved points prevent promoting the schemas to an accepted worker baseline. Avoid making every worker wait for an entire platform: freeze only the foundation and publication surfaces used by this experiment.
 
-Sources checked 2026-09-11. Provider selection is still a proposal. Next implementation-facing work is draft machine-readable schemas/operation manifests and a foundation task packet after the identity direction is settled; no production login-readiness claim follows from this profile.
+Sources checked 2026-09-11. Provider selection is still a proposal. Draft schemas and a synthetic Fastify harness now exist. Next: resolve the [foundation-readiness findings](contracts/reviews/2026-09-12-foundation-readiness.md), settle the identity direction, and prepare the foundation task packet; no production login-readiness claim follows from this profile.

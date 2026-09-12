@@ -7,6 +7,7 @@ Status: proposed contracts for discussion, originally created 2026-09-11T14:11:2
 - [Identity and access](identity-and-access.md): proposed OIDC/session boundary, tenant discovery, shop permissions, and authentication scenarios.
 - [Assignment and work submission](work-submission.md): current-task identity, ownership, messages, and result acceptance.
 - [Acceptance scenarios](acceptance-scenarios.md): checks to implement and evidence to collect.
+- [Foundation readiness self-review](reviews/2026-09-12-foundation-readiness.md): unresolved decisions and the dependency order for both tracks; not independent acceptance.
 
 The coordinator acts as the proposed steward for both contracts. Affected consumer requirements and independent review must inform acceptance. Implementation agents cannot change these contracts unilaterally. Exact schema files and runnable commands follow stack/environment selection; those are not prerequisites for reviewing the behavior here.
 
@@ -15,7 +16,7 @@ The accepted modular-backend direction is developed in the [dependency and contr
 ## Concrete defaults and decision status
 
 1. Publication changes a draft to published atomically; repeating it returns the same published product without duplicate effects.
-2. **Accepted:** only drafts can be edited; published products remain immutable in this pilot. See [PUBLICATION-001](../coordination/decisions/PUBLICATION-001-immutable-pilot.md). Unpublishing, deletion, pagination, and competing edits remain outside the proposed first slice.
+2. **Accepted:** only drafts can be edited; published products remain immutable in this pilot. See [PUBLICATION-001](../coordination/decisions/PUBLICATION-001-immutable-pilot.md). Unpublishing, deletion and pagination remain outside the proposed first slice. The HTTP draft proposes last-committed replacement for competing draft edits; that policy still needs review/acceptance.
 3. A successful publish response means a subsequent public read started after that response sees the published version. Reads overlapping publication may observe the previous state.
 4. A second consumer is a small read-only catalog listing using the public API. Its internal implementation and UI may differ from the first storefront.
 5. Current assignment identity and contract versions control work acceptance. Dates identify activity but do not confer ownership.

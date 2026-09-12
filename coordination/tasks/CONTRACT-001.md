@@ -1,6 +1,6 @@
 # CONTRACT-001 — Specify the paired contracts
 
-Packet revision: 9. Current status and assignment authority: [BOARD.md](../BOARD.md).
+Packet revision: 10. Current status and assignment authority: [BOARD.md](../BOARD.md).
 
 ## Outcome
 
@@ -34,3 +34,5 @@ Provider development: [identity provider/test profile](../../11-identity-provide
 Schema development: [machine-readable artifacts and evidence](../../pilot/contracts/README.md) provide 27 draft definitions, 13 HTTP operations, and 74 passing offline payload cases. The coordinator authored and checked these; no independent review or runtime verification occurred. Draft acceptance, actual adapter conformance, budgets, and dispatch remain open.
 
 Adapter checkpoint, 2026-09-12: [Fastify conformance evidence](../../pilot/contracts/fastify/README.md) adds 28 passing tests, including synthetic success responses across all 13 mappings, strict validation/projection, error handling, and injected session/CSRF gate ordering. This supersedes the earlier pending-adapter note only. No real identity, domain, database, browser, or worker runtime has been verified. Draft acceptance and independent review remain open; generation stays zero.
+
+Readiness checkpoint, 2026-09-12: [coordinator self-review](../../contracts/reviews/2026-09-12-foundation-readiness.md) records READY-01–05, corrected documentation drift, and a dependency-ordered readiness sequence for both tracks. It is not independent review or an implementation assignment. Next owner decision is identity direction; policy details, budgets and final acceptance remain separate gates.

@@ -93,6 +93,6 @@ Additional required scenarios: invalid issuer/audience/signature, replayed/misma
 
 The [provider/test profile](../11-identity-provider-and-test-profile.md) proposes local Keycloak plus the backend `openid-client` library, with explicit fixture/reset and evidence requirements. It does not select or provision a real environment automatically.
 
-Review this authentication approach and role matrix, select the controlled provider and compatible library versions, then produce canonical schemas/operation manifests for both this contract and the commerce API. Precise login transaction bounds, rate limits, provider settings, and fixture setup must be recorded before dispatch. No login system, credential, provider registration, paid service, or runtime test has been created by this document.
+Draft schemas/operation manifests and synthetic Fastify adapter checks now exist; they do not implement this authentication approach. Review the approach and role matrix, select the controlled provider and compatible library versions, and resolve the [foundation-readiness findings](reviews/2026-09-12-foundation-readiness.md). Precise login transaction bounds, rate limits, provider settings, and fixture setup must be recorded before dispatch. No real login system, credential, provider registration, or paid service has been created by this document.
 
 Sources consulted 2026-09-11. The referenced standards/guidance support protocol and session safeguards; the chosen endpoints, roles, deadlines, and pilot exclusions are our proposed design.
