@@ -1,6 +1,6 @@
 # CONTRACT-001 — Specify the paired contracts
 
-Packet revision: 8. Current status and assignment authority: [BOARD.md](../BOARD.md).
+Packet revision: 9. Current status and assignment authority: [BOARD.md](../BOARD.md).
 
 ## Outcome
 
@@ -32,3 +32,5 @@ Identity development: [IDENTITY-ACCESS](../../contracts/identity-and-access.md) 
 Provider development: [identity provider/test profile](../../11-identity-provider-and-test-profile.md) proposes Keycloak and `openid-client`, plus schema-freeze and isolated fixture requirements. Provider versions/configuration, acceptance, and runtime proof remain pending.
 
 Schema development: [machine-readable artifacts and evidence](../../pilot/contracts/README.md) provide 27 draft definitions, 13 HTTP operations, and 74 passing offline payload cases. The coordinator authored and checked these; no independent review or runtime verification occurred. Draft acceptance, actual adapter conformance, budgets, and dispatch remain open.
+
+Adapter checkpoint, 2026-09-12: [Fastify conformance evidence](../../pilot/contracts/fastify/README.md) adds 28 passing tests, including synthetic success responses across all 13 mappings, strict validation/projection, error handling, and injected session/CSRF gate ordering. This supersedes the earlier pending-adapter note only. No real identity, domain, database, browser, or worker runtime has been verified. Draft acceptance and independent review remain open; generation stays zero.

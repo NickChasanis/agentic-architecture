@@ -1,11 +1,11 @@
 # Canonical discussion task board
 
-- Board revision: 10
+- Board revision: 11
 - Created at: 2026-09-11T13:58:26Z
-- Updated at: 2026-09-11T18:03:37Z
+- Updated at: 2026-09-12T18:56:45Z
 - Authority: current human-facing lead session, subject to the location/transfer rules in [the runbook](README.md).
-- Scope: architecture discussion; no running workers or implementation experiment.
-- Source baseline inspected: `1699df0a171045c13123aa4b5d81cff3e06c3efa`
+- Scope: architecture discussion and local contract laboratory; no running workers or multi-agent implementation experiment.
+- Source baseline inspected: `a3dcc99e4ac42e84986706f9e25ab76cb391b987`
 - Revalidation policy: every claim/resume, new session/day, or material dependency change. No autonomous claims or leases.
 - Live heartbeat/progress: not applicable; no active assignment.
 
@@ -17,7 +17,7 @@ The timestamp describes this board revision, not permission to execute its tasks
 |---|---|---|---|---|---|---|---|
 | [SETTING-001](tasks/SETTING-001.md) — choose the experiment setting | 2 | 2 | verified | none (human-resolved decision) | 0 | Owner choice received | Commerce publication selected; [decision and review](decisions/SETTING-001-commerce-publication.md). |
 | [BUDGET-001](tasks/BUDGET-001.md) — set troubleshooting and review budgets | 1 | 1 | draft | none | 0 | Human cost/latency preferences; setting informs numeric limits | Agree budget units, checkpoint triggers, escalation authority, and review scope. |
-| [CONTRACT-001](tasks/CONTRACT-001.md) — draft paired executable-contract specifications | 8 | 10 | draft | none (coordinator-authored proposal) | 0 | Setting/stack accepted; budgets gate execution, independent review pending | [Schemas/manifest](../pilot/contracts/README.md) pass 74 offline payload cases; draft acceptance and actual adapter checks next. |
+| [CONTRACT-001](tasks/CONTRACT-001.md) — draft paired executable-contract specifications | 9 | 11 | draft | none (coordinator-authored proposal) | 0 | Setting/stack accepted; budgets gate worker execution, independent review pending | [Evidence](../pilot/contracts/fastify/README.md): 74 offline cases and 28 Fastify tests pass; draft acceptance, independent review, and real identity/tenancy foundation next. |
 | [REFACTOR-001](tasks/REFACTOR-001.md) — multi-agent refactoring and project changes | 1 | 1 | blocked | none | 0 | Owner explicitly resumes this later topic | Deferred by owner; do not dispatch or begin discussion now. |
 
 ## Unassigned-task metadata
@@ -77,5 +77,8 @@ No messages have been submitted or received. Use these columns for future receip
 | 12 | 2026-09-11T16:23:47Z | CONTRACT-001 | draft → draft | Coordinator proposed OIDC-backed sessions, tenant/shop discovery and grants, and AUTH-01–08 scenarios; provider choice and draft acceptance remain open. No identity runtime created. |
 | 13 | 2026-09-11T17:55:27Z | CONTRACT-001 | draft → draft | On owner continuation, coordinator proposed concrete provider/client and fixture/test profile. No provider accepted or started; schema-freeze criteria recorded. |
 | 14 | 2026-09-11T18:03:37Z | CONTRACT-001 | draft → draft | Added draft wire schemas/13-operation manifest and verified 74 offline payload cases. Contracts remain unaccepted for dispatch; no runtime or independent review. |
+| 15 | 2026-09-12T18:56:45Z | CONTRACT-001 | draft → draft | Revalidated current checkout/baseline on owner continuation after date change. Coordinator added a local Fastify laboratory: 28 tests with synthetic handlers/gates, not real identity/domain integration. No worker grant, paid run, independent review, or contract acceptance. |
 
-Next event sequence: 15. State events and received messages share one coordinator-assigned sequence. Git history preserves prior board revisions; event entries preserve the rationale for individual transitions.
+CONTRACT-001 metadata update for event 15: updated_at, last_validated_at, and last_progress_at are 2026-09-12T18:56:45Z; artifact_refs/evidence_refs now include the [Fastify harness and proof boundaries](../pilot/contracts/fastify/README.md), superseding the earlier no-runtime-evidence statement only for local adapter checks. No real application integration or independent-review evidence exists. Owner/generation/budget fields are unchanged. Revalidate again before any claim/resume.
+
+Next event sequence: 16. State events and received messages share one coordinator-assigned sequence. Git history preserves prior board revisions; event entries preserve the rationale for individual transitions.

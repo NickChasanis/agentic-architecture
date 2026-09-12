@@ -12,7 +12,7 @@ This repository explores two connected concerns: using agents to deliver modular
 
 **Current discussion artifacts:** [publication and work-submission contract drafts](contracts/README.md), with product and coordination acceptance scenarios. Proposed behavior is separated from accepted decisions and executed evidence.
 
-**Executable contract artifacts:** [draft schemas, operation mappings, and offline checks](pilot/contracts/README.md). These validate payloads and manifest consistency; no application or identity provider is running.
+**Executable contract artifacts:** [draft schemas, operation mappings, offline checks, and Fastify conformance harness](pilot/contracts/README.md). The test-only harness exercises validation/serialization with synthetic handlers; no commerce application or identity provider is running.
 
 ## Two tracks, shared contracts
 
@@ -45,7 +45,7 @@ These are portable guidance and illustrative templates. The repository paths sho
 
 ## The example and assumptions
 
-The owner has selected this commerce publication example as the experiment setting. The [accepted scope](coordination/decisions/SETTING-001-commerce-publication.md) covers publish-and-view followed by a second catalog consumer; budgets, stack, and implementation assignments remain open.
+The owner has selected this commerce publication example as the experiment setting. The [accepted scope](coordination/decisions/SETTING-001-commerce-publication.md) covers publish-and-view followed by a second catalog consumer. The [stack family/layout](coordination/decisions/STACK-001-commerce-pilot.md) is accepted; budgets and implementation assignments remain open.
 
 We are discussing agents **building** a corporate software product. The example is a Shopify-like platform:
 

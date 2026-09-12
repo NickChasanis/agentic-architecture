@@ -1,17 +1,18 @@
 # Machine-readable pilot contracts
 
-Status: `0.1-draft`, created 2026-09-11. These artifacts encode the current proposals; they are not an accepted worker baseline or implemented HTTP API. The pilot currently contains contracts and offline checks only.
+Status: `0.1-draft`, created 2026-09-11. These artifacts encode the current proposals; they are not an accepted worker baseline or implemented commerce API. The pilot contains contracts, offline checks, and a test-only Fastify conformance harness.
 
 - [Wire schema bundle](schemas/wire.schema.json): 27 named JSON Schema draft-07 definitions for inputs, outputs, parameters, errors, and callback query shape.
 - [HTTP operation manifest](operations/http.json): 13 commerce/identity mappings with method/path, named schemas, authentication/CSRF requirements, error codes/statuses, and acceptance IDs.
 - [Offline checks](check_contracts.py): validates schema syntax, manifest links/invariants, and 74 positive/negative payload cases.
+- [Fastify conformance harness](fastify/README.md): 28 tests with real in-process request validation and serialization, using synthetic handlers and identity gates.
 - [Behavioral context](../../contracts/README.md): authorization, lifecycle, concurrency, privacy, and integration obligations that shape validation alone cannot establish.
 
 ## How to use the schemas
 
 The bundle root is a definition catalog, not a payload schema. Select `#/definitions/<Name>` for validation, retaining the bundle definitions for local reference resolution. Manifest schema names resolve to those definitions; null body schemas mean no HTTP body, not a JSON `null` payload. No external schema resolution or network access is needed by the offline checker.
 
-Use draft-07 consistently in the first implementation. Check the selected Fastify validator and serializer support against these exact artifacts before binding routes. The current check uses Python's installed `jsonschema` package and does not prove Fastify/Ajv compatibility. JSON Schema's validation keywords define structural constraints; format enforcement must be enabled and verified separately. Sources: [draft-07 validation](https://json-schema.org/draft-07/draft-handrews-json-schema-validation-01), [jsonschema validation documentation](https://python-jsonschema.readthedocs.io/en/stable/validate/).
+Use draft-07 consistently in the first implementation. The Python check uses the installed `jsonschema` package and alone does not prove Fastify/Ajv compatibility; the separate harness now exercises the selected JavaScript dependency set. JSON Schema's validation keywords define structural constraints; format enforcement must be enabled and verified separately. Sources: [draft-07 validation](https://json-schema.org/draft-07/draft-handrews-json-schema-validation-01), [jsonschema validation documentation](https://python-jsonschema.readthedocs.io/en/stable/validate/).
 
 Request schemas reject unknown fields, including nested objects, and do not authorize type coercion or removal of additional fields. The adapter must trim string-valued `name`/`title` before schema validation, preserve description, and reject invalid original types. Schema checks do not perform that normalization. Canonical slug/UUID patterns reject trailing newlines. UTC output timestamps use full `T...Z` notation with optional fractional seconds; calendar checking is required. Leap-second serialization is outside this pilot timestamp profile.
 
@@ -44,4 +45,4 @@ These results do not prove token validation, membership lookup, claim atomicity,
 
 ## Next implementation gate
 
-Review draft defaults/provider direction and obtain independent contract review. Then select a compatible dependency set and add a Fastify adapter conformance check against these fixtures before writing feature modules. That first adapter check must verify strict validation configuration, normalized inputs, response projection, error mapping, and the authentication/CSRF hook order. Execution budgets and actual worker assignments remain open.
+The first Fastify check now covers strict validation, normalization, response projection, error mapping, and synthetic authentication/CSRF hook order. Next, review draft defaults/provider direction and obtain independent contract review before feature modules. Real session/resource authorization, provider transactions, database publication behavior, and browser journeys remain separate gates. Execution budgets and actual worker assignments remain open.
