@@ -2,9 +2,9 @@
 
 [Overview](README.md) · [Identity/access contract](contracts/identity-and-access.md) · [Acceptance scenarios](contracts/acceptance-scenarios.md)
 
-Status: proposed, recorded 2026-09-11T17:55:27Z. This develops the OIDC proposal into a concrete pilot profile. No provider container, client registration, credential, certificate, or authentication runtime has been created.
+Status: provider/client direction accepted in [IDENTITY-001](coordination/decisions/IDENTITY-001-commerce-pilot.md), recorded 2026-09-12T19:05:31Z. Original profile recorded 2026-09-11T17:55:27Z. Exact configuration and policy details below remain proposed. No provider container, client registration, credential, certificate, or authentication runtime has been created.
 
-## Proposed choice
+## Accepted provider/client direction
 
 Use a local Keycloak instance as the controlled OIDC provider and `openid-client` in the Fastify backend as the protocol client. Angular uses the application's session/discovery endpoints; it does not implement provider token exchange. Keycloak documents a Docker-based setup with OIDC clients, and `openid-client` documents authorization code flow with PKCE. These establish available building blocks, not tested compatibility of this project. Sources: [Keycloak Docker guide](https://www.keycloak.org/getting-started/getting-started-docker), [openid-client](https://github.com/panva/openid-client).
 
@@ -63,4 +63,4 @@ Before implementation workers consume a stable contract version, review together
 
 Canonical schema authoring can proceed as draft work; unresolved points prevent promoting the schemas to an accepted worker baseline. Avoid making every worker wait for an entire platform: freeze only the foundation and publication surfaces used by this experiment.
 
-Sources checked 2026-09-11. Provider selection is still a proposal. Draft schemas and a synthetic Fastify harness now exist. Next: resolve the [foundation-readiness findings](contracts/reviews/2026-09-12-foundation-readiness.md), settle the identity direction, and prepare the foundation task packet; no production login-readiness claim follows from this profile.
+Sources checked 2026-09-11. Provider/client direction is now accepted; versions and detailed policies remain open. Draft schemas and a synthetic Fastify harness exist. Follow the [five-step roadmap](12-next-five-implementation-steps.md) to resolve remaining readiness findings and implement the foundation; no production login-readiness claim follows from this profile.

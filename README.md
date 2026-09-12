@@ -14,6 +14,8 @@ This repository explores two connected concerns: using agents to deliver modular
 
 **Executable contract artifacts:** [draft schemas, operation mappings, offline checks, and Fastify conformance harness](pilot/contracts/README.md). The test-only harness exercises validation/serialization with synthetic handlers; no commerce application or identity provider is running.
 
+**Current implementation roadmap:** [next five steps](12-next-five-implementation-steps.md), starting with foundation contract decisions, then coordination checks, isolated runtime setup, real login, and tenant/shop access. [Keycloak plus backend `openid-client`](coordination/decisions/IDENTITY-001-commerce-pilot.md) is now the accepted identity direction.
+
 ## Two tracks, shared contracts
 
 | Track | Focus | Evidence of progress |
@@ -38,6 +40,7 @@ Start with the [roadmap](04-roadmap-of-thought.md) for the next decisions and [c
 9. [Module dependencies and contract ownership](09-module-dependencies-and-ownership.md)
 10. [Stack and workspace proposal](10-stack-and-workspace-proposal.md)
 11. [Identity provider and test profile](11-identity-provider-and-test-profile.md)
+12. [Next five implementation steps](12-next-five-implementation-steps.md)
 
 **Session tool of choice:** tmux for multiple terminal sessions and agent processes. Use explicit workspace isolation and task/result contracts alongside it. The [operating model](06-tmux-agent-roles-and-metrics.md) defines generic roles, justified specializations, and evidence-based implementation metrics for both tracks.
 

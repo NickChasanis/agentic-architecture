@@ -1,6 +1,6 @@
 # CONTRACT-001 — Specify the paired contracts
 
-Packet revision: 10. Current status and assignment authority: [BOARD.md](../BOARD.md).
+Packet revision: 11. Current status and assignment authority: [BOARD.md](../BOARD.md).
 
 ## Outcome
 
@@ -36,3 +36,5 @@ Schema development: [machine-readable artifacts and evidence](../../pilot/contra
 Adapter checkpoint, 2026-09-12: [Fastify conformance evidence](../../pilot/contracts/fastify/README.md) adds 28 passing tests, including synthetic success responses across all 13 mappings, strict validation/projection, error handling, and injected session/CSRF gate ordering. This supersedes the earlier pending-adapter note only. No real identity, domain, database, browser, or worker runtime has been verified. Draft acceptance and independent review remain open; generation stays zero.
 
 Readiness checkpoint, 2026-09-12: [coordinator self-review](../../contracts/reviews/2026-09-12-foundation-readiness.md) records READY-01–05, corrected documentation drift, and a dependency-ordered readiness sequence for both tracks. It is not independent review or an implementation assignment. Next owner decision is identity direction; policy details, budgets and final acceptance remain separate gates.
+
+Roadmap checkpoint, 2026-09-12: owner explicitly accepted [Keycloak/backend `openid-client`](../decisions/IDENTITY-001-commerce-pilot.md). Follow [the next five implementation steps](../../12-next-five-implementation-steps.md), beginning with remaining foundation decisions/review; step 2 coordination checks can advance independently. No worker assignment or full contract acceptance is inferred.
