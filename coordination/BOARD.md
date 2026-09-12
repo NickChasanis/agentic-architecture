@@ -1,8 +1,8 @@
 # Canonical discussion task board
 
-- Board revision: 16
+- Board revision: 17
 - Created at: 2026-09-11T13:58:26Z
-- Updated at: 2026-09-12T20:30:00Z
+- Updated at: 2026-09-13T10:00:00Z
 - Authority: current human-facing lead session, subject to the location/transfer rules in [the runbook](README.md).
 - Scope: architecture discussion and local contract laboratory; no running workers or multi-agent implementation experiment.
 - Source baseline inspected: `c522c89` (catalog implementation integrated; foundation `ba07c3f`)
@@ -16,7 +16,7 @@ The timestamp describes this board revision, not permission to execute its tasks
 | Task | Packet revision | Record version | State | Owner | Generation | Dependencies | Current activity / next action |
 |---|---|---|---|---|---|---|---|
 | [SETTING-001](tasks/SETTING-001.md) — choose the experiment setting | 2 | 2 | verified | none (human-resolved decision) | 0 | Owner choice received | Commerce publication selected; [decision and review](decisions/SETTING-001-commerce-publication.md). |
-| [BUDGET-001](tasks/BUDGET-001.md) — set troubleshooting and review budgets | 1 | 1 | draft | none | 0 | Human cost/latency preferences; setting informs numeric limits | Agree budget units, checkpoint triggers, escalation authority, and review scope. |
+| [BUDGET-001](tasks/BUDGET-001.md) — set troubleshooting and review budgets | 2 | 1 | draft | none | 0 | Owner approval of proposed comparison budget | Proposed 90-minute worker / 30-minute coordinator limits documented; no spending authorization inferred. |
 | [CONTRACT-001](tasks/CONTRACT-001.md) — draft paired executable-contract specifications | 14 | 16 | draft | none (coordinator-authored proposal) | 0 | Pilot evidence exists; independent acceptance and controlled cost comparison still pending | Foundation, catalog, second consumer and local coordination/recovery checks implemented in [pilot README](../pilot/README.md). No worker grant. |
 | [REFACTOR-001](tasks/REFACTOR-001.md) — multi-agent refactoring and project changes | 1 | 1 | blocked | none | 0 | Owner explicitly resumes this later topic | Deferred by owner; do not dispatch or begin discussion now. |
 
@@ -93,10 +93,12 @@ Event 17, 2026-09-12T19:05:31Z, CONTRACT-001 draft → draft: recorded explicit 
 
 Event 18, 2026-09-12T19:34:00Z, CONTRACT-001 draft → draft: implemented the five roadmap steps in isolated worktree commit 9e0b7c4, integrated as ba07c3f. Evidence: provider fixture verification, TypeScript compile, boundary checks, 22 coordination tests, 28 Fastify tests, 74 offline payload cases, 16 database/API tests, and 3 real Keycloak Playwright tests. Policy review closed prior important findings. Foundation is not the full commerce experiment: catalog, publication, second consumer, independent contract acceptance, multi-agent runtime coordination, and model cost comparison remain open. Docker stack is disposable/local only; no public service or paid model run. Owner/generation/budget fields remain unchanged.
 
-Next event sequence: 21. State events and received messages share one coordinator-assigned sequence. Git history preserves prior board revisions; event entries preserve the rationale for individual transitions.
+Next event sequence: 22. State events and received messages share one coordinator-assigned sequence. Git history preserves prior board revisions; event entries preserve the rationale for individual transitions.
 
 ## Catalog/publication roadmap checkpoint
 
 Event 19, 2026-09-12T20:05:00Z, CONTRACT-001 draft → draft: implemented the six catalog/publication roadmap steps in isolated worktree commit `74377f7`, integrated into `main` as `c522c89`. Evidence includes catalog schema and tenant/shop foreign keys, draft create/read/update, row-locked idempotent publication, immutable published products, privacy-preserving public projections, Angular/API wiring, 19 connected integration tests, 4 real Keycloak Playwright tests, and the complete verification gate. This checkpoint does not claim independent contract acceptance, a second consumer, autonomous multi-agent coordination, production deployment, or model-cost results. Revalidate before the next claim/resume.
 
 Event 20, 2026-09-12T20:30:00Z, CONTRACT-001 draft → draft: completed the second consumer, executable coordination registry, tmux session harness, adapter replacement/recovery exercises and deterministic evaluator in isolated worktree. Evidence: 21 connected integration tests, 4 Playwright tests, 7 registry/evaluation tests, 23 coordination-envelope/execution tests, boundary checks, TypeScript compile and Angular build. Decision recorded in [pilot evaluation](../../14-pilot-evaluation.md): adopt contract-first gates, revise before autonomous use, and make no speed/cost claim. Independent acceptance and controlled comparative runs remain open.
+
+Event 21, 2026-09-13T10:00:00Z, BUDGET-001 draft → draft: added [controlled comparison](../../15-controlled-comparison.md) and proposed 90 active worker minutes, 15-minute checkpoints, 30 active coordinator/reviewer minutes, and no paid API usage pending owner approval. This is a proposal only; no model run, spending authority or benchmark result exists.

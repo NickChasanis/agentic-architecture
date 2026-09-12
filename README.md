@@ -43,6 +43,7 @@ Start with the [roadmap](04-roadmap-of-thought.md) for the next decisions and [c
 12. [Next five implementation steps](12-next-five-implementation-steps.md)
 13. [Next six catalog/publication steps](13-next-six-catalog-steps.md)
 14. [Pilot evaluation and decision](14-pilot-evaluation.md)
+15. [Controlled agent comparison](15-controlled-comparison.md)
 
 **Session tool of choice:** tmux for multiple terminal sessions and agent processes. Use explicit workspace isolation and task/result contracts alongside it. The [operating model](06-tmux-agent-roles-and-metrics.md) defines generic roles, justified specializations, and evidence-based implementation metrics for both tracks.
 
