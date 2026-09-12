@@ -114,4 +114,4 @@ git diff --check
 
 Previous verified baseline: 74 offline payload cases and 28 Fastify tests. Re-run to make new pass claims. New coordination, build, database and browser commands are deliverables of their steps, not evidence already obtained.
 
-**Current cursor: step 1.** Identity direction is accepted; shared policy details and independent review remain open. All five implementation-step checklists are initially incomplete.
+**Current cursor: foundation complete; catalog roadmap next.** Steps 1–5 have implementation evidence in commit ba07c3f. Catalog draft/publication and second-consumer adaptability remain intentionally outside this five-step foundation.

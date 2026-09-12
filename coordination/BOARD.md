@@ -1,11 +1,11 @@
 # Canonical discussion task board
 
-- Board revision: 13
+- Board revision: 14
 - Created at: 2026-09-11T13:58:26Z
-- Updated at: 2026-09-12T19:05:31Z
+- Updated at: 2026-09-12T19:34:00Z
 - Authority: current human-facing lead session, subject to the location/transfer rules in [the runbook](README.md).
 - Scope: architecture discussion and local contract laboratory; no running workers or multi-agent implementation experiment.
-- Source baseline inspected: `afe857a1335290fcd86f5d79a66bdf411c2b67f6`
+- Source baseline inspected: `ba07c3f`
 - Revalidation policy: every claim/resume, new session/day, or material dependency change. No autonomous claims or leases.
 - Live heartbeat/progress: not applicable; no active assignment.
 
@@ -17,7 +17,7 @@ The timestamp describes this board revision, not permission to execute its tasks
 |---|---|---|---|---|---|---|---|
 | [SETTING-001](tasks/SETTING-001.md) — choose the experiment setting | 2 | 2 | verified | none (human-resolved decision) | 0 | Owner choice received | Commerce publication selected; [decision and review](decisions/SETTING-001-commerce-publication.md). |
 | [BUDGET-001](tasks/BUDGET-001.md) — set troubleshooting and review budgets | 1 | 1 | draft | none | 0 | Human cost/latency preferences; setting informs numeric limits | Agree budget units, checkpoint triggers, escalation authority, and review scope. |
-| [CONTRACT-001](tasks/CONTRACT-001.md) — draft paired executable-contract specifications | 11 | 13 | draft | none (coordinator-authored proposal) | 0 | Setting/stack/identity direction accepted; budgets gate worker execution, independent review pending | Follow [five-step roadmap](../12-next-five-implementation-steps.md), cursor step 1: shared policy decisions and review. Step 2 coordination checks may advance independently. |
+| [CONTRACT-001](tasks/CONTRACT-001.md) — draft paired executable-contract specifications | 12 | 14 | draft | none (coordinator-authored proposal) | 0 | Foundation evidence exists; catalog contract review and independent acceptance still pending | Five-step identity/tenant/shop foundation implemented in [pilot README](../pilot/README.md); next is catalog publication roadmap. No worker grant. |
 | [REFACTOR-001](tasks/REFACTOR-001.md) — multi-agent refactoring and project changes | 1 | 1 | blocked | none | 0 | Owner explicitly resumes this later topic | Deferred by owner; do not dispatch or begin discussion now. |
 
 ## Unassigned-task metadata
@@ -89,4 +89,8 @@ Event 16, 2026-09-12T19:01:54Z, CONTRACT-001 draft → draft: coordinator self-r
 
 Event 17, 2026-09-12T19:05:31Z, CONTRACT-001 draft → draft: recorded explicit owner acceptance of [IDENTITY-001](decisions/IDENTITY-001-commerce-pilot.md) and requested [five-step implementation roadmap](../12-next-five-implementation-steps.md). Identity direction is resolved; full policy/schema acceptance, independent review and budgets remain open. No worker grant or runtime execution occurred. CONTRACT-001 updated_at, last_validated_at and last_progress_at now equal this timestamp; artifact_refs/evidence_refs include the decision and roadmap, superseding earlier current metadata. Generation stays zero.
 
-Next event sequence: 18. State events and received messages share one coordinator-assigned sequence. Git history preserves prior board revisions; event entries preserve the rationale for individual transitions.
+## Five-step foundation checkpoint
+
+Event 18, 2026-09-12T19:34:00Z, CONTRACT-001 draft → draft: implemented the five roadmap steps in isolated worktree commit 9e0b7c4, integrated as ba07c3f. Evidence: provider fixture verification, TypeScript compile, boundary checks, 22 coordination tests, 28 Fastify tests, 74 offline payload cases, 16 database/API tests, and 3 real Keycloak Playwright tests. Policy review closed prior important findings. Foundation is not the full commerce experiment: catalog, publication, second consumer, independent contract acceptance, multi-agent runtime coordination, and model cost comparison remain open. Docker stack is disposable/local only; no public service or paid model run. Owner/generation/budget fields remain unchanged.
+
+Next event sequence: 19. State events and received messages share one coordinator-assigned sequence. Git history preserves prior board revisions; event entries preserve the rationale for individual transitions.
