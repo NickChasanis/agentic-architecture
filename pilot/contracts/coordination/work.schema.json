@@ -1,0 +1,257 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "definitions": {
+    "grant": {
+      "type": "object",
+      "properties": {
+        "taskId": {
+          "type": "string",
+          "minLength": 1
+        },
+        "workerId": {
+          "type": "string",
+          "minLength": 1
+        },
+        "generation": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "recordVersion": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "packetRevision": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "contracts": {
+          "type": "object",
+          "minProperties": 1,
+          "additionalProperties": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "baseline": {
+          "type": "string",
+          "pattern": "^[a-f0-9]{40}$"
+        },
+        "ownedPaths": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          },
+          "uniqueItems": true,
+          "minItems": 1
+        },
+        "requiredObligations": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          },
+          "uniqueItems": true,
+          "minItems": 1
+        },
+        "state": {
+          "enum": [
+            "running",
+            "blocked",
+            "verified",
+            "cancelled"
+          ]
+        },
+        "budget": {
+          "type": "object",
+          "properties": {
+            "maxMinutes": {
+              "type": "integer",
+              "minimum": 1
+            },
+            "billing": {
+              "const": "no-paid-api"
+            }
+          },
+          "required": [
+            "maxMinutes",
+            "billing"
+          ],
+          "additionalProperties": false
+        },
+        "checkpointMinutes": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "testResources": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          },
+          "minItems": 1
+        }
+      },
+      "required": [
+        "taskId",
+        "workerId",
+        "generation",
+        "recordVersion",
+        "packetRevision",
+        "contracts",
+        "baseline",
+        "ownedPaths",
+        "requiredObligations",
+        "state",
+        "budget",
+        "checkpointMinutes",
+        "testResources"
+      ],
+      "additionalProperties": false
+    },
+    "submission": {
+      "type": "object",
+      "properties": {
+        "taskId": {
+          "type": "string",
+          "minLength": 1
+        },
+        "workerId": {
+          "type": "string",
+          "minLength": 1
+        },
+        "generation": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "recordVersion": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "packetRevision": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "contracts": {
+          "type": "object",
+          "minProperties": 1,
+          "additionalProperties": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "baseline": {
+          "type": "string",
+          "pattern": "^[a-f0-9]{40}$"
+        },
+        "submissionId": {
+          "type": "string",
+          "minLength": 1
+        },
+        "artifactRevision": {
+          "type": "string",
+          "pattern": "^[a-f0-9]{40}$"
+        },
+        "artifactLocation": {
+          "type": "string",
+          "pattern": "^git:[a-f0-9]{40}$"
+        },
+        "changedPaths": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          },
+          "uniqueItems": true
+        },
+        "checks": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "obligation": {
+                "type": "string",
+                "minLength": 1
+              },
+              "command": {
+                "type": "string",
+                "minLength": 1
+              },
+              "environment": {
+                "type": "string",
+                "minLength": 1
+              },
+              "testedRevision": {
+                "type": "string",
+                "pattern": "^[a-f0-9]{40}$"
+              },
+              "startedAt": {
+                "type": "string",
+                "format": "date-time"
+              },
+              "endedAt": {
+                "type": "string",
+                "format": "date-time"
+              },
+              "outcome": {
+                "enum": [
+                  "pass",
+                  "fail",
+                  "skipped"
+                ]
+              },
+              "evidenceLocation": {
+                "type": "string",
+                "minLength": 1
+              }
+            },
+            "required": [
+              "obligation",
+              "command",
+              "environment",
+              "testedRevision",
+              "startedAt",
+              "endedAt",
+              "outcome",
+              "evidenceLocation"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "unrunChecks": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          },
+          "uniqueItems": true
+        },
+        "limitations": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          },
+          "uniqueItems": true
+        }
+      },
+      "required": [
+        "taskId",
+        "workerId",
+        "generation",
+        "recordVersion",
+        "packetRevision",
+        "contracts",
+        "baseline",
+        "submissionId",
+        "artifactRevision",
+        "artifactLocation",
+        "changedPaths",
+        "checks",
+        "unrunChecks",
+        "limitations"
+      ],
+      "additionalProperties": false
+    }
+  }
+}
