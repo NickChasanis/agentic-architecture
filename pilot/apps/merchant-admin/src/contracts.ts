@@ -18,3 +18,4 @@ export function validate<T>(name:string,value:unknown):T {
 export type Session={principal:{id:string};csrfToken:string;absoluteExpiresAt:string};
 export type Tenant={tenantId:string;name:string;role:'owner'|'staff';canCreateShop:boolean};
 export type Shop={id:string;tenantId:string;name:string;slug:string};
+export type Product={id:string;tenantId:string;shopId:string;status:'draft'|'published';title:string;description:string;price:{amountMinor:number;currency:'EUR'}};

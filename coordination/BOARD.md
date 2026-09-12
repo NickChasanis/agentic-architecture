@@ -1,11 +1,11 @@
 # Canonical discussion task board
 
-- Board revision: 14
+- Board revision: 15
 - Created at: 2026-09-11T13:58:26Z
-- Updated at: 2026-09-12T19:34:00Z
+- Updated at: 2026-09-12T20:05:00Z
 - Authority: current human-facing lead session, subject to the location/transfer rules in [the runbook](README.md).
 - Scope: architecture discussion and local contract laboratory; no running workers or multi-agent implementation experiment.
-- Source baseline inspected: `ba07c3f`
+- Source baseline inspected: catalog implementation worktree; foundation `ba07c3f`
 - Revalidation policy: every claim/resume, new session/day, or material dependency change. No autonomous claims or leases.
 - Live heartbeat/progress: not applicable; no active assignment.
 
@@ -17,7 +17,7 @@ The timestamp describes this board revision, not permission to execute its tasks
 |---|---|---|---|---|---|---|---|
 | [SETTING-001](tasks/SETTING-001.md) — choose the experiment setting | 2 | 2 | verified | none (human-resolved decision) | 0 | Owner choice received | Commerce publication selected; [decision and review](decisions/SETTING-001-commerce-publication.md). |
 | [BUDGET-001](tasks/BUDGET-001.md) — set troubleshooting and review budgets | 1 | 1 | draft | none | 0 | Human cost/latency preferences; setting informs numeric limits | Agree budget units, checkpoint triggers, escalation authority, and review scope. |
-| [CONTRACT-001](tasks/CONTRACT-001.md) — draft paired executable-contract specifications | 12 | 14 | draft | none (coordinator-authored proposal) | 0 | Foundation evidence exists; catalog contract review and independent acceptance still pending | Five-step identity/tenant/shop foundation implemented in [pilot README](../pilot/README.md); next is catalog publication roadmap. No worker grant. |
+| [CONTRACT-001](tasks/CONTRACT-001.md) — draft paired executable-contract specifications | 13 | 15 | draft | none (coordinator-authored proposal) | 0 | Foundation and catalog evidence exist; independent acceptance and second-consumer review still pending | Five-step foundation plus six catalog/publication steps implemented in [pilot README](../pilot/README.md). No worker grant. |
 | [REFACTOR-001](tasks/REFACTOR-001.md) — multi-agent refactoring and project changes | 1 | 1 | blocked | none | 0 | Owner explicitly resumes this later topic | Deferred by owner; do not dispatch or begin discussion now. |
 
 ## Unassigned-task metadata
@@ -93,4 +93,8 @@ Event 17, 2026-09-12T19:05:31Z, CONTRACT-001 draft → draft: recorded explicit 
 
 Event 18, 2026-09-12T19:34:00Z, CONTRACT-001 draft → draft: implemented the five roadmap steps in isolated worktree commit 9e0b7c4, integrated as ba07c3f. Evidence: provider fixture verification, TypeScript compile, boundary checks, 22 coordination tests, 28 Fastify tests, 74 offline payload cases, 16 database/API tests, and 3 real Keycloak Playwright tests. Policy review closed prior important findings. Foundation is not the full commerce experiment: catalog, publication, second consumer, independent contract acceptance, multi-agent runtime coordination, and model cost comparison remain open. Docker stack is disposable/local only; no public service or paid model run. Owner/generation/budget fields remain unchanged.
 
-Next event sequence: 19. State events and received messages share one coordinator-assigned sequence. Git history preserves prior board revisions; event entries preserve the rationale for individual transitions.
+Next event sequence: 20. State events and received messages share one coordinator-assigned sequence. Git history preserves prior board revisions; event entries preserve the rationale for individual transitions.
+
+## Catalog/publication roadmap checkpoint
+
+Event 19, 2026-09-12T20:05:00Z, CONTRACT-001 draft → draft: implemented the six catalog/publication roadmap steps in the catalog worktree. Evidence includes catalog schema and tenant/shop foreign keys, draft create/read/update, row-locked idempotent publication, immutable published products, privacy-preserving public projections, Angular/API wiring, 19 connected integration tests, 4 real Keycloak Playwright tests, and the complete verification gate. The six steps are integrated only after the catalog commit is recorded; this checkpoint does not claim independent contract acceptance, a second consumer, autonomous multi-agent coordination, production deployment, or model-cost results. Revalidate after integration and before the next claim/resume.

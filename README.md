@@ -6,7 +6,7 @@
 
 This repository explores two connected concerns: using agents to deliver modular software, and designing the coordination system that manages their work. Shared contracts, verified integration, and measurable extension exercises connect both tracks.
 
-**Status:** active architecture discussion and proposed experiments. The repository contains notes and examples; no application or orchestration runtime is implemented yet.
+**Status:** active architecture discussion with a local commerce pilot. The pilot is disposable and local-only; no production service or orchestration runtime is claimed.
 
 **Coordination workspace:** the agreed supervised Markdown workflow now has a [runbook](coordination/README.md), [task board](coordination/BOARD.md), task packets, and message templates. These are manual coordination artifacts; no workers have been dispatched. Fresh agents start with [AGENTS.md](AGENTS.md).
 
@@ -14,7 +14,7 @@ This repository explores two connected concerns: using agents to deliver modular
 
 **Executable contract artifacts:** [draft schemas, operation mappings, offline checks, and Fastify conformance harness](pilot/contracts/README.md). The test-only harness exercises validation/serialization with synthetic handlers; no commerce application or identity provider is running.
 
-**Current implementation roadmap:** [next five steps](12-next-five-implementation-steps.md), starting with foundation contract decisions, then coordination checks, isolated runtime setup, real login, and tenant/shop access. [Keycloak plus backend `openid-client`](coordination/decisions/IDENTITY-001-commerce-pilot.md) is now the accepted identity direction.
+**Current implementation roadmaps:** [next five foundation steps](12-next-five-implementation-steps.md) and the [six-step catalog/publication roadmap](13-next-six-catalog-steps.md). [Keycloak plus backend `openid-client`](coordination/decisions/IDENTITY-001-commerce-pilot.md) is the accepted identity direction.
 
 ## Two tracks, shared contracts
 
@@ -41,6 +41,7 @@ Start with the [roadmap](04-roadmap-of-thought.md) for the next decisions and [c
 10. [Stack and workspace proposal](10-stack-and-workspace-proposal.md)
 11. [Identity provider and test profile](11-identity-provider-and-test-profile.md)
 12. [Next five implementation steps](12-next-five-implementation-steps.md)
+13. [Next six catalog/publication steps](13-next-six-catalog-steps.md)
 
 **Session tool of choice:** tmux for multiple terminal sessions and agent processes. Use explicit workspace isolation and task/result contracts alongside it. The [operating model](06-tmux-agent-roles-and-metrics.md) defines generic roles, justified specializations, and evidence-based implementation metrics for both tracks.
 
