@@ -1,6 +1,6 @@
 # CONTRACT-001 — Specify the paired contracts
 
-Packet revision: 13. Current status and assignment authority: [BOARD.md](../BOARD.md).
+Packet revision: 14. Current status and assignment authority: [BOARD.md](../BOARD.md).
 
 ## Outcome
 
@@ -40,3 +40,7 @@ Readiness checkpoint, 2026-09-12: [coordinator self-review](../../contracts/revi
 Roadmap checkpoint, 2026-09-12: owner explicitly accepted [Keycloak/backend `openid-client`](../decisions/IDENTITY-001-commerce-pilot.md). The five-step identity/tenant/shop foundation is implemented and verified in [pilot README](../../pilot/README.md) and integrated commit `ba07c3f`. This does not accept the full commerce contract or infer a worker assignment; catalog publication, second-consumer compatibility, and independent final contract acceptance remain open.
 
 Catalog checkpoint, 2026-09-12: the six-step [catalog/publication roadmap](../../13-next-six-catalog-steps.md) is implemented in the catalog worktree. Connected evidence covers schema boundaries, merchant draft operations, row-locked idempotent publication, immutable published products, public projections, Angular/API wiring, 19 integration tests and 4 Playwright tests. This is local disposable evidence only; the second consumer, independent review/acceptance, multi-agent runtime and production proof remain open.
+
+Pilot completion checkpoint, 2026-09-12: the second public-catalog consumer, executable coordination registry, tmux session harness, local/fake adapter conformance, reassignment recovery and deterministic evaluator are implemented. These exercises prove protocol behavior in a local laboratory; they do not prove autonomous multi-agent throughput, production reliability or model-cost savings.
+
+Evaluation checkpoint, 2026-09-12: [pilot evaluation](../../14-pilot-evaluation.md) adopts contract-first boundaries and evidence gates, revises the local registry/tmux components before any autonomous claim, and stops unsupported speed/cost conclusions. Independent contract acceptance and controlled comparative runs remain future gates.

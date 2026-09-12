@@ -4,6 +4,7 @@ import {readFileSync} from 'node:fs';
 import pg from 'pg';
 import {createApp} from '../../apps/api/app.js';
 import {Identity} from '../../modules/identity-tenancy/service.js';
+import {renderPublicCatalogCard} from '../../modules/storefront/public-catalog.js';
 const config=JSON.parse(readFileSync(new URL('../../.local/config.json',import.meta.url),'utf8'));
 const shop='20000000-0000-4000-8000-000000000001';
 test('catalog publication contract: draft, edit, publish, public view and immutable edit',async()=>{
@@ -25,6 +26,8 @@ test('catalog publication contract: draft, edit, publish, public view and immuta
   assert.equal(immutable.statusCode,409);assert.equal(immutable.json().error.code,'PRODUCT_IMMUTABLE');
   const list=await app.inject({url:'/api/v1/public/shops/shop-a1/products'});assert.equal(list.statusCode,200);
   assert.equal(list.json().items.some((p:any)=>p.id===product.id),true);
+  const card=renderPublicCatalogCard(list.json().items.find((p:any)=>p.id===product.id));
+  assert.deepEqual(card,{id:product.id,title:'Updated',description:'plain text',price:'€12.50'});
   const detail=await app.inject({url:'/api/v1/public/shops/shop-a1/products/'+product.id});
   assert.equal(detail.statusCode,200);assert.deepEqual(Object.keys(detail.json()).sort(),['description','id','price','title']);
   assert.equal((await app.inject({url:'/api/v1/public/shops/shop-b1/products/'+product.id})).statusCode,404);

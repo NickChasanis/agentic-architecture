@@ -42,7 +42,7 @@ export async function createApp({config,pool,now=()=>new Date(),https,oidcAdapte
  });
  app.setErrorHandler(async(error,req,reply)=>{
   const op=(req.routeOptions.config as {operation?:any}).operation;
-  let code=error instanceof DomainError?error.code:'INTERNAL_ERROR';
+  let code=error instanceof DomainError?error.code:(typeof (error as any)?.code==='string'?(error as any).code:'INTERNAL_ERROR');
   const framework:Record<string,string>={FST_ERR_CTP_INVALID_JSON_BODY:'MALFORMED_JSON',
    FST_ERR_CTP_EMPTY_JSON_BODY:'MALFORMED_JSON',FST_ERR_CTP_BODY_TOO_LARGE:'BODY_TOO_LARGE',
    FST_ERR_CTP_INVALID_MEDIA_TYPE:'UNSUPPORTED_MEDIA_TYPE'};
