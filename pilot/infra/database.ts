@@ -3,7 +3,7 @@ import pg from 'pg';
 const config=JSON.parse(readFileSync(new URL('../.local/config.json',import.meta.url),'utf8'));
 const pool=new pg.Pool({connectionString:config.databaseUrl});
 try{
- for(const name of ['identity-tenancy','shops'])await pool.query(readFileSync(new URL('../modules/'+name+'/schema.sql',import.meta.url),'utf8'));
+ for(const name of ['identity-tenancy','shops','catalog'])await pool.query(readFileSync(new URL('../modules/'+name+'/schema.sql',import.meta.url),'utf8'));
  await pool.query(readFileSync(new URL('./integrity.sql',import.meta.url),'utf8'));
  // Fixture seed is idempotent and does not restore deliberately revoked grants on every application start.
  for(const u of config.users)await pool.query('INSERT INTO identity.principals VALUES($1,$2,$3,$4) ON CONFLICT DO NOTHING',[u.id,config.issuer,u.id,u.username!=='disabled']);

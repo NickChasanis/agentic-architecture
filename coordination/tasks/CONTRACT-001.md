@@ -1,6 +1,6 @@
 # CONTRACT-001 — Specify the paired contracts
 
-Packet revision: 11. Current status and assignment authority: [BOARD.md](../BOARD.md).
+Packet revision: 13. Current status and assignment authority: [BOARD.md](../BOARD.md).
 
 ## Outcome
 
@@ -38,3 +38,5 @@ Adapter checkpoint, 2026-09-12: [Fastify conformance evidence](../../pilot/contr
 Readiness checkpoint, 2026-09-12: [coordinator self-review](../../contracts/reviews/2026-09-12-foundation-readiness.md) records READY-01–05, corrected documentation drift, and a dependency-ordered readiness sequence for both tracks. It is not independent review or an implementation assignment. Next owner decision is identity direction; policy details, budgets and final acceptance remain separate gates.
 
 Roadmap checkpoint, 2026-09-12: owner explicitly accepted [Keycloak/backend `openid-client`](../decisions/IDENTITY-001-commerce-pilot.md). The five-step identity/tenant/shop foundation is implemented and verified in [pilot README](../../pilot/README.md) and integrated commit `ba07c3f`. This does not accept the full commerce contract or infer a worker assignment; catalog publication, second-consumer compatibility, and independent final contract acceptance remain open.
+
+Catalog checkpoint, 2026-09-12: the six-step [catalog/publication roadmap](../../13-next-six-catalog-steps.md) is implemented in the catalog worktree. Connected evidence covers schema boundaries, merchant draft operations, row-locked idempotent publication, immutable published products, public projections, Angular/API wiring, 19 integration tests and 4 Playwright tests. This is local disposable evidence only; the second consumer, independent review/acceptance, multi-agent runtime and production proof remain open.

@@ -6,6 +6,7 @@ import {readFileSync} from 'node:fs';
 import type {Pool} from 'pg';
 import {Identity,DomainError,type Session} from '../../modules/identity-tenancy/service.js';
 import {Shops} from '../../modules/shops/service.js';
+import {Catalog} from '../../modules/catalog/service.js';
 import {connectOidc,type AppConfig} from './oidc.js';
 declare module 'fastify' {interface FastifyRequest {session:Session|null}}
 const manifest=JSON.parse(readFileSync('contracts/operations/http.json','utf8'));
@@ -22,7 +23,7 @@ export async function createApp({config,pool,now=()=>new Date(),https,oidcAdapte
   serializerOpts:{ajv:{strictTypes:false}}});
  await app.register(cookie);
  app.decorateRequest('session',null);
- const identity=new Identity(pool,now),shops=new Shops(pool);
+ const identity=new Identity(pool,now),shops=new Shops(pool),catalog=new Catalog(pool);
  let oidcPromise:Promise<Awaited<ReturnType<typeof connectOidc>>>|undefined;
  const getOidc=async()=>{
   if(oidcAdapter)return oidcAdapter;
@@ -59,7 +60,7 @@ export async function createApp({config,pool,now=()=>new Date(),https,oidcAdapte
   return reply.code(manifest.errorStatusByCode[code]).send({error:{code,message:'Request failed.'}});
  });
  const limiter=new Map<string,{start:number;count:number}>();
- for(const op of manifest.operations.filter((x:any)=>x.id.startsWith('ID-')||x.id==='HTTP-01')){
+ for(const op of manifest.operations.filter((x:any)=>x.id.startsWith('ID-')||x.id.startsWith('HTTP-'))){
   const response:Record<number,any>={};
   if(op.success.bodySchema)response[op.success.status]=ref(op.success.bodySchema);
   for(const code of op.errorCodes)response[manifest.errorStatusByCode[code]]=ref('ErrorEnvelope');
@@ -78,12 +79,14 @@ export async function createApp({config,pool,now=()=>new Date(),https,oidcAdapte
     if(req.body&&typeof req.body==='object'&&!Array.isArray(req.body)){
      const body=req.body as Record<string,unknown>;
      if(typeof body.name==='string')body.name=body.name.trim();
+     if(typeof body.title==='string')body.title=body.title.trim();
     }
    },
    handler:async(req,reply)=>{
     let body:unknown;
     const principalId=req.session?.principalId;
-    const params=req.params as {tenantId:string};
+    const params=req.params as any;
+    const permission=principalId&&params.shopId?await identity.access(principalId,await (async()=>{const q=await pool.query('SELECT tenant_id FROM shops.shops WHERE id=$1',[params.shopId]);if(!q.rowCount)throw new DomainError('RESOURCE_NOT_FOUND');return q.rows[0].tenant_id;})()):undefined;
     switch(op.id){
      case 'ID-01':{
       const ms=now().getTime();
@@ -114,11 +117,18 @@ export async function createApp({config,pool,now=()=>new Date(),https,oidcAdapte
       body={items:await shops.list(params.tenantId,permission)};break;
      }
      case 'HTTP-01':{
-      const permission=await identity.access(principalId!,params.tenantId);
-      if(permission.role!=='owner')throw new DomainError('RESOURCE_NOT_FOUND');
+      const tenantPermission=await identity.access(principalId!,params.tenantId);
+      if(tenantPermission.role!=='owner')throw new DomainError('RESOURCE_NOT_FOUND');
       body=await shops.create(params.tenantId,req.body as {name:string;slug:string});break;
      }
+     case 'HTTP-02':body=await catalog.create((await pool.query('SELECT tenant_id FROM shops.shops WHERE id=$1',[params.shopId])).rows[0]?.tenant_id,params.shopId,req.body as any,permission!);break;
+     case 'HTTP-03':body=await catalog.get(params.shopId,params.productId,permission!);break;
+     case 'HTTP-04':body=await catalog.update(params.shopId,params.productId,req.body as any,permission!);break;
+     case 'HTTP-05':body=await catalog.publish(params.shopId,params.productId,permission!);break;
+     case 'HTTP-06':body=await catalog.publicList(params.shopSlug);break;
+     case 'HTTP-07':body=await catalog.publicGet(params.shopSlug,params.productId);break;
     }
+    if(op.id==='HTTP-02'&&body&&typeof body==='object')reply.header('location','/api/v1/merchant/shops/'+params.shopId+'/products/'+(body as any).id);
     if(!validators.get(op.success.bodySchema)!(body))throw new DomainError('INTERNAL_ERROR');
     return reply.code(op.success.status).send(body);
    }});
