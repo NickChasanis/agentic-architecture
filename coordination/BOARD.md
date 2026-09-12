@@ -5,7 +5,7 @@
 - Updated at: 2026-09-12T20:05:00Z
 - Authority: current human-facing lead session, subject to the location/transfer rules in [the runbook](README.md).
 - Scope: architecture discussion and local contract laboratory; no running workers or multi-agent implementation experiment.
-- Source baseline inspected: catalog implementation worktree; foundation `ba07c3f`
+- Source baseline inspected: `c522c89` (catalog implementation integrated; foundation `ba07c3f`)
 - Revalidation policy: every claim/resume, new session/day, or material dependency change. No autonomous claims or leases.
 - Live heartbeat/progress: not applicable; no active assignment.
 
@@ -97,4 +97,4 @@ Next event sequence: 20. State events and received messages share one coordinato
 
 ## Catalog/publication roadmap checkpoint
 
-Event 19, 2026-09-12T20:05:00Z, CONTRACT-001 draft → draft: implemented the six catalog/publication roadmap steps in the catalog worktree. Evidence includes catalog schema and tenant/shop foreign keys, draft create/read/update, row-locked idempotent publication, immutable published products, privacy-preserving public projections, Angular/API wiring, 19 connected integration tests, 4 real Keycloak Playwright tests, and the complete verification gate. The six steps are integrated only after the catalog commit is recorded; this checkpoint does not claim independent contract acceptance, a second consumer, autonomous multi-agent coordination, production deployment, or model-cost results. Revalidate after integration and before the next claim/resume.
+Event 19, 2026-09-12T20:05:00Z, CONTRACT-001 draft → draft: implemented the six catalog/publication roadmap steps in isolated worktree commit `74377f7`, integrated into `main` as `c522c89`. Evidence includes catalog schema and tenant/shop foreign keys, draft create/read/update, row-locked idempotent publication, immutable published products, privacy-preserving public projections, Angular/API wiring, 19 connected integration tests, 4 real Keycloak Playwright tests, and the complete verification gate. This checkpoint does not claim independent contract acceptance, a second consumer, autonomous multi-agent coordination, production deployment, or model-cost results. Revalidate before the next claim/resume.
