@@ -1,10 +1,10 @@
 # Canonical discussion task board
 
-- Board revision: 18
+- Board revision: 19
 - Created at: 2026-09-11T13:58:26Z
-- Updated at: 2026-09-13T10:30:00Z
+- Updated at: 2026-09-13T00:04:11Z
 - Authority: current human-facing lead session, subject to the location/transfer rules in [the runbook](README.md).
-- Scope: architecture discussion and local contract laboratory; no running workers or multi-agent implementation experiment.
+- Scope: supervised recovery-readiness exercise authorized by the owner; active grants below supersede historical defaults.
 - Source baseline inspected: `c522c89` (catalog implementation integrated; foundation `ba07c3f`)
 - Revalidation policy: every claim/resume, new session/day, or material dependency change. No autonomous claims or leases.
 - Live heartbeat/progress: not applicable; no active assignment.
