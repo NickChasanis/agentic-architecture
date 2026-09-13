@@ -8,7 +8,7 @@
 
 **Tech stack:** Existing TypeScript, Fastify, PostgreSQL, Angular and Playwright toolchain; no new dependencies planned.
 
-Status: planned, not implemented or verified. The owner accepted continuation of the read-only slice. The endpoint details below are the proposed implementation baseline to review in step 1, not an independently accepted contract. Existing drafts and their historical status statements must be reconciled against the current implementation when touched.
+Status: implemented in the local pilot on integrated main revision `4d9dd08` (2026-09-13). Provider and consumer were implemented as separate commits and reviewed before integration. This is local/disposable evidence, not production readiness.
 
 ## Scope and sequence
 
@@ -21,6 +21,8 @@ Status: planned, not implemented or verified. The owner accepted continuation of
 No product edit/refactor feature, checkout, billing, new identity provider, durable coordinator, paid model run or concurrency benchmark is included. Published products remain immutable. The coordination and recovery tracks remain open beyond this slice.
 
 ## Step 1 — Merchant list contract and provider
+
+Implemented in `64bf29a` with follow-up contract/test coverage `239bcf2`. Fresh-database setup ordering was corrected so shop composite uniqueness exists before catalog foreign keys.
 
 Start from the canonical board in the originating checkout. Record the exact baseline, UTC validation time, task packet revision, owner, owned paths, generation and test resources before an implementation grant. Use the established troubleshooting limits: 90 active worker minutes, checkpoints every 15 minutes and a 30-minute coordinator/review threshold before escalation. An expired historical grant cannot authorize this work.
 
@@ -50,6 +52,8 @@ Exit gate: authorized empty-shop reads succeed, draft/published filtering works,
 
 ## Step 2 — Merchant list consumer
 
+Implemented in `4d9dd08`; the consumer loads the selected shop, validates the declared list response, handles loading/empty/error/retry states, and ignores stale selection responses.
+
 Files: `pilot/apps/merchant-admin/src/main.ts`, `pilot/apps/merchant-admin/src/contracts.ts`, and `pilot/tests/e2e/merchant-foundation.spec.ts`. Keep the UI change bounded; do not reorganize unrelated application code.
 
 Show the selected shop's products with title, status and price. Provide an accessible status selector with All, Draft and Published options. Include loading, empty and failure states plus an explicit retry action. Reuse existing response validation and error handling.
@@ -65,6 +69,8 @@ Clear the previous list when switching shop/tenant, losing the session or loggin
 Exit gate: a real merchant session can see both product states and filter them, while stale responses cannot repopulate a previous shop's data. Mocked network timing can exercise response races, but must be reported separately from real provider journeys.
 
 ## Step 3 — Integrated acceptance and handoff
+
+Completed on the integrated revision without changing public projections or published-product immutability.
 
 Run checks on the combined revision, not only the two submitted artifacts. Review requirements separately from implementation choices. Do not label coordinator self-review as an independent agent review.
 
@@ -101,10 +107,12 @@ npm run test:e2e
 
 These commands are drawn from the checkout; they have not been run for this new slice. Provider, integration and browser checks require the documented disposable local services and certificate. Revalidate their availability before implementation. Missing infrastructure is not a passing result and does not authorize changes to another running environment.
 
-- [ ] Execute the mandatory gates and associate results with the exact combined source revision and environment.
-- [ ] Review MC-01–08, record failures/rework and close only obligations with evidence.
+- [x] Execute the mandatory gates and associate results with the exact combined source revision and environment.
+- [x] Review MC-01–08, record failures/rework and close only obligations with evidence.
 - [ ] Record elapsed time, available active effort, review intervention and changed paths. Mark unavailable model cost explicitly; do not claim comparative savings from this slice.
-- [ ] Update this chapter, `README.md`, `howtouse.md`, `pilot/README.md` and the canonical board with actual results and remaining limits.
-- [ ] Write a fresh-session handoff identifying accepted artifacts, rerun commands and the next unresolved work. Commit the reviewed slice; publish only under the owner's applicable release authority.
+- [x] Update this chapter, `README.md`, `howtouse.md`, `pilot/README.md` and the canonical board with actual results and remaining limits.
+- [x] Write a fresh-session handoff identifying accepted artifacts, rerun commands and the next unresolved work. Commit the reviewed slice; publish only under the owner's applicable release authority.
+
+Observed verification on 2026-09-13: 30 contract tests, 29 connected integration tests and 5 Playwright journeys passed. Provider, boundary, TypeScript and merchant build checks passed; Angular reports existing Ajv CommonJS optimization warnings. The slice remains unpaginated and local-pilot scoped. No model speed/cost/concurrency claim was measured; durable coordination and restart adoption remain open.
 
 Completion means a verified merchant-list journey and its documented handoff. It does not mean the broader concurrency comparison or restart-safe coordinator is complete.

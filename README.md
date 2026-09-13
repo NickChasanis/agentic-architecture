@@ -128,7 +128,7 @@ The local publication pilot, bounded model trial and second command transport ar
 
 The coordination track still needs durable restart/recovery behavior and a real multi-worker concurrency comparison; the tmux command adapter alone proves neither. The [dual-track roadmap](04-roadmap-of-thought.md) and [contract criteria](05-contracts-and-adaptability.md) remain the conceptual guides. Multi-agent refactoring stays deferred by the owner.
 
-The next three implementation steps are [merchant list contract/provider, merchant UI consumer, and integrated acceptance/handoff](19-merchant-catalog-visibility.md). They are planned work, not completed capabilities; each step has explicit dependencies and contract-based exit gates.
+The three merchant-list steps are now implemented and verified locally in [the roadmap](19-merchant-catalog-visibility.md): contract/provider, merchant UI consumer, and integrated acceptance/handoff. Evidence covers 30 contract tests, 29 connected integration tests and 5 Playwright journeys. Pagination, production deployment, durable coordinator recovery and parallel-worker comparison remain outside this slice.
 
 ---
 

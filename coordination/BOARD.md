@@ -1,13 +1,13 @@
 # Canonical discussion task board
 
-- Board revision: 22
+- Board revision: 23
 - Created at: 2026-09-11T13:58:26Z
-- Updated at: 2026-09-13T19:50:11Z
+- Updated at: 2026-09-13T20:04:21Z
 - Authority: current human-facing lead session, subject to the location/transfer rules in [the runbook](README.md).
 - Scope: supervised recovery-readiness exercise authorized by the owner; active grants below supersede historical defaults.
 - Source baseline inspected: `2979178` (reviewed recovery and consumer trial integration)
 - Revalidation policy: every claim/resume, new session/day, or material dependency change. No autonomous claims or leases.
-- Live heartbeat/progress: MC-001 running under the current lead coordinator; historical worker grants remain closed.
+- Live heartbeat/progress: MC-001 merchant-list implementation submitted and integrated; no active worker assignment.
 
 The timestamp describes this board revision, not permission to execute its tasks. `draft` is not claimable. `blocked` requires prerequisite resolution. Owners and generations remain empty/zero until an explicit grant.
 
@@ -98,6 +98,8 @@ Next event sequence: 27. State events and received messages share one coordinato
 ## Merchant catalog implementation
 
 Event 26, 2026-09-13T19:50:11Z: MC-UI-001 absent → running, generation 1, packet/record revision 1; worker `/root/merchant_ui`, baseline `239bcf244fe79db49c6a51c2a4b3c0116a93ca31`, same merchant-list execution worktree. Required context: root instructions, this canonical board, chapter 19 step 2, wire schemas and HTTP-08. Owned paths: `pilot/apps/merchant-admin/src/main.ts`, `pilot/apps/merchant-admin/src/contracts.ts`, `pilot/tests/e2e/merchant-foundation.spec.ts` only. Provider remains coordinator-owned. 90-minute worker/15-minute checkpoint/30-minute review limits; no dependencies or paid API invocation. Worker may use the disposable pilot's browser tests after coordinator releases the baseline test run; coordinator will not run concurrent browser or mutable database tests. Receipt via native collaboration, not automatic board ingestion. Review of provider found no remaining blocker; initial reviewer request/response-schema confusion was corrected against source and observed tests.
+
+Event 27, 2026-09-13T20:00:55Z: MC-001 running → integrated; provider commits `64bf29a`/`239bcf2`, consumer commit `4d9dd08`, combined main revision `4d9dd08`. Evidence: 30 contract tests, 29 connected integration tests, provider/boundary/TypeScript/build checks and 5 Playwright journeys passed. Browser scope includes real local Keycloak/API/PostgreSQL draft/published filtering. Existing Angular Ajv CommonJS optimization warnings remain non-blocking. Independent provider review found no blocker; no model cost/speed or concurrency claim. Remaining: production pagination, durable coordination/restart adoption and true parallel-worker comparison.
 
 Event 25, 2026-09-13T19:44:35Z: owner instructed nonstop implementation of the three-step [merchant catalog roadmap](../19-merchant-catalog-visibility.md). MC-001 absent → running, record/packet revision 1, generation 1, owner /root. Canonical board remains this originating checkout; execution worktree is `/home/nchasanis/.config/superpowers/worktrees/agentic-architecture/merchant-list`, baseline `8f4640c`. Scope: roadmap files, merchant list contracts/provider/consumer and tests only. Existing publication obligations remain unchanged. Budget: 90 active implementation minutes, 15-minute checkpoints, 30 active review minutes before escalation; no paid API invocation. Revalidate on resume or dependency changes. Disposable test resources use Compose project `agentic-merchant-list`; no other host database is authorized. No worker grant is issued by this entry.
 
