@@ -46,6 +46,7 @@ Start with the [roadmap](04-roadmap-of-thought.md) for the next decisions and [c
 15. [Controlled agent comparison](15-controlled-comparison.md)
 16. [Controlled experiment packet](16-controlled-experiment-packet.md)
 17. [Recovery Readiness and Model Allocation Trial](17-recovery-and-model-allocation.md)
+18. [tmux Execution Adapter](18-tmux-execution-adapter.md)
 
 **Session tool of choice:** tmux for multiple terminal sessions and agent processes. Use explicit workspace isolation and task/result contracts alongside it. The [operating model](06-tmux-agent-roles-and-metrics.md) defines generic roles, justified specializations, and evidence-based implementation metrics for both tracks.
 
