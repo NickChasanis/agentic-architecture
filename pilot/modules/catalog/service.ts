@@ -7,6 +7,11 @@ const merchant=(r:any)=>({id:r.id,tenantId:r.tenant_id,shopId:r.shop_id,status:r
 const pub=(r:any)=>({id:r.id,title:r.title,description:r.description,price:{amountMinor:r.amount_minor,currency:r.currency}});
 export class Catalog {
  constructor(private pool:Pool){}
+ async merchantList(shopId:string,permission:Permission,status?:'draft'|'published'){
+  await this.authorized(shopId,permission);
+  const rows=await this.pool.query('SELECT * FROM catalog.products WHERE shop_id=$1 AND ($2::text IS NULL OR status=$2) ORDER BY id',[shopId,status??null]);
+  return {items:rows.rows.map(merchant)};
+ }
  private async authorized(shopId:string,permission:Permission){
   if(permission.role==='owner')return;
   if(!permission.shopIds.includes(shopId))throw new CatalogError('RESOURCE_NOT_FOUND');

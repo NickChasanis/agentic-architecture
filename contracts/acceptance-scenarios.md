@@ -68,3 +68,15 @@ Run provider/consumer checks before accepting local artifacts, then rerun affect
 | CON-06 | Coordinator authors/stewards draft; independent review required. | Independent review and accepted final baseline. |
 
 No completion claim for CONTRACT-001 follows from this draft coverage. Operating budgets still gate execution. The next architectural discussion can review publication lifecycle and module boundaries while those budgets remain open.
+# Merchant catalog visibility extension
+
+| ID | Observable obligation |
+|---|---|
+| MC-01 | Authorized owner and granted staff read only the selected shop's matching products in ID order, including valid empty lists. |
+| MC-02 | Missing session, foreign tenant, ungranted shop and revoked access cannot retrieve the list. |
+| MC-03 | Omitted/draft/published filters work; invalid, repeated and unknown query fields are rejected. |
+| MC-04 | Public reads remain published-only with no merchant fields; published products remain immutable. |
+| MC-05 | Empty, mixed-state and zero-price list responses satisfy the merchant list schema. |
+| MC-06 | Loading, empty, error, retry and filter UI states work; stale selection/session responses are ignored. |
+| MC-07 | Create/publish refreshes the active list while preserving mutation behavior. |
+| MC-08 | A test-only second consumer counts product states through the response contract without storage access. |

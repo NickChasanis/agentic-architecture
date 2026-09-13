@@ -33,6 +33,19 @@
   },
   "operations": [
     {
+      "id": "HTTP-08",
+      "method": "GET",
+      "path": "/api/v1/merchant/shops/{shopId}/products",
+      "paramsSchema": "ShopParams",
+      "querySchema": "MerchantListQuery",
+      "bodySchema": null,
+      "authentication": "session",
+      "csrfRequired": false,
+      "success": {"status": 200, "bodySchema": "MerchantProductList"},
+      "errorCodes": ["VALIDATION_FAILED", "AUTHENTICATION_REQUIRED", "RESOURCE_NOT_FOUND", "INTERNAL_ERROR", "SERVICE_UNAVAILABLE"],
+      "obligations": ["MC-01", "MC-02", "MC-03", "MC-05"]
+    },
+    {
       "id": "HTTP-01",
       "method": "POST",
       "path": "/api/v1/merchant/tenants/{tenantId}/shops",

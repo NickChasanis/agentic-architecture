@@ -4,6 +4,17 @@
   "title": "Pilot wire definitions — draft",
   "description": "Validate via a named definition. Application inputs are checked after declared trim normalization; authorization and protocol validity are separate obligations.",
   "definitions": {
+    "MerchantListQuery": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {"status": {"type": "string", "enum": ["draft", "published"]}}
+    },
+    "MerchantProductList": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["items"],
+      "properties": {"items": {"type": "array", "items": {"$ref": "#/definitions/MerchantProduct"}}}
+    },
     "Uuid": {
       "type": "string",
       "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}(?![\\s\\S])"

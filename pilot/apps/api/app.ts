@@ -88,6 +88,7 @@ export async function createApp({config,pool,now=()=>new Date(),https,oidcAdapte
     const params=req.params as any;
     const permission=principalId&&params.shopId?await identity.access(principalId,await (async()=>{const q=await pool.query('SELECT tenant_id FROM shops.shops WHERE id=$1',[params.shopId]);if(!q.rowCount)throw new DomainError('RESOURCE_NOT_FOUND');return q.rows[0].tenant_id;})()):undefined;
     switch(op.id){
+     case 'HTTP-08':body=await catalog.merchantList(params.shopId,permission!,(req.query as {status?:'draft'|'published'}).status);break;
      case 'ID-01':{
       const ms=now().getTime();
       for(const [key,bucket] of limiter)if(ms-bucket.start>=60000)limiter.delete(key);

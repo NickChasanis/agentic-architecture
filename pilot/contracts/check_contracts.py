@@ -66,7 +66,7 @@ for op in manifest["operations"]:
         assert op["success"]["bodySchema"] is None
     if op["success"]["status"] in (302, 303):
         assert "Location" in op["successHeaders"]
-assert ids == {f"HTTP-{i:02}" for i in range(1, 8)} | {f"ID-{i:02}" for i in range(1, 7)}
+assert ids == {f"HTTP-{i:02}" for i in range(1, 9)} | {f"ID-{i:02}" for i in range(1, 7)}
 assert set(manifest["errorStatusByCode"]) == set(bundle["definitions"]["ErrorEnvelope"]["properties"]["error"]["properties"]["code"]["enum"])
 
 uuid = "11111111-1111-4111-8111-111111111111"
@@ -84,6 +84,13 @@ def case(label, name, value, expected=True, consumer=False):
 
 case("valid draft", "DraftInput", draft)
 case("empty publication body", "EmptyObject", {})
+case("merchant list both states", "MerchantProductList", {"items": [merchant, {**merchant, "status": "published"}]})
+case("merchant list empty", "MerchantProductList", {"items": []})
+case("merchant list invalid state", "MerchantProductList", {"items": [{**merchant, "status": "private"}]}, False)
+case("merchant list default query", "MerchantListQuery", {})
+case("merchant list filter", "MerchantListQuery", {"status": "draft"})
+case("merchant list invalid filter", "MerchantListQuery", {"status": "all"}, False)
+case("merchant list query extension", "MerchantListQuery", {"page": "1"}, False)
 case("null is not absent/empty body", "EmptyObject", None, False)
 case("extra publication field", "EmptyObject", {"tenantId": uuid}, False)
 case("missing draft title", "DraftInput", {k: v for k, v in draft.items() if k != "title"}, False)
