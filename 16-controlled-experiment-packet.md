@@ -38,4 +38,4 @@ recovery_result; tool_cost_or_unavailable; limitations
 
 Stop and escalate to the owner for a breaking contract change, missing required environment, duplicate writer, budget extension, or a task that is no longer comparable. A failed check remains failed until corrected and rerun on the integrated revision.
 
-The packet is ready for owner approval of the proposed controls. It does not itself authorize paid model calls or claim a benchmark result.
+The owner subsequently authorized continuation using recommendations. BUDGET-001 records the applied limits. The initial executed scope was the smaller EXTENSION-TRIAL task pair, frozen before either worker started; [results](17-recovery-and-model-allocation.md) distinguish this from the larger candidate changes above. Separate paid API calls and general benchmark conclusions remain outside this record.

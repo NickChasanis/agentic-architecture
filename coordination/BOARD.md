@@ -1,13 +1,13 @@
 # Canonical discussion task board
 
-- Board revision: 19
+- Board revision: 20
 - Created at: 2026-09-11T13:58:26Z
-- Updated at: 2026-09-13T00:04:11Z
+- Updated at: 2026-09-13T00:17:35Z
 - Authority: current human-facing lead session, subject to the location/transfer rules in [the runbook](README.md).
 - Scope: supervised recovery-readiness exercise authorized by the owner; active grants below supersede historical defaults.
-- Source baseline inspected: `c522c89` (catalog implementation integrated; foundation `ba07c3f`)
+- Source baseline inspected: `2979178` (reviewed recovery and consumer trial integration)
 - Revalidation policy: every claim/resume, new session/day, or material dependency change. No autonomous claims or leases.
-- Live heartbeat/progress: not applicable; no active assignment.
+- Live heartbeat/progress: all grants below submitted and integrated; no active worker assignment.
 
 The timestamp describes this board revision, not permission to execute its tasks. `draft` is not claimable. `blocked` requires prerequisite resolution. Owners and generations remain empty/zero until an explicit grant.
 
@@ -16,13 +16,13 @@ The timestamp describes this board revision, not permission to execute its tasks
 | Task | Packet revision | Record version | State | Owner | Generation | Dependencies | Current activity / next action |
 |---|---|---|---|---|---|---|---|
 | [SETTING-001](tasks/SETTING-001.md) — choose the experiment setting | 2 | 2 | verified | none (human-resolved decision) | 0 | Owner choice received | Commerce publication selected; [decision and review](decisions/SETTING-001-commerce-publication.md). |
-| [BUDGET-001](tasks/BUDGET-001.md) — set troubleshooting and review budgets | 2 | 1 | draft | none | 0 | Owner approval of proposed comparison budget | Proposed 90-minute worker / 30-minute coordinator limits documented; no spending authorization inferred. |
+| [BUDGET-001](tasks/BUDGET-001.md) — troubleshooting and review budgets | 3 | 2 | verified | human-authorized coordinator | 0 | Owner instructed continuation using recommendations | 90-minute worker, 15-minute checkpoints, 30-minute coordinator/review limits applied; no separately billed API invocation. |
 | [CONTRACT-001](tasks/CONTRACT-001.md) — draft paired executable-contract specifications | 14 | 16 | draft | none (coordinator-authored proposal) | 0 | Pilot evidence exists; independent acceptance and controlled cost comparison still pending | Foundation, catalog, second consumer and local coordination/recovery checks implemented in [pilot README](../pilot/README.md). No worker grant. |
 | [REFACTOR-001](tasks/REFACTOR-001.md) — multi-agent refactoring and project changes | 1 | 1 | blocked | none | 0 | Owner explicitly resumes this later topic | Deferred by owner; do not dispatch or begin discussion now. |
 
 ## Unassigned-task metadata
 
-These values apply to the still-unassigned BUDGET-001 and CONTRACT-001 records, except CONTRACT-001 updated_at and last_progress_at are now 2026-09-11T18:03:37Z, artifact_refs include the draft schemas/manifest, HTTP/identity contracts, provider profile, accepted decisions, and module map, and evidence_refs include the [offline check results and command](../pilot/contracts/README.md). No runtime integration or independent-review evidence exists. REFACTOR-001 uses these unassigned defaults with created_at/updated_at 2026-09-11T14:30:14Z, no progress/evidence, and a blocker of explicit owner deferral. Replace with per-task details when a task changes.
+Historical defaults (superseded by current task rows and events 23–24): these values originally applied to BUDGET-001 and CONTRACT-001 records, except CONTRACT-001 updated_at and last_progress_at are now 2026-09-11T18:03:37Z, artifact_refs include the draft schemas/manifest, HTTP/identity contracts, provider profile, accepted decisions, and module map, and evidence_refs include the [offline check results and command](../pilot/contracts/README.md). No runtime integration or independent-review evidence exists. REFACTOR-001 uses these unassigned defaults with created_at/updated_at 2026-09-11T14:30:14Z, no progress/evidence, and a blocker of explicit owner deferral. Replace with per-task details when a task changes.
 
 ```text
 created_at: 2026-09-11T13:58:26Z
@@ -93,14 +93,26 @@ Event 17, 2026-09-12T19:05:31Z, CONTRACT-001 draft → draft: recorded explicit 
 
 Event 18, 2026-09-12T19:34:00Z, CONTRACT-001 draft → draft: implemented the five roadmap steps in isolated worktree commit 9e0b7c4, integrated as ba07c3f. Evidence: provider fixture verification, TypeScript compile, boundary checks, 22 coordination tests, 28 Fastify tests, 74 offline payload cases, 16 database/API tests, and 3 real Keycloak Playwright tests. Policy review closed prior important findings. Foundation is not the full commerce experiment: catalog, publication, second consumer, independent contract acceptance, multi-agent runtime coordination, and model cost comparison remain open. Docker stack is disposable/local only; no public service or paid model run. Owner/generation/budget fields remain unchanged.
 
-Next event sequence: 23. State events and received messages share one coordinator-assigned sequence. Git history preserves prior board revisions; event entries preserve the rationale for individual transitions.
+Next event sequence: 25. State events and received messages share one coordinator-assigned sequence. Git history preserves prior board revisions; event entries preserve the rationale for individual transitions.
 
 ## Catalog/publication roadmap checkpoint
 
 Event 19, 2026-09-12T20:05:00Z, CONTRACT-001 draft → draft: implemented the [Catalog Publication Foundation](../13-catalog-publication-foundation.md) in isolated worktree commit `74377f7`, integrated into `main` as `c522c89`. Evidence includes catalog schema and tenant/shop foreign keys, draft create/read/update, row-locked idempotent publication, immutable published products, privacy-preserving public projections, Angular/API wiring, 19 connected integration tests, 4 real Keycloak Playwright tests, and the complete verification gate. This checkpoint does not claim independent contract acceptance, a second consumer, autonomous multi-agent coordination, production deployment, or model-cost results. Revalidate before the next claim/resume.
 
-Event 20, 2026-09-12T20:30:00Z, CONTRACT-001 draft → draft: completed the second consumer, executable coordination registry, tmux session harness, adapter replacement/recovery exercises and deterministic evaluator in isolated worktree. Evidence: 21 connected integration tests, 4 Playwright tests, 7 registry/evaluation tests, 23 coordination-envelope/execution tests, boundary checks, TypeScript compile and Angular build. Decision recorded in [pilot evaluation](../../14-pilot-evaluation.md): adopt contract-first gates, revise before autonomous use, and make no speed/cost claim. Independent acceptance and controlled comparative runs remain open.
+Event 20, 2026-09-12T20:30:00Z, CONTRACT-001 draft → draft: completed the second consumer, executable coordination registry, tmux session harness, adapter replacement/recovery exercises and deterministic evaluator in isolated worktree. Evidence: 21 connected integration tests, 4 Playwright tests, 7 registry/evaluation tests, 23 coordination-envelope/execution tests, boundary checks, TypeScript compile and Angular build. Decision recorded in [pilot evaluation](../14-pilot-evaluation.md): adopt contract-first gates, revise before autonomous use, and make no speed/cost claim. Independent acceptance and controlled comparative runs remain open.
 
-Event 21, 2026-09-13T10:00:00Z, BUDGET-001 draft → draft: added [controlled comparison](../../15-controlled-comparison.md) and proposed 90 active worker minutes, 15-minute checkpoints, 30 active coordinator/reviewer minutes, and no paid API usage pending owner approval. This is a proposal only; no model run, spending authority or benchmark result exists.
+Event 21, 2026-09-13T10:00:00Z, BUDGET-001 draft → draft: added [controlled comparison](../15-controlled-comparison.md) and proposed 90 active worker minutes, 15-minute checkpoints, 30 active coordinator/reviewer minutes, and no paid API usage pending owner approval. This is a proposal only; no model run, spending authority or benchmark result exists.
 
-Event 22, 2026-09-13T10:30:00Z, BUDGET-001 draft → draft: froze the [controlled experiment packet](../../16-controlled-experiment-packet.md), candidate task pair, fixed acceptance gates, run-record fields and stop conditions. No paid execution or benchmark result is authorized; owner approval remains the next gate.
+Event 22, 2026-09-13T10:30:00Z, BUDGET-001 draft → draft: froze the [controlled experiment packet](../16-controlled-experiment-packet.md), candidate task pair, fixed acceptance gates, run-record fields and stop conditions. No paid execution or benchmark result is authorized; owner approval remains the next gate.
+
+## Current exercise grants and receipts
+
+| Task | Worker | Generation | State | Evidence |
+|---|---|---|---|---|
+| [RECOVERY-001](tasks/RECOVERY-001.md) | /root/recovery_worker | 1 | integrated with coordinator corrections | Adapter implementation needed three follow-up requests; coordinator confirmed process/recovery tests. |
+| [EXT-DEFAULT](tasks/EXTENSION-GRANTS.md) | /root/trial_default | 1 | reviewed; artifact preserved | 226ed7f; original six checks pass; supplemental large-input failure retained in report. |
+| [EXT-LUNA](tasks/EXTENSION-GRANTS.md) | /root/trial_luna | 1 | integrated with coordinator correction | f5d80d4; six checks pass; EXT-07 fixed in integrated 2979178. |
+
+Event 23, 2026-09-13T00:04:11Z: owner authorized continuation using recommendations; coordinator applied operating limits, recorded RECOVERY-001 and launched an actual bounded worker alongside registry/evaluator work. Separate model trials were subsequently granted at baseline `608c291`; receipts arrived through native collaboration. Canonical authority remained this originating checkout.
+
+Event 24, 2026-09-13T00:17:35Z: coordinator independently checked trial outputs, integrated reviewed recovery/consumer changes as `2979178`, and recorded [findings and limits](../17-recovery-and-model-allocation.md). Worktree evidence includes real cancellation before reassignment, 22 registry/adapter/evaluation checks, 7 consumer checks and public-API composition. Earlier claims of complete real adapter replacement or multi-agent comparison are superseded. Earlier events dated 10:00/10:30 were not derived from the observed clock and must not be used for elapsed-time measurements; current event times were read from the environment.

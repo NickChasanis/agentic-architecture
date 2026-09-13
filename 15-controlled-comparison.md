@@ -1,5 +1,7 @@
 # 15. Controlled agent comparison
 
+Status update, 2026-09-13: the owner authorized continuation using the recommendations. Operating limits now apply under BUDGET-001. Recovery readiness and a small sequential model-allocation trial have run; see [results and limitations](17-recovery-and-model-allocation.md). The larger sequential-versus-delegated comparison below remains a proposed subsequent experiment.
+
 The pilot established that the product and coordination contracts can compose. The next experiment tests the economic and operational assumptions without changing the contracts.
 
 ## Experiment design

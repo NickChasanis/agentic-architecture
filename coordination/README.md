@@ -10,7 +10,7 @@ For the current discussion, the human-facing lead session maintains `coordinatio
 
 Only one coordinator writes `BOARD.md`. The board owns current status, owner, task record version, assignment generation, validation times, and message receipts. Task packets own requirements and context; their status must not compete with the board. Completed packets remain available for history.
 
-No workers or live implementation assignments are registered yet. Pending discussion decisions have packets, but are not ready for autonomous dispatch.
+Supervised recovery and model-allocation worker grants have been exercised; consult BOARD.md for current states. Native collaboration carried the observed submissions. No autonomous dispatch is enabled.
 
 ## File layout
 
