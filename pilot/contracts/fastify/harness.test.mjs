@@ -102,6 +102,7 @@ const publicProduct = { id, ...draft };
 const session = { principal: { id }, csrfToken: 'synthetic', absoluteExpiresAt: '2026-09-11T20:00:00Z' };
 const outputs = {
   Shop: shop, DraftProduct: product, MerchantProduct: product,
+  MerchantProductList: {items:[product]},
   PublishedProduct: { ...product, status: 'published' }, PublicProduct: publicProduct,
   PublicProductList: { items: [publicProduct] }, AuthorizedShopList: { items: [shop] },
   TenantMembershipList: { items: [{ tenantId: id, name: 'Tenant', role: 'owner', canCreateShop: true }] },
@@ -111,7 +112,7 @@ const inputs = { CreateShopInput: input, DraftInput: draft, EmptyObject: {} };
 const operationUrl = op => op.path.replace(/\{shopSlug\}/g, 'shop').replace(/\{\w+\}/g, id)
   + (op.id === 'ID-02' ? '?state=synthetic&code=synthetic' : '');
 
-test('all 13 manifest operations bind and serialize their declared success shape', async t => {
+test('all manifest operations bind and serialize their declared success shape', async t => {
   const handlers = Object.fromEntries(manifest.operations.map(op => [op.id, async () => ({
     body: outputs[op.success.bodySchema],
     ...(op.successHeaders ? { headers: { Location: '/synthetic-test-target' } } : {}),

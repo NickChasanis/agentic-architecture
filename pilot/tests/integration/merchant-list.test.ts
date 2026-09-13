@@ -55,6 +55,13 @@ test('MC-01–05/08 merchant catalog contract with real storage and separate res
   try{assert.equal((await get(staff)).statusCode,404);}
   finally{await pool.query('UPDATE identity.grants SET active=true WHERE principal_id=$1',[staff.principalId]);}
  });
+ await t.test('MC-02 membership and session revocation apply to next list',async()=>{
+  await pool.query('UPDATE identity.memberships SET active=false WHERE principal_id=$1',[staff.principalId]);
+  try{assert.equal((await get(staff)).statusCode,404);}
+  finally{await pool.query('UPDATE identity.memberships SET active=true WHERE principal_id=$1',[staff.principalId]);}
+  const revoked=await login('staff');await identity.revoke(revoked.id);
+  assert.equal((await get(revoked)).statusCode,401);
+ });
  await t.test('MC-03 invalid, repeated and unknown query fields rejected',async()=>{
   for(const q of ['status=all','status=','status=draft&status=published','page=1','status=draft&tenantId=anything']){
    const r=await get(owner,base+'?'+q);assert.equal(r.statusCode,400);assert.equal(r.json().error.code,'VALIDATION_FAILED');

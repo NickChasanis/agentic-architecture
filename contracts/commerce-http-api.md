@@ -1,5 +1,15 @@
 # Commerce HTTP API — 0.2-draft
 
+## Implemented merchant list extension
+
+`HTTP-08`: `GET /api/v1/merchant/shops/{shopId}/products` requires a current application session and current access to the shop. Optional `status=draft|published` selects a state; omission returns both. Invalid/repeated status and unknown query fields return `400 VALIDATION_FAILED`. No body or CSRF token is required for this read.
+
+Success is `200` with `MerchantProductList`, an object containing `items` of the existing `MerchantProduct` shape, ordered by ID ascending. An authorized empty shop returns `{"items":[]}`. All matching rows are returned for this bounded pilot; no pagination or production-volume guarantee is implied. The operation does not change publication, editing or public projections.
+
+Missing authentication returns `401 AUTHENTICATION_REQUIRED`. Missing shops, foreign-tenant shops and shops without a current staff grant return the same `404 RESOURCE_NOT_FOUND` envelope. Existing `500 INTERNAL_ERROR` and `503 SERVICE_UNAVAILABLE` handling applies. Shop authorization happens before reading catalog rows; no tenant/principal header is accepted as identity. Responses retain `Cache-Control: no-store`.
+
+The executable mapping and schemas contain the additive operation without renumbering existing IDs. MC-01–08 in [acceptance scenarios](acceptance-scenarios.md) define its composition obligations. Historical draft sections below describe original design provenance; current execution evidence belongs in [chapter 19](../19-merchant-catalog-visibility.md).
+
 Recorded 2026-09-11T16:16:51Z. This is the proposed wire specification for [COMMERCE-PUBLICATION](commerce-publication.md), using the accepted Angular/TypeScript/Fastify/PostgreSQL direction. Routes, limits, currency, and concurrency defaults remain proposals. [Canonical draft schemas and mappings](../pilot/contracts/README.md) now encode these definitions; no endpoints exist yet.
 
 ## Common rules
