@@ -6,6 +6,12 @@
 
 This repository explores two connected concerns: using agents to deliver modular software, and designing the coordination system that manages their work. Shared contracts, verified integration, and measurable extension exercises connect both tracks.
 
+## Using this framework in your project
+
+Start with [How to Use This Framework](howtouse.md) for a complete onboarding guide with examples of project context, module documentation, task packets, worker handoffs and contract-based verification.
+
+The guide explains how to assess an existing codebase, adapt these practices to a new project, and give each agent the context required for its assignment. Create a project-specific board and grants using actual revisions and test evidence; this repository's historical assignments do not transfer to another project. Begin with one verified vertical slice, then expand delegation based on measured integration and review effort.
+
 **Status:** active architecture discussion with a local commerce pilot. The pilot is disposable and local-only; no production service or orchestration runtime is claimed.
 
 **Coordination workspace:** the supervised Markdown workflow has a [runbook](coordination/README.md), [task board](coordination/BOARD.md), task packets, and message templates. Actual worker trials and recovery-readiness findings are recorded in [the model-allocation evaluation](17-recovery-and-model-allocation.md). Fresh agents start with [AGENTS.md](AGENTS.md).
@@ -50,7 +56,7 @@ Start with the [roadmap](04-roadmap-of-thought.md) for the next decisions and [c
 
 **Session tool of choice:** tmux for multiple terminal sessions and agent processes. Use explicit workspace isolation and task/result contracts alongside it. The [operating model](06-tmux-agent-roles-and-metrics.md) defines generic roles, justified specializations, and evidence-based implementation metrics for both tracks.
 
-These are portable guidance and illustrative templates. The repository paths shown inside the notes describe a hypothetical application; they are not application files created here. Exact instruction-file discovery, subagent APIs, and permissions depend on the coding tool.
+The [usage guide](howtouse.md) and architecture notes include illustrative layouts for future projects; the executable local example lives under `pilot/`. Exact instruction-file discovery, subagent APIs, and permissions depend on the coding tool.
 
 ## The example and assumptions
 
