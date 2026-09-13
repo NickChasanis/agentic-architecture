@@ -9,3 +9,5 @@ The human-facing lead session is the coordinator unless the owner explicitly tra
 Record UTC timestamps from the execution environment and exact revisions. Check current status, packet revision, dependencies, assignment generation, ownership, and budget before initial work or resumption. An old packet, a GitHub copy of the board, or a tmux window name is not permission to claim a task.
 
 Respect accepted authority and model allocation in `07-authority-model-policy-and-assumptions.md`. Preserve existing work. Do not launch agents or implementation experiments merely because a task appears in the backlog. Report observed checks separately from proposed or unrun checks.
+
+Keep `README.md` and `howtouse.md` aligned as the project progresses. When adding a chapter or changing supported workflows, update the README's reading order and current direction, and update the usage guide with the relevant explanation, example, and limitations. Distinguish proposed behavior from verified capabilities; check local documentation links before handing off.

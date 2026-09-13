@@ -12,6 +12,8 @@ Start with [How to Use This Framework](howtouse.md) for a complete onboarding gu
 
 The guide explains how to assess an existing codebase, adapt these practices to a new project, and give each agent the context required for its assignment. Create a project-specific board and grants using actual revisions and test evidence; this repository's historical assignments do not transfer to another project. Begin with one verified vertical slice, then expand delegation based on measured integration and review effort.
 
+Documentation evolves with the project: each new chapter or supported workflow must be reflected here and in `howtouse.md`, including practical examples and the distinction between proposals and verified capabilities.
+
 **Status:** active architecture discussion with a local commerce pilot. The pilot is disposable and local-only; no production service or orchestration runtime is claimed.
 
 **Coordination workspace:** the supervised Markdown workflow has a [runbook](coordination/README.md), [task board](coordination/BOARD.md), task packets, and message templates. Actual worker trials and recovery-readiness findings are recorded in [the model-allocation evaluation](17-recovery-and-model-allocation.md). Fresh agents start with [AGENTS.md](AGENTS.md).
@@ -53,6 +55,7 @@ Start with the [roadmap](04-roadmap-of-thought.md) for the next decisions and [c
 16. [Controlled experiment packet](16-controlled-experiment-packet.md)
 17. [Recovery Readiness and Model Allocation Trial](17-recovery-and-model-allocation.md)
 18. [tmux Execution Adapter](18-tmux-execution-adapter.md)
+19. [Merchant Catalog Visibility Implementation Roadmap](19-merchant-catalog-visibility.md)
 
 **Session tool of choice:** tmux for multiple terminal sessions and agent processes. Use explicit workspace isolation and task/result contracts alongside it. The [operating model](06-tmux-agent-roles-and-metrics.md) defines generic roles, justified specializations, and evidence-based implementation metrics for both tracks.
 
@@ -121,9 +124,11 @@ Relevant primary sources, consulted on 2026-09-10:
 
 Pursue both concerns as separate, connected tracks: **delivering adaptable software with agents** and **designing the system that coordinates them**. Their shared checkpoints are executable contracts, verified integration, and measured extension exercises.
 
-Next, draft a product behavior contract and an agent work-submission contract together, each including failure and extension scenarios. For the commerce example, the product outcome remains: **a merchant creates a shop, publishes a product, and a shopper can see it without cross-tenant leakage.**
+The local publication pilot, bounded model trial and second command transport are documented in chapters 14–18. The next proposed product slice is the merchant catalog list from the [controlled experiment packet](16-controlled-experiment-packet.md): authenticated access to drafts and published products, with shop/tenant isolation and unchanged public projections. Its detailed contract and assignment must be resolved before execution.
 
-The [dual-track roadmap](04-roadmap-of-thought.md) sequences both concerns. [Contract and adaptability criteria](05-contracts-and-adaptability.md) define how to assess them. These are discussion guides, not a commitment to build the example platform.
+The coordination track still needs durable restart/recovery behavior and a real multi-worker concurrency comparison; the tmux command adapter alone proves neither. The [dual-track roadmap](04-roadmap-of-thought.md) and [contract criteria](05-contracts-and-adaptability.md) remain the conceptual guides. Multi-agent refactoring stays deferred by the owner.
+
+The next three implementation steps are [merchant list contract/provider, merchant UI consumer, and integrated acceptance/handoff](19-merchant-catalog-visibility.md). They are planned work, not completed capabilities; each step has explicit dependencies and contract-based exit gates.
 
 ---
 

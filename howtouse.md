@@ -220,6 +220,22 @@ Permanent specialist teams, a custom memory service or a general orchestrator ma
 
 ## A practical starting sequence
 
+### Worked implementation roadmap: merchant catalog visibility
+
+The [merchant catalog roadmap](19-merchant-catalog-visibility.md) demonstrates how to turn context into three dependent implementation steps. First define and verify the merchant-only list contract and provider. Then assign the UI consumer against that verified boundary. Finally test the combined revision and record a handoff. This slice is planned; this guide does not claim the list is already available.
+
+For example, a shop with one draft notebook and one published notebook should show both to an authorized merchant, only the draft under the Draft filter, and only the published notebook to a public shopper. A different tenant must not retrieve the merchant list. Those are distinct obligations requiring provider, access and browser evidence, not just a test that two cards render.
+
+The roadmap also includes a response-ordering failure: an old shop request finishes after the merchant switches shops. The consumer must discard that result. This illustrates why a task's context should include interaction failures as well as response schemas. Its final extension exercise asks a second test consumer to count product states using only the declared response, with any required provider changes recorded as integration effort.
+
+### Keep the guide current
+
+As this project adds chapters, update this guide and the repository README in the same change. The README should link to the new chapter and describe the current direction. This guide should explain how the new material affects practical use, with an example when it introduces a workflow. Label proposals, tested local capabilities and remaining limitations separately; a roadmap entry is not proof of implementation.
+
+For example, adding a restart-recovery chapter would require documenting what a replacement coordinator must read, how old writers are stopped, and which recovery scenarios were actually exercised. Until those checks exist, do not describe restart-safe coordination as available.
+
+### Start a project slice
+
 1. Inspect the target repository and identify its authoritative documentation, contracts and runnable checks.
 2. Adapt the entry point and coordination rules; create a new project-specific board.
 3. Write a concise project map and context files for the modules in the first slice.
