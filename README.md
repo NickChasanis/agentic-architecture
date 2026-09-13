@@ -8,7 +8,7 @@ This repository explores two connected concerns: using agents to deliver modular
 
 **Status:** active architecture discussion with a local commerce pilot. The pilot is disposable and local-only; no production service or orchestration runtime is claimed.
 
-**Coordination workspace:** the agreed supervised Markdown workflow now has a [runbook](coordination/README.md), [task board](coordination/BOARD.md), task packets, and message templates. These are manual coordination artifacts; no workers have been dispatched. Fresh agents start with [AGENTS.md](AGENTS.md).
+**Coordination workspace:** the supervised Markdown workflow has a [runbook](coordination/README.md), [task board](coordination/BOARD.md), task packets, and message templates. Actual worker trials and recovery-readiness findings are recorded in [the model-allocation evaluation](17-recovery-and-model-allocation.md). Fresh agents start with [AGENTS.md](AGENTS.md).
 
 **Current discussion artifacts:** [publication and work-submission contract drafts](contracts/README.md), with product and coordination acceptance scenarios. Proposed behavior is separated from accepted decisions and executed evidence.
 
@@ -45,6 +45,7 @@ Start with the [roadmap](04-roadmap-of-thought.md) for the next decisions and [c
 14. [Pilot evaluation and decision](14-pilot-evaluation.md)
 15. [Controlled agent comparison](15-controlled-comparison.md)
 16. [Controlled experiment packet](16-controlled-experiment-packet.md)
+17. [Recovery Readiness and Model Allocation Trial](17-recovery-and-model-allocation.md)
 
 **Session tool of choice:** tmux for multiple terminal sessions and agent processes. Use explicit workspace isolation and task/result contracts alongside it. The [operating model](06-tmux-agent-roles-and-metrics.md) defines generic roles, justified specializations, and evidence-based implementation metrics for both tracks.
 

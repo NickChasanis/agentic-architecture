@@ -3,11 +3,16 @@ export function summarizeProducts(products) {
     return {count: 0, minPrice: null, maxPrice: null, currency: 'EUR'};
   }
 
-  const prices = products.map((product) => product.price.amountMinor);
+  let minPrice = Infinity;
+  let maxPrice = -Infinity;
+  for (const product of products) {
+    minPrice = Math.min(minPrice, product.price.amountMinor);
+    maxPrice = Math.max(maxPrice, product.price.amountMinor);
+  }
   return {
     count: products.length,
-    minPrice: Math.min(...prices),
-    maxPrice: Math.max(...prices),
+    minPrice,
+    maxPrice,
     currency: 'EUR'
   };
 }

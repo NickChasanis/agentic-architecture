@@ -20,7 +20,7 @@ export function checkBoundaries(){
   for(const entry of fs.readdirSync(dir,{withFileTypes:true})){
    const file=path.posix.join(dir,entry.name);
    if(entry.isDirectory())walk(file);
-   else if(file.endsWith('.ts')){
+   else if(file.endsWith('.ts')||file.endsWith('.mjs')){
     const source=ts.createSourceFile(file,fs.readFileSync(file,'utf8'),ts.ScriptTarget.Latest,true);
     function visit(node){
      let spec;

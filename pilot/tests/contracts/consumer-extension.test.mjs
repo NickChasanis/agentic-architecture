@@ -13,3 +13,9 @@ test('EXT-03 selection returns a new array without input mutation',()=>{const fr
 test('EXT-04 invalid bounds fail explicitly',()=>{for(const options of [{minPrice:-1},{maxPrice:1.2},{minPrice:2,maxPrice:1},{minPrice:NaN},{maxPrice:100000001}])assert.throws(()=>selectProducts(products,options),RangeError);});
 test('EXT-05 summary uses integer minor units and preserves input',()=>{const before=structuredClone(products);assert.deepEqual(summarizeProducts(products),{count:3,minPrice:0,maxPrice:1250,currency:'EUR'});assert.deepEqual(products,before);});
 test('EXT-06 empty summary has null bounds',()=>assert.deepEqual(summarizeProducts([]),{count:0,minPrice:null,maxPrice:null,currency:'EUR'}));
+// Supplemental reviewer finding after both frozen trials; not retroactively
+// included in the six-obligation first-submission score.
+test('EXT-07 large catalog summary does not expand function arguments',()=>{
+ const many=Array.from({length:200000},(_,i)=>({...products[0],price:{amountMinor:i%2,currency:'EUR'}}));
+ assert.deepEqual(summarizeProducts(many),{count:200000,minPrice:0,maxPrice:1,currency:'EUR'});
+});

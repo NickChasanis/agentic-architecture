@@ -1,6 +1,6 @@
 # Agent entry point
 
-This repository contains architecture discussions and a supervised Markdown coordination workspace. It does not contain a running application or automated orchestrator.
+This repository contains architecture discussions, a local commerce pilot and a supervised Markdown coordination workspace. The in-memory registry is a laboratory component, not durable or autonomous authority. Consult the current board for active grants and evidence.
 
 Read `README.md`, then `coordination/README.md` and `coordination/BOARD.md` before acting on a recorded task. Read the selected task packet and its required context. Discussion examples and templates do not grant assignments.
 

@@ -5,6 +5,8 @@ import pg from 'pg';
 import {createApp} from '../../apps/api/app.js';
 import {Identity} from '../../modules/identity-tenancy/service.js';
 import {renderPublicCatalogCard} from '../../modules/storefront/public-catalog.js';
+import {selectProducts} from '../../modules/storefront/select-products.mjs';
+import {summarizeProducts} from '../../modules/storefront/summarize-products.mjs';
 const config=JSON.parse(readFileSync(new URL('../../.local/config.json',import.meta.url),'utf8'));
 const shop='20000000-0000-4000-8000-000000000001';
 test('catalog publication contract: draft, edit, publish, public view and immutable edit',async()=>{
@@ -30,6 +32,9 @@ test('catalog publication contract: draft, edit, publish, public view and immuta
   assert.deepEqual(card,{id:product.id,title:'Updated',description:'plain text',price:'€12.50'});
   const detail=await app.inject({url:'/api/v1/public/shops/shop-a1/products/'+product.id});
   assert.equal(detail.statusCode,200);assert.deepEqual(Object.keys(detail.json()).sort(),['description','id','price','title']);
+  const selected=selectProducts([detail.json()],{query:' UPDATED ',minPrice:1250,maxPrice:1250});
+  assert.equal(selected[0].id,product.id);
+  assert.deepEqual(summarizeProducts(selected),{count:1,minPrice:1250,maxPrice:1250,currency:'EUR'});
   assert.equal((await app.inject({url:'/api/v1/public/shops/shop-b1/products/'+product.id})).statusCode,404);
  }finally{await app.close();await pool.end();}
 });

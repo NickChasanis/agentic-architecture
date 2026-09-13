@@ -1,0 +1,33 @@
+{
+  "experiment": "2026-09-13-public-consumer-model-allocation",
+  "baseline": "608c291d3fcec2b38e9b346a0dd3fce54b3da193",
+  "protocol": "coordination/tasks/EXTENSION-TRIAL.md",
+  "execution": "sequential, fresh native worker contexts, separate worktrees",
+  "requiredObligations": ["EXT-01", "EXT-02", "EXT-03", "EXT-04", "EXT-05", "EXT-06"],
+  "runs": [
+    {
+      "id": "EXT-DEFAULT", "modelSelection": "inherited default session model",
+      "artifact": "226ed7f459b3f746856a515da13f9716bf5957e3",
+      "workerReportedStart": "2026-09-13T00:12:55Z", "workerReportedEnd": "2026-09-13T00:13:27Z",
+      "workerReportedSeconds": 32, "independentVerification": "6 passed, 0 failed",
+      "supplementalLargeCatalogReview": "RangeError: Maximum call stack size exceeded",
+      "toolCost": null, "activeHumanMinutes": null
+    },
+    {
+      "id": "EXT-LUNA", "modelSelection": "gpt-5.6-luna",
+      "artifact": "f5d80d4da80f33c8e4744ac491b7a0105808dc18",
+      "workerReportedStart": "2026-09-13T00:13:52Z", "workerReportedEnd": "2026-09-13T00:14:26Z",
+      "workerReportedSeconds": 34, "independentVerification": "6 passed, 0 failed",
+      "supplementalLargeCatalogReview": "RangeError: Maximum call stack size exceeded",
+      "toolCost": null, "activeHumanMinutes": null
+    }
+  ],
+  "selected": "EXT-LUNA with coordinator remediation for EXT-07",
+  "limitations": [
+    "Single small task pair, sequential order, shared host and procedural isolation",
+    "Worker-reported times exclude planning, queue, review and integration",
+    "No paid-cost, model-speed, or parallel-throughput conclusion",
+    "Six frozen obligations missed a defect common to both solutions",
+    "Supplemental EXT-07 added after both artifacts were preserved"
+  ]
+}
