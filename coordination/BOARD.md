@@ -1,13 +1,13 @@
 # Canonical discussion task board
 
-- Board revision: 24
+- Board revision: 26
 - Created at: 2026-09-11T13:58:26Z
-- Updated at: 2026-09-13T22:45:59Z
+- Updated at: 2026-09-13T23:37:52Z
 - Authority: current human-facing lead session, subject to the location/transfer rules in [the runbook](README.md).
 - Scope: supervised recovery-readiness exercise authorized by the owner; active grants below supersede historical defaults.
-- Source baseline inspected: `54b534291109cbf738fdf80f54182a5b8f173a10` (merchant list and documentation)
+- Source baseline inspected: `966a8e1` (chapter 20 reliability, pagination and durable recovery implementation)
 - Revalidation policy: every claim/resume, new session/day, or material dependency change. No autonomous claims or leases.
-- Live heartbeat/progress: merchant list integrated with MC-06/07 acceptance reopened; chapter 20 is a proposal, with no active worker grant.
+- Live heartbeat/progress: chapter 20 implementation integrated by the coordinator; REL-001 and DUR-001 are closed. No active worker grant.
 
 The timestamp describes this board revision, not permission to execute its tasks. `draft` is not claimable. `blocked` requires prerequisite resolution. Owners and generations remain empty/zero until an explicit grant.
 
@@ -93,7 +93,13 @@ Event 17, 2026-09-12T19:05:31Z, CONTRACT-001 draft → draft: recorded explicit 
 
 Event 18, 2026-09-12T19:34:00Z, CONTRACT-001 draft → draft: implemented the five roadmap steps in isolated worktree commit 9e0b7c4, integrated as ba07c3f. Evidence: provider fixture verification, TypeScript compile, boundary checks, 22 coordination tests, 28 Fastify tests, 74 offline payload cases, 16 database/API tests, and 3 real Keycloak Playwright tests. Policy review closed prior important findings. Foundation is not the full commerce experiment: catalog, publication, second consumer, independent contract acceptance, multi-agent runtime coordination, and model cost comparison remain open. Docker stack is disposable/local only; no public service or paid model run. Owner/generation/budget fields remain unchanged.
 
-Next event sequence: 29. State events and received messages share one coordinator-assigned sequence. Git history preserves prior board revisions; event entries preserve the rationale for individual transitions.
+Next event sequence: 31. State events and received messages share one coordinator-assigned sequence. Git history preserves prior board revisions; event entries preserve the rationale for individual transitions.
+
+## Reliability and recovery grants
+
+Event 30, 2026-09-13T23:37:52Z: chapter 20 implementation completed and integrated as main revision `966a8e1`. Coordinator review closed REL-001 and DUR-001 after integrating merchant request-generation guards, HTTP-09 keyset pagination and the durable coordination schema/registry/recovery inspection. Observed evidence: 16 Playwright, 36 integration, 12 durable-coordination and 30 contract tests passed; offline contract checking passed 31 schema definitions, 15 operation mappings and 88 payload cases; TypeScript, provider, boundary and merchant-build checks passed. The pagination fixture enumerated 1,000 products exactly once and used the page index. Durable tests use unique namespaces and exercise crash, duplicate, CAS, event-failure and termination-gating paths. No production deployment, host-reboot/process-control proof or parallel-model cost/speed claim is made. No active grant remains; a further independent reviewer was unavailable under the session thread limit.
+
+Event 29, 2026-09-13T22:51:31Z: owner authorized nonstop chapter 20 implementation. REL-001 and DUR-001 absent → running, generation/record/packet revision 1; baseline `58d060ea2d5e8a0a9c9891166caa7eb86ec160d4`; execution worktree `/home/nchasanis/.config/superpowers/worktrees/agentic-architecture/reliability`. Canonical authority remains /root in this originating checkout. REL-001 owner /root: merchant UI, catalog pagination, associated tests/contracts and docs. DUR-001 worker `/root/durable_worker`: only `pilot/contracts/coordination/durable-registry.mjs`, `durable-registry.test.mjs`, `recovery-inspection.mjs`, `pilot/infra/coordination.sql`; other files require coordinator approval. Shared existing disposable `agentic-merchant-list` services; worker writes only coordination schema, coordinator commerce fixtures; browser/API port 3443 reserved to coordinator. No other host databases. Each grant: 90 active implementation minutes, 15-minute checkpoints, 30 active review minutes before escalation, no paid API calls. Revalidate before resume, submission or changed prerequisites. Durable work may proceed independently alongside product work; acceptance remains ordered and the live board stays Markdown. Historical failed UI worker has no current write grant.
 
 ## Merchant catalog implementation
 

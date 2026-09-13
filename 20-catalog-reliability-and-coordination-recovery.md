@@ -4,7 +4,7 @@
 
 ## Implementation roadmap
 
-Status: proposed implementation sequence, prepared from source revision `54b534291109cbf738fdf80f54182a5b8f173a10`. This chapter defines the next three steps; no new implementation or worker assignment is created by publishing it.
+Status: implemented locally on main revision `966a8e1` (2026-09-13 UTC). This chapter records the three-step roadmap and evidence for its completed pilot slice; it does not claim production deployment or unattended authority recovery.
 
 | Step | Track | Outcome | Exit gate |
 |---|---|---|---|
@@ -12,7 +12,13 @@ Status: proposed implementation sequence, prepared from source revision `54b5342
 | 2. Introduce compatible catalog pagination | Software delivery | Bounded page reads and a merchant consumer that navigates them | Page contract, access isolation and old-consumer compatibility verified |
 | 3. Persist coordination state and rehearse recovery | Agent coordination | Fresh coordinator can restore records and safely reconcile interrupted work | Durable receipts, single-writer checks and supervised recovery scenarios pass |
 
-Execute in this order. Step 2 depends directly on step 1's request lifecycle protections. Step 3 can be designed independently, but follows the product work in this execution sequence to keep review and test resources available. Published-product editing and the deferred multi-agent refactoring topic remain outside this roadmap.
+The coordinator executed these steps in order. Published-product editing and the deferred multi-agent refactoring topic remain outside this roadmap.
+
+## Observed implementation and verification
+
+Step 1 is complete: request generations guard selection, tenant, session, create and publish responses. Step 2 is complete: HTTP-09 is additive, keyset-paginated and context-bound while HTTP-08 remains unchanged. Step 3 is complete for the local pilot: PostgreSQL-backed grants, receipts, revisions, event sequencing and read-only recovery inspection are implemented and exercised.
+
+Observed checks at the integrated revision: 16 Playwright tests passed, 36 integration tests passed, 12 durable-coordination tests passed, 30 contract tests passed, and the offline contract checker passed 31 schema definitions, 15 operation mappings and 88 payload cases. TypeScript, provider, boundary and merchant-build checks passed. The pagination fixture enumerated 1,000 products exactly once and logged use of the page index. These are local disposable-environment results; host reboot recovery, escaped process control, production rollout and comparative parallel-model cost/speed remain unproven.
 
 ## Baseline findings that determine the order
 
@@ -40,7 +46,7 @@ The coordination board also needs a truthful handoff record: the UI worker faile
 
 **Files:** `contracts/commerce-http-api.md`, `contracts/acceptance-scenarios.md`, `pilot/contracts/schemas/wire.schema.json`, `pilot/contracts/operations/http.json`, `pilot/contracts/check_contracts.py`, `pilot/contracts/fastify/`, `pilot/modules/catalog/service.ts`, `pilot/apps/api/app.ts`, merchant UI files and `pilot/tests/integration/merchant-list.test.ts`.
 
-The current HTTP-08 contract promises all matching rows. Silently making that endpoint return only a first page would violate its consumers. Proposed approach: add a distinct page endpoint, `/api/v1/merchant/shops/{shopId}/products/page`, and migrate the merchant UI to it while retaining HTTP-08's existing behavior. Verify static-route precedence against the existing product-ID route. Retiring the old endpoint requires a separate compatibility decision.
+The current HTTP-08 contract promises all matching rows. Silently making that endpoint return only a first page would violate its consumers. Implemented approach: add a distinct page endpoint, `/api/v1/merchant/shops/{shopId}/products/page`, and migrate the merchant UI to it while retaining HTTP-08's existing behavior. Static-route precedence is covered by integration tests. Retiring the old endpoint requires a separate compatibility decision.
 
 - [ ] Freeze the additive page contract before coding: optional `status=draft|published`, proposed page size default 25 and maximum 100, and a bounded opaque cursor. Specify strict parsing of HTTP query strings and reject unknown/repeated/invalid fields. Response: `items` and nullable `nextCursor`; omit an expensive total-count promise.
 - [ ] Bind cursor context to shop, filter and ordering version; reject mismatches and malformed cursors. Cursors never grant access: authenticate and authorize each page request. Define any cursor integrity requirement in the contract before choosing its encoding.
@@ -58,7 +64,7 @@ The current HTTP-08 contract promises all matching rows. Silently making that en
 
 **Existing files:** `pilot/contracts/coordination/registry.mjs`, `check-submission.mjs`, `registry.test.mjs`, `recovery.test.mjs`, `adapter.mjs`, `tmux-adapter.mjs`, and `coordination/README.md`. **Proposed new files:** `pilot/contracts/coordination/durable-registry.mjs`, `durable-registry.test.mjs`, `recovery-inspection.mjs` and `pilot/infra/coordination.sql`.
 
-Proposed storage is a separate coordination schema in the disposable PostgreSQL instance, using the existing database dependency. It must not read commerce tables. Keep the existing in-memory registry as a contract reference and give the durable implementation explicit transaction/revision semantics.
+Implemented storage is a separate coordination schema in the disposable PostgreSQL instance, using the existing database dependency. It does not read commerce tables. The existing in-memory registry remains the contract reference and the durable implementation has explicit transaction/revision semantics.
 
 - [ ] Define persisted grants, complete submission receipts, event sequence, schema version and record revision. The current event log omits full submission content and is not sufficient to reconstruct receipt deduplication by itself.
 - [ ] Implement grant/submission/reassignment transactions with a database-enforced single writer and expected-revision checks. Commit state and corresponding events atomically; database failure must not produce a successful acknowledgment.

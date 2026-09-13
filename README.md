@@ -22,7 +22,7 @@ Documentation evolves with the project: each new chapter or supported workflow m
 
 **Executable pilot artifacts:** [schemas, operation mappings, contract harness, connected runtime and coordination checks](pilot/README.md). The application and identity provider are disposable/local; no production service is claimed.
 
-**Current implementation roadmaps:** [Identity, Tenancy and Shop Foundation](12-identity-tenant-shop-foundation.md) and [Catalog Publication Foundation](13-catalog-publication-foundation.md). [Keycloak plus backend `openid-client`](coordination/decisions/IDENTITY-001-commerce-pilot.md) is the accepted identity direction.
+**Current implementation roadmaps:** [Identity, Tenancy and Shop Foundation](12-identity-tenant-shop-foundation.md), [Catalog Publication Foundation](13-catalog-publication-foundation.md), and the completed local [Catalog Reliability and Coordination Recovery](20-catalog-reliability-and-coordination-recovery.md). [Keycloak plus backend `openid-client`](coordination/decisions/IDENTITY-001-commerce-pilot.md) is the accepted identity direction.
 
 ## Two tracks, shared contracts
 
@@ -127,9 +127,9 @@ Pursue both concerns as separate, connected tracks: **delivering adaptable softw
 
 The local publication pilot, bounded model trial and second command transport are documented in chapters 14–18. Chapter 19 adds the merchant catalog provider and basic list/filter UI. Source review has reopened its interaction acceptance: delayed responses, session transitions and error/retry behavior still need focused verification and fixes.
 
-The coordination track still needs durable restart/recovery behavior and a real multi-worker concurrency comparison; the tmux command adapter alone proves neither. The [dual-track roadmap](04-roadmap-of-thought.md) and [contract criteria](05-contracts-and-adaptability.md) remain the conceptual guides. Multi-agent refactoring stays deferred by the owner.
+The local pilot now includes durable restart/recovery exercises and compatible catalog pagination; tmux remains an orchestration tool, not proof of process control. Production adoption and a real multi-worker concurrency comparison are still open. The [dual-track roadmap](04-roadmap-of-thought.md) and [contract criteria](05-contracts-and-adaptability.md) remain the conceptual guides. Multi-agent refactoring stays deferred by the owner.
 
-The [next three-step roadmap](20-catalog-reliability-and-coordination-recovery.md) covers merchant interaction reliability, compatible catalog pagination and durable coordination recovery. Prior recorded test passes remain useful evidence, but do not establish the missing interaction or restart guarantees. Each step defines files, obligations and exit gates; implementation status is tracked separately from the proposal.
+The [three-step roadmap](20-catalog-reliability-and-coordination-recovery.md) covers merchant interaction reliability, compatible catalog pagination and durable coordination recovery. All three are implemented and verified in the disposable local pilot; the chapter records exact evidence and the remaining production proof boundaries.
 
 ---
 
