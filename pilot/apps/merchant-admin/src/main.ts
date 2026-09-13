@@ -25,9 +25,18 @@ import {validate,type Session,type Tenant,type Shop,type Product} from './contra
    </form></section>
    }
    @if(shops().length){<section><h2>Catalog</h2>
-    <label>Shop <select aria-label="Product shop" [ngModel]="productShopId()" (ngModelChange)="productShopId.set($event)">
+    <label>Shop <select aria-label="Product shop" [ngModel]="productShopId()" (ngModelChange)="selectProductShop($event)">
      @for(shop of shops();track shop.id){<option [value]="shop.id">{{shop.name}}</option>}
     </select></label>
+    <label>Status <select aria-label="Product status" [ngModel]="productStatus()" (ngModelChange)="selectProductStatus($event)">
+     <option value="all">All</option><option value="draft">Draft</option><option value="published">Published</option>
+    </select></label>
+    @if(productsLoading()){<p>Loading products…</p>}
+    @else if(productsError()){<p role="alert">{{productsError()}}</p><button type="button" (click)="loadProducts()">Retry</button>}
+    @else if(products().length===0){<p>No products match this filter.</p>}
+    @else {<ul aria-label="Merchant products">
+     @for(item of products();track item.id){<li>{{item.title}} — {{item.status}} — {{formatPrice(item)}}</li>}
+    </ul>}
     <form (ngSubmit)="createProduct()"><label>Product title <input name="productTitle" [(ngModel)]="productTitle" required maxlength="120"></label>
      <label>Description <textarea name="description" [(ngModel)]="description" maxlength="2000"></textarea></label>
      <label>Price (cents) <input name="price" type="number" [(ngModel)]="price" min="0" max="100000000" required></label>
@@ -38,9 +47,9 @@ import {validate,type Session,type Tenant,type Shop,type Product} from './contra
   }
  </main>`})
 class App {
- session=signal<Session|null>(null);tenants=signal<Tenant[]>([]);shops=signal<Shop[]>([]);
+ session=signal<Session|null>(null);tenants=signal<Tenant[]>([]);shops=signal<Shop[]>([]);products=signal<Product[]>([]);
  tenantId=signal('');message=signal('');loading=signal(true);busy=signal(false);
- name='';slug='';productTitle='';description='';price=0;productShopId=signal('');product=signal<Product|null>(null);private selection=0;
+ name='';slug='';productTitle='';description='';price=0;productShopId=signal('');productStatus=signal<'all'|'draft'|'published'>('all');product=signal<Product|null>(null);productsLoading=signal(false);productsError=signal('');private selection=0;private productSelection=0;
  constructor(){void this.load();}
  canCreate(){return this.tenants().find(t=>t.tenantId===this.tenantId())?.canCreateShop??false;}
  async request(path:string,schema:string,method='GET',body?:unknown){
@@ -65,18 +74,28 @@ class App {
   this.tenantId.set(id);this.shops.set([]);const version=++this.selection;
   try{
    const data=await this.request('/api/v1/merchant/tenants/'+encodeURIComponent(id)+'/shops','AuthorizedShopList') as {items:Shop[]};
-   if(version===this.selection){this.shops.set(data.items);this.productShopId.set(data.items[0]?.id??'');}
+   if(version===this.selection){this.shops.set(data.items);this.productShopId.set(data.items[0]?.id??'');this.products.set([]);if(data.items[0])void this.loadProducts(data.items[0].id);}
   }catch(e){if(version===this.selection)this.message.set((e as Error).message);}
  }
+ async selectProductShop(id:string){this.productShopId.set(id);this.products.set([]);await this.loadProducts(id);}
+ async selectProductStatus(status:'all'|'draft'|'published'){this.productStatus.set(status);await this.loadProducts();}
+ async loadProducts(shopId=this.productShopId()){
+  if(!shopId||!this.session())return;const version=++this.productSelection;this.productsLoading.set(true);this.productsError.set('');
+  try{const q=this.productStatus()==='all'?'':'?status='+this.productStatus();const data=await this.request('/api/v1/merchant/shops/'+encodeURIComponent(shopId)+'/products'+q,'MerchantProductList', 'GET');
+   if(version===this.productSelection&&shopId===this.productShopId())this.products.set((data as {items:Product[]}).items);
+  }catch(e){if(version===this.productSelection&&shopId===this.productShopId())this.productsError.set((e as Error).message);}
+  finally{if(version===this.productSelection)this.productsLoading.set(false);}
+ }
+ formatPrice(p:Product){return new Intl.NumberFormat('en-IE',{style:'currency',currency:p.price.currency}).format(p.price.amountMinor/100);}
  selectedShopSlug(){return this.shops().find(s=>s.id===this.productShopId())?.slug??'';}
  async createProduct(){
   if(this.busy()||!this.productShopId())return;this.busy.set(true);
-  try{this.product.set(await this.request('/api/v1/merchant/shops/'+this.productShopId()+'/products','DraftProduct','POST',{title:this.productTitle,description:this.description,price:{amountMinor:Number(this.price),currency:'EUR'}}) as Product);this.message.set('Draft created.');}
+  try{this.product.set(await this.request('/api/v1/merchant/shops/'+this.productShopId()+'/products','DraftProduct','POST',{title:this.productTitle,description:this.description,price:{amountMinor:Number(this.price),currency:'EUR'}}) as Product);await this.loadProducts();this.message.set('Draft created.');}
   catch(e){this.message.set((e as Error).message);}finally{this.busy.set(false);}
  }
  async publishProduct(){
   const p=this.product();if(!p)return;this.busy.set(true);
-  try{this.product.set(await this.request('/api/v1/merchant/shops/'+p.shopId+'/products/'+p.id+'/publish','PublishedProduct','POST',{}) as Product);this.message.set('Product published.');}
+  try{this.product.set(await this.request('/api/v1/merchant/shops/'+p.shopId+'/products/'+p.id+'/publish','PublishedProduct','POST',{}) as Product);await this.loadProducts();this.message.set('Product published.');}
   catch(e){this.message.set((e as Error).message);}finally{this.busy.set(false);}
  }
  async create(){
@@ -90,7 +109,7 @@ class App {
   finally{this.busy.set(false);}
  }
  async logout(){
-  try{await this.request('/api/v1/auth/logout','','POST',{});this.session.set(null);this.shops.set([]);this.tenants.set([]);}
+  try{await this.request('/api/v1/auth/logout','','POST',{});this.session.set(null);this.shops.set([]);this.tenants.set([]);this.products.set([]);this.productSelection++;}
   catch(e){this.message.set((e as Error).message);}
  }
 }
