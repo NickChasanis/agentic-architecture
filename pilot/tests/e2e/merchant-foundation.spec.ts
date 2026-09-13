@@ -20,16 +20,25 @@ test('real owner login, discovery, create-shop and logout through Angular/API/Po
  await page.getByLabel('Shop name').fill(name);
  await page.getByLabel('Shop slug').fill('browser-'+Date.now());
  await page.getByRole('button',{name:'Create shop'}).click();
- await expect(page.getByRole('list')).toContainText(name);
+ await expect(page.getByRole('list',{name:'Authorized shops'})).toContainText(name);
  await page.getByRole('button',{name:'Log out'}).click();
  await expect(page.getByRole('link',{name:'Sign in'})).toBeVisible();
  expect((await context.cookies()).some(c=>c.name==='__Host-pilot-session')).toBe(false);
 });
 test('real staff login only lists granted shop and cannot create',async({page})=>{
  await login(page,'staff');
- await expect(page.getByRole('list')).toContainText('Shop A1');
- await expect(page.getByRole('list')).not.toContainText('Shop A2');
+ await expect(page.getByRole('list',{name:'Authorized shops'})).toContainText('Shop A1');
+ await expect(page.getByRole('list',{name:'Authorized shops'})).not.toContainText('Shop A2');
  await expect(page.getByRole('button',{name:'Create shop'})).toHaveCount(0);
+});
+test('merchant catalog list filters draft and published products',async({page})=>{
+ await login(page,'owner');
+ const products=page.getByRole('list',{name:'Merchant products'});
+ await expect(products).toBeVisible();
+ await page.getByLabel('Product status').selectOption('draft');
+ await expect(products).toContainText(/draft/);
+ await page.getByLabel('Product status').selectOption('published');
+ await expect(products).toContainText(/published/);
 });
 test('real no-membership principal sees empty discovery',async({page})=>{
  await login(page,'empty');await expect(page.getByText('No tenant memberships.')).toBeVisible();
