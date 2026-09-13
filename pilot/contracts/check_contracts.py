@@ -66,7 +66,7 @@ for op in manifest["operations"]:
         assert op["success"]["bodySchema"] is None
     if op["success"]["status"] in (302, 303):
         assert "Location" in op["successHeaders"]
-assert ids == {f"HTTP-{i:02}" for i in range(1, 9)} | {f"ID-{i:02}" for i in range(1, 7)}
+assert ids == {f"HTTP-{i:02}" for i in range(1, 10)} | {f"ID-{i:02}" for i in range(1, 7)}
 assert set(manifest["errorStatusByCode"]) == set(bundle["definitions"]["ErrorEnvelope"]["properties"]["error"]["properties"]["code"]["enum"])
 
 uuid = "11111111-1111-4111-8111-111111111111"
@@ -84,6 +84,13 @@ def case(label, name, value, expected=True, consumer=False):
 
 case("valid draft", "DraftInput", draft)
 case("empty publication body", "EmptyObject", {})
+case("empty merchant page", "MerchantProductPage", {"items": [], "nextCursor": None})
+case("missing page cursor", "MerchantProductPage", {"items": []}, False)
+case("page query default", "MerchantPageQuery", {})
+case("page query limit", "MerchantPageQuery", {"limit": "100"})
+case("page query overflow", "MerchantPageQuery", {"limit": "101"}, False)
+case("page query numeric coercion rejected", "MerchantPageQuery", {"limit": 25}, False)
+case("page query trailing newline", "MerchantPageQuery", {"limit": "25\n"}, False)
 case("merchant list both states", "MerchantProductList", {"items": [merchant, {**merchant, "status": "published"}]})
 case("merchant list empty", "MerchantProductList", {"items": []})
 case("merchant list invalid state", "MerchantProductList", {"items": [{**merchant, "status": "private"}]}, False)

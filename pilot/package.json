@@ -8,6 +8,7 @@
   "scripts": {
     "test:contracts": "node --test contracts/fastify/*.test.mjs",
     "test:coordination": "node --test contracts/coordination/work.test.mjs",
+    "test:durable": "node --test contracts/coordination/durable-registry.test.mjs",
     "test:consumers": "node --test tests/contracts/consumer-extension.test.mjs",
     "test:adapters": "node --test contracts/coordination/adapter.test.mjs contracts/coordination/tmux-adapter.test.mjs",
     "test:registry": "node --test contracts/coordination/registry.test.mjs contracts/coordination/adapter.test.mjs contracts/coordination/recovery.test.mjs contracts/coordination/execution.test.mjs evaluation/measure.test.mjs",

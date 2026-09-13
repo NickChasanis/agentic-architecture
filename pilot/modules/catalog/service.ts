@@ -7,6 +7,26 @@ const merchant=(r:any)=>({id:r.id,tenantId:r.tenant_id,shopId:r.shop_id,status:r
 const pub=(r:any)=>({id:r.id,title:r.title,description:r.description,price:{amountMinor:r.amount_minor,currency:r.currency}});
 export class Catalog {
  constructor(private pool:Pool){}
+ async merchantPage(shopId:string,permission:Permission,query:{status?:'draft'|'published';limit?:string;cursor?:string}){
+  await this.authorized(shopId,permission);
+  let after:string|undefined;
+  if(query.cursor){
+   try{
+    const c=JSON.parse(Buffer.from(query.cursor,'base64url').toString('utf8'));
+    if(!c||Object.keys(c).sort().join(',')!=='after,shop,status,v'||c.v!==1||c.shop!==shopId||c.status!==(query.status??null)||typeof c.after!=='string'||!/^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/.test(c.after)||c.after.length!==36||Buffer.from(JSON.stringify(c)).toString('base64url')!==query.cursor)throw new Error();
+    after=c.after;
+   }catch{throw new CatalogError('VALIDATION_FAILED');}
+  }
+  const limit=query.limit===undefined?25:Number(query.limit);
+  const values:unknown[]=[shopId];let where='shop_id=$1';
+  if(query.status){values.push(query.status);where+=' AND status=$'+values.length;}
+  if(after){values.push(after);where+=' AND id>$'+values.length;}
+  values.push(limit+1);
+  const r=await this.pool.query('SELECT id,tenant_id,shop_id,status,title,description,amount_minor,currency FROM catalog.products WHERE '+where+' ORDER BY id LIMIT $'+values.length,values);
+  const rows=r.rows.slice(0,limit);
+  const nextCursor=r.rows.length>limit?Buffer.from(JSON.stringify({v:1,shop:shopId,status:query.status??null,after:rows[rows.length-1].id})).toString('base64url'):null;
+  return {items:rows.map(merchant),nextCursor};
+ }
  async merchantList(shopId:string,permission:Permission,status?:'draft'|'published'){
   await this.authorized(shopId,permission);
   const rows=await this.pool.query('SELECT * FROM catalog.products WHERE shop_id=$1 AND ($2::text IS NULL OR status=$2) ORDER BY id',[shopId,status??null]);

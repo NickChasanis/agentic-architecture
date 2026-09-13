@@ -33,6 +33,15 @@
   },
   "operations": [
     {
+      "id": "HTTP-09", "method": "GET",
+      "path": "/api/v1/merchant/shops/{shopId}/products/page",
+      "paramsSchema": "ShopParams", "querySchema": "MerchantPageQuery", "bodySchema": null,
+      "authentication": "session", "csrfRequired": false,
+      "success": {"status": 200, "bodySchema": "MerchantProductPage"},
+      "errorCodes": ["VALIDATION_FAILED", "AUTHENTICATION_REQUIRED", "RESOURCE_NOT_FOUND", "INTERNAL_ERROR", "SERVICE_UNAVAILABLE"],
+      "obligations": ["PAGE-01", "PAGE-02", "PAGE-03", "PAGE-04", "PAGE-05", "PAGE-06"]
+    },
+    {
       "id": "HTTP-08",
       "method": "GET",
       "path": "/api/v1/merchant/shops/{shopId}/products",

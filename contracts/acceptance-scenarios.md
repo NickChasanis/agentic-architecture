@@ -70,6 +70,15 @@ Run provider/consumer checks before accepting local artifacts, then rerun affect
 No completion claim for CONTRACT-001 follows from this draft coverage. Operating budgets still gate execution. The next architectural discussion can review publication lifecycle and module boundaries while those budgets remain open.
 # Merchant catalog visibility extension
 
+| ID | Page obligation |
+|---|---|
+| PAGE-01 | Static page route resolves with a valid empty/final page and nullable next cursor. |
+| PAGE-02 | Pages are bounded, in ID order, and enumerate a static fixture exactly once; HTTP-08 retains full-list behavior. |
+| PAGE-03 | Malformed limits, query extensions, repeated fields and malformed or context-mismatched cursors fail validation. |
+| PAGE-04 | Every page is authenticated and shop-authorized, including after revocation; cursor contents grant no access. |
+| PAGE-05 | Record bounded response sizes and query plans for the declared fixture. |
+| PAGE-06 | Next/restart and filter/shop resets work; stale page responses cannot change current UI state. |
+
 | ID | Observable obligation |
 |---|---|
 | MC-01 | Authorized owner and granted staff read only the selected shop's matching products in ID order, including valid empty lists. |

@@ -2,6 +2,16 @@
 
 ## Implemented merchant list extension
 
+### Additive page operation (HTTP-09)
+
+`GET /api/v1/merchant/shops/{shopId}/products/page` returns `MerchantProductPage`: `items` (at most 100 merchant products) and `nextCursor` (a bounded opaque string or null). The static route takes precedence over the product-ID route. Optional query `limit` is a canonical decimal string from 1–100, default 25; `status` uses the existing draft/published values. Reject repeated/unknown fields, malformed limits and invalid cursors with `VALIDATION_FAILED`.
+
+The version-1 cursor encodes the last ID, shop and status filter as canonical base64url JSON, at most 512 characters. It is unsigned navigation input, not authentication or evidence of a previously issued page. Clients treat it as opaque; the provider validates all fields and rejects shop/filter/version mismatch. A caller can construct another valid starting position within its authorized scope. Authentication and current shop authorization apply independently to every page before decoding cursor context.
+
+Pages use ascending ID keyset reads, fetching at most `limit+1` rows, with explicit merchant projection. Each request sees currently committed data: there is no cross-request snapshot guarantee during concurrent inserts/publication. Restart to refresh. HTTP-08 continues returning all matching rows unchanged. Its retained unbounded behavior prevents a blanket production-scale claim.
+
+PAGE-01–06 cover bounded results, static-fixture enumeration, validation, access checks, query-plan evidence and UI navigation. The UI resets pages on selection changes and successful mutations, and offers Next and Restart actions.
+
 `HTTP-08`: `GET /api/v1/merchant/shops/{shopId}/products` requires a current application session and current access to the shop. Optional `status=draft|published` selects a state; omission returns both. Invalid/repeated status and unknown query fields return `400 VALIDATION_FAILED`. No body or CSRF token is required for this read.
 
 Success is `200` with `MerchantProductList`, an object containing `items` of the existing `MerchantProduct` shape, ordered by ID ascending. An authorized empty shop returns `{"items":[]}`. All matching rows are returned for this bounded pilot; no pagination or production-volume guarantee is implied. The operation does not change publication, editing or public projections.

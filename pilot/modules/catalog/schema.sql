@@ -11,3 +11,5 @@ CREATE TABLE IF NOT EXISTS catalog.products (
  CHECK((status='draft' AND published_at IS NULL) OR (status='published' AND published_at IS NOT NULL))
 );
 CREATE INDEX IF NOT EXISTS products_public_idx ON catalog.products(shop_id,status,id);
+-- Unfiltered merchant pages need shop/id order without sorting all shop rows.
+CREATE INDEX IF NOT EXISTS products_shop_page_idx ON catalog.products(shop_id,id);

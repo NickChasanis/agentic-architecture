@@ -103,6 +103,7 @@ const session = { principal: { id }, csrfToken: 'synthetic', absoluteExpiresAt: 
 const outputs = {
   Shop: shop, DraftProduct: product, MerchantProduct: product,
   MerchantProductList: {items:[product]},
+  MerchantProductPage: {items:[product],nextCursor:null},
   PublishedProduct: { ...product, status: 'published' }, PublicProduct: publicProduct,
   PublicProductList: { items: [publicProduct] }, AuthorizedShopList: { items: [shop] },
   TenantMembershipList: { items: [{ tenantId: id, name: 'Tenant', role: 'owner', canCreateShop: true }] },
