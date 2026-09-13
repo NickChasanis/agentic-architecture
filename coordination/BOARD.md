@@ -1,13 +1,13 @@
 # Canonical discussion task board
 
-- Board revision: 23
+- Board revision: 24
 - Created at: 2026-09-11T13:58:26Z
-- Updated at: 2026-09-13T20:04:21Z
+- Updated at: 2026-09-13T22:45:59Z
 - Authority: current human-facing lead session, subject to the location/transfer rules in [the runbook](README.md).
 - Scope: supervised recovery-readiness exercise authorized by the owner; active grants below supersede historical defaults.
-- Source baseline inspected: `2979178` (reviewed recovery and consumer trial integration)
+- Source baseline inspected: `54b534291109cbf738fdf80f54182a5b8f173a10` (merchant list and documentation)
 - Revalidation policy: every claim/resume, new session/day, or material dependency change. No autonomous claims or leases.
-- Live heartbeat/progress: MC-001 merchant-list implementation submitted and integrated; no active worker assignment.
+- Live heartbeat/progress: merchant list integrated with MC-06/07 acceptance reopened; chapter 20 is a proposal, with no active worker grant.
 
 The timestamp describes this board revision, not permission to execute its tasks. `draft` is not claimable. `blocked` requires prerequisite resolution. Owners and generations remain empty/zero until an explicit grant.
 
@@ -93,9 +93,11 @@ Event 17, 2026-09-12T19:05:31Z, CONTRACT-001 draft → draft: recorded explicit 
 
 Event 18, 2026-09-12T19:34:00Z, CONTRACT-001 draft → draft: implemented the five roadmap steps in isolated worktree commit 9e0b7c4, integrated as ba07c3f. Evidence: provider fixture verification, TypeScript compile, boundary checks, 22 coordination tests, 28 Fastify tests, 74 offline payload cases, 16 database/API tests, and 3 real Keycloak Playwright tests. Policy review closed prior important findings. Foundation is not the full commerce experiment: catalog, publication, second consumer, independent contract acceptance, multi-agent runtime coordination, and model cost comparison remain open. Docker stack is disposable/local only; no public service or paid model run. Owner/generation/budget fields remain unchanged.
 
-Next event sequence: 27. State events and received messages share one coordinator-assigned sequence. Git history preserves prior board revisions; event entries preserve the rationale for individual transitions.
+Next event sequence: 29. State events and received messages share one coordinator-assigned sequence. Git history preserves prior board revisions; event entries preserve the rationale for individual transitions.
 
 ## Merchant catalog implementation
+
+Event 28, 2026-09-13T22:45:59Z: coordinator inspected baseline `54b5342` for the owner's next-three-step roadmap request. MC-001 remains integrated, but full MC-06/07 acceptance is reopened: browser tests omit failure/race cases and source has incomplete session/selection invalidation. Historical event 27 is qualified accordingly; no checks were rerun in this documentation turn. MC-UI-001 generation 1 did not produce a worker submission: the native session failed on a usage limit, and the coordinator authored the UI. Its historical running entry is closed as failed; no new worker grant exists. [Chapter 20](../20-catalog-reliability-and-coordination-recovery.md) proposes interaction fixes, compatible pagination and supervised durable recovery. This checkout and human-facing lead remain canonical authority. Timestamp is observed UTC (local date 2026-09-14).
 
 Event 26, 2026-09-13T19:50:11Z: MC-UI-001 absent → running, generation 1, packet/record revision 1; worker `/root/merchant_ui`, baseline `239bcf244fe79db49c6a51c2a4b3c0116a93ca31`, same merchant-list execution worktree. Required context: root instructions, this canonical board, chapter 19 step 2, wire schemas and HTTP-08. Owned paths: `pilot/apps/merchant-admin/src/main.ts`, `pilot/apps/merchant-admin/src/contracts.ts`, `pilot/tests/e2e/merchant-foundation.spec.ts` only. Provider remains coordinator-owned. 90-minute worker/15-minute checkpoint/30-minute review limits; no dependencies or paid API invocation. Worker may use the disposable pilot's browser tests after coordinator releases the baseline test run; coordinator will not run concurrent browser or mutable database tests. Receipt via native collaboration, not automatic board ingestion. Review of provider found no remaining blocker; initial reviewer request/response-schema confusion was corrected against source and observed tests.
 

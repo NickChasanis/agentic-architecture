@@ -8,7 +8,7 @@
 
 **Tech stack:** Existing TypeScript, Fastify, PostgreSQL, Angular and Playwright toolchain; no new dependencies planned.
 
-Status: implemented in the local pilot on integrated main revision `4d9dd08` (2026-09-13). Provider and consumer were implemented as separate commits and reviewed before integration. This is local/disposable evidence, not production readiness.
+Status: provider and basic consumer implemented on main revision `4d9dd08` (2026-09-13). Provider review was recorded. Subsequent source inspection found incomplete browser coverage and session/request lifecycle gaps; MC-06/07 acceptance is reopened in [chapter 20](20-catalog-reliability-and-coordination-recovery.md). The earlier broad completion claim is superseded by this qualification.
 
 ## Scope and sequence
 
@@ -52,7 +52,7 @@ Exit gate: authorized empty-shop reads succeed, draft/published filtering works,
 
 ## Step 2 — Merchant list consumer
 
-Implemented in `4d9dd08`; the consumer loads the selected shop, validates the declared list response, handles loading/empty/error/retry states, and ignores stale selection responses.
+Implemented in `4d9dd08`; the consumer loads the selected shop and validates the declared list response. Loading/empty/error/retry rendering and some stale-list guards exist, but session side effects and late mutation responses need further protection and tests under chapter 20.
 
 Files: `pilot/apps/merchant-admin/src/main.ts`, `pilot/apps/merchant-admin/src/contracts.ts`, and `pilot/tests/e2e/merchant-foundation.spec.ts`. Keep the UI change bounded; do not reorganize unrelated application code.
 
@@ -70,7 +70,7 @@ Exit gate: a real merchant session can see both product states and filter them, 
 
 ## Step 3 — Integrated acceptance and handoff
 
-Completed on the integrated revision without changing public projections or published-product immutability.
+Basic integration was recorded; complete interaction acceptance remains open under chapter 20. The five browser journeys do not verify every MC-06/07 obligation.
 
 Run checks on the combined revision, not only the two submitted artifacts. Review requirements separately from implementation choices. Do not label coordinator self-review as an independent agent review.
 
@@ -105,10 +105,10 @@ npm run build:merchant
 npm run test:e2e
 ```
 
-These commands are drawn from the checkout; they have not been run for this new slice. Provider, integration and browser checks require the documented disposable local services and certificate. Revalidate their availability before implementation. Missing infrastructure is not a passing result and does not authorize changes to another running environment.
+These commands describe the verification workflow; historical results are recorded below. They were not rerun during the chapter 20 planning review. Provider, integration and browser checks require the documented disposable local services and certificate. Revalidate their availability before implementation. Missing infrastructure is not a passing result and does not authorize changes to another running environment.
 
 - [x] Execute the mandatory gates and associate results with the exact combined source revision and environment.
-- [x] Review MC-01–08, record failures/rework and close only obligations with evidence.
+- [ ] Finish MC-06/07 failure/race coverage and reconcile the evidence record before closing all obligations.
 - [ ] Record elapsed time, available active effort, review intervention and changed paths. Mark unavailable model cost explicitly; do not claim comparative savings from this slice.
 - [x] Update this chapter, `README.md`, `howtouse.md`, `pilot/README.md` and the canonical board with actual results and remaining limits.
 - [x] Write a fresh-session handoff identifying accepted artifacts, rerun commands and the next unresolved work. Commit the reviewed slice; publish only under the owner's applicable release authority.

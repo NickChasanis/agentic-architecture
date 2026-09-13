@@ -56,6 +56,7 @@ Start with the [roadmap](04-roadmap-of-thought.md) for the next decisions and [c
 17. [Recovery Readiness and Model Allocation Trial](17-recovery-and-model-allocation.md)
 18. [tmux Execution Adapter](18-tmux-execution-adapter.md)
 19. [Merchant Catalog Visibility Implementation Roadmap](19-merchant-catalog-visibility.md)
+20. [Catalog Reliability and Coordination Recovery](20-catalog-reliability-and-coordination-recovery.md)
 
 **Session tool of choice:** tmux for multiple terminal sessions and agent processes. Use explicit workspace isolation and task/result contracts alongside it. The [operating model](06-tmux-agent-roles-and-metrics.md) defines generic roles, justified specializations, and evidence-based implementation metrics for both tracks.
 
@@ -124,11 +125,11 @@ Relevant primary sources, consulted on 2026-09-10:
 
 Pursue both concerns as separate, connected tracks: **delivering adaptable software with agents** and **designing the system that coordinates them**. Their shared checkpoints are executable contracts, verified integration, and measured extension exercises.
 
-The local publication pilot, bounded model trial and second command transport are documented in chapters 14–18. The next proposed product slice is the merchant catalog list from the [controlled experiment packet](16-controlled-experiment-packet.md): authenticated access to drafts and published products, with shop/tenant isolation and unchanged public projections. Its detailed contract and assignment must be resolved before execution.
+The local publication pilot, bounded model trial and second command transport are documented in chapters 14–18. Chapter 19 adds the merchant catalog provider and basic list/filter UI. Source review has reopened its interaction acceptance: delayed responses, session transitions and error/retry behavior still need focused verification and fixes.
 
 The coordination track still needs durable restart/recovery behavior and a real multi-worker concurrency comparison; the tmux command adapter alone proves neither. The [dual-track roadmap](04-roadmap-of-thought.md) and [contract criteria](05-contracts-and-adaptability.md) remain the conceptual guides. Multi-agent refactoring stays deferred by the owner.
 
-The three merchant-list steps are now implemented and verified locally in [the roadmap](19-merchant-catalog-visibility.md): contract/provider, merchant UI consumer, and integrated acceptance/handoff. Evidence covers 30 contract tests, 29 connected integration tests and 5 Playwright journeys. Pagination, production deployment, durable coordinator recovery and parallel-worker comparison remain outside this slice.
+The [next three-step roadmap](20-catalog-reliability-and-coordination-recovery.md) covers merchant interaction reliability, compatible catalog pagination and durable coordination recovery. Prior recorded test passes remain useful evidence, but do not establish the missing interaction or restart guarantees. Each step defines files, obligations and exit gates; implementation status is tracked separately from the proposal.
 
 ---
 
