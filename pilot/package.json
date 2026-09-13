@@ -8,7 +8,7 @@
   "scripts": {
     "test:contracts": "node --test contracts/fastify/*.test.mjs",
     "test:coordination": "node --test contracts/coordination/work.test.mjs",
-    "test:registry": "node --test contracts/coordination/registry.test.mjs contracts/coordination/adapter.test.mjs contracts/coordination/recovery.test.mjs evaluation/measure.test.mjs",
+    "test:registry": "node --test contracts/coordination/registry.test.mjs contracts/coordination/adapter.test.mjs contracts/coordination/recovery.test.mjs contracts/coordination/execution.test.mjs evaluation/measure.test.mjs",
     "test:integration": "NODE_EXTRA_CA_CERTS=.local/tls.crt node --import tsx --test --test-concurrency=1 tests/integration/*.test.ts",
     "check:boundaries": "node infra/boundaries.mjs",
     "check:provider": "NODE_EXTRA_CA_CERTS=.local/tls.crt node infra/verify.mjs",
