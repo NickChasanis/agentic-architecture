@@ -1,13 +1,13 @@
 # Canonical discussion task board
 
-- Board revision: 26
+- Board revision: 29
 - Created at: 2026-09-11T13:58:26Z
-- Updated at: 2026-09-13T23:37:52Z
+- Updated at: 2026-09-14T08:35:06Z
 - Authority: current human-facing lead session, subject to the location/transfer rules in [the runbook](README.md).
 - Scope: supervised recovery-readiness exercise authorized by the owner; active grants below supersede historical defaults.
-- Source baseline inspected: `966a8e1` (chapter 20 reliability, pagination and durable recovery implementation)
+- Source baseline inspected: `77bb92a35d4df4ad8c0895bdace29bc9811b1554` (verified operational implementation); documentation integrated through `38b1963`
 - Revalidation policy: every claim/resume, new session/day, or material dependency change. No autonomous claims or leases.
-- Live heartbeat/progress: chapter 20 implementation integrated by the coordinator; REL-001 and DUR-001 are closed. No active worker grant.
+- Live heartbeat/progress: OPS-001 local implementation integrated and verified; real worker/reviewer and comparison gates pending on runtime capacity. No active worker grant. Hosted CI verification pending.
 
 The timestamp describes this board revision, not permission to execute its tasks. `draft` is not claimable. `blocked` requires prerequisite resolution. Owners and generations remain empty/zero until an explicit grant.
 
@@ -93,7 +93,7 @@ Event 17, 2026-09-12T19:05:31Z, CONTRACT-001 draft → draft: recorded explicit 
 
 Event 18, 2026-09-12T19:34:00Z, CONTRACT-001 draft → draft: implemented the five roadmap steps in isolated worktree commit 9e0b7c4, integrated as ba07c3f. Evidence: provider fixture verification, TypeScript compile, boundary checks, 22 coordination tests, 28 Fastify tests, 74 offline payload cases, 16 database/API tests, and 3 real Keycloak Playwright tests. Policy review closed prior important findings. Foundation is not the full commerce experiment: catalog, publication, second consumer, independent contract acceptance, multi-agent runtime coordination, and model cost comparison remain open. Docker stack is disposable/local only; no public service or paid model run. Owner/generation/budget fields remain unchanged.
 
-Next event sequence: 31. State events and received messages share one coordinator-assigned sequence. Git history preserves prior board revisions; event entries preserve the rationale for individual transitions.
+Next event sequence: 34. State events and received messages share one coordinator-assigned sequence. Git history preserves prior board revisions; event entries preserve the rationale for individual transitions.
 
 ## Reliability and recovery grants
 
@@ -132,3 +132,11 @@ Event 22, 2026-09-13T10:30:00Z, BUDGET-001 draft → draft: froze the [controlle
 Event 23, 2026-09-13T00:04:11Z: owner authorized continuation using recommendations; coordinator applied operating limits, recorded RECOVERY-001 and launched an actual bounded worker alongside registry/evaluator work. Separate model trials were subsequently granted at baseline `608c291`; receipts arrived through native collaboration. Canonical authority remained this originating checkout.
 
 Event 24, 2026-09-13T00:17:35Z: coordinator independently checked trial outputs, integrated reviewed recovery/consumer changes as `2979178`, and recorded [findings and limits](../17-recovery-and-model-allocation.md). Worktree evidence includes real cancellation before reassignment, 22 registry/adapter/evaluation checks, 7 consumer checks and public-API composition. Earlier claims of complete real adapter replacement or multi-agent comparison are superseded. Earlier events dated 10:00/10:30 were not derived from the observed clock and must not be used for elapsed-time measurements; current event times were read from the environment.
+
+## Operational readiness execution
+
+Event 31, 2026-09-14T08:20:57Z: owner authorized nonstop implementation of the six proposed phases. Coordinator /root confirms canonical authority in this originating checkout. OPS-001 running, generation/packet/record 1, baseline `3f13c5b5c70b869cf73b47ce3f2f9c46759915b2`, coordinator execution worktree `operational`. WORKER-OPS-001 granted to /root/worker_ops in separate `worker-ops` worktree under [packet OPS-001](tasks/OPS-001.md), with explicit ownership and budgets. Revalidate before resume and submission. Only the coordinator uses disposable DB/browser resources; no production deployment, authority transfer or separately billed API execution. Runtime has two total agent slots including coordinator; two simultaneous subordinate workers cannot be assumed available.
+
+Event 32, 2026-09-14T08:28:34Z: WORKER-OPS-001 launch failed before initialization: service returned `agent thread limit reached`. No worker artifact or acknowledgment exists; grant closed as launch-failed. Coordinator takes the packet's bridge scope in the operational worktree. Independent review and real-model comparison remain pending. Fresh disposable Compose project `agentic-operational` uses 3543/8543/56432, separate from existing services. The retained main browser test reproduced a missing-fixture failure and was removed in favor of the self-contained coverage already present; the full 16 browser tests and 36 integration tests then passed. Durable 12-test suite and logical backup/restore check passed. These results concern current operational working changes; immutable revision evidence follows at integration.
+
+Event 33, 2026-09-14T08:35:06Z: coordinator integrated operational source `77bb92a35d4df4ad8c0895bdace29bc9811b1554` and evidence documentation `38b1963` by fast-forward. Clean committed source passed `npm run verify:connected` from 08:33:17.447Z to 08:35:01.788Z: 30 HTTP contracts, 22 envelopes, 7 consumers, 22 registry/recovery/evaluation, 11 adapter, 8 worktree/port, 36 integration, 12 durable, 1 backup/CLI scenario and 16 browser tests; schemas, links, provider, boundaries, TypeScript and build passed. A tmux final-status race was reproduced by a new regression test and fixed. [Chapter 21](../21-supervised-operational-readiness.md) records partial six-phase status. WORKER-OPS-001 remains launch-failed; coordinator authored implementation, no independent review claimed. Real model cohorts and broader process/host recovery proof remain pending. No authority transfer or production release. Hosted CI result will be recorded separately.
