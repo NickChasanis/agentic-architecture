@@ -1,11 +1,11 @@
 # Canonical discussion task board
 
-- Board revision: 32
+- Board revision: 33
 - Created at: 2026-09-11T13:58:26Z
-- Updated at: 2026-09-14T08:47:29Z
+- Updated at: 2026-09-14T08:50:59Z
 - Authority: current human-facing lead session, subject to the location/transfer rules in [the runbook](README.md).
 - Scope: supervised recovery-readiness exercise authorized by the owner; active grants below supersede historical defaults.
-- Source baseline inspected: `4867908` (portable notes implementation and operational implementation); documentation integrated through `4867908`
+- Source baseline inspected: `679b213` (portable notes implementation and operational implementation); documentation integrated through `679b213`
 - Revalidation policy: every claim/resume, new session/day, or material dependency change. No autonomous claims or leases.
 - Live heartbeat/progress: PORTABLE-001 worker launch failed at usage limit; coordinator implementation passed the frozen contract. Operational hosted CI and independent review passed. No active worker grant. No comparative model result exists.
 
@@ -94,7 +94,7 @@ Event 17, 2026-09-12T19:05:31Z, CONTRACT-001 draft → draft: recorded explicit 
 
 Event 18, 2026-09-12T19:34:00Z, CONTRACT-001 draft → draft: implemented the five roadmap steps in isolated worktree commit 9e0b7c4, integrated as ba07c3f. Evidence: provider fixture verification, TypeScript compile, boundary checks, 22 coordination tests, 28 Fastify tests, 74 offline payload cases, 16 database/API tests, and 3 real Keycloak Playwright tests. Policy review closed prior important findings. Foundation is not the full commerce experiment: catalog, publication, second consumer, independent contract acceptance, multi-agent runtime coordination, and model cost comparison remain open. Docker stack is disposable/local only; no public service or paid model run. Owner/generation/budget fields remain unchanged.
 
-Next event sequence: 37. State events and received messages share one coordinator-assigned sequence. Git history preserves prior board revisions; event entries preserve the rationale for individual transitions.
+Next event sequence: 38. State events and received messages share one coordinator-assigned sequence. Git history preserves prior board revisions; event entries preserve the rationale for individual transitions.
 
 ## Reliability and recovery grants
 
@@ -147,3 +147,5 @@ Event 34, 2026-09-14T08:37:43Z: coordinator attempts a read-only review through 
 Event 35, 2026-09-14T08:40:02Z: REVIEW-OPS-001 completed through reused native session. Reviewer withdrew its sole pool-ownership finding after checking guarded close(); no remaining confirmed important gap reported. Runtime model identity unavailable. GitHub run 34823573271 passed at `89b0838`. Coordinator froze eight portable notes tests in `fc02028b3bf4d34f44ff92309fc3a723cf842db0` before worker implementation and observed missing-module failure. PORTABLE-001 granted to reused /root/durable_worker under [packet](tasks/PORTABLE-001.md), generation/record/packet 1, separate worker-ops worktree, two source files only, budgets and checkpoints in packet. This is a real native adoption exercise, not a model affordability cohort or bridge-driven cancellation proof.
 
 Event 36, 2026-09-14T08:47:29Z: PORTABLE-001 worker `/root/durable_worker` failed before initialization with usage-limit error; no worker artifact or model identity was available. Coordinator took the bounded packet in the canonical checkout after preserving the frozen tests. Implementation revisions `d2e3f7d` and `4867908` add `filterNotes` and `countTags`; eight frozen contract tests initially exposed UTF-16 ordering for supplementary Unicode, then passed after the code-point comparator fix. Required checks: archived exclusion, strict query/input validation, duplicate IDs, per-note tag deduplication, order and immutability. No database/browser/paid resources used. Worker grant closed as interrupted; no acceptance is attributed to the unavailable worker. Portable contract remains ready for a future real-worker/cohort run.
+
+Event 37, 2026-09-14T08:50:59Z: GitHub Actions run [34824599474](https://github.com/NickChasanis/agentic-architecture/actions/runs/34824599474) passed on source `679b2134ef9f34fcf8c637dbb9ba93b90443262b`. Fresh Ubuntu runner installed Node, tmux, Playwright Chromium and generated its own disposable Compose stack; provider readiness, database seeding, contract checks, coordination/adapter/backup tests, integration tests, build and all 16 browser journeys passed. The workflow stopped its stack in cleanup. This proves hosted CI reproduction for the configured disposable pilot; it does not prove production deployment, model execution or authority transfer. Main has no active grants and remains the canonical Markdown authority.
