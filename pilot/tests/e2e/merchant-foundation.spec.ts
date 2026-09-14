@@ -31,15 +31,7 @@ test('real staff login only lists granted shop and cannot create',async({page})=
  await expect(page.getByRole('list',{name:'Authorized shops'})).not.toContainText('Shop A2');
  await expect(page.getByRole('button',{name:'Create shop'})).toHaveCount(0);
 });
-test('merchant catalog list filters draft and published products',async({page})=>{
- await login(page,'owner');
- const products=page.getByRole('list',{name:'Merchant products'});
- await expect(products).toBeVisible();
- await page.getByLabel('Product status').selectOption('draft');
- await expect(products).toContainText(/draft/);
- await page.getByLabel('Product status').selectOption('published');
- await expect(products).toContainText(/published/);
-});
+// Self-contained filtering, empty-list and publication fixtures are in merchant-reliability.spec.ts.
 test('real no-membership principal sees empty discovery',async({page})=>{
  await login(page,'empty');await expect(page.getByText('No tenant memberships.')).toBeVisible();
 });

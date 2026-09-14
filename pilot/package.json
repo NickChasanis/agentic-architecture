@@ -16,7 +16,11 @@
     "check:boundaries": "node infra/boundaries.mjs",
     "check:provider": "NODE_EXTRA_CA_CERTS=.local/tls.crt node infra/verify.mjs",
     "build:merchant": "ng build merchant",
-    "test:e2e": "NODE_EXTRA_CA_CERTS=.local/tls.crt playwright test"
+    "test:e2e": "NODE_EXTRA_CA_CERTS=.local/tls.crt playwright test",
+    "test:operations": "node --test infra/local-ports.test.mjs contracts/coordination/git-worker.test.mjs",
+    "test:backup": "node --test contracts/coordination/backup.test.mjs",
+    "verify": "node infra/verify-all.mjs",
+    "verify:connected": "node infra/verify-all.mjs --connected"
   },
   "devDependencies": {
     "@angular/build": "21.2.24",

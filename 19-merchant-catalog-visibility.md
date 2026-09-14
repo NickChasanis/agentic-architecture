@@ -8,7 +8,7 @@
 
 **Tech stack:** Existing TypeScript, Fastify, PostgreSQL, Angular and Playwright toolchain; no new dependencies planned.
 
-Status: provider and basic consumer implemented on main revision `4d9dd08` (2026-09-13). Provider review was recorded. Subsequent source inspection found incomplete browser coverage and session/request lifecycle gaps; MC-06/07 acceptance is reopened in [chapter 20](20-catalog-reliability-and-coordination-recovery.md). The earlier broad completion claim is superseded by this qualification.
+Status: provider and consumer implemented. MC-06/07 lifecycle fixes and browser coverage were added in chapter 20; chapter 21 reproduces the suite against a fresh disposable database and corrects the retained fixture-dependent test. The historical checklist below is the original plan, not current task authority.
 
 ## Scope and sequence
 
@@ -108,7 +108,7 @@ npm run test:e2e
 These commands describe the verification workflow; historical results are recorded below. They were not rerun during the chapter 20 planning review. Provider, integration and browser checks require the documented disposable local services and certificate. Revalidate their availability before implementation. Missing infrastructure is not a passing result and does not authorize changes to another running environment.
 
 - [x] Execute the mandatory gates and associate results with the exact combined source revision and environment.
-- [ ] Finish MC-06/07 failure/race coverage and reconcile the evidence record before closing all obligations.
+- [x] MC-06/07 failure/race coverage exists and passes in the chapter 21 local run. Independent final acceptance remains separately recorded.
 - [ ] Record elapsed time, available active effort, review intervention and changed paths. Mark unavailable model cost explicitly; do not claim comparative savings from this slice.
 - [x] Update this chapter, `README.md`, `howtouse.md`, `pilot/README.md` and the canonical board with actual results and remaining limits.
 - [x] Write a fresh-session handoff identifying accepted artifacts, rerun commands and the next unresolved work. Commit the reviewed slice; publish only under the owner's applicable release authority.

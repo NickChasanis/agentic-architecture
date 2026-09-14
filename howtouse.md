@@ -196,7 +196,7 @@ For example, worker A may start a task under generation 3 on Monday. On Tuesday,
 
 A useful handoff explains what changed, where the artifact is, which revision was tested, which checks passed or failed, the current troubleshooting hypothesis, and the remaining work. The replacement worker first checks the canonical board and actual checkout. It should not blindly continue from the final sentence of an old chat.
 
-The registry in this pilot demonstrates parts of those checks in memory. A larger deployment needs an appropriately durable authority store and enforced process/resource controls before claiming restart safety or unattended reassignment.
+The pilot has an in-memory registry and a PostgreSQL implementation with durable receipts, revision checks and recovery inspection. The canonical Markdown board remains live authority. Persisted state alone does not enforce process termination or make reassignment unattended.
 
 ## Verify that independently produced components compose
 
@@ -222,7 +222,7 @@ Permanent specialist teams, a custom memory service or a general orchestrator ma
 
 ### Worked implementation roadmap: merchant catalog visibility
 
-The [merchant catalog roadmap](19-merchant-catalog-visibility.md) demonstrates how to turn context into three dependent implementation steps. First define and verify the merchant-only list contract and provider. Then assign the UI consumer against that verified boundary. Finally test the combined revision and record a handoff. The provider and basic consumer exist locally; subsequent inspection reopened interaction acceptance where the browser coverage and request lifecycle were incomplete.
+The [merchant catalog roadmap](19-merchant-catalog-visibility.md) demonstrates how to turn context into three dependent implementation steps. First define and verify the merchant-only list contract and provider. Then assign the UI consumer against that verified boundary. Finally test the combined revision and record a handoff. The provider and consumer exist locally. Chapters 20–21 add interaction coverage and fix a fixture-dependent browser test discovered during fresh-checkout verification.
 
 For example, a shop with one draft notebook and one published notebook should show both to an authorized merchant, only the draft under the Draft filter, and only the published notebook to a public shopper. A different tenant must not retrieve the merchant list. Those are distinct obligations requiring provider, access and browser evidence, not just a test that two cards render. The prior run recorded 30 contract tests, 29 connected integration tests and 5 real Playwright journeys passing. The subsequent coverage review shows why those totals alone cannot close all interaction obligations.
 
@@ -249,3 +249,23 @@ For example, adding a restart-recovery chapter would require documenting what a 
 7. Exercise a fresh-session handoff and a concrete extension before increasing concurrency.
 
 The result is a project that a new agent can navigate and work on responsibly. Context stays attached to its sources and revisions, assignments have an accountable owner, and acceptance depends on observable behavior.
+
+
+## Execute and hand off work in Git worktrees
+
+For concurrent implementation, give each worker a branch and separate worktree. For example, from your new project's coordinator checkout:
+
+```sh
+git worktree add ../notes-filter-worker -b work/notes-filter
+git rev-parse HEAD
+```
+
+Put that exact commit and absolute worktree path in the current grant. Give the worker a project-specific task packet with owned files and executable obligations. The coordinator remains in the canonical checkout, receives the worker's commit and test evidence, reviews the actual diff, and verifies the integrated result. A read-only reviewer can inspect an existing checkout.
+
+The [Git worker bridge](pilot/contracts/coordination/git-worker.mjs) checks a coordinator-supplied live grant before launch and before accepting an artifact for review. It executes argv in the assigned worktree and rejects the primary checkout, dirty output, a missing commit or changed files outside ownership. Its command adapter can transport a configured worker CLI, but provider authentication, model selection and billing require their own verified setup. The bridge does not itself invoke the native agent tool used in this conversation.
+
+Use the [portable notes example](examples/portable-context/README.md) to adapt the context structure to another domain. Its template deliberately requires real revisions and grants before dispatch. The automated fixture exercises an independent Git repository with a deterministic command; real-model adoption and affordability comparison are still pending.
+
+For isolated integration tests, allocate unique ports and a Compose project per assignment. Follow [the operations guide](pilot/OPERATIONS.md) for reproducible verification and backup/restore. Restoring Tuesday's database records recovers Monday's receipts, but the coordinator must still reconcile any Monday worker before assigning a replacement. The restore operation explicitly reports that authority has not transferred.
+
+See [chapter 21](21-supervised-operational-readiness.md) for the six-phase status. Each phase keeps its remaining evidence gates visible; a runnable adapter or CI file alone does not establish a model-performance result or a successful hosted CI run.

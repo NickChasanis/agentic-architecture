@@ -57,6 +57,7 @@ Start with the [roadmap](04-roadmap-of-thought.md) for the next decisions and [c
 18. [tmux Execution Adapter](18-tmux-execution-adapter.md)
 19. [Merchant Catalog Visibility Implementation Roadmap](19-merchant-catalog-visibility.md)
 20. [Catalog Reliability and Coordination Recovery](20-catalog-reliability-and-coordination-recovery.md)
+21. [Supervised Operational Readiness](21-supervised-operational-readiness.md)
 
 **Session tool of choice:** tmux for multiple terminal sessions and agent processes. Use explicit workspace isolation and task/result contracts alongside it. The [operating model](06-tmux-agent-roles-and-metrics.md) defines generic roles, justified specializations, and evidence-based implementation metrics for both tracks.
 
@@ -125,11 +126,11 @@ Relevant primary sources, consulted on 2026-09-10:
 
 Pursue both concerns as separate, connected tracks: **delivering adaptable software with agents** and **designing the system that coordinates them**. Their shared checkpoints are executable contracts, verified integration, and measured extension exercises.
 
-The local publication pilot, bounded model trial and second command transport are documented in chapters 14–18. Chapter 19 adds the merchant catalog provider and basic list/filter UI. Source review has reopened its interaction acceptance: delayed responses, session transitions and error/retry behavior still need focused verification and fixes.
+The local publication pilot, bounded model trial and second command transport are documented in chapters 14–18. Chapters 19–20 add merchant catalog visibility, request lifecycle fixes and keyset pagination. Chapter 21 reproduces the connected checks in an isolated stack and corrects the stale browser fixture and evidence attribution.
 
 The local pilot now includes durable restart/recovery exercises and compatible catalog pagination; tmux remains an orchestration tool, not proof of process control. Production adoption and a real multi-worker concurrency comparison are still open. The [dual-track roadmap](04-roadmap-of-thought.md) and [contract criteria](05-contracts-and-adaptability.md) remain the conceptual guides. Multi-agent refactoring stays deferred by the owner.
 
-The [three-step roadmap](20-catalog-reliability-and-coordination-recovery.md) covers merchant interaction reliability, compatible catalog pagination and durable coordination recovery. All three are implemented and verified in the disposable local pilot; the chapter records exact evidence and the remaining production proof boundaries.
+The [three-step roadmap](20-catalog-reliability-and-coordination-recovery.md) covers merchant interaction reliability, compatible catalog pagination and durable coordination recovery. The local implementation is followed by [operational readiness](21-supervised-operational-readiness.md): reproducible checks, a supervised Git worker bridge, logical backup/restore, portable context and CI. Actual worker handoff and parallel-model comparison remain pending because the agent service rejected dispatch at its thread limit.
 
 ---
 
