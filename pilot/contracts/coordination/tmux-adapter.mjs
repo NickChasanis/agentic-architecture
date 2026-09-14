@@ -36,7 +36,12 @@ export class TmuxAdapter {
  async status(id){
   const run=this.get(id),s=await this.read(run);
   if(s.state==='running'){
-   try{await this.command('has-session','-t',id);}catch{return {state:'lost'};}
+   try{await this.command('has-session','-t',id);}catch{
+    // The runner atomically publishes its final record before exiting tmux.
+    // Re-read after the session probe to avoid classifying that transition lost.
+    const latest=await this.read(run);
+    return {state:latest.state==='running'?'lost':latest.state};
+   }
   }
   return {state:s.state};
  }

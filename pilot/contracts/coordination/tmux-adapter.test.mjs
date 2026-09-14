@@ -3,6 +3,20 @@ import assert from 'node:assert/strict';
 import {LocalAdapter} from './adapter.mjs';
 import {TmuxAdapter} from './tmux-adapter.mjs';
 const sleep=ms=>new Promise(resolve=>setTimeout(resolve,ms));
+test('tmux status rechecks persisted completion when session disappears after first read',async()=>{
+ const a=new TmuxAdapter();let reads=0;
+ a.get=()=>({});
+ a.read=async()=>++reads===1?{state:'running'}:{state:'completed',result:{code:0},receipt:{stopped:true}};
+ a.command=async()=>{throw Error('session gone');};
+ assert.equal((await a.status('simulated-race')).state,'completed');
+ assert.equal(reads,2);
+});
+test('tmux missing session with no final record remains lost',async()=>{
+ const a=new TmuxAdapter();
+ a.get=()=>({});a.read=async()=>({state:'running'});
+ a.command=async()=>{throw Error('session gone');};
+ assert.equal((await a.status('lost')).state,'lost');
+});
 async function finish(adapter,id){
  for(let i=0;i<200;i++){const s=await adapter.status(id);if(s.state!=='running')return s;await sleep(20);}
  throw Error('run-timeout');
