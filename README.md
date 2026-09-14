@@ -130,7 +130,7 @@ The local publication pilot, bounded model trial and second command transport ar
 
 The local pilot now includes durable restart/recovery exercises and compatible catalog pagination; tmux remains an orchestration tool, not proof of process control. Production adoption and a real multi-worker concurrency comparison are still open. The [dual-track roadmap](04-roadmap-of-thought.md) and [contract criteria](05-contracts-and-adaptability.md) remain the conceptual guides. Multi-agent refactoring stays deferred by the owner.
 
-The [three-step roadmap](20-catalog-reliability-and-coordination-recovery.md) covers merchant interaction reliability, compatible catalog pagination and durable coordination recovery. The local implementation is followed by [operational readiness](21-supervised-operational-readiness.md): reproducible checks, a supervised Git worker bridge, logical backup/restore, portable context and CI. Actual worker handoff and parallel-model comparison remain pending because the agent service rejected dispatch at its thread limit.
+The [three-step roadmap](20-catalog-reliability-and-coordination-recovery.md) covers merchant interaction reliability, compatible catalog pagination and durable coordination recovery. The local implementation is followed by [operational readiness](21-supervised-operational-readiness.md): reproducible checks, a supervised Git worker bridge, logical backup/restore, portable context and CI. Actual worker handoff and parallel-model comparison remain pending because the agent service rejected the implementation worker at its usage limit.
 
 ---
 

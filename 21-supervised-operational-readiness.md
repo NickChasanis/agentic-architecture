@@ -6,12 +6,12 @@ Owner authorized implementation on 2026-09-14. Baseline: `3f13c5b5c70b869cf73b47
 
 | Phase | Deliverable and gate | Status |
 |---|---|---|
-| 1. Verified baseline | Reconcile historical claims, fix integration gaps, reproduce connected and offline checks from a clean worktree | Local reproduction passed; independent review pending |
+| 1. Verified baseline | Reconcile historical claims, fix integration gaps, reproduce connected and offline checks from a clean worktree | Passed; read-only review found no confirmed blocker |
 | 2. Worker execution | Validate current grants, isolated Git worktrees, actual committed artifacts and cancellation; observe a real worker handoff | Bridge implemented and tested; real worker handoff blocked by service thread limit |
 | 3. Supervised recovery | Rehearse persistent state backup/restore, revisions and termination gating; document explicit authority transfer | Local backup/restore and termination gates passed; host recovery remains unproven |
 | 4. Affordability experiment | Freeze comparable tasks, context, models and total accounting before execution; run sequential and parallel cohorts | Blocked on worker capacity; no substitute process benchmark |
-| 5. Portable adoption | Independent small project exercises the same context/grant/artifact contracts | Portable context and independent Git fixture delivered; real-model adoption pending |
-| 6. Operational preparation | Repeatable CI, readiness checks, backup/restore and resource instructions; explicit staging decision | Local pipeline passed; hosted CI pending; staging not ready |
+| 5. Portable adoption | Independent small project exercises the same context/grant/artifact contracts | Deterministic notes contract and implementation passed; real-model handoff pending |
+| 6. Operational preparation | Repeatable CI, readiness checks, backup/restore and resource instructions; explicit staging decision | Local pipeline and GitHub connected CI passed; staging not ready |
 
 Phases 2 and 4 require actual model execution evidence. The native worker launch was rejected by the service's agent thread limit. One coordinator and one worker also cannot demonstrate two simultaneous subordinate workers. Infrastructure and deterministic contract checks may proceed; no model comparison outcome is inferred from them.
 
@@ -40,8 +40,8 @@ Verified clean source revision `77bb92a35d4df4ad8c0895bdace29bc9811b1554` in the
 
 Two corrections were necessary: the old browser filter test failed against an empty product fixture, and tmux could report a completed runner as lost when its session exited between status reads. The latter has a deterministic failing-before/fixed-after regression plus real tmux checks. All implementation and final review in this slice were coordinator-performed after worker launch failed; no worker submission, independent acceptance or comparative cost/speed result is claimed.
 
-The [operations guide](pilot/OPERATIONS.md) documents verification, backup commands and the staging decision. The [comparison packet](pilot/evaluation/operational-comparison.md) and [portable notes context](examples/portable-context/README.md) are ready for the next planning gate; executable model-cohort tests and actual runs remain outstanding. No active worker grant survives this slice.
+The [operations guide](pilot/OPERATIONS.md) documents verification, backup commands and the staging decision. The [comparison packet](pilot/evaluation/operational-comparison.md) and [portable notes context](examples/portable-context/README.md) are ready for the next planning gate. The portable contract has eight passing checks on coordinator implementation; an actual worker handoff and executable model cohorts remain outstanding. No active worker grant survives this slice.
 
 ## Resumption conditions
 
-Continue with a fresh agent session that has worker and reviewer capacity. Revalidate the canonical board, current source and task/model allocation before dispatch. Freeze the executable notes evaluator before either model cohort. Host-reboot/process-containment proof needs a suitable isolated target; select a staging target and operator responsibilities before external deployment or authority transfer.
+Continue with a fresh agent session that has worker capacity. Revalidate the canonical board, current source and task/model allocation before dispatch. Freeze the executable notes evaluator before either model cohort. Host-reboot/process-containment proof needs a suitable isolated target; select a staging target and operator responsibilities before external deployment or authority transfer.

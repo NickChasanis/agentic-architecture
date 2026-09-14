@@ -1,13 +1,13 @@
 # Canonical discussion task board
 
-- Board revision: 31
+- Board revision: 32
 - Created at: 2026-09-11T13:58:26Z
-- Updated at: 2026-09-14T08:40:02Z
+- Updated at: 2026-09-14T08:47:29Z
 - Authority: current human-facing lead session, subject to the location/transfer rules in [the runbook](README.md).
 - Scope: supervised recovery-readiness exercise authorized by the owner; active grants below supersede historical defaults.
-- Source baseline inspected: `77bb92a35d4df4ad8c0895bdace29bc9811b1554` (verified operational implementation); documentation integrated through `38b1963`
+- Source baseline inspected: `4867908` (portable notes implementation and operational implementation); documentation integrated through `4867908`
 - Revalidation policy: every claim/resume, new session/day, or material dependency change. No autonomous claims or leases.
-- Live heartbeat/progress: operational hosted CI passed; resumed reviewer completed; PORTABLE-001 implementation granted to /root/durable_worker in worker-ops worktree. No comparative model result exists.
+- Live heartbeat/progress: PORTABLE-001 worker launch failed at usage limit; coordinator implementation passed the frozen contract. Operational hosted CI and independent review passed. No active worker grant. No comparative model result exists.
 
 The timestamp describes this board revision, not permission to execute its tasks. `draft` is not claimable. `blocked` requires prerequisite resolution. Owners and generations remain empty/zero until an explicit grant.
 
@@ -18,6 +18,7 @@ The timestamp describes this board revision, not permission to execute its tasks
 | [SETTING-001](tasks/SETTING-001.md) — choose the experiment setting | 2 | 2 | verified | none (human-resolved decision) | 0 | Owner choice received | Commerce publication selected; [decision and review](decisions/SETTING-001-commerce-publication.md). |
 | [BUDGET-001](tasks/BUDGET-001.md) — troubleshooting and review budgets | 3 | 2 | verified | human-authorized coordinator | 0 | Owner instructed continuation using recommendations | 90-minute worker, 15-minute checkpoints, 30-minute coordinator/review limits applied; no separately billed API invocation. |
 | [CONTRACT-001](tasks/CONTRACT-001.md) — draft paired executable-contract specifications | 14 | 16 | draft | none (coordinator-authored proposal) | 0 | Pilot evidence exists; independent acceptance and controlled cost comparison still pending | Foundation, catalog, second consumer and local coordination/recovery checks implemented in [pilot README](../pilot/README.md). No worker grant. |
+| [PORTABLE-001](tasks/PORTABLE-001.md) — notes context adoption exercise | 1 | 1 | integrated | human-authorized coordinator | 1 | Frozen contract tests | Coordinator implementation passed 8 frozen checks after correcting Unicode code-point ordering; worker launch failed at usage limit, so no worker submission is accepted. |
 | [REFACTOR-001](tasks/REFACTOR-001.md) — multi-agent refactoring and project changes | 1 | 1 | blocked | none | 0 | Owner explicitly resumes this later topic | Deferred by owner; do not dispatch or begin discussion now. |
 
 ## Unassigned-task metadata
@@ -93,7 +94,7 @@ Event 17, 2026-09-12T19:05:31Z, CONTRACT-001 draft → draft: recorded explicit 
 
 Event 18, 2026-09-12T19:34:00Z, CONTRACT-001 draft → draft: implemented the five roadmap steps in isolated worktree commit 9e0b7c4, integrated as ba07c3f. Evidence: provider fixture verification, TypeScript compile, boundary checks, 22 coordination tests, 28 Fastify tests, 74 offline payload cases, 16 database/API tests, and 3 real Keycloak Playwright tests. Policy review closed prior important findings. Foundation is not the full commerce experiment: catalog, publication, second consumer, independent contract acceptance, multi-agent runtime coordination, and model cost comparison remain open. Docker stack is disposable/local only; no public service or paid model run. Owner/generation/budget fields remain unchanged.
 
-Next event sequence: 36. State events and received messages share one coordinator-assigned sequence. Git history preserves prior board revisions; event entries preserve the rationale for individual transitions.
+Next event sequence: 37. State events and received messages share one coordinator-assigned sequence. Git history preserves prior board revisions; event entries preserve the rationale for individual transitions.
 
 ## Reliability and recovery grants
 
@@ -144,3 +145,5 @@ Event 33, 2026-09-14T08:35:06Z: coordinator integrated operational source `77bb9
 Event 34, 2026-09-14T08:37:43Z: coordinator attempts a read-only review through the already-listed /root/durable_worker session as an alternative to rejected new dispatch. REVIEW-OPS-001 generation/record/packet 1, baseline `77bb92a35d4df4ad8c0895bdace29bc9811b1554`, operational worktree; read only, no owned write paths, no DB/browser resources, no paid calls, 15-minute review budget. Scope: new Git worker bridge, backup/restore and CI changes against OPS-001 and chapter 21; report confirmed correctness blockers and model identity if known. Prior durable-worker write grants remain closed. A queued request is not evidence the reviewer initialized or completed.
 
 Event 35, 2026-09-14T08:40:02Z: REVIEW-OPS-001 completed through reused native session. Reviewer withdrew its sole pool-ownership finding after checking guarded close(); no remaining confirmed important gap reported. Runtime model identity unavailable. GitHub run 34823573271 passed at `89b0838`. Coordinator froze eight portable notes tests in `fc02028b3bf4d34f44ff92309fc3a723cf842db0` before worker implementation and observed missing-module failure. PORTABLE-001 granted to reused /root/durable_worker under [packet](tasks/PORTABLE-001.md), generation/record/packet 1, separate worker-ops worktree, two source files only, budgets and checkpoints in packet. This is a real native adoption exercise, not a model affordability cohort or bridge-driven cancellation proof.
+
+Event 36, 2026-09-14T08:47:29Z: PORTABLE-001 worker `/root/durable_worker` failed before initialization with usage-limit error; no worker artifact or model identity was available. Coordinator took the bounded packet in the canonical checkout after preserving the frozen tests. Implementation revisions `d2e3f7d` and `4867908` add `filterNotes` and `countTags`; eight frozen contract tests initially exposed UTF-16 ordering for supplementary Unicode, then passed after the code-point comparator fix. Required checks: archived exclusion, strict query/input validation, duplicate IDs, per-note tag deduplication, order and immutability. No database/browser/paid resources used. Worker grant closed as interrupted; no acceptance is attributed to the unavailable worker. Portable contract remains ready for a future real-worker/cohort run.
