@@ -19,6 +19,14 @@ export function countTags(notes) {
     if (note.archived) continue;
     for (const tag of new Set(note.tags)) counts.set(tag, (counts.get(tag) ?? 0) + 1);
   }
-  return [...counts].sort(([a], [b]) => a < b ? -1 : a > b ? 1 : 0)
+  const compareCodePoints = (a, b) => {
+    const left = Array.from(a, ch => ch.codePointAt(0));
+    const right = Array.from(b, ch => ch.codePointAt(0));
+    for (let i = 0; i < Math.min(left.length, right.length); i++) {
+      if (left[i] !== right[i]) return left[i] - right[i];
+    }
+    return left.length - right.length;
+  };
+  return [...counts].sort(([a], [b]) => compareCodePoints(a, b))
     .map(([tag, count]) => ({tag, count}));
 }
