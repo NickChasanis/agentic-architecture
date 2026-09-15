@@ -4,6 +4,8 @@ Status: protocol prepared, controlled cohorts not executed. Native launches on 2
 
 The notes tasks in [the portable example](../../examples/portable-context/README.md) now have eight executable tests and a coordinator-authored implementation. They are an adoption reference, not an unexposed benchmark. Before either cohort starts, prepare fresh comparable variants, commit the test oracle and task packets, freeze the baseline, and record model/provider identifiers, matched context hashes and independent worktree paths. A worker handoff on verification infrastructure is not a matched model cohort.
 
+The current fresh variant is EXT-002: exact active-tag selection over the existing notes record contract. Its four-test oracle is intentionally red until a cohort implements it. Keep the red oracle in the baseline commit and do not add its missing source module before the first assigned cohort.
+
 Compare sequential and two-worker concurrent execution using the same implementation model first. Evaluate model tier separately on fresh comparable task variants; earlier solution exposure invalidates a naive rerun comparison.
 
 For every task record run ID, cohort, actual model, start/end UTC, baseline/final/tested revisions, context and contract versions, retry count, check failures, review time, integration rework, active human effort and actual usage/cost if supplied by the provider. Missing cost is null, never zero. Preserve failed attempts.

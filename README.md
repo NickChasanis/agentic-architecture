@@ -133,6 +133,8 @@ The local pilot now includes durable restart/recovery exercises and compatible c
 
 The [three-step roadmap](20-catalog-reliability-and-coordination-recovery.md) covers merchant interaction reliability, compatible catalog pagination and durable coordination recovery. The local implementation is followed by [operational readiness](21-supervised-operational-readiness.md): reproducible checks, a supervised Git worker bridge, logical backup/restore, portable context and CI. The [delivery evidence and adoption roadmap](22-delivery-evidence-and-adoption.md) continues with mandatory portable verification, a fresh worker handoff, separate affordability and parallelism comparisons, interruption proof and supervised staging. Earlier worker attempts hit service limits; current grants and receipts are recorded on the board, not inferred from those historical failures.
 
+The next controlled task is the fresh EXT-002 notes consumer contract. Its evaluator stays red in the baseline until a model cohort is granted, preventing prior solution exposure from being mistaken for lower-cost model capability.
+
 ---
 
 Cover artwork generated with AI for this repository. [Artwork prompt and provenance](assets/ARTWORK.md).
