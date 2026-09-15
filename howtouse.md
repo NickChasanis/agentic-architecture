@@ -269,3 +269,13 @@ Use the [portable notes example](examples/portable-context/README.md) to adapt t
 For isolated integration tests, allocate unique ports and a Compose project per assignment. Follow [the operations guide](pilot/OPERATIONS.md) for reproducible verification and backup/restore. Restoring Tuesday's database records recovers Monday's receipts, but the coordinator must still reconcile any Monday worker before assigning a replacement. The restore operation explicitly reports that authority has not transferred.
 
 See [chapter 21](21-supervised-operational-readiness.md) for the six-phase status. Each phase keeps its remaining evidence gates visible; a runnable adapter or CI file alone does not establish a model-performance result or a successful hosted CI run.
+
+## Advance from local proof to supervised adoption
+
+[Chapter 22](22-delivery-evidence-and-adoption.md) defines the next six gates. Start by including every supported module's contract suite in the integrated verification command. A standalone notes test that developers forget to run cannot protect another module from an incompatible change. VERIFY-001 adds the portable suite to the normal pipeline and tests that a failure prevents later steps.
+
+Then give a worker a fresh grant and separate worktree. Record its acknowledgment, commit, exact test revision and review corrections. For example, a worker wiring the notes suite owns verification infrastructure, not the frozen notes assertions: it must not weaken the evaluator to produce a green result. The coordinator reviews the actual diff before accepting it and reruns verification after integration.
+
+Only after this delivery path works should you compare cost or concurrency. Use fresh task variants and count planning, troubleshooting, review and integration. Missing token or cost data means unavailable, not free. Two available sessions allow one coordinator and one worker; they do not demonstrate two simultaneous workers. Keep affordability and parallelism conclusions separate.
+
+For recovery and staging, name a disposable target and accountable operator first. A restored database or terminated child process is useful local evidence, but neither proves that a worker on another host has stopped. Keep replacement grants blocked until old-writer containment is established, and obtain the owner's target/access/retention decision before external adoption. Public documentation is never deployment authority.

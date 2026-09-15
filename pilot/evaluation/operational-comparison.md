@@ -2,7 +2,7 @@
 
 Status: prepared, not executed. Native worker launch on 2026-09-14 was rejected by the agent thread limit. Available tool configuration permits two active agents including the coordinator, insufficient for two simultaneous subordinate workers.
 
-Use the notes tasks in [the portable example](../../examples/portable-context/README.md). Before either cohort starts, commit the test oracle and task packets, freeze the baseline, and record model/provider identifiers, identical context hashes and independent worktree paths. The current prose requirements alone are not an executable frozen experiment.
+The notes tasks in [the portable example](../../examples/portable-context/README.md) now have eight executable tests and a coordinator-authored implementation. They are an adoption reference, not an unexposed benchmark. Before either cohort starts, prepare fresh comparable variants, commit the test oracle and task packets, freeze the baseline, and record model/provider identifiers, matched context hashes and independent worktree paths. A worker handoff on verification infrastructure is not a matched model cohort.
 
 Compare sequential and two-worker concurrent execution using the same implementation model first. Evaluate model tier separately on fresh comparable task variants; earlier solution exposure invalidates a naive rerun comparison.
 

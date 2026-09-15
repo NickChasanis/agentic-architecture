@@ -58,6 +58,7 @@ Start with the [roadmap](04-roadmap-of-thought.md) for the next decisions and [c
 19. [Merchant Catalog Visibility Implementation Roadmap](19-merchant-catalog-visibility.md)
 20. [Catalog Reliability and Coordination Recovery](20-catalog-reliability-and-coordination-recovery.md)
 21. [Supervised Operational Readiness](21-supervised-operational-readiness.md)
+22. [Delivery Evidence and Supervised Adoption](22-delivery-evidence-and-adoption.md)
 
 **Session tool of choice:** tmux for multiple terminal sessions and agent processes. Use explicit workspace isolation and task/result contracts alongside it. The [operating model](06-tmux-agent-roles-and-metrics.md) defines generic roles, justified specializations, and evidence-based implementation metrics for both tracks.
 
@@ -130,7 +131,7 @@ The local publication pilot, bounded model trial and second command transport ar
 
 The local pilot now includes durable restart/recovery exercises and compatible catalog pagination; tmux remains an orchestration tool, not proof of process control. Production adoption and a real multi-worker concurrency comparison are still open. The [dual-track roadmap](04-roadmap-of-thought.md) and [contract criteria](05-contracts-and-adaptability.md) remain the conceptual guides. Multi-agent refactoring stays deferred by the owner.
 
-The [three-step roadmap](20-catalog-reliability-and-coordination-recovery.md) covers merchant interaction reliability, compatible catalog pagination and durable coordination recovery. The local implementation is followed by [operational readiness](21-supervised-operational-readiness.md): reproducible checks, a supervised Git worker bridge, logical backup/restore, portable context and CI. Actual worker handoff and parallel-model comparison remain pending because the agent service rejected the implementation worker at its usage limit.
+The [three-step roadmap](20-catalog-reliability-and-coordination-recovery.md) covers merchant interaction reliability, compatible catalog pagination and durable coordination recovery. The local implementation is followed by [operational readiness](21-supervised-operational-readiness.md): reproducible checks, a supervised Git worker bridge, logical backup/restore, portable context and CI. The [delivery evidence and adoption roadmap](22-delivery-evidence-and-adoption.md) continues with mandatory portable verification, a fresh worker handoff, separate affordability and parallelism comparisons, interruption proof and supervised staging. Earlier worker attempts hit service limits; current grants and receipts are recorded on the board, not inferred from those historical failures.
 
 ---
 
