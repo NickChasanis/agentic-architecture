@@ -1,13 +1,13 @@
 # Canonical discussion task board
 
-- Board revision: 38
+- Board revision: 39
 - Created at: 2026-09-11T13:58:26Z
-- Updated at: 2026-09-15T15:55:35Z
+- Updated at: 2026-09-15T15:57:20Z
 - Authority: current human-facing lead session, subject to the location/transfer rules in [the runbook](README.md).
 - Scope: supervised recovery-readiness exercise authorized by the owner; active grants below supersede historical defaults.
-- Source baseline inspected: `e06d625` (portable notes implementation and operational implementation); documentation integrated through `e06d625`
+- Source baseline inspected: `abf0d3a95ca3a3d58c2059a9707d26f0c333d52d` in delivery-proof; verification change independently reviewed at `83d4bb4`.
 - Revalidation policy: every claim/resume, new session/day, or material dependency change. No autonomous claims or leases.
-- Live heartbeat/progress: VERIFY-001 worker grant closed after corrective submissions; coordinator completing regression verification in delivery-proof. No comparative model result exists.
+- Live heartbeat/progress: VERIFY-001 worker grant closed after corrective submissions; independent read-only review passed. Clean full offline verification running in delivery-proof; integration pending. No comparative model result exists.
 
 The timestamp describes this board revision, not permission to execute its tasks. `draft` is not claimable. `blocked` requires prerequisite resolution. Owners and generations remain empty/zero until an explicit grant.
 
@@ -95,7 +95,7 @@ Event 17, 2026-09-12T19:05:31Z, CONTRACT-001 draft → draft: recorded explicit 
 
 Event 18, 2026-09-12T19:34:00Z, CONTRACT-001 draft → draft: implemented the five roadmap steps in isolated worktree commit 9e0b7c4, integrated as ba07c3f. Evidence: provider fixture verification, TypeScript compile, boundary checks, 22 coordination tests, 28 Fastify tests, 74 offline payload cases, 16 database/API tests, and 3 real Keycloak Playwright tests. Policy review closed prior important findings. Foundation is not the full commerce experiment: catalog, publication, second consumer, independent contract acceptance, multi-agent runtime coordination, and model cost comparison remain open. Docker stack is disposable/local only; no public service or paid model run. Owner/generation/budget fields remain unchanged.
 
-Next event sequence: 43. State events and received messages share one coordinator-assigned sequence. Git history preserves prior board revisions; event entries preserve the rationale for individual transitions.
+Next event sequence: 44. State events and received messages share one coordinator-assigned sequence. Git history preserves prior board revisions; event entries preserve the rationale for individual transitions.
 
 ## Reliability and recovery grants
 
@@ -136,6 +136,8 @@ Event 23, 2026-09-13T00:04:11Z: owner authorized continuation using recommendati
 Event 24, 2026-09-13T00:17:35Z: coordinator independently checked trial outputs, integrated reviewed recovery/consumer changes as `2979178`, and recorded [findings and limits](../17-recovery-and-model-allocation.md). Worktree evidence includes real cancellation before reassignment, 22 registry/adapter/evaluation checks, 7 consumer checks and public-API composition. Earlier claims of complete real adapter replacement or multi-agent comparison are superseded. Earlier events dated 10:00/10:30 were not derived from the observed clock and must not be used for elapsed-time measurements; current event times were read from the environment.
 
 ## Operational readiness execution
+
+Event 43, 2026-09-15T15:57:20Z: REVIEW-VERIFY-001 completed, no important correctness or false-proof gaps found at `83d4bb4`; reviewer independently ran all six subprocess checks. Reviewer grant closed. Four runtime cases use real portable npm/tests with unrelated services stubbed; two mutation oracles detect omitted checks and fail-through. Full offline pipeline now running on clean `abf0d3a`, not yet acceptance evidence. Real hosted connected checks still required for the updated pipeline. Independent review does not erase worker isolation and evaluator failures or establish affordability.
 
 Event 42, 2026-09-15T15:55:35Z: coordinator correction passes six real subprocess regression checks (offline/connected success and failure, omission/fail-through mutations). Generation 1 remains closed. REVIEW-VERIFY-001 granted to /root/verification_review, read-only delivery-proof checkout against baseline `000d58c`; inspect the now-committed verifier changes, no writes or services, no paid calls, 15 active review minutes. Coordinator spec review passed; reviewer checks implementation quality and evidence gaps. Queued dispatch is not a completed review.
 
