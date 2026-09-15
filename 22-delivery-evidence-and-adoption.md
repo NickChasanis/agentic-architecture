@@ -31,6 +31,8 @@ Phase 1 is integrated: `npm run verify` and `npm run verify:connected` now inclu
 
 The next comparison input is [EXT-002](coordination/tasks/EXT-002.md), with a deliberately failing fresh evaluator at `examples/portable-context/fresh-task.contract.test.mjs`. Freeze its packet, evaluator and context hash before assigning any model. Since the original notes functions are already exposed, rerunning them would measure familiarity as well as capability; EXT-002 avoids that contamination.
 
+EXT-002 is now integrated as a coordinator-owned composition example after the fresh worker launch hit the service usage limit. Its corrected evaluator passes 4/4 and the full offline pilot verifier passes at `7735f3a`. This improves the contract surface, but it is not evidence that the lower-cost worker completed the task or that the model allocation is economical.
+
 Keep separate records for requirements, assignments, submissions and acceptance. For example, a worker may report “eight tests pass” against its own commit; the coordinator must still check changed paths, current generation, dependency revisions and the integrated command. A passing result from yesterday can be retained as history without authorizing today's work.
 
 Record failed launches as failed attempts, not implementations. Record an unavailable price or token measurement as null, not zero. A successful lower-cost worker on this bounded wiring task establishes one delivery observation, not that the same model can implement arbitrary architecture or that it is cheaper per accepted outcome.

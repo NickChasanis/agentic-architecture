@@ -135,6 +135,8 @@ The [three-step roadmap](20-catalog-reliability-and-coordination-recovery.md) co
 
 The next controlled task is the fresh EXT-002 notes consumer contract. Its evaluator stays red in the baseline until a model cohort is granted, preventing prior solution exposure from being mistaken for lower-cost model capability.
 
+EXT-002 is now a verified coordinator-owned composition slice; the attempted worker launch was unavailable. Keep it separate from future model cohorts and retain the failed launch in the board history.
+
 ---
 
 Cover artwork generated with AI for this repository. [Artwork prompt and provenance](assets/ARTWORK.md).
