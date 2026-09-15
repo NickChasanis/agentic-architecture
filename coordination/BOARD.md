@@ -1,13 +1,13 @@
 # Canonical discussion task board
 
-- Board revision: 41
+- Board revision: 42
 - Created at: 2026-09-11T13:58:26Z
-- Updated at: 2026-09-15T16:14:42Z
+- Updated at: 2026-09-15T16:12:23Z
 - Authority: current human-facing lead session, subject to the location/transfer rules in [the runbook](README.md).
 - Scope: supervised recovery-readiness exercise authorized by the owner; active grants below supersede historical defaults.
 - Source baseline inspected: `abf0d3a95ca3a3d58c2059a9707d26f0c333d52d` in delivery-proof; verification change independently reviewed at `83d4bb4`.
 - Revalidation policy: every claim/resume, new session/day, or material dependency change. No autonomous claims or leases.
-- Live heartbeat/progress: VERIFY-001 integrated and hosted connected verification passed. EXT-002 fresh evaluator is frozen red with no active grant. No comparative model result exists.
+- Live heartbeat/progress: VERIFY-001 integrated and hosted connected verification passed. EXT-002 has a fresh bounded worker grant; no comparative model result exists.
 
 The timestamp describes this board revision, not permission to execute its tasks. `draft` is not claimable. `blocked` requires prerequisite resolution. Owners and generations remain empty/zero until an explicit grant.
 
@@ -21,7 +21,7 @@ The timestamp describes this board revision, not permission to execute its tasks
 | [PORTABLE-001](tasks/PORTABLE-001.md) — notes context adoption exercise | 1 | 1 | integrated | human-authorized coordinator | 1 | Frozen contract tests | Coordinator implementation passed 8 frozen checks after correcting Unicode code-point ordering; worker launch failed at usage limit, so no worker submission is accepted. |
 | [REFACTOR-001](tasks/REFACTOR-001.md) — multi-agent refactoring and project changes | 1 | 1 | blocked | none | 0 | Owner explicitly resumes this later topic | Deferred by owner; do not dispatch or begin discussion now. |
 | [VERIFY-001](tasks/VERIFY-001.md) — portable pipeline coverage | 1 | 4 | integrated | /root coordinator | 2 | Independent review and clean offline verification passed | Assisted artifact integrated as d215973; no active write grant. Hosted connected check pending. |
-| [EXT-002](tasks/EXT-002.md) — fresh notes consumer comparison task | 1 | 1 | draft | none | 0 | Fresh evaluator and context freeze | Four-test oracle is intentionally red; do not claim or implement until a cohort grant is recorded. |
+| [EXT-002](tasks/EXT-002.md) — fresh notes consumer comparison task | 1 | 2 | running | /root/durable_worker | 1 | Fresh evaluator and context freeze | Worktree `ext002-worker`, baseline `ff4375e`; one sequential lower-cost implementation attempt, no paid API. |
 
 ## Unassigned-task metadata
 
@@ -96,7 +96,7 @@ Event 17, 2026-09-12T19:05:31Z, CONTRACT-001 draft → draft: recorded explicit 
 
 Event 18, 2026-09-12T19:34:00Z, CONTRACT-001 draft → draft: implemented the five roadmap steps in isolated worktree commit 9e0b7c4, integrated as ba07c3f. Evidence: provider fixture verification, TypeScript compile, boundary checks, 22 coordination tests, 28 Fastify tests, 74 offline payload cases, 16 database/API tests, and 3 real Keycloak Playwright tests. Policy review closed prior important findings. Foundation is not the full commerce experiment: catalog, publication, second consumer, independent contract acceptance, multi-agent runtime coordination, and model cost comparison remain open. Docker stack is disposable/local only; no public service or paid model run. Owner/generation/budget fields remain unchanged.
 
-Next event sequence: 46. State events and received messages share one coordinator-assigned sequence. Git history preserves prior board revisions; event entries preserve the rationale for individual transitions.
+Next event sequence: 47. State events and received messages share one coordinator-assigned sequence. Git history preserves prior board revisions; event entries preserve the rationale for individual transitions.
 
 ## Reliability and recovery grants
 
@@ -137,6 +137,8 @@ Event 23, 2026-09-13T00:04:11Z: owner authorized continuation using recommendati
 Event 24, 2026-09-13T00:17:35Z: coordinator independently checked trial outputs, integrated reviewed recovery/consumer changes as `2979178`, and recorded [findings and limits](../17-recovery-and-model-allocation.md). Worktree evidence includes real cancellation before reassignment, 22 registry/adapter/evaluation checks, 7 consumer checks and public-API composition. Earlier claims of complete real adapter replacement or multi-agent comparison are superseded. Earlier events dated 10:00/10:30 were not derived from the observed clock and must not be used for elapsed-time measurements; current event times were read from the environment.
 
 ## Operational readiness execution
+
+Event 46, 2026-09-15T16:12:23Z: EXT-002 draft → running, packet/record/generation 1, worker `/root/durable_worker`, baseline `ff4375e`, worktree `/home/nchasanis/.config/superpowers/worktrees/agentic-architecture/ext002-worker`, owned path `examples/portable-context/src/select-by-tag.mjs`. Required evaluator remains frozen at `1f037b9`; no evaluator/source edits are authorized. Budget 90 active implementation minutes, 15-minute checkpoints, 30-minute review, no paid API. This is a single sequential implementation observation, not a two-model or parallel cohort. Revalidate before edit/resume/submission.
 
 Event 45, 2026-09-15T16:14:42Z: hosted run 34992032105 passed on `37cc473` after adding portable verification. Coordinator froze draft EXT-002 at current main baseline with evaluator intentionally failing because `select-by-tag.mjs` is absent. Context hashes: packet `79e496d4434eac5b8d5d5e2e1b85ad9464dc4ad0e01e0c19f462c45e92d3e0c2`, evaluator `1f037b9ef1c47d6ee8dee943a069d8d18bd7a4c94d9bdbf73dbbfc66864b5790`, portable README `3fd075407df831c1db28423331d78908c393c54524cfb9f1e401ee849f4214f1`, AGENTS `3603fcc1f21695e5cb829b9ead572702371e886f80c4cbb7c8285862c8ceff0a`. No grant, worker, model call, cost or implementation is claimed. This evaluator is deliberately excluded from standard verification until a cohort is authorized.
 
