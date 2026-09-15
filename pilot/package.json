@@ -17,7 +17,7 @@
     "check:provider": "NODE_EXTRA_CA_CERTS=.local/tls.crt node infra/verify.mjs",
     "build:merchant": "ng build merchant",
     "test:e2e": "NODE_EXTRA_CA_CERTS=.local/tls.crt playwright test",
-    "test:operations": "node --test infra/local-ports.test.mjs contracts/coordination/git-worker.test.mjs",
+    "test:operations": "node --test infra/local-ports.test.mjs contracts/coordination/git-worker.test.mjs infra/verify-all.test.mjs",
     "test:portable": "node --test ../examples/portable-context/notes.contract.test.mjs",
     "test:backup": "node --test contracts/coordination/backup.test.mjs",
     "verify": "node infra/verify-all.mjs",
