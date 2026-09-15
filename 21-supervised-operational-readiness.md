@@ -7,13 +7,13 @@ Owner authorized implementation on 2026-09-14. Baseline: `3f13c5b5c70b869cf73b47
 | Phase | Deliverable and gate | Status |
 |---|---|---|
 | 1. Verified baseline | Reconcile historical claims, fix integration gaps, reproduce connected and offline checks from a clean worktree | Passed; read-only review found no confirmed blocker |
-| 2. Worker execution | Validate current grants, isolated Git worktrees, actual committed artifacts and cancellation; observe a real worker handoff | Bridge implemented and tested; real worker handoff blocked by service thread limit |
+| 2. Worker execution | Validate current grants, isolated Git worktrees, actual committed artifacts and cancellation; observe a real worker handoff | Bridge tested; subsequent VERIFY-001 native handoff required coordinator corrections; clean isolation and bridge-managed model cancellation remain open |
 | 3. Supervised recovery | Rehearse persistent state backup/restore, revisions and termination gating; document explicit authority transfer | Local backup/restore and termination gates passed; host recovery remains unproven |
 | 4. Affordability experiment | Freeze comparable tasks, context, models and total accounting before execution; run sequential and parallel cohorts | Blocked on worker capacity; no substitute process benchmark |
 | 5. Portable adoption | Independent small project exercises the same context/grant/artifact contracts | Deterministic notes contract and implementation passed; real-model handoff pending |
 | 6. Operational preparation | Repeatable CI, readiness checks, backup/restore and resource instructions; explicit staging decision | Local pipeline and GitHub connected CI passed; staging not ready |
 
-Phases 2 and 4 require actual model execution evidence. The native worker launch was rejected by the service's agent thread limit. One coordinator and one worker also cannot demonstrate two simultaneous subordinate workers. Infrastructure and deterministic contract checks may proceed; no model comparison outcome is inferred from them.
+Phases 2 and 4 require actual model execution evidence. Earlier native launches hit thread and usage limits; the 2026-09-15 VERIFY-001 session subsequently ran but required coordinator corrections, recorded in chapter 22. One coordinator and one worker cannot demonstrate two simultaneous subordinate workers. Infrastructure and deterministic contract checks may proceed; no model comparison outcome is inferred from them.
 
 All phases preserve published-product immutability and the deferred refactoring decision. No host reboot, production release, external authority transfer or separate paid API use is included. Phase 3 uses an isolated test database; production adoption requires a named target and operator decision.
 

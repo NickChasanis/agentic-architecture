@@ -23,6 +23,8 @@ On 2026-09-15, the coordinator revalidated source `000d58c6a6a98bf8cf29c0e02792c
 
 VERIFY-001 is the fresh phase 1/2 assignment. Its packet confines the worker to verification infrastructure, leaving frozen notes contracts untouched. The native session transports the grant and receipt; it is not managed or cancelled by the Git worker bridge. Consult the [board](coordination/BOARD.md) for current acceptance and tested revisions.
 
+The [delivery observation](pilot/evaluation/verification-worker-observation.md) records real commits and coordinator interventions. This establishes an assisted native handoff, not independent acceptance: initial edits escaped the assigned worktree and the worker's regression evidence needed replacement. Before scaling model comparisons, repeat the delivery gate with a pre-frozen evaluator and explicit edit confinement. Parallel model capacity and an owner-selected recovery/staging target remain unresolved; no rollout beyond the local pilot is authorized.
+
 ## Evidence to carry into another project
 
 Keep separate records for requirements, assignments, submissions and acceptance. For example, a worker may report “eight tests pass” against its own commit; the coordinator must still check changed paths, current generation, dependency revisions and the integrated command. A passing result from yesterday can be retained as history without authorizing today's work.
