@@ -1,13 +1,12 @@
-import {test} from 'node:test';
+import {test,after} from 'node:test';
 import assert from 'node:assert/strict';
-import {readFileSync} from 'node:fs';
-const verifier=readFileSync(new URL('./verify-all.mjs',import.meta.url),'utf8');
-test('offline verification invokes portable checks immediately before build',()=>{
- const portable=verifier.indexOf("['npm',['run','test:portable']]");
- const build=verifier.indexOf("['npm',['run','build:merchant']]");
- assert.ok(portable>=0); assert.ok(portable<build);
-});
-test('verification remains fail-fast around portable command',()=>{
- assert.match(verifier,/result\.status!==0/);
- assert.match(verifier,/process\.exit\(result\.status\|\|1\)/);
-});
+import {mkdtempSync,writeFileSync,mkdirSync,cpSync,rmSync} from 'node:fs';
+import {tmpdir} from 'node:os';
+import {join} from 'node:path';
+import {execFileSync} from 'node:child_process';
+const dirs=[]; after(()=>dirs.forEach(d=>rmSync(d,{recursive:true,force:true})));
+function fixture(fail=false){const d=mkdtempSync(join(tmpdir(),'verify-fixture-'));dirs.push(d);mkdirSync(join(d,'pilot/infra'),{recursive:true});cpSync('pilot/infra/verify-all.mjs',join(d,'pilot/infra/verify-all.mjs'));mkdirSync(join(d,'pilot/contracts'),{recursive:true});writeFileSync(join(d,'pilot/contracts/check_contracts.py'),'');writeFileSync(join(d,'pilot/infra/check-doc-links.mjs'),'');mkdirSync(join(d,'examples/portable-context/src'),{recursive:true});cpSync('examples/portable-context/notes.contract.test.mjs',join(d,'examples/portable-context/notes.contract.test.mjs'));cpSync('examples/portable-context/src',join(d,'examples/portable-context/src'),{recursive:true});if(fail)writeFileSync(join(d,'examples/portable-context/src/filter.mjs'),'throw new Error("portable failed")');writeFileSync(join(d,'pilot/package.json'),JSON.stringify({type:'module',scripts:{'check:boundaries':'node -e ""','test:contracts':'node -e ""','test:coordination':'node -e ""','test:consumers':'node -e ""','test:registry':'node -e ""','test:adapters':'node -e ""','test:operations':'node -e "" ,'test:portable':'node --test ../examples/portable-context/notes.contract.test.mjs','build:merchant':'node -e "console.log(\"BUILD\")"','check:provider':'node -e "console.log(\"PROVIDER\")"','test:integration':'node -e ""','test:durable':'node -e ""','test:backup':'node -e ""','test:e2e':'node -e ""'}}));execFileSync('git',['init','-q'],{cwd:d});execFileSync('git',['config','user.email','test@example.com'],{cwd:d});execFileSync('git',['config','user.name','test'],{cwd:d});execFileSync('git',['add','.'],{cwd:d});execFileSync('git',['commit','-qm','fixture'],{cwd:d});return d}
+function run(d,args=[]){return execFileSync(process.execPath,['pilot/infra/verify-all.mjs',...args],{cwd:d,encoding:'utf8',stdio:['ignore','pipe','pipe']})}
+test('offline verifier executes portable tests before build',()=>{const d=fixture();const out=run(d);assert.match(out,/outcome.*pass/);});
+test('connected verifier executes portable tests before provider',()=>{const d=fixture();mkdirSync(join(d,'pilot/.local'),{recursive:true});writeFileSync(join(d,'pilot/.local/config.json'),'{}');const out=run(d,['--connected']);assert.match(out,/outcome.*pass/);});
+test('portable failure stops build and connected checks',()=>{const d=fixture(true);assert.throws(()=>run(d,['--connected']),/FAILED: npm run test:portable/);});
