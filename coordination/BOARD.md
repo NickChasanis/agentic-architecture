@@ -1,13 +1,13 @@
 # Canonical discussion task board
 
-- Board revision: 36
+- Board revision: 38
 - Created at: 2026-09-11T13:58:26Z
-- Updated at: 2026-09-15T15:49:27Z
+- Updated at: 2026-09-15T15:55:35Z
 - Authority: current human-facing lead session, subject to the location/transfer rules in [the runbook](README.md).
 - Scope: supervised recovery-readiness exercise authorized by the owner; active grants below supersede historical defaults.
 - Source baseline inspected: `e06d625` (portable notes implementation and operational implementation); documentation integrated through `e06d625`
 - Revalidation policy: every claim/resume, new session/day, or material dependency change. No autonomous claims or leases.
-- Live heartbeat/progress: VERIFY-001 freshly granted; previous grants remain closed. Coordinator /root confirms this originating checkout as canonical authority on the new day. No comparative model result exists.
+- Live heartbeat/progress: VERIFY-001 worker grant closed after corrective submissions; coordinator completing regression verification in delivery-proof. No comparative model result exists.
 
 The timestamp describes this board revision, not permission to execute its tasks. `draft` is not claimable. `blocked` requires prerequisite resolution. Owners and generations remain empty/zero until an explicit grant.
 
@@ -20,7 +20,7 @@ The timestamp describes this board revision, not permission to execute its tasks
 | [CONTRACT-001](tasks/CONTRACT-001.md) — draft paired executable-contract specifications | 14 | 16 | draft | none (coordinator-authored proposal) | 0 | Pilot evidence exists; independent acceptance and controlled cost comparison still pending | Foundation, catalog, second consumer and local coordination/recovery checks implemented in [pilot README](../pilot/README.md). No worker grant. |
 | [PORTABLE-001](tasks/PORTABLE-001.md) — notes context adoption exercise | 1 | 1 | integrated | human-authorized coordinator | 1 | Frozen contract tests | Coordinator implementation passed 8 frozen checks after correcting Unicode code-point ordering; worker launch failed at usage limit, so no worker submission is accepted. |
 | [REFACTOR-001](tasks/REFACTOR-001.md) — multi-agent refactoring and project changes | 1 | 1 | blocked | none | 0 | Owner explicitly resumes this later topic | Deferred by owner; do not dispatch or begin discussion now. |
-| [VERIFY-001](tasks/VERIFY-001.md) — portable pipeline coverage | 1 | 2 | running | /root/verification_worker | 1 | Eight baseline notes checks pass | Changes requested after scope incident and insufficient regression tests; same owned paths and budget. |
+| [VERIFY-001](tasks/VERIFY-001.md) — portable pipeline coverage | 1 | 3 | running | /root coordinator | 2 | Worker stopped; artifacts preserved | Coordinator correction in delivery-proof; worker generation 1 closed, no worker writes authorized. |
 
 ## Unassigned-task metadata
 
@@ -95,7 +95,7 @@ Event 17, 2026-09-12T19:05:31Z, CONTRACT-001 draft → draft: recorded explicit 
 
 Event 18, 2026-09-12T19:34:00Z, CONTRACT-001 draft → draft: implemented the five roadmap steps in isolated worktree commit 9e0b7c4, integrated as ba07c3f. Evidence: provider fixture verification, TypeScript compile, boundary checks, 22 coordination tests, 28 Fastify tests, 74 offline payload cases, 16 database/API tests, and 3 real Keycloak Playwright tests. Policy review closed prior important findings. Foundation is not the full commerce experiment: catalog, publication, second consumer, independent contract acceptance, multi-agent runtime coordination, and model cost comparison remain open. Docker stack is disposable/local only; no public service or paid model run. Owner/generation/budget fields remain unchanged.
 
-Next event sequence: 41. State events and received messages share one coordinator-assigned sequence. Git history preserves prior board revisions; event entries preserve the rationale for individual transitions.
+Next event sequence: 43. State events and received messages share one coordinator-assigned sequence. Git history preserves prior board revisions; event entries preserve the rationale for individual transitions.
 
 ## Reliability and recovery grants
 
@@ -136,6 +136,10 @@ Event 23, 2026-09-13T00:04:11Z: owner authorized continuation using recommendati
 Event 24, 2026-09-13T00:17:35Z: coordinator independently checked trial outputs, integrated reviewed recovery/consumer changes as `2979178`, and recorded [findings and limits](../17-recovery-and-model-allocation.md). Worktree evidence includes real cancellation before reassignment, 22 registry/adapter/evaluation checks, 7 consumer checks and public-API composition. Earlier claims of complete real adapter replacement or multi-agent comparison are superseded. Earlier events dated 10:00/10:30 were not derived from the observed clock and must not be used for elapsed-time measurements; current event times were read from the environment.
 
 ## Operational readiness execution
+
+Event 42, 2026-09-15T15:55:35Z: coordinator correction passes six real subprocess regression checks (offline/connected success and failure, omission/fail-through mutations). Generation 1 remains closed. REVIEW-VERIFY-001 granted to /root/verification_review, read-only delivery-proof checkout against baseline `000d58c`; inspect the now-committed verifier changes, no writes or services, no paid calls, 15 active review minutes. Coordinator spec review passed; reviewer checks implementation quality and evidence gaps. Queued dispatch is not a completed review.
+
+Event 41, 2026-09-15T15:51:56Z: subsequent VERIFY-001 artifacts `23ab7a1` and `e7b47f7` still fail acceptance: source-string checks replaced requested execution, then subprocess fixture had a reported syntax error and incomplete setup. Worker explicitly requested coordinator correction; runtime interrupt confirmed session already completed. Generation 1 write grant closed. Coordinator generation 2, record 3, takes only packet scope in delivery-proof, retaining all worker commits. No child service was authorized or reported; actual native-session completion is observed, not host/process containment proof. Remaining task budget is unchanged (under ten elapsed minutes used); no paid invocation. This is an assisted delivery, not an independently passing worker result.
 
 Event 40, 2026-09-15T15:49:27Z: VERIFY-001 first native submission `5626402`/`add60e4` reviewed, changes requested. Worker acknowledged accidental duplicate implementation edits in canonical checkout and stopped. Coordinator preserved committed worker artifacts and removed only those confirmed accidental canonical edits. Tests used injected callbacks rather than the configured portable command, so they did not establish required regression coverage. Resume authorized under the same generation, packet and owned worktree only; record version 2. Coordinator requested real subprocess fixtures and explicit absolute edit paths. No acceptance, measured cost or clean-isolation claim.
 
