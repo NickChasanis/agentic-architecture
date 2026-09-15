@@ -1,13 +1,13 @@
 # Canonical discussion task board
 
-- Board revision: 45
+- Board revision: 46
 - Created at: 2026-09-11T13:58:26Z
-- Updated at: 2026-09-15T16:23:06Z
+- Updated at: 2026-09-15T16:26:58Z
 - Authority: current human-facing lead session, subject to the location/transfer rules in [the runbook](README.md).
 - Scope: supervised recovery-readiness exercise authorized by the owner; active grants below supersede historical defaults.
 - Source baseline inspected: `abf0d3a95ca3a3d58c2059a9707d26f0c333d52d` in delivery-proof; verification change independently reviewed at `83d4bb4`.
 - Revalidation policy: every claim/resume, new session/day, or material dependency change. No autonomous claims or leases.
-- Live heartbeat/progress: VERIFY-001 and EXT-002 integrated; full offline verification and hosted connected verification for the prior pipeline passed. EXT-002 is coordinator-owned after worker usage-limit failure; no comparative model result exists.
+- Live heartbeat/progress: VERIFY-001 and EXT-002 integrated; offline and hosted connected verification passed. EXT-002 is coordinator-owned after worker usage-limit failure; no comparative model result exists.
 
 The timestamp describes this board revision, not permission to execute its tasks. `draft` is not claimable. `blocked` requires prerequisite resolution. Owners and generations remain empty/zero until an explicit grant.
 
@@ -96,7 +96,7 @@ Event 17, 2026-09-12T19:05:31Z, CONTRACT-001 draft → draft: recorded explicit 
 
 Event 18, 2026-09-12T19:34:00Z, CONTRACT-001 draft → draft: implemented the five roadmap steps in isolated worktree commit 9e0b7c4, integrated as ba07c3f. Evidence: provider fixture verification, TypeScript compile, boundary checks, 22 coordination tests, 28 Fastify tests, 74 offline payload cases, 16 database/API tests, and 3 real Keycloak Playwright tests. Policy review closed prior important findings. Foundation is not the full commerce experiment: catalog, publication, second consumer, independent contract acceptance, multi-agent runtime coordination, and model cost comparison remain open. Docker stack is disposable/local only; no public service or paid model run. Owner/generation/budget fields remain unchanged.
 
-Next event sequence: 50. State events and received messages share one coordinator-assigned sequence. Git history preserves prior board revisions; event entries preserve the rationale for individual transitions.
+Next event sequence: 51. State events and received messages share one coordinator-assigned sequence. Git history preserves prior board revisions; event entries preserve the rationale for individual transitions.
 
 ## Reliability and recovery grants
 
@@ -137,6 +137,8 @@ Event 23, 2026-09-13T00:04:11Z: owner authorized continuation using recommendati
 Event 24, 2026-09-13T00:17:35Z: coordinator independently checked trial outputs, integrated reviewed recovery/consumer changes as `2979178`, and recorded [findings and limits](../17-recovery-and-model-allocation.md). Worktree evidence includes real cancellation before reassignment, 22 registry/adapter/evaluation checks, 7 consumer checks and public-API composition. Earlier claims of complete real adapter replacement or multi-agent comparison are superseded. Earlier events dated 10:00/10:30 were not derived from the observed clock and must not be used for elapsed-time measurements; current event times were read from the environment.
 
 ## Operational readiness execution
+
+Event 50, 2026-09-15T16:26:58Z: hosted GitHub Actions run [34993898093](https://github.com/NickChasanis/agentic-architecture/actions/runs/34993898093) passed on `fa5f029cde196767496872ee321f536441d503f0` in 2m09s. Fresh runner installed dependencies, tmux, Playwright Chromium, created a disposable Compose stack, waited for the trusted provider, seeded the database, ran `verify:connected` including the portable suite, and cleaned up. This confirms hosted connected verification for the integrated EXT-002/docs baseline; it does not establish worker execution, model cost, parallelism, production deployment or authority transfer.
 
 Event 49, 2026-09-15T16:23:06Z: coordinator independently reviewed EXT-002 source and corrected evaluator, then integrated the isolated branch at `7735f3a3c0390942c26d76649ad1ff1d1149af90`. Fresh evaluator passed 4/4 from 16:14:28.349Z to 16:14:28.514Z; full offline `pilot/npm run verify` passed from 16:14:28.349Z to 16:15:23.733Z, including 30 contracts, 22 coordination, 7 consumers, 22 registry, 11 adapters, 14 operations, 8 portable checks, 68 Markdown links, boundaries, TypeScript and build. The root invocation at 16:14:20Z failed only because no root package.json exists; the prescribed pilot-directory command passed. EXT-002 remains coordinator-authored after worker usage-limit failure; it is not a model cohort or affordability evidence.
 
