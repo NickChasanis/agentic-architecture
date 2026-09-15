@@ -1,6 +1,6 @@
 # Operational comparison protocol
 
-Status: prepared, not executed. Native worker launch on 2026-09-14 was rejected by the agent thread limit. Available tool configuration permits two active agents including the coordinator, insufficient for two simultaneous subordinate workers.
+Status: protocol prepared, controlled cohorts not executed. Native launches on 2026-09-14 hit thread and usage limits; the later VERIFY-001 worker ran but required coordinator corrections, documented in [the delivery observation](verification-worker-observation.md). Available tool configuration permits two active agents including the coordinator, insufficient for two simultaneous subordinate workers.
 
 The notes tasks in [the portable example](../../examples/portable-context/README.md) now have eight executable tests and a coordinator-authored implementation. They are an adoption reference, not an unexposed benchmark. Before either cohort starts, prepare fresh comparable variants, commit the test oracle and task packets, freeze the baseline, and record model/provider identifiers, matched context hashes and independent worktree paths. A worker handoff on verification infrastructure is not a matched model cohort.
 

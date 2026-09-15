@@ -27,6 +27,8 @@ The [delivery observation](pilot/evaluation/verification-worker-observation.md) 
 
 ## Evidence to carry into another project
 
+Phase 1 is integrated: `npm run verify` and `npm run verify:connected` now include `test:portable`; `test:operations` includes six verifier subprocess regressions. Clean offline source `abf0d3a` passed on 2026-09-15 and independent review passed at `83d4bb4`. Main integration is `d215973`; subsequent board/documentation commits do not change executable behavior. Hosted connected verification of this update is pending at publication. Phase 2 produced an assisted handoff with documented failures; its clean-isolation gate and phases 3–6 remain open.
+
 Keep separate records for requirements, assignments, submissions and acceptance. For example, a worker may report “eight tests pass” against its own commit; the coordinator must still check changed paths, current generation, dependency revisions and the integrated command. A passing result from yesterday can be retained as history without authorizing today's work.
 
 Record failed launches as failed attempts, not implementations. Record an unavailable price or token measurement as null, not zero. A successful lower-cost worker on this bounded wiring task establishes one delivery observation, not that the same model can implement arbitrary architecture or that it is cheaper per accepted outcome.
