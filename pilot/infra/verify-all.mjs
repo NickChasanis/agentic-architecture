@@ -24,13 +24,13 @@ if(connected) {
  }
  commands.push(...['check:provider','test:integration','test:durable','test:backup','test:e2e'].map(name=>['npm',['run',name]]));
 }
-if(process.argv[1]===fileURLToPath(import.meta.url)) {
 const revision=execFileSync('git',['rev-parse','HEAD'],{cwd,encoding:'utf8'}).trim();
 const dirty=execFileSync('git',['status','--porcelain'],{cwd,encoding:'utf8'}).trim().length>0;
 console.log(JSON.stringify({revision,dirty,connected,startedAt:new Date().toISOString()}));
 for(const [cmd,args] of commands) {
  const result=spawnSync(cmd,args,{cwd,stdio:'inherit'});
- if(result.error||result.status!==0) { console.error('FAILED: '+[cmd,...args].join(' '));process.exit(result.status||1); }
+ if(result.error||result.status!==0) {
+   console.error('FAILED: '+[cmd,...args].join(' '));process.exit(result.status||1);
+ }
 }
 console.log(JSON.stringify({revision,dirty,connected,outcome:'pass',endedAt:new Date().toISOString()}));
-}
