@@ -51,7 +51,8 @@ if (args[1] === 'test:portable') {
 function success(result, connected) {
   assert.ifError(result.error);
   assert.equal(result.status, 0, result.stdout + result.stderr);
-  assert.match(result.stdout, /# tests 8/);
+  assert.match(result.stdout, /# tests 18/);
+  assert.match(result.stdout, /EXT-002 selects exact active tags/);
   assert.match(result.stdout, /"outcome":"pass"/);
   const portable = result.stdout.indexOf('STEP:test:portable');
   const build = result.stdout.indexOf('STEP:build:merchant');

@@ -5,7 +5,7 @@ function validate(notes) {
     if (!note || typeof note !== 'object' || Array.isArray(note) ||
         typeof note.id !== 'string' || note.id.length === 0 || ids.has(note.id) ||
         typeof note.title !== 'string' || typeof note.archived !== 'boolean' ||
-        !Array.isArray(note.tags) || note.tags.some(tag => typeof tag !== 'string')) {
+        !Array.isArray(note.tags) || Array.from(note.tags).some(tag => typeof tag !== 'string')) {
       throw new TypeError('invalid notes');
     }
     ids.add(note.id);
