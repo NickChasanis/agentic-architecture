@@ -1,17 +1,23 @@
 # Canonical discussion task board
 
-- Board revision: 46
+- Board revision: 50
 - Created at: 2026-09-11T13:58:26Z
-- Updated at: 2026-09-15T16:26:58Z
+- Updated at: 2026-09-16T10:22:00Z
 - Authority: current human-facing lead session, subject to the location/transfer rules in [the runbook](README.md).
 - Scope: supervised recovery-readiness exercise authorized by the owner; active grants below supersede historical defaults.
 - Source baseline inspected: `abf0d3a95ca3a3d58c2059a9707d26f0c333d52d` in delivery-proof; verification change independently reviewed at `83d4bb4`.
 - Revalidation policy: every claim/resume, new session/day, or material dependency change. No autonomous claims or leases.
-- Live heartbeat/progress: VERIFY-001 and EXT-002 integrated; offline and hosted connected verification passed. EXT-002 is coordinator-owned after worker usage-limit failure; no comparative model result exists.
+- Live heartbeat/progress: ADOPT-001 running under renewed owner authority. /root confirms this checkout as canonical on the new day. Prior worker grants remain closed; fresh worker grants follow frozen tests. Native concurrency limit is two total sessions.
 
 The timestamp describes this board revision, not permission to execute its tasks. `draft` is not claimable. `blocked` requires prerequisite resolution. Owners and generations remain empty/zero until an explicit grant.
 
 ## Current tasks
+
+EVENT-LUNA-001: packet/record/generation 1, integrated, worker /root/event_luna; solution `4f552d2` passed frozen 13-case oracle; contract/oracle hashes match the packet. EVENT-TERRA-001 granted generation 1 to /root/event_terra on the same baseline.
+
+EVENT-TERRA-001: packet/record/generation 1, integrated, worker /root/event_terra; solution `671116e` passed frozen 13-case oracle; contract/oracle hashes match the packet.
+
+ADOPT-001: packet/record/generation 1, running, coordinator /root; baseline `9f270a6d1c8100baa47951839a658756f145f115`; worktree and scope in [packet](tasks/ADOPT-001.md). Claimed/validated 2026-09-16T07:44:45Z; revalidate on resume or dependency change.
 
 | Task | Packet revision | Record version | State | Owner | Generation | Dependencies | Current activity / next action |
 |---|---|---|---|---|---|---|---|
@@ -96,7 +102,7 @@ Event 17, 2026-09-12T19:05:31Z, CONTRACT-001 draft → draft: recorded explicit 
 
 Event 18, 2026-09-12T19:34:00Z, CONTRACT-001 draft → draft: implemented the five roadmap steps in isolated worktree commit 9e0b7c4, integrated as ba07c3f. Evidence: provider fixture verification, TypeScript compile, boundary checks, 22 coordination tests, 28 Fastify tests, 74 offline payload cases, 16 database/API tests, and 3 real Keycloak Playwright tests. Policy review closed prior important findings. Foundation is not the full commerce experiment: catalog, publication, second consumer, independent contract acceptance, multi-agent runtime coordination, and model cost comparison remain open. Docker stack is disposable/local only; no public service or paid model run. Owner/generation/budget fields remain unchanged.
 
-Next event sequence: 51. State events and received messages share one coordinator-assigned sequence. Git history preserves prior board revisions; event entries preserve the rationale for individual transitions.
+Next event sequence: 56. State events and received messages share one coordinator-assigned sequence. Git history preserves prior board revisions; event entries preserve the rationale for individual transitions.
 
 ## Reliability and recovery grants
 
@@ -137,6 +143,18 @@ Event 23, 2026-09-13T00:04:11Z: owner authorized continuation using recommendati
 Event 24, 2026-09-13T00:17:35Z: coordinator independently checked trial outputs, integrated reviewed recovery/consumer changes as `2979178`, and recorded [findings and limits](../17-recovery-and-model-allocation.md). Worktree evidence includes real cancellation before reassignment, 22 registry/adapter/evaluation checks, 7 consumer checks and public-API composition. Earlier claims of complete real adapter replacement or multi-agent comparison are superseded. Earlier events dated 10:00/10:30 were not derived from the observed clock and must not be used for elapsed-time measurements; current event times were read from the environment.
 
 ## Operational readiness execution
+
+Event 56, 2026-09-16T10:22:00Z: EVENT-TRIAL-001 two sequential arms complete from common baseline `9166af0` with the same frozen contract/oracle. Both accepted 13/13; LUNA `4f552d2`, TERRA `671116e`. No attempt needed rework; no reviewer correction. Both sessions report runtime model opencode/big-pickle, distinct from the requested gpt-5.6-luna/gpt-5.6-terra labels; requested and observed identity are recorded separately. This is two small shared-task samples, not population-wide capability or a monetary ranking: no paid calls, token/cost telemetry null.
+
+Event 55, 2026-09-16T10:19:40Z: EVENT-TERRA-001 generation 1 solution committed at `671116e` in the isolated event-terra worktree; coordinator re-ran the frozen oracle from 10:19:42Z, 13/13 pass. Contract SHA `dcad9445…ad`, oracle SHA `b3b0b841…bd` match the packet. Only `pilot/evaluation/event-trial/solution.mjs` changed. Requested model gpt-5.6-terra; session-reported model opencode/big-pickle; no paid calls; token/cost telemetry null. Arm accepted.
+
+Event 54, 2026-09-16T10:18:00Z: EVENT-TERRA-001 absent → running, packet/record/generation 1, worker /root/event_terra, worktree `/home/nchasanis/.config/superpowers/worktrees/agentic-architecture/event-terra`, common baseline `9166af095d9ec62456a576cfd18b44c6544a2b29`. Sole owned file `pilot/evaluation/event-trial/solution.mjs`. Same frozen contract/oracle as EVENT-LUNA-001. 90 active minutes, 15-minute checkpoints, 30-minute review; no paid API. Sequential arm; must not read the luna worktree or branch.
+
+Event 53, 2026-09-16T10:15:20Z: EVENT-LUNA-001 generation 1 solution committed at `4f552d2` in the isolated event-luna worktree; coordinator re-ran the frozen oracle from 10:14:50Z, 13/13 pass. Contract SHA `dcad9445…ad`, oracle SHA `b3b0b841…bd` both match the frozen packet. Only `pilot/evaluation/event-trial/solution.mjs` changed. Requested model gpt-5.6-luna; no paid calls; token/cost telemetry remain null. Arm accepted; EVENT-TERRA-001 remains the ungranted second sequential arm.
+
+Event 52, 2026-09-16T07:48:16Z: phase 1 demonstrated sparse-tag validation failures in all three consumers; corrected and passed 18 portable plus six verifier regressions. Frozen new event contract and 13-case evaluator at `9166af0`, observed missing-module failure before worker dispatch. EVENT-LUNA-001 granted generation1 as specified above. Requested model gpt-5.6-luna, no paid calls; actual telemetry and cost remain unknown. Coordinator continues staging and documentation independently.
+
+Event 51, 2026-09-16T07:44:45Z: owner authorized all six phases nonstop with autonomy. Coordinator revalidated clean main `9f270a6` and selected isolated local staging resources in ADOPT-001. Existing merchant-list and Asklipios services are outside this task. Phase 4 native cohort requires three slots, but runtime exposes two. Earlier events 45 and 47–50 contain timestamps later than interleaved observed execution times; retain them as historical labels, not elapsed-time evidence. New timing evidence must come from execution clock reads.
 
 Event 50, 2026-09-15T16:26:58Z: hosted GitHub Actions run [34993898093](https://github.com/NickChasanis/agentic-architecture/actions/runs/34993898093) passed on `fa5f029cde196767496872ee321f536441d503f0` in 2m09s. Fresh runner installed dependencies, tmux, Playwright Chromium, created a disposable Compose stack, waited for the trusted provider, seeded the database, ran `verify:connected` including the portable suite, and cleaned up. This confirms hosted connected verification for the integrated EXT-002/docs baseline; it does not establish worker execution, model cost, parallelism, production deployment or authority transfer.
 
