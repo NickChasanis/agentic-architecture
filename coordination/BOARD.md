@@ -1,13 +1,13 @@
 # Canonical discussion task board
 
-- Board revision: 59
+- Board revision: 60
 - Created at: 2026-09-11T13:58:26Z
-- Updated at: 2026-09-16T19:30:59Z
+- Updated at: 2026-09-16T19:33:00Z
 - Authority: current human-facing lead session, subject to the location/transfer rules in [the runbook](README.md).
 - Scope: supervised recovery-readiness exercise authorized by the owner; active grants below supersede historical defaults.
 - Source baseline inspected: `abf0d3a95ca3a3d58c2059a9707d26f0c333d52d` in delivery-proof; verification change independently reviewed at `83d4bb4`.
 - Revalidation policy: every claim/resume, new session/day, or material dependency change. No autonomous claims or leases.
-- Live heartbeat/progress: ADOPT-001 integrated; all six phases closed 2026-09-16T10:36Z. CONTRACT-001 drafts conditionally accepted after independent review (event 65) with C1/C3 corrections applied. Owner directed (event 67): controlled cost comparison runs local-only (no paid API), remote rehearsal target = FortinNAS TS-251+, production-adoption cost assessment postponed.
+- Live heartbeat/progress: ADOPT-001 integrated; all six phases closed. CONTRACT-001 conditionally accepted (event 65) and local-only controlled comparison satisfied. FortinNAS rehearsal complete (event 68). REFACTOR-001 resumed as owner-selected post-ADOPT item; discussion scope not yet set. Production-adoption cost assessment postponed per owner.
 
 The timestamp describes this board revision, not permission to execute its tasks. `draft` is not claimable. `blocked` requires prerequisite resolution. Owners and generations remain empty/zero until an explicit grant.
 
@@ -25,7 +25,7 @@ ADOPT-001: packet/record/generation 1, integrated, coordinator /root; baseline `
 | [BUDGET-001](tasks/BUDGET-001.md) — troubleshooting and review budgets | 3 | 2 | verified | human-authorized coordinator | 0 | Owner instructed continuation using recommendations | 90-minute worker, 15-minute checkpoints, 30-minute coordinator/review limits applied; no separately billed API invocation. |
 | [CONTRACT-001](tasks/CONTRACT-001.md) — draft paired executable-contract specifications | 16 | 19 | draft | none (coordinator-authored proposal) | 0 | Independent acceptance closed; local-only cohort satisfied | Draft specs conditionally accepted per [independent review](contracts/reviews/2026-09-16-independent-review.md); local-only controlled comparison satisfied by ADOPT-001 cohorts `4f552d2`,`671116e`,`c5a6492`,`048110e` at zero paid spend. Open: schema freeze reconciliation, runtime adapter conformance, production gating. No paid API invocation; no worker grant. |
 | [PORTABLE-001](tasks/PORTABLE-001.md) — notes context adoption exercise | 1 | 1 | integrated | human-authorized coordinator | 1 | Frozen contract tests | Coordinator implementation passed 8 frozen checks after correcting Unicode code-point ordering; worker launch failed at usage limit, so no worker submission is accepted. |
-| [REFACTOR-001](tasks/REFACTOR-001.md) — multi-agent refactoring and project changes | 1 | 1 | blocked | none | 0 | Owner explicitly resumes this later topic | Deferred by owner; do not dispatch or begin discussion now. |
+| [REFACTOR-001](tasks/REFACTOR-001.md) — multi-agent refactoring and project changes | 1 | 2 | discussion | none (owner resumed) | 0 | Owner resumed this topic via the post-ADOPT priority selection | Owner resumed as a discussion; no workspace/budget/execution baseline assigned. Proposed outputs: change classification, decomposition/ownership protocol, integration/recovery strategy, measurements. Detailed acceptance criteria and budgets deferred until discussion scope is set. |
 | [VERIFY-001](tasks/VERIFY-001.md) — portable pipeline coverage | 1 | 4 | integrated | /root coordinator | 2 | Independent review and clean offline verification passed | Assisted artifact integrated as d215973; no active write grant. Hosted connected check pending. |
 | [EXT-002](tasks/EXT-002.md) — fresh notes consumer comparison task | 1 | 5 | integrated | /root coordinator | 2 | Worker launch failed before initialization; evaluator corrected | Coordinator artifact `704577e` and evaluator correction `66210e3` integrated at `7735f3a`; 4/4 evaluator and full offline verification passed. |
 
@@ -102,7 +102,7 @@ Event 17, 2026-09-12T19:05:31Z, CONTRACT-001 draft → draft: recorded explicit 
 
 Event 18, 2026-09-12T19:34:00Z, CONTRACT-001 draft → draft: implemented the five roadmap steps in isolated worktree commit 9e0b7c4, integrated as ba07c3f. Evidence: provider fixture verification, TypeScript compile, boundary checks, 22 coordination tests, 28 Fastify tests, 74 offline payload cases, 16 database/API tests, and 3 real Keycloak Playwright tests. Policy review closed prior important findings. Foundation is not the full commerce experiment: catalog, publication, second consumer, independent contract acceptance, multi-agent runtime coordination, and model cost comparison remain open. Docker stack is disposable/local only; no public service or paid model run. Owner/generation/budget fields remain unchanged.
 
-Next event sequence: 69. State events and received messages share one coordinator-assigned sequence. Git history preserves prior board revisions; event entries preserve the rationale for individual transitions.
+Next event sequence: 70. State events and received messages share one coordinator-assigned sequence. Git history preserves prior board revisions; event entries preserve the rationale for individual transitions.
 
 ## Reliability and recovery grants
 
@@ -143,6 +143,8 @@ Event 23, 2026-09-13T00:04:11Z: owner authorized continuation using recommendati
 Event 24, 2026-09-13T00:17:35Z: coordinator independently checked trial outputs, integrated reviewed recovery/consumer changes as `2979178`, and recorded [findings and limits](../17-recovery-and-model-allocation.md). Worktree evidence includes real cancellation before reassignment, 22 registry/adapter/evaluation checks, 7 consumer checks and public-API composition. Earlier claims of complete real adapter replacement or multi-agent comparison are superseded. Earlier events dated 10:00/10:30 were not derived from the observed clock and must not be used for elapsed-time measurements; current event times were read from the environment.
 
 ## Operational readiness execution
+
+Event 69, 2026-09-16T19:33:00Z: REFACTOR-001 blocked → discussion. Owner resumed this topic via the post-ADOPT priority selection. Discussion is not an implementation assignment: no workspace, budget, or execution baseline exists. Detailed acceptance criteria and budgets are deferred until the discussion scope is set. Coordinator will record the discussion outputs in the packet when scoped.
 
 Event 68, 2026-09-16T19:30:59Z: remote containment/recovery rehearsal on FortinNAS completed (owner-selected target, event 67). Read-only recon (WATCH verdict: reachable, CPU 84.5%, free RAM 3% at 244 MB, disks healthy, storage 96% free; production shares merchant-list/Asklipios/Talos VM identified as out-of-scope). Non-destructive loop on disposable `/Download/rehearsal-20260916-192925`: (1) placed artifact, (2) fenced via rename `artifact-gen1` → `artifact-gen1-fenced` and verified surface held exactly one entry remotely, (3) recovered via rename → `artifact-gen2-recovered`, verified remotely. Placement→fence→recover loop proven with exact remote list evidence; scratch folder then returned to the Download recycle surface. Limits: MCP tooling exposes file ops only (no process signals, no container exec on the NAS).
 
