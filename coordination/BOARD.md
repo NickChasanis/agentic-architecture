@@ -1,8 +1,8 @@
 # Canonical discussion task board
 
-- Board revision: 50
+- Board revision: 51
 - Created at: 2026-09-11T13:58:26Z
-- Updated at: 2026-09-16T10:22:00Z
+- Updated at: 2026-09-16T10:26:00Z
 - Authority: current human-facing lead session, subject to the location/transfer rules in [the runbook](README.md).
 - Scope: supervised recovery-readiness exercise authorized by the owner; active grants below supersede historical defaults.
 - Source baseline inspected: `abf0d3a95ca3a3d58c2059a9707d26f0c333d52d` in delivery-proof; verification change independently reviewed at `83d4bb4`.
@@ -102,7 +102,7 @@ Event 17, 2026-09-12T19:05:31Z, CONTRACT-001 draft → draft: recorded explicit 
 
 Event 18, 2026-09-12T19:34:00Z, CONTRACT-001 draft → draft: implemented the five roadmap steps in isolated worktree commit 9e0b7c4, integrated as ba07c3f. Evidence: provider fixture verification, TypeScript compile, boundary checks, 22 coordination tests, 28 Fastify tests, 74 offline payload cases, 16 database/API tests, and 3 real Keycloak Playwright tests. Policy review closed prior important findings. Foundation is not the full commerce experiment: catalog, publication, second consumer, independent contract acceptance, multi-agent runtime coordination, and model cost comparison remain open. Docker stack is disposable/local only; no public service or paid model run. Owner/generation/budget fields remain unchanged.
 
-Next event sequence: 56. State events and received messages share one coordinator-assigned sequence. Git history preserves prior board revisions; event entries preserve the rationale for individual transitions.
+Next event sequence: 58. State events and received messages share one coordinator-assigned sequence. Git history preserves prior board revisions; event entries preserve the rationale for individual transitions.
 
 ## Reliability and recovery grants
 
@@ -143,6 +143,8 @@ Event 23, 2026-09-13T00:04:11Z: owner authorized continuation using recommendati
 Event 24, 2026-09-13T00:17:35Z: coordinator independently checked trial outputs, integrated reviewed recovery/consumer changes as `2979178`, and recorded [findings and limits](../17-recovery-and-model-allocation.md). Worktree evidence includes real cancellation before reassignment, 22 registry/adapter/evaluation checks, 7 consumer checks and public-API composition. Earlier claims of complete real adapter replacement or multi-agent comparison are superseded. Earlier events dated 10:00/10:30 were not derived from the observed clock and must not be used for elapsed-time measurements; current event times were read from the environment.
 
 ## Operational readiness execution
+
+Event 58, 2026-09-16T10:21:22Z: phase 4 parallel-capacity probe dispatched two identical 20-second sleep agents simultaneously from the coordinator session. Both overlapped fully (both started 10:21:22Z, ended 10:21:42–46Z), so two subordinate native sessions ran concurrently with the coordinator: three active slots existed at this run, higher than the previously assumed two-slot limit. This is a capacity observation, not a delivery comparison; no files changed.
 
 Event 56, 2026-09-16T10:22:00Z: EVENT-TRIAL-001 two sequential arms complete from common baseline `9166af0` with the same frozen contract/oracle. Both accepted 13/13; LUNA `4f552d2`, TERRA `671116e`. No attempt needed rework; no reviewer correction. Both sessions report runtime model opencode/big-pickle, distinct from the requested gpt-5.6-luna/gpt-5.6-terra labels; requested and observed identity are recorded separately. This is two small shared-task samples, not population-wide capability or a monetary ranking: no paid calls, token/cost telemetry null.
 
