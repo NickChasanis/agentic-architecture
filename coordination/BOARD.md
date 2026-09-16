@@ -1,8 +1,8 @@
 # Canonical discussion task board
 
-- Board revision: 58
+- Board revision: 59
 - Created at: 2026-09-11T13:58:26Z
-- Updated at: 2026-09-16T19:25:17Z
+- Updated at: 2026-09-16T19:30:59Z
 - Authority: current human-facing lead session, subject to the location/transfer rules in [the runbook](README.md).
 - Scope: supervised recovery-readiness exercise authorized by the owner; active grants below supersede historical defaults.
 - Source baseline inspected: `abf0d3a95ca3a3d58c2059a9707d26f0c333d52d` in delivery-proof; verification change independently reviewed at `83d4bb4`.
@@ -102,7 +102,7 @@ Event 17, 2026-09-12T19:05:31Z, CONTRACT-001 draft → draft: recorded explicit 
 
 Event 18, 2026-09-12T19:34:00Z, CONTRACT-001 draft → draft: implemented the five roadmap steps in isolated worktree commit 9e0b7c4, integrated as ba07c3f. Evidence: provider fixture verification, TypeScript compile, boundary checks, 22 coordination tests, 28 Fastify tests, 74 offline payload cases, 16 database/API tests, and 3 real Keycloak Playwright tests. Policy review closed prior important findings. Foundation is not the full commerce experiment: catalog, publication, second consumer, independent contract acceptance, multi-agent runtime coordination, and model cost comparison remain open. Docker stack is disposable/local only; no public service or paid model run. Owner/generation/budget fields remain unchanged.
 
-Next event sequence: 68. State events and received messages share one coordinator-assigned sequence. Git history preserves prior board revisions; event entries preserve the rationale for individual transitions.
+Next event sequence: 69. State events and received messages share one coordinator-assigned sequence. Git history preserves prior board revisions; event entries preserve the rationale for individual transitions.
 
 ## Reliability and recovery grants
 
@@ -143,6 +143,8 @@ Event 23, 2026-09-13T00:04:11Z: owner authorized continuation using recommendati
 Event 24, 2026-09-13T00:17:35Z: coordinator independently checked trial outputs, integrated reviewed recovery/consumer changes as `2979178`, and recorded [findings and limits](../17-recovery-and-model-allocation.md). Worktree evidence includes real cancellation before reassignment, 22 registry/adapter/evaluation checks, 7 consumer checks and public-API composition. Earlier claims of complete real adapter replacement or multi-agent comparison are superseded. Earlier events dated 10:00/10:30 were not derived from the observed clock and must not be used for elapsed-time measurements; current event times were read from the environment.
 
 ## Operational readiness execution
+
+Event 68, 2026-09-16T19:30:59Z: remote containment/recovery rehearsal on FortinNAS completed (owner-selected target, event 67). Read-only recon (WATCH verdict: reachable, CPU 84.5%, free RAM 3% at 244 MB, disks healthy, storage 96% free; production shares merchant-list/Asklipios/Talos VM identified as out-of-scope). Non-destructive loop on disposable `/Download/rehearsal-20260916-192925`: (1) placed artifact, (2) fenced via rename `artifact-gen1` → `artifact-gen1-fenced` and verified surface held exactly one entry remotely, (3) recovered via rename → `artifact-gen2-recovered`, verified remotely. Placement→fence→recover loop proven with exact remote list evidence; scratch folder then returned to the Download recycle surface. Limits: MCP tooling exposes file ops only (no process signals, no container exec on the NAS).
 
 Event 67, 2026-09-16T19:25:17Z: owner resolved three remaining gates for the post-ADOPT items. (1) CONTRACT-001 controlled cost comparison: run the fixed local-only cohort via the same orchestration/evidence gates but with zero paid API calls; no separately billed invocation authorized. (2) Remote containment/recovery rehearsal target: FortinNAS TS-251+, confirmed by owner as the disposable rehearsal host; rehearsal is non-destructive and limited to managed host boundaries. (3) Production-adoption staging: cost assessment postponed until further notice; no staging host, operator, or retention policy assigned yet.
 
