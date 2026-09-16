@@ -1,8 +1,8 @@
 # Canonical discussion task board
 
-- Board revision: 52
+- Board revision: 53
 - Created at: 2026-09-11T13:58:26Z
-- Updated at: 2026-09-16T10:34:00Z
+- Updated at: 2026-09-16T10:36:29Z
 - Authority: current human-facing lead session, subject to the location/transfer rules in [the runbook](README.md).
 - Scope: supervised recovery-readiness exercise authorized by the owner; active grants below supersede historical defaults.
 - Source baseline inspected: `abf0d3a95ca3a3d58c2059a9707d26f0c333d52d` in delivery-proof; verification change independently reviewed at `83d4bb4`.
@@ -102,7 +102,7 @@ Event 17, 2026-09-12T19:05:31Z, CONTRACT-001 draft → draft: recorded explicit 
 
 Event 18, 2026-09-12T19:34:00Z, CONTRACT-001 draft → draft: implemented the five roadmap steps in isolated worktree commit 9e0b7c4, integrated as ba07c3f. Evidence: provider fixture verification, TypeScript compile, boundary checks, 22 coordination tests, 28 Fastify tests, 74 offline payload cases, 16 database/API tests, and 3 real Keycloak Playwright tests. Policy review closed prior important findings. Foundation is not the full commerce experiment: catalog, publication, second consumer, independent contract acceptance, multi-agent runtime coordination, and model cost comparison remain open. Docker stack is disposable/local only; no public service or paid model run. Owner/generation/budget fields remain unchanged.
 
-Next event sequence: 60. State events and received messages share one coordinator-assigned sequence. Git history preserves prior board revisions; event entries preserve the rationale for individual transitions.
+Next event sequence: 62. State events and received messages share one coordinator-assigned sequence. Git history preserves prior board revisions; event entries preserve the rationale for individual transitions.
 
 ## Reliability and recovery grants
 
@@ -143,6 +143,10 @@ Event 23, 2026-09-13T00:04:11Z: owner authorized continuation using recommendati
 Event 24, 2026-09-13T00:17:35Z: coordinator independently checked trial outputs, integrated reviewed recovery/consumer changes as `2979178`, and recorded [findings and limits](../17-recovery-and-model-allocation.md). Worktree evidence includes real cancellation before reassignment, 22 registry/adapter/evaluation checks, 7 consumer checks and public-API composition. Earlier claims of complete real adapter replacement or multi-agent comparison are superseded. Earlier events dated 10:00/10:30 were not derived from the observed clock and must not be used for elapsed-time measurements; current event times were read from the environment.
 
 ## Operational readiness execution
+
+Event 62, 2026-09-16T10:36:29Z: phase 6 supervised staging rehearsal on loopback-only Compose project `agentic-adoption-20260916` (db 57432, identity 8643) complete; stack stopped, staged ports closed. Rehearsed: restart (db+keycloak back healthy in ~30s); backup/restore (custom-format dump, table-drop data-loss simulation, clean restore into scratch DB returned all 3 synthetic product rows); rollback (bad column rollout reverted via pre-rollout restore, original schema confirmed). This is a deterministic local rehearsal on synthetic data, not a production deployment, host reboot, or real-model recovery; no authority transfer. Scratch DB and dump cleaned up.
+
+Event 61, 2026-09-16T10:33:00Z: phase 5 process-containment rehearsal on disposable local resources: deterministic writer gen1 (PID 2041390) killed with SIGTERM (exit 143) after 3 writes; verified ancestor spawner dead, then gen2 wrote the shared workfile from 10:32:12Z after gen1's last write at 10:32:01Z. No interleaving, gen1 confirmed dead before gen2 start, artifacts retained. This proves a controlled deterministic process cannot continue after termination; it does not prove that a real model session stops writing on kill, which remains dependent on the runtime's process confinement.
 
 Event 60, 2026-09-16T10:29:54Z: phase 4 real parallel delivery: freshly frozen event-parallel variant (PAR-01..10, 14 cases) committed at `38be7fb`; first-on-tie variant differs from the event-trial contract so prior solutions are invalid. Two workers dispatched simultaneously from the coordinator session completed in overlapping windows — par-a (PAR-001) 10:27:55Z→10:29:57Z, par-b (PAR-002) 10:26:28Z→10:30:07Z; both 14/14 pass. Commits `c5a6492` (par-a) and `048110e` (par-b). Both workers reported model opencode/big-pickle; no paid calls; token/cost null. Both arms accepted. Parallel delivery demonstrated end-to-end with three concurrent native sessions. This is one matched pair on a small task, not a cost or generality claim.
 
