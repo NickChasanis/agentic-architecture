@@ -1,6 +1,6 @@
 # CONTRACT-001 — Specify the paired contracts
 
-Packet revision: 15. Current status and assignment authority: [BOARD.md](../BOARD.md).
+Packet revision: 16. Current status and assignment authority: [BOARD.md](../BOARD.md).
 
 ## Outcome
 
@@ -43,6 +43,10 @@ Catalog checkpoint, 2026-09-12: the [Catalog Publication Foundation](../../13-ca
 
 Pilot completion checkpoint, 2026-09-12: the second public-catalog consumer, executable coordination registry, tmux session harness, local/fake adapter conformance, reassignment recovery and deterministic evaluator are implemented. These exercises prove protocol behavior in a local laboratory; they do not prove autonomous multi-agent throughput, production reliability or model-cost savings.
 
-Independent acceptance checkpoint, 2026-09-16: the draft specifications are **conditionally accepted** per the independent review at [2026-09-16-independent-review.md](../contracts/reviews/2026-09-16-independent-review.md). C1 count corrections (27/13/74 → 31/15/88) and C3 stale-application note were applied to the affected artifacts; the review evidence and consistency record remain authoritative. CON-06 review gate is now closed. Open: operating-budget acceptance, controlled-cost comparative execution, schema-version freeze reconciliation (C2 deferred to freeze), and production deployment gating rules. No paid API invocation has occurred; runtime adapter conformance remains an open gate.
+Independent acceptance checkpoint, 2026-09-16: the draft specifications are **conditionally accepted** per the independent review at [2026-09-16-independent-review.md](../contracts/reviews/2026-09-16-independent-review.md). C1 count corrections (27/13/74 → 31/15/88) and C3 stale-application note were applied to the affected artifacts; the review evidence and consistency record remain authoritative. CON-06 review gate is now closed.
+
+Controlled-comparison checkpoint, 2026-09-16: owner directed (event 67) a local-only cohort with zero paid API spend. The deterministic sequential cohort (EVENT-LUNA-001 `4f552d2`, EVENT-TERRA-001 `671116e`, both 13/13) and parallel cohort (PAR-A `c5a6492`, PAR-B `048110e`, both 14/14) from ADOPT-001 phases 3–4 already provide that controlled comparison: same frozen oracles, same evidence gates, zero billed tokens. Recorded as satisfied; no redundant rerun or paid invocation. Real-model cost comparison remains outside this gate and is not authorized.
+
+Open: schema-version freeze reconciliation (C2 deferred to freeze), runtime adapter conformance, production-adoption gating rules. No paid API invocation has occurred.
 
 Evaluation checkpoint, 2026-09-12: [pilot evaluation](../../14-pilot-evaluation.md) adopts contract-first boundaries and evidence gates, revises the local registry/tmux components before any autonomous claim, and stops unsupported speed/cost conclusions. Independent contract acceptance and controlled comparative runs remain future gates.
