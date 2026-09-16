@@ -28,6 +28,9 @@ test('NOTES-TAGS-02 tags retain case and sort by Unicode code point',()=>{
  assert.deepEqual(countTags(input),[{tag:'A',count:1},{tag:'a',count:1},{tag:'\uE000',count:1},{tag:'😀',count:1}]);
 });
 for(const [label,fn] of [['filter',n=>filterNotes(n,'')],['tags',countTags]]) {
+ test('NOTES-INPUT-03 '+label+' rejects sparse tag arrays including archived records',()=>{
+   for(const archived of [true,false])assert.throws(()=>fn([{...notes()[0],archived,tags:new Array(1)}]));
+ });
  test('NOTES-INPUT-01 '+label+' rejects malformed records and duplicate IDs',()=>{
    const invalid=[null,{},[null],[{}],[{...notes()[0],id:''}],[{...notes()[0],id:1}],
     [{...notes()[0],title:1}],[{...notes()[0],archived:'false'}],[{...notes()[0],tags:'tag'}],
