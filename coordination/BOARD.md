@@ -1,13 +1,13 @@
 # Canonical discussion task board
 
-- Board revision: 56
+- Board revision: 57
 - Created at: 2026-09-11T13:58:26Z
-- Updated at: 2026-09-16T11:12:00Z
+- Updated at: 2026-09-16T11:20:00Z
 - Authority: current human-facing lead session, subject to the location/transfer rules in [the runbook](README.md).
 - Scope: supervised recovery-readiness exercise authorized by the owner; active grants below supersede historical defaults.
 - Source baseline inspected: `abf0d3a95ca3a3d58c2059a9707d26f0c333d52d` in delivery-proof; verification change independently reviewed at `83d4bb4`.
 - Revalidation policy: every claim/resume, new session/day, or material dependency change. No autonomous claims or leases.
-- Live heartbeat/progress: ADOPT-001 integrated; all six phases closed 2026-09-16T10:36Z. Prior worker grants closed; fresh grants follow frozen tests. Parallel probe observed three concurrent native sessions; two prior assumptions about slot count are superseded.
+- Live heartbeat/progress: ADOPT-001 integrated; all six phases closed 2026-09-16T10:36Z. CONTRACT-001 drafts conditionally accepted after independent review (event 65) with C1/C3 corrections applied. Parallel probe observed three concurrent native sessions.
 
 The timestamp describes this board revision, not permission to execute its tasks. `draft` is not claimable. `blocked` requires prerequisite resolution. Owners and generations remain empty/zero until an explicit grant.
 
@@ -23,7 +23,7 @@ ADOPT-001: packet/record/generation 1, integrated, coordinator /root; baseline `
 |---|---|---|---|---|---|---|---|
 | [SETTING-001](tasks/SETTING-001.md) — choose the experiment setting | 2 | 2 | verified | none (human-resolved decision) | 0 | Owner choice received | Commerce publication selected; [decision and review](decisions/SETTING-001-commerce-publication.md). |
 | [BUDGET-001](tasks/BUDGET-001.md) — troubleshooting and review budgets | 3 | 2 | verified | human-authorized coordinator | 0 | Owner instructed continuation using recommendations | 90-minute worker, 15-minute checkpoints, 30-minute coordinator/review limits applied; no separately billed API invocation. |
-| [CONTRACT-001](tasks/CONTRACT-001.md) — draft paired executable-contract specifications | 14 | 16 | draft | none (coordinator-authored proposal) | 0 | Pilot evidence exists; independent acceptance and controlled cost comparison still pending | Foundation, catalog, second consumer and local coordination/recovery checks implemented in [pilot README](../pilot/README.md). No worker grant. |
+| [CONTRACT-001](tasks/CONTRACT-001.md) — draft paired executable-contract specifications | 15 | 17 | draft | none (coordinator-authored proposal) | 0 | Independent acceptance closed; complex budget and focused paid execution pending | Draft specs conditionally accepted per [independent review](contracts/reviews/2026-09-16-independent-review.md); C1/C3 corrections applied. Open: operating-budget acceptance, controlled-cost comparative execution, schema-version freeze reconciliation, runtime adapter conformance, production gating. No paid API invocation; no worker grant. |
 | [PORTABLE-001](tasks/PORTABLE-001.md) — notes context adoption exercise | 1 | 1 | integrated | human-authorized coordinator | 1 | Frozen contract tests | Coordinator implementation passed 8 frozen checks after correcting Unicode code-point ordering; worker launch failed at usage limit, so no worker submission is accepted. |
 | [REFACTOR-001](tasks/REFACTOR-001.md) — multi-agent refactoring and project changes | 1 | 1 | blocked | none | 0 | Owner explicitly resumes this later topic | Deferred by owner; do not dispatch or begin discussion now. |
 | [VERIFY-001](tasks/VERIFY-001.md) — portable pipeline coverage | 1 | 4 | integrated | /root coordinator | 2 | Independent review and clean offline verification passed | Assisted artifact integrated as d215973; no active write grant. Hosted connected check pending. |
@@ -102,7 +102,7 @@ Event 17, 2026-09-12T19:05:31Z, CONTRACT-001 draft → draft: recorded explicit 
 
 Event 18, 2026-09-12T19:34:00Z, CONTRACT-001 draft → draft: implemented the five roadmap steps in isolated worktree commit 9e0b7c4, integrated as ba07c3f. Evidence: provider fixture verification, TypeScript compile, boundary checks, 22 coordination tests, 28 Fastify tests, 74 offline payload cases, 16 database/API tests, and 3 real Keycloak Playwright tests. Policy review closed prior important findings. Foundation is not the full commerce experiment: catalog, publication, second consumer, independent contract acceptance, multi-agent runtime coordination, and model cost comparison remain open. Docker stack is disposable/local only; no public service or paid model run. Owner/generation/budget fields remain unchanged.
 
-Next event sequence: 65. State events and received messages share one coordinator-assigned sequence. Git history preserves prior board revisions; event entries preserve the rationale for individual transitions.
+Next event sequence: 67. State events and received messages share one coordinator-assigned sequence. Git history preserves prior board revisions; event entries preserve the rationale for individual transitions.
 
 ## Reliability and recovery grants
 
@@ -143,6 +143,8 @@ Event 23, 2026-09-13T00:04:11Z: owner authorized continuation using recommendati
 Event 24, 2026-09-13T00:17:35Z: coordinator independently checked trial outputs, integrated reviewed recovery/consumer changes as `2979178`, and recorded [findings and limits](../17-recovery-and-model-allocation.md). Worktree evidence includes real cancellation before reassignment, 22 registry/adapter/evaluation checks, 7 consumer checks and public-API composition. Earlier claims of complete real adapter replacement or multi-agent comparison are superseded. Earlier events dated 10:00/10:30 were not derived from the observed clock and must not be used for elapsed-time measurements; current event times were read from the environment.
 
 ## Operational readiness execution
+
+Event 66, 2026-09-16T11:20:00Z: REVIEW-CONTRACT-001 running → closed. Independent reviewer `/root/contract_review` delivered [2026-09-16-independent-review.md](contracts/reviews/2026-09-16-independent-review.md): a CONDITIONALLY ACCEPTED verdict on the CONTRACT-001 draft specifications. All six obligations verified; C1 stale counts (27/13/74 vs executed 31/15/88) and C3 stale no-application note corrected by the coordinator; C2 version-label reconciliation deferred to schema freeze; C4–C7 consistent; CON-06 review gate now closed. Offline checker re-run: PASS 31/15/88; 30 Node conformance tests pass. No paid API invocation; no worker dispatch.
 
 Event 65, 2026-09-16T11:12:00Z: REVIEW-CONTRACT-001 absent → running, packet/record/generation 1, reviewer /root/contract_review, baseline `9838d79`. Read-only review of the CONTRACT-001 draft specs against the six acceptance obligations (CON-01–06) in the task packet. Scope: `contracts/README.md`, `contracts/commerce-publication.md`, `contracts/work-submission.md`, `contracts/acceptance-scenarios.md`, `contracts/commerce-http-api.md`, `contracts/identity-and-access.md`, `pilot/contracts/README.md`, `pilot/contracts/fastify/README.md`, `contracts/reviews/`. No writes, no services, no paid calls, 30 active review minutes. Must run a fresh evidence-independent check — cannot reuse the coordinator's earlier self-review at `2026-09-12-foundation-readiness.md` as its own work.
 

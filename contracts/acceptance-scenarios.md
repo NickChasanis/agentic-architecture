@@ -1,6 +1,6 @@
 # Paired acceptance scenarios — 0.1-draft
 
-These scenarios map draft contract obligations to planned runtime evidence. All PUB/AUTH/WORK runtime scenarios below are **not run**. The stack family is selected, and [offline schema/manifest checks](../pilot/contracts/README.md) pass; there is no application or second adapter yet. Offline payload cases do not count as executed end-to-end scenarios.
+These scenarios map draft contract obligations to planned runtime evidence. All PUB/AUTH/WORK runtime scenarios below are **not run** as the specified end-to-end journeys. The stack family is selected, the [offline schema/manifest checks](../pilot/contracts/README.md) pass (31 definitions, 15 operations, 88 payload cases), a fastify conformance harness and a disposable local pilot exist, and merchant catalog/identity foundations are implemented locally. No production application or external second consumer exists yet. Offline payload cases do not count as executed end-to-end scenarios.
 
 ## Product scenarios
 

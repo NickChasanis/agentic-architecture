@@ -14,13 +14,13 @@ python3 pilot/contracts/check_contracts.py
 
 The lockfile pins the resolved tree. Locally exercised with Node 22.21.1, npm 11.19.0, Fastify 5.12.4, Ajv 8.20.0 and ajv-formats 3.0.1. These are harness versions, not an approved production toolchain.
 
-Observed: **28 Node tests pass**, including a table-driven success check for all 13 operation mappings; **74 Python payload cases pass**. Counts describe different checks, not complete coverage of every scenario. Initial test-first run: 20 behavioral tests failed against the empty Fastify adapter (404 responses); those 20 passed after wiring the adapter, then eight broader regression tests were added.
+Observed: **28 Node tests pass**, including a table-driven success check for all 15 operation mappings; **88 Python payload cases pass**. Counts describe different checks, not complete coverage of every scenario. Initial test-first run: 20 behavioral tests failed against the empty Fastify adapter (404 responses); those 20 passed after wiring the adapter, then eight broader regression tests were added.
 
 ## What is exercised
 
 | Boundary | Evidence |
 |---|---|
-| Schema binding | All 13 operation paths, methods, and success shapes compile and pass through Fastify serialization. |
+| Schema binding | All 15 operation paths, methods, and success shapes compile and pass through Fastify serialization. |
 | Input | Unknown properties are rejected instead of removed; wrong types are rejected instead of coerced; names/titles trim, description stays unchanged; invalid nested prices, IDs and queries fail. |
 | Output | Ajv validates the handler projection before serialization, including null/string outputs and nested private fields. Invalid dates and publication-state shapes fail closed. |
 | Transport/errors | Malformed JSON, body limit, unsupported media type, declared error/status mapping, generic unexpected errors, and no-store headers are checked. |

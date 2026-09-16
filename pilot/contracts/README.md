@@ -2,9 +2,9 @@
 
 Status: `0.1-draft`, created 2026-09-11. These artifacts encode the current proposals; they are not an accepted worker baseline or implemented commerce API. The pilot contains contracts, offline checks, and a test-only Fastify conformance harness.
 
-- [Wire schema bundle](schemas/wire.schema.json): 27 named JSON Schema draft-07 definitions for inputs, outputs, parameters, errors, and callback query shape.
-- [HTTP operation manifest](operations/http.json): 13 commerce/identity mappings with method/path, named schemas, authentication/CSRF requirements, error codes/statuses, and acceptance IDs.
-- [Offline checks](check_contracts.py): validates schema syntax, manifest links/invariants, and 74 positive/negative payload cases.
+- [Wire schema bundle](schemas/wire.schema.json): 31 named JSON Schema draft-07 definitions for inputs, outputs, parameters, errors, and callback query shape.
+- [HTTP operation manifest](operations/http.json): 15 commerce/identity mappings with method/path, named schemas, authentication/CSRF requirements, error codes/statuses, and acceptance IDs.
+- [Offline checks](check_contracts.py): validates schema syntax, manifest links/invariants, and 88 positive/negative payload cases.
 - [Fastify conformance harness](fastify/README.md): 28 tests with real in-process request validation and serialization, using synthetic handlers and identity gates.
 - [Behavioral context](../../contracts/README.md): authorization, lifecycle, concurrency, privacy, and integration obligations that shape validation alone cannot establish.
 
@@ -35,7 +35,7 @@ Verified locally with Python's installed `jsonschema` 4.19.2; no package was ins
 Observed result on 2026-09-11:
 
 ```text
-PASS: 27 schema definitions, 13 operation mappings, 74 payload cases.
+PASS: 31 schema definitions, 15 operation mappings, 88 payload cases.
 Scope: offline payload/manifest checks only; no HTTP, authorization, OIDC, database or browser checks.
 ```
 

@@ -1,6 +1,6 @@
 # CONTRACT-001 — Specify the paired contracts
 
-Packet revision: 14. Current status and assignment authority: [BOARD.md](../BOARD.md).
+Packet revision: 15. Current status and assignment authority: [BOARD.md](../BOARD.md).
 
 ## Outcome
 
@@ -31,7 +31,7 @@ Identity development: [IDENTITY-ACCESS](../../contracts/identity-and-access.md) 
 
 Provider development: [identity provider/test profile](../../11-identity-provider-and-test-profile.md) proposes Keycloak and `openid-client`, plus schema-freeze and isolated fixture requirements. Provider versions/configuration, acceptance, and runtime proof remain pending.
 
-Schema development: [machine-readable artifacts and evidence](../../pilot/contracts/README.md) provide 27 draft definitions, 13 HTTP operations, and 74 passing offline payload cases. The coordinator authored and checked these; no independent review or runtime verification occurred. Draft acceptance, actual adapter conformance, budgets, and dispatch remain open.
+Schema development: [machine-readable artifacts and evidence](../../pilot/contracts/README.md) provide 31 draft definitions, 15 HTTP operations, and 88 passing offline payload cases. The coordinator authored and checked these, then an independent reviewer counted the same executable totals on baseline `9838d79`; no runtime verification occurred. Draft acceptance, actual adapter conformance, budgets, and dispatch remain open.
 
 Adapter checkpoint, 2026-09-12: [Fastify conformance evidence](../../pilot/contracts/fastify/README.md) adds 28 passing tests, including synthetic success responses across all 13 mappings, strict validation/projection, error handling, and injected session/CSRF gate ordering. This supersedes the earlier pending-adapter note only. No real identity, domain, database, browser, or worker runtime has been verified. Draft acceptance and independent review remain open; generation stays zero.
 
@@ -42,5 +42,7 @@ Roadmap checkpoint, 2026-09-12: owner explicitly accepted [Keycloak/backend `ope
 Catalog checkpoint, 2026-09-12: the [Catalog Publication Foundation](../../13-catalog-publication-foundation.md) is implemented in the catalog worktree. Connected evidence covers schema boundaries, merchant draft operations, row-locked idempotent publication, immutable published products, public projections, Angular/API wiring, 19 integration tests and 4 Playwright tests. This is local disposable evidence only; the second consumer, independent review/acceptance, multi-agent runtime and production proof remain open.
 
 Pilot completion checkpoint, 2026-09-12: the second public-catalog consumer, executable coordination registry, tmux session harness, local/fake adapter conformance, reassignment recovery and deterministic evaluator are implemented. These exercises prove protocol behavior in a local laboratory; they do not prove autonomous multi-agent throughput, production reliability or model-cost savings.
+
+Independent acceptance checkpoint, 2026-09-16: the draft specifications are **conditionally accepted** per the independent review at [2026-09-16-independent-review.md](../contracts/reviews/2026-09-16-independent-review.md). C1 count corrections (27/13/74 → 31/15/88) and C3 stale-application note were applied to the affected artifacts; the review evidence and consistency record remain authoritative. CON-06 review gate is now closed. Open: operating-budget acceptance, controlled-cost comparative execution, schema-version freeze reconciliation (C2 deferred to freeze), and production deployment gating rules. No paid API invocation has occurred; runtime adapter conformance remains an open gate.
 
 Evaluation checkpoint, 2026-09-12: [pilot evaluation](../../14-pilot-evaluation.md) adopts contract-first boundaries and evidence gates, revises the local registry/tmux components before any autonomous claim, and stops unsupported speed/cost conclusions. Independent contract acceptance and controlled comparative runs remain future gates.
