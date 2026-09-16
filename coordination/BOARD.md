@@ -1,13 +1,13 @@
 # Canonical discussion task board
 
-- Board revision: 60
+- Board revision: 61
 - Created at: 2026-09-11T13:58:26Z
-- Updated at: 2026-09-16T19:33:00Z
+- Updated at: 2026-09-16T19:40:00Z
 - Authority: current human-facing lead session, subject to the location/transfer rules in [the runbook](README.md).
 - Scope: supervised recovery-readiness exercise authorized by the owner; active grants below supersede historical defaults.
 - Source baseline inspected: `abf0d3a95ca3a3d58c2059a9707d26f0c333d52d` in delivery-proof; verification change independently reviewed at `83d4bb4`.
 - Revalidation policy: every claim/resume, new session/day, or material dependency change. No autonomous claims or leases.
-- Live heartbeat/progress: ADOPT-001 integrated; all six phases closed. CONTRACT-001 conditionally accepted (event 65) and local-only controlled comparison satisfied. FortinNAS rehearsal complete (event 68). REFACTOR-001 resumed as owner-selected post-ADOPT item; discussion scope not yet set. Production-adoption cost assessment postponed per owner.
+- Live heartbeat/progress: ADOPT-001 integrated; all six phases closed. CONTRACT-001 conditionally accepted (event 65) and local-only controlled comparison satisfied. FortinNAS rehearsal complete (event 68). REFACTOR-001 resumed as owner-selected post-ADOPT item; discussion scope not yet set. Production-adoption cost assessment postponed; real-model cost ranking/cross-model measurement archived per owner (event 70).
 
 The timestamp describes this board revision, not permission to execute its tasks. `draft` is not claimable. `blocked` requires prerequisite resolution. Owners and generations remain empty/zero until an explicit grant.
 
@@ -23,7 +23,7 @@ ADOPT-001: packet/record/generation 1, integrated, coordinator /root; baseline `
 |---|---|---|---|---|---|---|---|
 | [SETTING-001](tasks/SETTING-001.md) — choose the experiment setting | 2 | 2 | verified | none (human-resolved decision) | 0 | Owner choice received | Commerce publication selected; [decision and review](decisions/SETTING-001-commerce-publication.md). |
 | [BUDGET-001](tasks/BUDGET-001.md) — troubleshooting and review budgets | 3 | 2 | verified | human-authorized coordinator | 0 | Owner instructed continuation using recommendations | 90-minute worker, 15-minute checkpoints, 30-minute coordinator/review limits applied; no separately billed API invocation. |
-| [CONTRACT-001](tasks/CONTRACT-001.md) — draft paired executable-contract specifications | 16 | 19 | draft | none (coordinator-authored proposal) | 0 | Independent acceptance closed; local-only cohort satisfied | Draft specs conditionally accepted per [independent review](contracts/reviews/2026-09-16-independent-review.md); local-only controlled comparison satisfied by ADOPT-001 cohorts `4f552d2`,`671116e`,`c5a6492`,`048110e` at zero paid spend. Open: schema freeze reconciliation, runtime adapter conformance, production gating. No paid API invocation; no worker grant. |
+| [CONTRACT-001](tasks/CONTRACT-001.md) — draft paired executable-contract specifications | 16 | 19 | draft | none (coordinator-authored proposal) | 0 | Independent acceptance closed; local-only cohort satisfied | Draft specs conditionally accepted per [independent review](../contracts/reviews/2026-09-16-independent-review.md); local-only controlled comparison satisfied by ADOPT-001 cohorts `4f552d2`,`671116e`,`c5a6492`,`048110e` at zero paid spend. Open: schema freeze reconciliation, runtime adapter conformance, production gating. No paid API invocation; no worker grant. Cost ranking/measurement archived per owner (event 70). |
 | [PORTABLE-001](tasks/PORTABLE-001.md) — notes context adoption exercise | 1 | 1 | integrated | human-authorized coordinator | 1 | Frozen contract tests | Coordinator implementation passed 8 frozen checks after correcting Unicode code-point ordering; worker launch failed at usage limit, so no worker submission is accepted. |
 | [REFACTOR-001](tasks/REFACTOR-001.md) — multi-agent refactoring and project changes | 1 | 2 | discussion | none (owner resumed) | 0 | Owner resumed this topic via the post-ADOPT priority selection | Owner resumed as a discussion; no workspace/budget/execution baseline assigned. Proposed outputs: change classification, decomposition/ownership protocol, integration/recovery strategy, measurements. Detailed acceptance criteria and budgets deferred until discussion scope is set. |
 | [VERIFY-001](tasks/VERIFY-001.md) — portable pipeline coverage | 1 | 4 | integrated | /root coordinator | 2 | Independent review and clean offline verification passed | Assisted artifact integrated as d215973; no active write grant. Hosted connected check pending. |
@@ -60,6 +60,14 @@ cancellation_reason: null
 Created at remains 2026-09-11T13:58:26Z. Updated, last validated, and last progress times are 2026-09-11T14:05:10Z. Artifact/evidence: [accepted decision v1 and SET-01–04 review](decisions/SETTING-001-commerce-publication.md). Validation concerns the decision record only. Source baseline is recorded above; packet revision is 2.
 
 Owner, claimed time, runtime, workspace assignment, and lease are not applicable: the human resolved the choice directly and the coordinator recorded it; no worker assignment or budget was consumed under this board. Generation remains 0. No provided/consumed implementation contracts exist yet. Superseded/cancelled fields remain null. A verified decision is not claimable; reopening it requires an explicit new coordinator event.
+
+## Archived topics
+
+Parked off the active backlog per owner decision; not claimable and not counted as active gates until explicitly reopened.
+
+| Topic | Archive | Reason / unlock condition | Original records |
+|---|---|---|---|
+| Real-model cost ranking and cross-model measurement | 2026-09-16, owner instruction (event 70) | Owner: leave for later. Zero paid API authorization remains. Reopen only with an owner-funded budget and accounting basis. | Readme section, [chapter 22](../22-delivery-evidence-and-adoption.md) phases 3–4, ADOPT-001 events 56–64 |
 
 ## Message receipts
 
@@ -102,7 +110,7 @@ Event 17, 2026-09-12T19:05:31Z, CONTRACT-001 draft → draft: recorded explicit 
 
 Event 18, 2026-09-12T19:34:00Z, CONTRACT-001 draft → draft: implemented the five roadmap steps in isolated worktree commit 9e0b7c4, integrated as ba07c3f. Evidence: provider fixture verification, TypeScript compile, boundary checks, 22 coordination tests, 28 Fastify tests, 74 offline payload cases, 16 database/API tests, and 3 real Keycloak Playwright tests. Policy review closed prior important findings. Foundation is not the full commerce experiment: catalog, publication, second consumer, independent contract acceptance, multi-agent runtime coordination, and model cost comparison remain open. Docker stack is disposable/local only; no public service or paid model run. Owner/generation/budget fields remain unchanged.
 
-Next event sequence: 70. State events and received messages share one coordinator-assigned sequence. Git history preserves prior board revisions; event entries preserve the rationale for individual transitions.
+Next event sequence: 71. State events and received messages share one coordinator-assigned sequence. Git history preserves prior board revisions; event entries preserve the rationale for individual transitions.
 
 ## Reliability and recovery grants
 
@@ -144,13 +152,15 @@ Event 24, 2026-09-13T00:17:35Z: coordinator independently checked trial outputs,
 
 ## Operational readiness execution
 
+Event 70, 2026-09-16T19:40:00Z: owner instructed the cost ranking and cost measurement topic be left for later and archived away from the backlog. Recorded under a new Archived-topics section; the item is not claimable and not an active gate until the owner explicitly reopens it with a funded budget and accounting basis. No paid API authorization exists. Related records: ADOPT-001 phases 3–4 limits, chapter 22, README adoption section, CONTRACT-001 local-only cohort evidence.
+
 Event 69, 2026-09-16T19:33:00Z: REFACTOR-001 blocked → discussion. Owner resumed this topic via the post-ADOPT priority selection. Discussion is not an implementation assignment: no workspace, budget, or execution baseline exists. Detailed acceptance criteria and budgets are deferred until the discussion scope is set. Coordinator will record the discussion outputs in the packet when scoped.
 
 Event 68, 2026-09-16T19:30:59Z: remote containment/recovery rehearsal on FortinNAS completed (owner-selected target, event 67). Read-only recon (WATCH verdict: reachable, CPU 84.5%, free RAM 3% at 244 MB, disks healthy, storage 96% free; production shares merchant-list/Asklipios/Talos VM identified as out-of-scope). Non-destructive loop on disposable `/Download/rehearsal-20260916-192925`: (1) placed artifact, (2) fenced via rename `artifact-gen1` → `artifact-gen1-fenced` and verified surface held exactly one entry remotely, (3) recovered via rename → `artifact-gen2-recovered`, verified remotely. Placement→fence→recover loop proven with exact remote list evidence; scratch folder then returned to the Download recycle surface. Limits: MCP tooling exposes file ops only (no process signals, no container exec on the NAS).
 
 Event 67, 2026-09-16T19:25:17Z: owner resolved three remaining gates for the post-ADOPT items. (1) CONTRACT-001 controlled cost comparison: run the fixed local-only cohort via the same orchestration/evidence gates but with zero paid API calls; no separately billed invocation authorized. (2) Remote containment/recovery rehearsal target: FortinNAS TS-251+, confirmed by owner as the disposable rehearsal host; rehearsal is non-destructive and limited to managed host boundaries. (3) Production-adoption staging: cost assessment postponed until further notice; no staging host, operator, or retention policy assigned yet.
 
-Event 66, 2026-09-16T11:20:00Z: REVIEW-CONTRACT-001 running → closed. Independent reviewer `/root/contract_review` delivered [2026-09-16-independent-review.md](contracts/reviews/2026-09-16-independent-review.md): a CONDITIONALLY ACCEPTED verdict on the CONTRACT-001 draft specifications. All six obligations verified; C1 stale counts (27/13/74 vs executed 31/15/88) and C3 stale no-application note corrected by the coordinator; C2 version-label reconciliation deferred to schema freeze; C4–C7 consistent; CON-06 review gate now closed. Offline checker re-run: PASS 31/15/88; 30 Node conformance tests pass. No paid API invocation; no worker dispatch.
+Event 66, 2026-09-16T11:20:00Z: REVIEW-CONTRACT-001 running → closed. Independent reviewer `/root/contract_review` delivered [2026-09-16-independent-review.md](../contracts/reviews/2026-09-16-independent-review.md): a CONDITIONALLY ACCEPTED verdict on the CONTRACT-001 draft specifications. All six obligations verified; C1 stale counts (27/13/74 vs executed 31/15/88) and C3 stale no-application note corrected by the coordinator; C2 version-label reconciliation deferred to schema freeze; C4–C7 consistent; CON-06 review gate now closed. Offline checker re-run: PASS 31/15/88; 30 Node conformance tests pass. No paid API invocation; no worker dispatch.
 
 Event 65, 2026-09-16T11:12:00Z: REVIEW-CONTRACT-001 absent → running, packet/record/generation 1, reviewer /root/contract_review, baseline `9838d79`. Read-only review of the CONTRACT-001 draft specs against the six acceptance obligations (CON-01–06) in the task packet. Scope: `contracts/README.md`, `contracts/commerce-publication.md`, `contracts/work-submission.md`, `contracts/acceptance-scenarios.md`, `contracts/commerce-http-api.md`, `contracts/identity-and-access.md`, `pilot/contracts/README.md`, `pilot/contracts/fastify/README.md`, `contracts/reviews/`. No writes, no services, no paid calls, 30 active review minutes. Must run a fresh evidence-independent check — cannot reuse the coordinator's earlier self-review at `2026-09-12-foundation-readiness.md` as its own work.
 

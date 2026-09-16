@@ -17,6 +17,8 @@ This continuation separates implementation readiness from evidence about real mo
 
 Phases 1–2 can advance without cloud credentials or separately billed model calls. Phase 3 must not reuse the already solved notes implementation as an uncontaminated benchmark. Phase 4 has a hard runtime-capacity prerequisite. Phase 5 may prepare local checks independently, but rebooting or taking over a host requires an explicitly designated disposable target. Phase 6 requires owner choices; a general continuation does not choose an external deployment target.
 
+On 2026-09-16 the owner archived real-model cost ranking and cross-model measurement away from the backlog (board event 70). Phases 3–4 remain the eventual roadmap but are not active gates until an owner-funded budget and accounting basis authorize them; ADOPT-001 already closed the local-only sequential and parallel cohorts at zero paid spend as delivery observations, not monetary comparisons.
+
 ## Current execution boundary
 
 On 2026-09-15, the coordinator revalidated source `000d58c6a6a98bf8cf29c0e02792cf08c8c231d8`, the eight standalone notes tests and hosted run [34825100616](https://github.com/NickChasanis/agentic-architecture/actions/runs/34825100616). That hosted run preceded portable-suite inclusion and is not evidence that CI ran the notes tests.
