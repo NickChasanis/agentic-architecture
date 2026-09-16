@@ -1,8 +1,8 @@
 # Canonical discussion task board
 
-- Board revision: 51
+- Board revision: 52
 - Created at: 2026-09-11T13:58:26Z
-- Updated at: 2026-09-16T10:26:00Z
+- Updated at: 2026-09-16T10:34:00Z
 - Authority: current human-facing lead session, subject to the location/transfer rules in [the runbook](README.md).
 - Scope: supervised recovery-readiness exercise authorized by the owner; active grants below supersede historical defaults.
 - Source baseline inspected: `abf0d3a95ca3a3d58c2059a9707d26f0c333d52d` in delivery-proof; verification change independently reviewed at `83d4bb4`.
@@ -102,7 +102,7 @@ Event 17, 2026-09-12T19:05:31Z, CONTRACT-001 draft → draft: recorded explicit 
 
 Event 18, 2026-09-12T19:34:00Z, CONTRACT-001 draft → draft: implemented the five roadmap steps in isolated worktree commit 9e0b7c4, integrated as ba07c3f. Evidence: provider fixture verification, TypeScript compile, boundary checks, 22 coordination tests, 28 Fastify tests, 74 offline payload cases, 16 database/API tests, and 3 real Keycloak Playwright tests. Policy review closed prior important findings. Foundation is not the full commerce experiment: catalog, publication, second consumer, independent contract acceptance, multi-agent runtime coordination, and model cost comparison remain open. Docker stack is disposable/local only; no public service or paid model run. Owner/generation/budget fields remain unchanged.
 
-Next event sequence: 58. State events and received messages share one coordinator-assigned sequence. Git history preserves prior board revisions; event entries preserve the rationale for individual transitions.
+Next event sequence: 60. State events and received messages share one coordinator-assigned sequence. Git history preserves prior board revisions; event entries preserve the rationale for individual transitions.
 
 ## Reliability and recovery grants
 
@@ -143,6 +143,8 @@ Event 23, 2026-09-13T00:04:11Z: owner authorized continuation using recommendati
 Event 24, 2026-09-13T00:17:35Z: coordinator independently checked trial outputs, integrated reviewed recovery/consumer changes as `2979178`, and recorded [findings and limits](../17-recovery-and-model-allocation.md). Worktree evidence includes real cancellation before reassignment, 22 registry/adapter/evaluation checks, 7 consumer checks and public-API composition. Earlier claims of complete real adapter replacement or multi-agent comparison are superseded. Earlier events dated 10:00/10:30 were not derived from the observed clock and must not be used for elapsed-time measurements; current event times were read from the environment.
 
 ## Operational readiness execution
+
+Event 60, 2026-09-16T10:29:54Z: phase 4 real parallel delivery: freshly frozen event-parallel variant (PAR-01..10, 14 cases) committed at `38be7fb`; first-on-tie variant differs from the event-trial contract so prior solutions are invalid. Two workers dispatched simultaneously from the coordinator session completed in overlapping windows — par-a (PAR-001) 10:27:55Z→10:29:57Z, par-b (PAR-002) 10:26:28Z→10:30:07Z; both 14/14 pass. Commits `c5a6492` (par-a) and `048110e` (par-b). Both workers reported model opencode/big-pickle; no paid calls; token/cost null. Both arms accepted. Parallel delivery demonstrated end-to-end with three concurrent native sessions. This is one matched pair on a small task, not a cost or generality claim.
 
 Event 58, 2026-09-16T10:21:22Z: phase 4 parallel-capacity probe dispatched two identical 20-second sleep agents simultaneously from the coordinator session. Both overlapped fully (both started 10:21:22Z, ended 10:21:42–46Z), so two subordinate native sessions ran concurrently with the coordinator: three active slots existed at this run, higher than the previously assumed two-slot limit. This is a capacity observation, not a delivery comparison; no files changed.
 
