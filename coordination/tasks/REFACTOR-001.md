@@ -1,6 +1,73 @@
 # REFACTOR-001 — Later discussion: multi-agent refactoring and project changes
 
-Packet revision: 1. Current status and assignment authority: [BOARD.md](../BOARD.md).
+Packet revision: 2. Current status and assignment authority: [BOARD.md](../BOARD.md).
+
+## Coordinator proposal — scope, questions, and plan (pending owner oversight, 2026-09-16)
+
+Status: coordinator-authored proposal only. Nothing here is a grant, budget, acceptance criterion, or implementation commitment. The owner oversees and either accepts, amends, or rejects each proposal before any dispatch.
+
+### 1. Proposed discussion goal
+
+Define the rules for coordinating agents on changes to *existing, repeatedly-loaded code*: shared files, cross-module interfaces, and whole-project patches. This is the case the prior experiments did not stress: EVENT/EXT/ADOPT all exercised *fresh bounded tasks with a frozen contract and one owning path*. REFACTOR exercises the opposite case — one change, many callers, many owning files, stale evidence risk.
+
+Proposed scope limit: discussion and protocol design now; execution of a real refactor later, as a separate owner-approved assignment. Keep `draft`-vs-`integrated` discipline: proposals here become an accepted protocol only after owner sign-off.
+
+### 2. Questions, sharpened for this repository
+
+#### Q1 — Change classification: which refactors are safe to parallelize?
+Proposed answer shape: a three-class taxonomy driven by [module ownership](../../09-module-dependencies-and-ownership.md) and [contract criteria](../../05-contracts-and-adaptability.md):
+- **Class A — module-internal**: single owner module, no public interface change (e.g., cleanup inside catalog). Parallelize safely; verify via existing module checks.
+- **Class B — shared-file / shared-interface**: touches a contract steward's artifact or a shared migration/CI/config. Single writer required; all affected consumers re-verified; `WORK-05` contract-change gate applies.
+- **Class C — project-wide / behavior-affecting**: changes obligations, schemas, or default behavior. Owner approval first; treated as contract evolution, not cleanup.
+
+Open points for you: are three classes enough, or do you want a workflow-vs-data sub-split? Should Class C always be sequential even when independent modules exist?
+
+#### Q2 — How do agents discover the affected dependency graph?
+Proposed answer: no runtime global graph tool. Reuse existing evidence:
+1. Module ownership map ([ch 9](../../09-module-dependencies-and-ownership.md)) gives the declared call graph.
+2. The offline verifier (`pilot/infra/verify-all.mjs`) already checks import boundaries, cycles, and Markdown links.
+3. Each assignment packet names owned paths + "do not touch" paths, and the coordinator runs `rg`/link/boundary scans before granting.
+Limit: we must add a **caller-inventory step** to Class B/C packets — grep all callers and list them in the packet before edit, mirroring the VERIFY-001 "real subprocess fixtures, not injected callbacks" lesson. Do you agree caller inventory should be a mandatory packet step?
+
+#### Q3 — How do agents on different baselines avoid stale evidence?
+Proposed answer: reuse the `source_baseline_revision` + `observed_task_record_version` envelope fields already in [work-submission](../../contracts/work-submission.md). Add one rule: **a refactor submission is rejected unless its caller inventory lists the exact baseline revision it grepped**, and acceptance re-runs the caller scan against the *integrated* revision. This mirrors `WORK-06` (missing/earlier artifact → unverified) and the ADOPT revalidation discipline. Open: should stale caller inventory block submission outright, or be a review finding?
+
+#### Q4 — How should project-wide patches be divided into increments?
+Proposed answer: **contract-first increments, not file batches**. Order increments by consumer risk: (1) introduce new interface/alias, (2) migrate one consumer at a time with each increment independently verified, (3) remove old interface last. Each increment is a reviewable unit with its own gate. This is clone/PUB-10-extension logic applied to internal interfaces. Open: minimum increment granularity — one consumer per increment, or one module per increment?
+
+#### Q5 — When do flagship planning and lower-cost implementation divide/regroup?
+Proposed answer: flagship (coordinator) owns the contract-steward artifacts and the increment plan; lower-cost workers take one bounded Class A/B increment each, submit with caller inventory + evidence. Regroup point: every 2 increments or 90 budgeted minutes (`BUDGET-001` cadence), coordinator reviews, updates the plan, invalidates stale inventories. This mirrors ADOPT phase 3/4 but with a *coordination checkpoint inside* the task rather than one big freeze. Open: checkpoint cadence and whether a Class C refactor ever splits.
+
+### 3. Proposed protocol sketch (what dispatch would look like later)
+
+Per-refactor packet would add, before any grant:
+1. **Caller inventory** — coordinator-verified `rg` scan of every public symbol/interface touched, with revisions.
+2. **Class + gates** — assigned class (A/B/C), owner approval if B/C, consumer list.
+3. **Increment plan** — ordered compatible increments; each with its own verification command from the existing suite.
+4. **Evidence contract** — submission must re-run the suite's relevant checks at the integrated revision; stale inventory = finding or block per Q3.
+5. **Regression suite baseline** — full `npm run verify` must pass before dispatch (frozen), matching ADOPT's frozen-oracle discipline.
+
+### 4. Proposed measurements (mirror ch 4 I3/I5 and ADOPT, zero paid API)
+
+Per increment: affected modules, obligations preserved (checks that pass before/after), rework events, review effort, and coordination overhead. Cost stays null per BUDGET-001. No monetary ranking — that is archived per owner (event 70).
+
+### 5. Explicit non-goals (proposed)
+
+- No refactor implementation without a new owner-approved assignment (this discussion does not authorize it).
+- No change to published-product immutability; editing published products remains a separate contract-evolution decision.
+- No global runtime dependency-graph tool (vector database or custom service stays deferred per ch 1/ch 4).
+- No change to the board/owner authority model.
+
+### 6. Oversight checklist for you
+
+| # | Decision | Options |
+|---|---|---|
+| O-1 | Accept 3-class taxonomy? | Yes / amend / reject |
+| O-2 | Mandatory caller-inventory step for B/C? | Yes / class-based / no |
+| O-3 | Stale inventory = block or finding? | Block / finding |
+| O-4 | Increment granularity default? | Per-consumer / per-module |
+| O-5 | Checkpoint cadence? | Every 2 increments / every 90 min / other |
+| O-6 | Approve written protocol for future dispatch? | Yes / revise / hold |
 
 ## Purpose and timing
 
