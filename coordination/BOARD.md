@@ -1,13 +1,13 @@
 # Canonical discussion task board
 
-- Board revision: 62
+- Board revision: 63
 - Created at: 2026-09-11T13:58:26Z
-- Updated at: 2026-09-16T19:50:00Z
+- Updated at: 2026-09-16T19:55:00Z
 - Authority: current human-facing lead session, subject to the location/transfer rules in [the runbook](README.md).
 - Scope: supervised recovery-readiness exercise authorized by the owner; active grants below supersede historical defaults.
 - Source baseline inspected: `abf0d3a95ca3a3d58c2059a9707d26f0c333d52d` in delivery-proof; verification change independently reviewed at `83d4bb4`.
 - Revalidation policy: every claim/resume, new session/day, or material dependency change. No autonomous claims or leases.
-- Live heartbeat/progress: ADOPT-001 integrated; all six phases closed. CONTRACT-001 conditionally accepted (event 65) and local-only controlled comparison satisfied. FortinNAS rehearsal complete (event 68). REFACTOR-001 discussion proposal drafted for owner oversight (event 71); no dispatch. Production-adoption cost assessment postponed; real-model cost ranking/cross-model measurement archived per owner (event 70).
+- Live heartbeat/progress: ADOPT-001 integrated; all six phases closed. CONTRACT-001 conditionally accepted (event 65) and local-only controlled comparison satisfied. FortinNAS rehearsal complete (event 68). REFACTOR-001 scoped as refactor-context logic (no pilot refactor; event 72); proposal drafted for owner oversight. Production-adoption cost assessment postponed; real-model cost ranking/cross-model measurement archived per owner (event 70).
 
 The timestamp describes this board revision, not permission to execute its tasks. `draft` is not claimable. `blocked` requires prerequisite resolution. Owners and generations remain empty/zero until an explicit grant.
 
@@ -25,7 +25,7 @@ ADOPT-001: packet/record/generation 1, integrated, coordinator /root; baseline `
 | [BUDGET-001](tasks/BUDGET-001.md) — troubleshooting and review budgets | 3 | 2 | verified | human-authorized coordinator | 0 | Owner instructed continuation using recommendations | 90-minute worker, 15-minute checkpoints, 30-minute coordinator/review limits applied; no separately billed API invocation. |
 | [CONTRACT-001](tasks/CONTRACT-001.md) — draft paired executable-contract specifications | 16 | 19 | draft | none (coordinator-authored proposal) | 0 | Independent acceptance closed; local-only cohort satisfied | Draft specs conditionally accepted per [independent review](../contracts/reviews/2026-09-16-independent-review.md); local-only controlled comparison satisfied by ADOPT-001 cohorts `4f552d2`,`671116e`,`c5a6492`,`048110e` at zero paid spend. Open: schema freeze reconciliation, runtime adapter conformance, production gating. No paid API invocation; no worker grant. Cost ranking/measurement archived per owner (event 70). |
 | [PORTABLE-001](tasks/PORTABLE-001.md) — notes context adoption exercise | 1 | 1 | integrated | human-authorized coordinator | 1 | Frozen contract tests | Coordinator implementation passed 8 frozen checks after correcting Unicode code-point ordering; worker launch failed at usage limit, so no worker submission is accepted. |
-| [REFACTOR-001](tasks/REFACTOR-001.md) — multi-agent refactoring and project changes | 2 | 3 | discussion | none (owner resumed) | 0 | Owner resumed this topic via the post-ADOPT priority selection | Coordinator authored a scope/questions/protocol proposal in the packet (2026-09-16), pending owner oversight checklist O-1..O-6. No workspace/budget/execution baseline assigned; no dispatch until owner decides. |
+| [REFACTOR-001](tasks/REFACTOR-001.md) — refactor-context logic for the project | 3 | 4 | discussion | none (owner resumed) | 0 | Owner: context logic only, no pilot refactor (event 72) | Deliverable is the refactor-context document (classification, ownership, sequencing, evidence, verification gates); pilot untouched. Coordinator-authored proposal pending owner oversight checklist O-1..O-6. No workspace/budget/execution baseline assigned; no dispatch. |
 | [VERIFY-001](tasks/VERIFY-001.md) — portable pipeline coverage | 1 | 4 | integrated | /root coordinator | 2 | Independent review and clean offline verification passed | Assisted artifact integrated as d215973; no active write grant. Hosted connected check pending. |
 | [EXT-002](tasks/EXT-002.md) — fresh notes consumer comparison task | 1 | 5 | integrated | /root coordinator | 2 | Worker launch failed before initialization; evaluator corrected | Coordinator artifact `704577e` and evaluator correction `66210e3` integrated at `7735f3a`; 4/4 evaluator and full offline verification passed. |
 
@@ -110,7 +110,7 @@ Event 17, 2026-09-12T19:05:31Z, CONTRACT-001 draft → draft: recorded explicit 
 
 Event 18, 2026-09-12T19:34:00Z, CONTRACT-001 draft → draft: implemented the five roadmap steps in isolated worktree commit 9e0b7c4, integrated as ba07c3f. Evidence: provider fixture verification, TypeScript compile, boundary checks, 22 coordination tests, 28 Fastify tests, 74 offline payload cases, 16 database/API tests, and 3 real Keycloak Playwright tests. Policy review closed prior important findings. Foundation is not the full commerce experiment: catalog, publication, second consumer, independent contract acceptance, multi-agent runtime coordination, and model cost comparison remain open. Docker stack is disposable/local only; no public service or paid model run. Owner/generation/budget fields remain unchanged.
 
-Next event sequence: 72. State events and received messages share one coordinator-assigned sequence. Git history preserves prior board revisions; event entries preserve the rationale for individual transitions.
+Next event sequence: 73. State events and received messages share one coordinator-assigned sequence. Git history preserves prior board revisions; event entries preserve the rationale for individual transitions.
 
 ## Reliability and recovery grants
 
@@ -151,6 +151,8 @@ Event 23, 2026-09-13T00:04:11Z: owner authorized continuation using recommendati
 Event 24, 2026-09-13T00:17:35Z: coordinator independently checked trial outputs, integrated reviewed recovery/consumer changes as `2979178`, and recorded [findings and limits](../17-recovery-and-model-allocation.md). Worktree evidence includes real cancellation before reassignment, 22 registry/adapter/evaluation checks, 7 consumer checks and public-API composition. Earlier claims of complete real adapter replacement or multi-agent comparison are superseded. Earlier events dated 10:00/10:30 were not derived from the observed clock and must not be used for elapsed-time measurements; current event times were read from the environment.
 
 ## Operational readiness execution
+
+Event 72, 2026-09-16T19:55:00Z: REFACTOR-001 record 4: owner clarified scope — the deliverable is the refactor-context logic for the project (classification, ownership, sequencing, evidence, verification rules a future refactor must follow), not a refactor of the pilot. Packet retitled and redrafted to "refactor-context logic"; pilot untouched and never refactored under this task. Proposal remains pending owner oversight checklist O-1..O-6; no grant, budget, baseline, or dispatch.
 
 Event 71, 2026-09-16T19:50:00Z: REFACTOR-001 record 3: coordinator authored a discussion proposal in the packet (scope, Q1–Q5 with proposed answers, protocol sketch, measurements, non-goals) for owner oversight. Oversight checklist O-1..O-6 is open; no grant, budget, baseline, or dispatch. Proposal authored 2026-09-16T19:50Z, packet revision 2, record 3, generation 0.
 

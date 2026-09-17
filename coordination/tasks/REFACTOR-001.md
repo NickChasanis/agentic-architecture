@@ -1,16 +1,16 @@
-# REFACTOR-001 — Later discussion: multi-agent refactoring and project changes
+# REFACTOR-001 — Refactor-context logic for the project
 
-Packet revision: 2. Current status and assignment authority: [BOARD.md](../BOARD.md).
+Packet revision: 3. Current status and assignment authority: [BOARD.md](../BOARD.md).
 
-## Coordinator proposal — scope, questions, and plan (pending owner oversight, 2026-09-16)
+## Coordinator proposal — scope, questions, and context (pending owner oversight, 2026-09-16)
 
-Status: coordinator-authored proposal only. Nothing here is a grant, budget, acceptance criterion, or implementation commitment. The owner oversees and either accepts, amends, or rejects each proposal before any dispatch.
+Status: coordinator-authored proposal for owner oversight. The deliverable is the **refactor-context logic**: the classification, ownership, evidence, and verification rules this project will apply to any future refactor or cross-cutting change. It is a durable context/document artifact — **not a refactor of the pilot** and not an implementation assignment. The pilot is never refactored under this task.
 
-### 1. Proposed discussion goal
+### 1. Proposed delivery goal
 
-Define the rules for coordinating agents on changes to *existing, repeatedly-loaded code*: shared files, cross-module interfaces, and whole-project patches. This is the case the prior experiments did not stress: EVENT/EXT/ADOPT all exercised *fresh bounded tasks with a frozen contract and one owning path*. REFACTOR exercises the opposite case — one change, many callers, many owning files, stale evidence risk.
+Produce the refactor-context logic as project context that answers, for any future refactor: *what must be checked, who owns it, how it is sequenced, and when an agent's evidence is stale*. This is the coordination-system case the prior experiments did not stress — the prior experiments used fresh bounded tasks with a frozen contract and one owning path; a refactor is one change, many callers, many owning files, stale-evidence risk. The refactor-context logic closes that gap in the project's operating rules.
 
-Proposed scope limit: discussion and protocol design now; execution of a real refactor later, as a separate owner-approved assignment. Keep `draft`-vs-`integrated` discipline: proposals here become an accepted protocol only after owner sign-off.
+Deliverable form: a documented protocol (classification, ownership, sequencing, evidence, and verification gates) that can be read by a fresh session before any future refactor, consistent with the project's existing context model ([ch 1](../../01-context-and-onboarding.md)). The pilot implementation stays untouched; hypothetical pilot examples may illustrate the rules but are never executed as refactors.
 
 ### 2. Questions, sharpened for this repository
 
@@ -38,25 +38,28 @@ Proposed answer: **contract-first increments, not file batches**. Order incremen
 #### Q5 — When do flagship planning and lower-cost implementation divide/regroup?
 Proposed answer: flagship (coordinator) owns the contract-steward artifacts and the increment plan; lower-cost workers take one bounded Class A/B increment each, submit with caller inventory + evidence. Regroup point: every 2 increments or 90 budgeted minutes (`BUDGET-001` cadence), coordinator reviews, updates the plan, invalidates stale inventories. This mirrors ADOPT phase 3/4 but with a *coordination checkpoint inside* the task rather than one big freeze. Open: checkpoint cadence and whether a Class C refactor ever splits.
 
-### 3. Proposed protocol sketch (what dispatch would look like later)
+### 3. Proposed protocol outline (the project context to be written)
 
-Per-refactor packet would add, before any grant:
-1. **Caller inventory** — coordinator-verified `rg` scan of every public symbol/interface touched, with revisions.
-2. **Class + gates** — assigned class (A/B/C), owner approval if B/C, consumer list.
-3. **Increment plan** — ordered compatible increments; each with its own verification command from the existing suite.
-4. **Evidence contract** — submission must re-run the suite's relevant checks at the integrated revision; stale inventory = finding or block per Q3.
-5. **Regression suite baseline** — full `npm run verify` must pass before dispatch (frozen), matching ADOPT's frozen-oracle discipline.
+The refactor-context document would spell out, for any future refactor:
+1. **Caller inventory** — mandatory `rg` scan of every public symbol/interface touched, with revision recorded. Sets the "must-check" surface before any edit.
+2. **Class + gates** — assign class (A/B/C), owner approval if B/C, consumer list.
+3. **Increment plan** — ordered compatible increments; each increment independently verified.
+4. **Evidence contract** — submission re-runs the relevant checks at the integrated revision; stale inventory is handled per Q3.
+5. **Regression baseline** — full `npm run verify` must pass before dispatch (frozen), matching ADOPT's frozen-oracle discipline.
 
-### 4. Proposed measurements (mirror ch 4 I3/I5 and ADOPT, zero paid API)
+The written context is usable with or without the pilot. Pilot paths may serve as worked examples in the document, but no example is executed as an actual refactor.
 
-Per increment: affected modules, obligations preserved (checks that pass before/after), rework events, review effort, and coordination overhead. Cost stays null per BUDGET-001. No monetary ranking — that is archived per owner (event 70).
+### 4. Proposed measurements (protocol-hygiene only; zero paid API)
 
-### 5. Explicit non-goals (proposed)
+The context document should specify what a future refactor records: affected modules, preserved obligations (checks passing before/after), rework events, review effort, and coordination overhead. Those measurements are *named in advance* so a real refactor can report them; nothing is measured now because nothing is refactored. Cost stays null per BUDGET-001; no monetary ranking (archived per owner, event 70).
 
-- No refactor implementation without a new owner-approved assignment (this discussion does not authorize it).
+### 5. Explicit non-goals
+
+- **No refactor of the pilot code or any implementation** — this task produces context, not changes.
 - No change to published-product immutability; editing published products remains a separate contract-evolution decision.
 - No global runtime dependency-graph tool (vector database or custom service stays deferred per ch 1/ch 4).
 - No change to the board/owner authority model.
+- No grant, budget, or dispatch arises from accepting this protocol; a future refactor needs a separate assignment.
 
 ### 6. Oversight checklist for you
 
@@ -86,6 +89,6 @@ Possible future examples include a small internal cleanup, a shared interface/st
 
 ## Proposed discussion outputs
 
-A change classification, decomposition/ownership protocol, integration and recovery strategy, and measurements of affected modules, preserved obligations, rework, review effort, and total cost. Detailed acceptance criteria and budgets are intentionally deferred until the topic resumes.
+The refactor-context document: a change classification, decomposition/ownership protocol, integration and recovery strategy, and the measurement fields a future refactor must report. Detailed acceptance criteria and budgets for any real refactor remain deferred; this task delivers only the context logic, not a refactor.
 
-No workspace, owner, execution baseline, or budget is assigned. The packet is a reminder, not a ready task.
+No workspace, owner, execution baseline, or budget is assigned; nothing is implemented. The packet's purpose is the refactor-context logic.
